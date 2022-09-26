@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HeaderModule } from './components/header/header.module';
+import { AuthModule } from './components/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -12,10 +13,11 @@ import { HeaderModule } from './components/header/header.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HeaderModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    AppRoutingModule,
+    FlexLayoutModule,
+    HeaderModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
