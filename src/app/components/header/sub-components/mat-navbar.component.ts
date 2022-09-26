@@ -18,7 +18,7 @@ export class MatNavbarComponent implements OnInit, DoCheck {
 
   /* se nel localStorage e' presente un access token nascondi btns */
   ngDoCheck(): void {
-    if (localStorage.length >= 1) {
+    if (localStorage.key(0)) {
       this.showLogout = true;
       this.showLogin = false;
       this.showSignUp = false;
