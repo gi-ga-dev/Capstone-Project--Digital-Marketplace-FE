@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatToolbarComponent } from './components/mat-toolbar.component';
 import { HeaderComponent } from './header.component';
-import { AppRoutingModule } from '../app-routing.module';
+import { MatNavbarComponent } from './sub-components/mat-navbar.component';
 
 /* ---- Material Modules ---- */
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    MatToolbarComponent
+    MatNavbarComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +23,7 @@ import { MatButtonModule } from '@angular/material/button';
   ],
   exports: [
     HeaderComponent,
-    MatToolbarComponent
+    MatNavbarComponent
   ]
 })
 export class HeaderModule { }
