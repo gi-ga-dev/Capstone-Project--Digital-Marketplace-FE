@@ -5,16 +5,16 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-signup-mat-card',
-  templateUrl: './signup-mat-card.component.html',
-  styleUrls: ['./signup-mat-card.component.scss']
+  selector: 'app-mat-login-form',
+  templateUrl: './mat-login-form.component.html',
+  styleUrls: ['./mat-login-form.component.scss']
 })
-export class SignupMatCardComponent implements OnInit {
+export class LoginMatCardComponent implements OnInit {
 
   @ViewChild('f') form!: NgForm;
   error = undefined;
-  hide: boolean = true;
-  show: boolean = false;
+  hide = true;
+  show = false;
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -22,14 +22,12 @@ export class SignupMatCardComponent implements OnInit {
 
   onSubmit() {
     this.show = true;
-    this.authService.signup(this.form.value).subscribe(
+    this.authService.login(this.form.value).subscribe(
       resp => {
-        console.log(resp);
         this.error = undefined;
-        this.router.navigate(['/login'])
+        this.router.navigate(['home']);
       },
       err => {
-        console.log(err.error);
         this.error = err.error;
       }
     )

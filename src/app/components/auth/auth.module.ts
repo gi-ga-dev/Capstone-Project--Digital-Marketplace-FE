@@ -14,8 +14,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { LoginMatCardComponent } from './login/components/mat-card/login-mat-card.component';
-import { SignupMatCardComponent } from './signup/components/mat-card/signup-mat-card.component';
+import { LoginMatCardComponent } from './login/sub-components/mat-login-form.component';
+import { SignupMatCardComponent } from './signup/sub-components/mat-signup-form.component';
 
 @NgModule({
   declarations: [
