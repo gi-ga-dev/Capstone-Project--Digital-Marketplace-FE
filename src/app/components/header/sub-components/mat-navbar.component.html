@@ -10,7 +10,11 @@
         </a>
 
         <a mat-button href="#" [routerLink]="['/products']" routerLinkActive="router-link-active">
-            <mat-icon>devices</mat-icon> Products
+            <mat-icon>store</mat-icon> Products
+        </a>
+
+        <a mat-button href="#" [routerLink]="['/library']" routerLinkActive="router-link-active">
+            <mat-icon>local_library</mat-icon> Library
         </a>
 
         <a mat-button href="#" *ngIf="showLogin" [routerLink]="['/login']" routerLinkActive="router-link-active">

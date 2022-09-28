@@ -6,6 +6,13 @@
       "firstname": "Mario",
       "lastname": "Biondi",
       "id": 1
+    },
+    {
+      "email": "abcd@gmail.com",
+      "password": "$2a$10$6UpOMSGgUHvAjmHKMsZ9tOBDKTXYdoEWLGNZ05Ur3Z0WOxTTnzDPy",
+      "firstname": "TESTT",
+      "lastname": "TEST",
+      "id": 2
     }
   ]
 }

@@ -13,6 +13,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () => import('./components/products/products.module').then(m => m.ProductsModule)
   },
+  {
+    path: 'library',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./components/library/library.module').then(m => m.LibraryModule)
+  },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: '**', loadChildren: () => import('./components/error404/error404.module').then(m => m.Error404Module) },
 ];

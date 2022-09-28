@@ -1,0 +1,146 @@
+/* ======= Table Parametri Default ========= */
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+/* td,
+th {
+    width: 25%;
+} */
+
+table {
+    width: 100%;
+}
+
+tr.example-detail-row {
+    height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+}
+
+.example-element-row td {
+    border-bottom-width: 0;
+}
+
+.example-element-detail {
+    overflow: hidden;
+}
+
+.example-element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+}
+
+.example-element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+}
+
+.example-element-description {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.example-element-description-attribution {
+    opacity: 0.5;
+}
+
+/* ======= Table-Filter ======= */
+
+:host ::ng-deep .mat-form-field-wrapper {
+    background-color: rgb(109, 110, 111) !important;
+}
+
+/* ======= Table-Header ======= */
+
+.mat-elevation-z8 {
+    box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 5%), 0px 8px 10px 1px rgb(0 0 0 / 3%), 0px 3px 14px 2px rgb(0 0 0 / 4%);
+}
+
+:host ::ng-deep .mat-header-cell {
+    background-color: rgb(136, 52, 239) !important;
+    color: black;
+    font-size: 0.6em;
+    padding-top: 12px;
+}
+
+/* ======= Table-Content ======= */
+
+/* :host ::ng-deep .mat-cell {
+    background-color: whitesmoke !important;
+} */
+
+.example-card {
+    max-width: 100%;
+    margin-bottom: 8px;
+    text-align: center;
+    background-color: white;
+}
+
+/* ======= Table-Paginator ======= */
+
+:host ::ng-deep .mat-paginator {
+    background-color: rgb(109, 110, 111) !important;
+    color: black;
+    font-size: 0.6em;
+}
+
+:host ::ng-deep .mat-paginator-container {
+    align-content: center;
+    height: 50px;
+}
+
+/* ====== Cont. Card Dati Utente ====== */
+
+#card-cont {
+    justify-content: center
+}
+
+/* ====== Cont. buttons ====== */
+
+.btn-cont {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+    justify-content: center;
+}
+
+:host ::ng-deep .mat-button {
+    width: 20%;
+    height: 50px;
+    background-color: rgba(109, 110, 111, 0.2);
+    color: black;
+    border: 1px solid rgba(62, 63, 63, 0.363);
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#a-cont {
+    padding-top: 8px;
+}
+
+#a-cont:hover {
+    color: rgb(239, 52, 65);
+}
+
+:host ::ng-deep .mat-icon {
+    width: 100px;
+}
+
+:host ::ng-deep .mat-icon:hover {
+    color: rgb(239, 52, 65);
+}
