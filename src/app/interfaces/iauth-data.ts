@@ -1,9 +1,7 @@
 export interface IAuthData {
-    accessToken: string;
-    user: {
-        email: string;
-        firstname: string;
-        lastname: string;
-        id: number;
-    };
+    "token": string;
+    "type"?: string;
+    "id"?: number;
+    "username"?: string;
+    "roles"?: [];
 }

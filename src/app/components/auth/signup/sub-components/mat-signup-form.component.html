@@ -7,18 +7,8 @@
         <mat-card-content>
             <div class="example-container">
                 <mat-form-field color="warn" appearance="fill">
-                    <mat-label>Inserisci il tuo nome</mat-label>
-                    <input matInput ngModel name="firstname" type="text" id="firstname">
-                    <mat-icon matSuffix>person</mat-icon>
-                </mat-form-field>
-            </div>
-        </mat-card-content>
-
-        <mat-card-content>
-            <div class="example-container">
-                <mat-form-field color="warn" appearance="fill">
-                    <mat-label>Inserisci il tuo cognome</mat-label>
-                    <input matInput ngModel name="lastname" type="text" id="lastname">
+                    <mat-label>Inserisci il tuo nome e cognome</mat-label>
+                    <input matInput ngModel name="fullName" type="text" id="fullName">
                     <mat-icon matSuffix>people</mat-icon>
                 </mat-form-field>
             </div>
@@ -30,6 +20,16 @@
                     <mat-label>Inserisci la tua email</mat-label>
                     <input matInput ngModel name="email" type="email" id="email" placeholder="pat@example.com">
                     <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+
+        <mat-card-content>
+            <div class="example-container">
+                <mat-form-field color="warn" appearance="fill">
+                    <mat-label>Inserisci il tuo username</mat-label>
+                    <input matInput ngModel name="username" type="text" id="username">
+                    <mat-icon matSuffix>person</mat-icon>
                 </mat-form-field>
             </div>
         </mat-card-content>

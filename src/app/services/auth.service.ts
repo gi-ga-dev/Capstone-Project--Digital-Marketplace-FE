@@ -2,9 +2,10 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { JwtHelperService } from "@auth0/angular-jwt";
-import { BehaviorSubject, tap } from "rxjs";
+import { BehaviorSubject, Observable, tap } from "rxjs";
+import { environment } from "src/environments/environment";
 import { IAuthData } from "../interfaces/iauth-data";
-import { ISignupData } from "../interfaces/isignup-data";
+import { IUserAuth } from "../interfaces/iuser-auth";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class AuthService {
   error = undefined;
 
   constructor(private http: HttpClient, private router: Router) {
-    this.restoreUserLogin();
+    //this.restoreUserLogin();
   }
 
   /* ============ Login/Register ============ */
@@ -35,17 +36,23 @@ export class AuthService {
     }
   }
 
-  login(obj: ISignupData) {
-    return this.http.post<IAuthData>(this.urlJsonServer + '/login', obj).pipe(
-      tap(data => {
-        this.authSubject.next(data);
-        localStorage.setItem('isAuthenticated', JSON.stringify(data));
-      })
-    )
+  /* === TEST LOGIN === recuperare token admin "gino" */
+
+  login(obj: IUserAuth): Observable<IAuthData> {
+    console.log(obj);
+    // se username e password (obj) corrispondono a quelli presenti sul db, ritorna il token    
+    return this.http.post<IAuthData>(environment.APIEndpoint + '/auth/login', obj)
+      .pipe(
+        tap(data => {
+          this.authSubject.next(data);
+          localStorage.setItem('isAuthenticated', JSON.stringify(data));
+        })
+      );
   }
 
-  signup(obj: ISignupData) {
-    return this.http.post(this.urlJsonServer + '/register', obj);
+  signup(obj: IUserAuth) {
+    // in UserController (Java) nella rotta '/users' tramite @PostMapping("/user") lancia il metodo createUser() 
+    return this.http.post(environment.APIEndpoint + '/users/user', obj);
   }
 
   logout() {
