@@ -1,6 +1,6 @@
 export interface IAuthSubmit {
     "fullName"?: string,
     "email"?: string,
-    "userName": string,
+    "username": string,
     "password": string
 }
