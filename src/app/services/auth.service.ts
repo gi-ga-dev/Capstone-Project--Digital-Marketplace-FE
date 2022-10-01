@@ -18,26 +18,27 @@ export class AuthService {
   error = undefined;
 
   constructor(private http: HttpClient, private router: Router) {
-    //this.restoreUserLogin();
+    this.restoreUserLogin();
   }
 
   /* ============ Login/Register ============ */
 
-  /*   restoreUserLogin() {
-      const json = localStorage.getItem('isAuthenticated');
-      if (json) {
-        const user = JSON.parse(json);
-        if (this.helper.isTokenExpired(user.accessToken)) {
-          localStorage.removeItem('isAuthenticated');
-          return
-        } else {
-          this.authSubject.next(user);
-        }
+  restoreUserLogin() {
+    const json = localStorage.getItem('isAuthenticated');
+    if (json) {
+      const user = JSON.parse(json);
+      if (this.helper.isTokenExpired(user.token)) {
+        localStorage.removeItem('isAuthenticated');
+        return
+      } else {
+        this.authSubject.next(user);
       }
-    } */
+    }
+  }
 
   login(obj: IUserAuth): Observable<IAuthData> {
-    // se username e password (obj) corrispondono a quelli presenti sul db, ritorna il token    
+    // post dei valori del form (userName, password -> obj) 
+    // se corrispondono a quelli presenti sul db, ritorna il token (con dati di ritorno = interfaccia IAuthData)  
     return this.http.post<IAuthData>(environment.APIEndpoint + '/auth/login', obj).pipe(
       tap(data => {
         this.authSubject.next(data);
@@ -55,6 +56,7 @@ export class AuthService {
     this.authSubject.next(null);
     localStorage.removeItem('isAuthenticated');
     this.router.navigate(['/login']);
+    console.log("Successfully logged out");
   }
 
   /* ======= Reload della rotta (non del browser) ======= */
