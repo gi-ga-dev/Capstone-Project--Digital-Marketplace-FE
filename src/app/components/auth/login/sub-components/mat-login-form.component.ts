@@ -25,6 +25,7 @@ export class LoginMatCardComponent implements OnInit {
     this.authService.login(this.form.value).subscribe(
       resp => {
         this.error = undefined;
+        console.log("--> User logged in");
         this.router.navigate(['home']);
       },
       err => {

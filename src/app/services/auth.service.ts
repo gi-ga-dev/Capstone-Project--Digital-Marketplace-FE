@@ -23,31 +23,27 @@ export class AuthService {
 
   /* ============ Login/Register ============ */
 
-  restoreUserLogin() {
-    const json = localStorage.getItem('isAuthenticated');
-    if (json) {
-      const user = JSON.parse(json);
-      if (this.helper.isTokenExpired(user.accessToken)) {
-        localStorage.removeItem('isAuthenticated');
-        return
-      } else {
-        this.authSubject.next(user);
+  /*   restoreUserLogin() {
+      const json = localStorage.getItem('isAuthenticated');
+      if (json) {
+        const user = JSON.parse(json);
+        if (this.helper.isTokenExpired(user.accessToken)) {
+          localStorage.removeItem('isAuthenticated');
+          return
+        } else {
+          this.authSubject.next(user);
+        }
       }
-    }
-  }
-
-  /* === TEST LOGIN === recuperare token admin "gino" */
+    } */
 
   login(obj: IUserAuth): Observable<IAuthData> {
-    console.log(obj);
     // se username e password (obj) corrispondono a quelli presenti sul db, ritorna il token    
-    return this.http.post<IAuthData>(environment.APIEndpoint + '/auth/login', obj)
-      .pipe(
-        tap(data => {
-          this.authSubject.next(data);
-          localStorage.setItem('isAuthenticated', JSON.stringify(data));
-        })
-      );
+    return this.http.post<IAuthData>(environment.APIEndpoint + '/auth/login', obj).pipe(
+      tap(data => {
+        this.authSubject.next(data);
+        localStorage.setItem('isAuthenticated', JSON.stringify(data));
+      })
+    )
   }
 
   signup(obj: IUserAuth) {
