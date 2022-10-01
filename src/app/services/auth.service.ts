@@ -4,42 +4,42 @@ import { Router } from "@angular/router";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { BehaviorSubject, Observable, tap } from "rxjs";
 import { environment } from "src/environments/environment";
-import { IAuthData } from "../interfaces/iauth-data";
-import { IUserAuth } from "../interfaces/iuser-auth";
+import { IAuthToken } from "../interfaces/iauth-token";
+import { IAuthSubmit } from "../interfaces/iauth-submit";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  authSubject = new BehaviorSubject<IAuthData | null>(null);
+  authSubject = new BehaviorSubject<IAuthToken | null>(null);
   private urlJsonServer = 'http://localhost:4201';
   helper = new JwtHelperService();
   error = undefined;
 
   constructor(private http: HttpClient, private router: Router) {
-    this.restoreUserLogin();
+    /* this.restoreUserLogin(); */
   }
 
   /* ============ Login/Register ============ */
 
-  restoreUserLogin() {
-    const json = localStorage.getItem('isAuthenticated');
-    if (json) {
-      const user = JSON.parse(json);
-      if (this.helper.isTokenExpired(user.token)) {
-        localStorage.removeItem('isAuthenticated');
-        return
-      } else {
-        this.authSubject.next(user);
+  /*   restoreUserLogin() {
+      const json = localStorage.getItem('isAuthenticated');
+      if (json) {
+        const user = JSON.parse(json);
+        if (this.helper.isTokenExpired(user.token)) {
+          localStorage.removeItem('isAuthenticated');
+          return
+        } else {
+          this.authSubject.next(user);
+        }
       }
-    }
-  }
+    } */
 
-  login(obj: IUserAuth): Observable<IAuthData> {
+  login(obj: IAuthSubmit): Observable<IAuthToken> {
     // post dei valori del form (userName, password -> obj) 
-    // se corrispondono a quelli presenti sul db, ritorna il token (con dati di ritorno = interfaccia IAuthData)  
-    return this.http.post<IAuthData>(environment.APIEndpoint + '/auth/login', obj).pipe(
+    // se corrispondono a quelli presenti sul db, ritorna il token (con dati di ritorno = interfaccia IAuthToken)  
+    return this.http.post<IAuthToken>(environment.APIEndpoint + '/auth/login', obj).pipe(
       tap(data => {
         this.authSubject.next(data);
         localStorage.setItem('isAuthenticated', JSON.stringify(data));
@@ -47,7 +47,7 @@ export class AuthService {
     )
   }
 
-  signup(obj: IUserAuth) {
+  signup(obj: IAuthSubmit) {
     // in UserController (Java) nella rotta '/users' tramite @PostMapping("/user") lancia il metodo createUser() 
     return this.http.post(environment.APIEndpoint + '/users/user', obj);
   }

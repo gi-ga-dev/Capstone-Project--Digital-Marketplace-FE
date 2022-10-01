@@ -1,5 +1,4 @@
-export interface IUserAuth {
-    /* utilizza la stessa interfaccia per login e register */
+export interface IAuthSubmit {
     "fullName"?: string,
     "email"?: string,
     "userName": string,

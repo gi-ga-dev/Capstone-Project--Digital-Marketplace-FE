@@ -1,4 +1,4 @@
-export interface IProduct {
+export interface IProdVideogame {
     "title": string,
     "platform": string,
     "developer": string,

@@ -6,7 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AuthService } from 'src/app/services/auth.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { IProduct } from 'src/app/interfaces/iproduct';
+import { IProdVideogame } from 'src/app/interfaces/iprod-videogame';
 
 @Component({
   selector: 'app-mat-products-table',
@@ -27,10 +27,10 @@ export class MatProductsTableComponent implements OnInit, AfterViewInit, OnChang
   @ViewChild(MatSort) sort!: MatSort;
 
   displayedColumns: string[] = ['title', 'platform', 'developer', 'publisher', 'releaseDate', 'genre'];
-  products: IProduct[] = [];
-  dataSource: MatTableDataSource<IProduct> = new MatTableDataSource(this.products);
+  products: IProdVideogame[] = [];
+  dataSource: MatTableDataSource<IProdVideogame> = new MatTableDataSource(this.products);
   columnsToDisplayWithExpand = [...this.displayedColumns, 'expand'];
-  expandedElement!: IProduct | null;
+  expandedElement!: IProdVideogame | null;
   error = undefined;
   productId!: number;
 
