@@ -8,6 +8,9 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { MatButtonModule } from '@angular/material/button';
     AppRoutingModule,
     MatIconModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSidenavModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
   ],
   exports: [
     HeaderComponent,

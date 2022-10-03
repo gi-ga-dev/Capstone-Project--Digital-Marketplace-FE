@@ -16,11 +16,17 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
+import { VideogamesComponent } from './sub-pages/videogames.page';
+import { MusicComponent } from './sub-pages/music.page';
+import { AudiobooksComponent } from './sub-pages/audiobooks.page';
 
 @NgModule({
   declarations: [
     ProductsComponent,
-    MatProductsTableComponent
+    MatProductsTableComponent,
+    VideogamesComponent,
+    MusicComponent,
+    AudiobooksComponent
   ],
   imports: [
     CommonModule,

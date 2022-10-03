@@ -13,28 +13,27 @@ import { IAuthSubmit } from "../interfaces/iauth-submit";
 export class AuthService {
 
   authSubject = new BehaviorSubject<IAuthToken | null>(null);
-  private urlJsonServer = 'http://localhost:4201';
   helper = new JwtHelperService();
   error = undefined;
 
   constructor(private http: HttpClient, private router: Router) {
-    /* this.restoreUserLogin(); */
+    this.restoreUserLogin();
   }
 
   /* ============ Login/Register ============ */
 
-  /*   restoreUserLogin() {
-      const json = localStorage.getItem('isAuthenticated');
-      if (json) {
-        const user = JSON.parse(json);
-        if (this.helper.isTokenExpired(user.token)) {
-          localStorage.removeItem('isAuthenticated');
-          return
-        } else {
-          this.authSubject.next(user);
-        }
+  restoreUserLogin() {
+    const json = localStorage.getItem('isAuthenticated');
+    if (json) {
+      const user = JSON.parse(json);
+      if (this.helper.isTokenExpired(user.token)) {
+        localStorage.removeItem('isAuthenticated');
+        return
+      } else {
+        this.authSubject.next(user);
       }
-    } */
+    }
+  }
 
   login(obj: IAuthSubmit): Observable<IAuthToken> {
     // post dei valori del form (userName, password -> obj) 
@@ -67,5 +66,6 @@ export class AuthService {
       this.router.navigate([currentRoute]);
     });
   }
+
 
 }

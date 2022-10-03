@@ -1,4 +1,5 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -11,19 +12,20 @@ export class MatNavbarComponent implements OnInit, DoCheck {
   showSignUp: boolean = true;
   showLogin: boolean = true;
   showLogout: boolean = false;
+  showFiller = false;
 
   constructor(private authService: AuthService) { }
 
-  ngOnInit(): void { }
-
-  /* se nel localStorage e' presente un access token nascondi btns */
   ngDoCheck(): void {
+    /* se nel localStorage e' presente un access token nascondi btns */
     if (localStorage.key(0)) {
       this.showLogout = true;
       this.showLogin = false;
       this.showSignUp = false;
     }
   }
+
+  ngOnInit(): void { }
 
   logout(): void {
     this.authService.logout();
