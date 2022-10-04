@@ -6,6 +6,13 @@
     align-items: center;
 }
 
+.prod-toolbar {
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* ===== Sidenav ===== */
 
@@ -24,4 +31,9 @@
 
 .example-sidenav {
     padding: 20px;
+}
+
+:host ::ng-deep .mat-drawer-inner-container {
+    display: flex;
+    flex-direction: column;
 }

@@ -12,9 +12,10 @@ export class MatNavbarComponent implements OnInit, DoCheck {
   showSignUp: boolean = true;
   showLogin: boolean = true;
   showLogout: boolean = false;
-  showFiller = false;
+  showFiller: boolean = false;
+  showProdTab: boolean = false;
 
-  constructor(private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngDoCheck(): void {
     /* se nel localStorage e' presente un access token nascondi btns */
@@ -32,6 +33,16 @@ export class MatNavbarComponent implements OnInit, DoCheck {
     this.showLogout = false;
     this.showLogin = true;
     this.showSignUp = true;
+  }
+
+  toggleProdTab() {
+    if (this.showProdTab == true) {
+      this.showProdTab = false;
+    } else this.showProdTab = true;
+  }
+
+  hideProdTab() {
+    this.showProdTab = false;
   }
 
 }
