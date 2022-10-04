@@ -4,22 +4,34 @@
 
 <mat-toolbar class="toolbar">
 
-    <a mat-button (click)="hideProdTab()" [routerLink]="['/home']" routerLinkActive="router-link-active"
-        class="logo-cont">
-        <!-- <img src="../../../assets/img-logo.png" id="img-logo"> --> LOGO CONTAINER
-    </a>
+    <div id="logo-home-cont">
 
-    <a mat-button (click)="hideProdTab()" href="#" [routerLink]="['/home']" routerLinkActive="router-link-active">
-        <mat-icon>home</mat-icon> Home
-    </a>
+        <a mat-button (click)="hideProdTab()" [routerLink]="['/home']" routerLinkActive="router-link-active"
+            class="logo-cont">
+            <!-- <img src="../../../assets/img-logo.png" id="img-logo"> --> LOGO CONTAINER
+        </a>
 
-    <a mat-button (click)="toggleProdTab()" href="#" [routerLink]="['/products']" routerLinkActive="router-link-active">
-        <mat-icon>store</mat-icon> Products
-    </a>
+        <a mat-button (click)="hideProdTab()" href="#" [routerLink]="['/home']" routerLinkActive="router-link-active">
+            <mat-icon>home</mat-icon> Home
+        </a>
 
-    <button type="button" mat-button (click)="drawer.toggle()">
-        <mat-icon>settings</mat-icon>
-    </button>
+    </div>
+
+    <div id="prod-cont">
+
+        <a mat-button (click)="toggleProdTab()">
+            <mat-icon>store</mat-icon> Products
+        </a>
+
+    </div>
+
+    <div id="profile-cont">
+
+        <button type="button" mat-button (click)="drawer.toggle()">
+            <mat-icon>settings</mat-icon>
+        </button>
+
+    </div>
 
 </mat-toolbar>
 
@@ -75,7 +87,7 @@
     </mat-drawer>
 
     <div class="example-sidenav-content">
-        <!-- far leggere tutte le pagine -->
+        <!-- far leggere il contenuto dei children -->
         <router-outlet></router-outlet>
     </div>
 

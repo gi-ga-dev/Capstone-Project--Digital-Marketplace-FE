@@ -1,0 +1,15 @@
+.btns-container {
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px;
+}
+
+#btn-product {
+    background-color: purple;
+    margin: 10px;
+    width: 350px;
+    /* height: 350px; */
+    white-space: normal; // allarga il contenuto in base alla quantita' di testo
+}

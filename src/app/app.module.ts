@@ -7,6 +7,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HeaderModule } from './components/header/header.module';
 import { AuthModule } from './components/auth/auth.module';
 import { FooterModule } from './components/footer/footer.module';
+import { HomeModule } from './components/home/home.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { FooterModule } from './components/footer/footer.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     FlexLayoutModule,
+
     HeaderModule,
+    HomeModule,
     FooterModule,
     AuthModule
   ],
