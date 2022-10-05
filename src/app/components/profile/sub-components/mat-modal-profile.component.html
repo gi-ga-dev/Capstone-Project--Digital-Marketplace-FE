@@ -1,0 +1,71 @@
+<!-- ================ Modal ================ -->
+
+<mat-dialog-content class="mat-typography">
+    <form #f="ngForm" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+        <mat-card class="example-card">
+
+            <mat-card-title>Insert data to be modified</mat-card-title>
+            <!-- <mat-card-subtitle>Insert data to be modified</mat-card-subtitle> -->
+
+            <mat-card-content>
+
+                <div id="inp-access">
+                    <p>First Name:</p>
+                    <mat-form-field color="warn" appearance="fill">
+                        <input matInput ngModel name="firstName" type="text" formControlName="firstName">
+                        <mat-icon matSuffix>person_outline</mat-icon>
+                        <!-- formControlName="descrizione" DEPRECATED -->
+                        <!-- [formControl]="firstName" -->
+                        <!-- [(ngModel)]="firstName" -->
+                    </mat-form-field>
+
+                    <p>Last Name:</p>
+                    <mat-form-field color="warn" appearance="fill">
+                        <input matInput ngModel name="lastName" type="text" formControlName="lastName">
+                        <mat-icon matSuffix>people</mat-icon>
+                    </mat-form-field>
+
+                    <p>Email:</p>
+                    <mat-form-field color="warn" appearance="fill">
+                        <input matInput ngModel name="email" type="email" formControlName="email">
+                        <mat-icon matSuffix>email</mat-icon>
+                    </mat-form-field>
+
+                    <p>Username:</p>
+                    <mat-form-field color="warn" appearance="fill">
+                        <input matInput ngModel name="userName" type="text" formControlName="userName">
+                        <mat-icon matSuffix>person</mat-icon>
+                    </mat-form-field>
+
+                    <p>Password:</p>
+                    <!-- ========== Aggiungere Set Password ================ -->
+
+
+                </div>
+
+            </mat-card-content>
+
+
+
+            <!--             <mat-card-content>
+    
+                <mat-form-field color="warn" appearance="fill">
+                    <mat-label>Inserisci la tua password</mat-label>
+                    <input matInput ngModel name="password" id="password" [type]="hide ? 'password' : 'text'">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+    
+            </mat-card-content> -->
+
+        </mat-card>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Modify</button>
+</mat-dialog-actions>

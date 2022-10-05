@@ -84,21 +84,15 @@ export class AuthService {
 
   /* ======= Get Dati ======= */
 
-  // get di tutti gli utenti registrati
+  // get di tutti gli users[] registrati
   getAllUsersInfo(): Observable<IUserResponse[]> {
     return this.http.get<IUserResponse[]>(environment.APIEndpoint + '/users/getAllInfo', this.options);
   }
 
-  // get del singolo utente 
-  // id (IAuthToken) deve matchare con id (IUserResponse) 
+  // get del singolo user{} - id (IAuthToken) deve matchare con id (IUserResponse)
   // per recuperare info dell'utente in base all'id utente associato al token
   getUserInfo(id: number): Observable<IUserResponse> {
-    // mi serve per accedere al metodo read by id (Java)
     return this.http.get<IUserResponse>(environment.APIEndpoint + '/users/' + id, this.options);
-  }
-
-  getUserId() {
-    // mi serve per ottenere l'id relativo all'utente
   }
 
   /* ======= Reload della rotta (non del browser) ======= */

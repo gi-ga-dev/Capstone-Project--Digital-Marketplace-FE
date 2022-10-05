@@ -1,7 +1,9 @@
+<!-- ================ Profile Card ================ -->
+
 <mat-card class="example-card">
     <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{user.username}}</mat-card-title>
+        <mat-card-title>{{user.userName}}</mat-card-title>
         <mat-card-subtitle>{{user.role}} #{{user.id}} </mat-card-subtitle>
     </mat-card-header>
 
@@ -14,6 +16,6 @@
     </mat-card-content>
 
     <mat-card-actions>
-        <button mat-button>Modify fields</button>
+        <button mat-button (click)="openDialog()">Modify fields</button>
     </mat-card-actions>
 </mat-card>

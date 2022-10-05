@@ -4,6 +4,6 @@ export interface IAuthSubmit {
     "lastName"?: string;
     "email"?: string;
     // tramite username e password faccio la richiesta dei dati (token compreso)
-    "username": string;
+    "userName": string;
     "password": string;
 }
