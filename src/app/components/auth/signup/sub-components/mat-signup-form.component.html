@@ -7,8 +7,18 @@
         <mat-card-content>
             <div class="example-container">
                 <mat-form-field color="warn" appearance="fill">
-                    <mat-label>Inserisci il tuo nome e cognome</mat-label>
-                    <input matInput ngModel name="fullName" type="text" id="fullName">
+                    <mat-label>Inserisci il tuo nome</mat-label>
+                    <input matInput ngModel name="firstName" type="text" id="firstName">
+                    <mat-icon matSuffix>person_outline</mat-icon>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+
+        <mat-card-content>
+            <div class="example-container">
+                <mat-form-field color="warn" appearance="fill">
+                    <mat-label>Inserisci il tuo cognome</mat-label>
+                    <input matInput ngModel name="lastName" type="text" id="lastName">
                     <mat-icon matSuffix>people</mat-icon>
                 </mat-form-field>
             </div>

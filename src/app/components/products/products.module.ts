@@ -19,6 +19,9 @@ import { MatCardModule } from '@angular/material/card';
 import { VideogamesComponent } from './sub-pages/videogames.page';
 import { MusicComponent } from './sub-pages/music.page';
 import { AudiobooksComponent } from './sub-pages/audiobooks.page';
+import { MatVideogameTreeComponent } from './sub-components/mat-videogame-tree.component';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatCardVideogameComponent } from './sub-components/mat-card-videogame.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { AudiobooksComponent } from './sub-pages/audiobooks.page';
     MatProductsTableComponent,
     VideogamesComponent,
     MusicComponent,
-    AudiobooksComponent
+    AudiobooksComponent,
+    MatVideogameTreeComponent,
+    MatCardVideogameComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +47,8 @@ import { AudiobooksComponent } from './sub-pages/audiobooks.page';
     MatButtonModule,
     ReactiveFormsModule,
     MatSortModule,
-    MatCardModule
+    MatCardModule,
+    MatTreeModule
   ]
 })
 export class ProductsModule { }

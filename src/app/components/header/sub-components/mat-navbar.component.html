@@ -60,6 +60,11 @@
 <mat-drawer-container class="example-container" autosize>
     <mat-drawer #drawer class="example-sidenav" mode="side" position="end">
 
+        <a mat-button (click)="hideProdTab()" href="#" [routerLink]="['/profile']"
+            routerLinkActive="router-link-active">
+            <mat-icon>person</mat-icon> Profile
+        </a>
+
         <a mat-button (click)="hideProdTab()" href="#" [routerLink]="['/library']"
             routerLinkActive="router-link-active">
             <mat-icon>local_library</mat-icon> Library
