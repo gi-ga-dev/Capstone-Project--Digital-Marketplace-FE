@@ -53,6 +53,8 @@ export class AuthService {
     }
   }
 
+  /* ======= Chiamate POST ======= */
+
   login(obj: IAuthSubmit): Observable<IAuthToken> {
     // LoginRequest (tramite username, password) --> <-- JwtResponse (Ritorna i dati compreso il token)
     // post dei valori del form (userName, password -> obj) 
@@ -82,7 +84,7 @@ export class AuthService {
     console.log("Successfully logged out");
   }
 
-  /* ======= Get Dati ======= */
+  /* ======= Chiamate GET ======= */
 
   // get di tutti gli users[] registrati
   getAllUsersInfo(): Observable<IUserResponse[]> {
@@ -93,6 +95,13 @@ export class AuthService {
   // per recuperare info dell'utente in base all'id utente associato al token
   getUserInfo(id: number): Observable<IUserResponse> {
     return this.http.get<IUserResponse>(environment.APIEndpoint + '/users/' + id, this.options);
+  }
+
+  /* ======= Chiamate PUT/PATCH ======= */
+
+  /* ===== NOTA: con questo metodo sovrascrivi tutti i campi presenti nel profilo ===== */
+  updateUserInfo(obj: IUserResponse, id: number): Observable<Object> {
+    return this.http.patch(environment.APIEndpoint + '/users/' + id, obj, this.options);
   }
 
   /* ======= Reload della rotta (non del browser) ======= */

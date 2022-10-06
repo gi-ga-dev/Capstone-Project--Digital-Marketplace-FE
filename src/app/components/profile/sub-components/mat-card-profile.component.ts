@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, OnChanges, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { IUserResponse } from 'src/app/interfaces/iuser-response';
 import { AuthService } from 'src/app/services/auth.service';
@@ -23,35 +23,25 @@ export class MatCardProfileComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(MatModalProfileComponent);
-
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
 
   ngOnInit(): void {
-    this.getUserInfo();
+    this.getUserInfo(this.responseId);
   }
 
-  getAllUsersInfo() {
-    return this.authService.getAllUsersInfo().subscribe(
-      (resp) => {
-        this.users = resp;
-      },
-      (err) => {
-        console.log(err);
-      }
-    )
-  }
-
-  getUserInfo() {
+  getUserInfo(id: number) {
     // prendi informazioni dell'utente, leggendo il responseId --> id dei dati nel localStorage (IAuthToken)    
-    return this.authService.getUserInfo(this.responseId).subscribe(
+    return this.authService.getUserInfo(id).subscribe(
       (resp) => {
+        this.error = undefined;
         this.user = resp;
       },
       (err) => {
-        console.log(err);
+        this.error = err.error;
+        console.log(err.error);
       }
     )
   }

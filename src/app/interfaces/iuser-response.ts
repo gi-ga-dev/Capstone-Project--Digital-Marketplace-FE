@@ -6,5 +6,6 @@ export interface IUserResponse {
     "lastName": string;
     "email": string;
     "userName": string;
-    "role": string;
+    "role": [];
+    "password": string;
 }
