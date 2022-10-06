@@ -7,6 +7,8 @@ import { environment } from "src/environments/environment";
 import { IAuthToken } from "../interfaces/iauth-token";
 import { IAuthSubmit } from "../interfaces/iauth-submit";
 import { IUserResponse } from "../interfaces/iuser-response";
+import { IProfileRequest } from "../interfaces/iprofile-request";
+import { ICredentialRequest } from "../interfaces/icredential-request";
 
 @Injectable({
   providedIn: 'root'
@@ -53,7 +55,14 @@ export class AuthService {
     }
   }
 
-  /* ======= Chiamate POST ======= */
+  logout() {
+    this.authSubject.next(null);
+    localStorage.removeItem('isAuthenticated');
+    this.router.navigate(['/login']);
+    console.log("Successfully logged out");
+  }
+
+  /* ============== Chiamate POST ============== */
 
   login(obj: IAuthSubmit): Observable<IAuthToken> {
     // LoginRequest (tramite username, password) --> <-- JwtResponse (Ritorna i dati compreso il token)
@@ -77,14 +86,7 @@ export class AuthService {
     return this.http.post(environment.APIEndpoint + '/users/admin', obj, this.options);
   }
 
-  logout() {
-    this.authSubject.next(null);
-    localStorage.removeItem('isAuthenticated');
-    this.router.navigate(['/login']);
-    console.log("Successfully logged out");
-  }
-
-  /* ======= Chiamate GET ======= */
+  /* ============== Chiamate GET ============== */
 
   // get di tutti gli users[] registrati
   getAllUsersInfo(): Observable<IUserResponse[]> {
@@ -97,11 +99,20 @@ export class AuthService {
     return this.http.get<IUserResponse>(environment.APIEndpoint + '/users/' + id, this.options);
   }
 
-  /* ======= Chiamate PUT/PATCH ======= */
+  /* ============== Chiamate PUT/PATCH ============== */
 
-  /* ===== NOTA: con questo metodo sovrascrivi tutti i campi presenti nel profilo ===== */
-  updateUserInfo(obj: IUserResponse, id: number): Observable<Object> {
-    return this.http.patch(environment.APIEndpoint + '/users/' + id, obj, this.options);
+  updateUserInfo(obj: IProfileRequest, id: number): Observable<Object> {
+    return this.http.patch(environment.APIEndpoint + '/users/updateProfileInfo/' + id, obj, this.options);
+  }
+
+  updateCredentials(obj: ICredentialRequest, id: number): Observable<Object> {
+    return this.http.patch(environment.APIEndpoint + '/users/updateCredentials/' + id, obj, this.options);
+  }
+
+  /* ============== Chiamate DELETE ============== */
+
+  deleteAccount(id: number) {
+    return this.http.delete(environment.APIEndpoint + '/users/' + id, this.options);
   }
 
   /* ======= Reload della rotta (non del browser) ======= */

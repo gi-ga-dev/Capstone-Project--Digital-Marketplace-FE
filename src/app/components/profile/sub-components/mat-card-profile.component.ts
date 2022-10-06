@@ -1,7 +1,9 @@
-import { AfterContentInit, AfterViewInit, Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { IUserResponse } from 'src/app/interfaces/iuser-response';
 import { AuthService } from 'src/app/services/auth.service';
+import { MatModalCredentialComponent } from './mat-modal-credential.component';
+import { MatModalDeleteComponent } from './mat-modal-delete.component';
 import { MatModalProfileComponent } from './mat-modal-profile.component';
 
 @Component({
@@ -21,8 +23,27 @@ export class MatCardProfileComponent implements OnInit {
 
   constructor(private authService: AuthService, public dialog: MatDialog) { }
 
-  openDialog() {
+  /* =========== Open Dialogues ============= */
+
+  /* Modal Modifica Informazioni base */
+  openProfileDialog() {
     const dialogRef = this.dialog.open(MatModalProfileComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  /* Modal Modifica Credenziali di Accesso */
+  openCredentialDialog() {
+    const dialogRef = this.dialog.open(MatModalCredentialComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  /* Modal Delete Account */
+  openDeleteDialog() {
+    const dialogRef = this.dialog.open(MatModalDeleteComponent);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
@@ -40,11 +61,13 @@ export class MatCardProfileComponent implements OnInit {
         this.user = resp;
       },
       (err) => {
+        console.log("Ho trovato un errore nel get e faccio il reload della pagina");
+        // reload della pagina per aggiornare username presente nel localStorage
+        location.reload();
         this.error = err.error;
         console.log(err.error);
       }
     )
   }
-
 
 }

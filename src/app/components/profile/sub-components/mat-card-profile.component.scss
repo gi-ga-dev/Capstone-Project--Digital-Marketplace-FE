@@ -7,3 +7,36 @@
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
 }
+
+#profile-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#p-info {
+    font-size: 1.1em;
+}
+
+#divider-title {
+    text-align: center;
+    font-size: 1.2em;
+    color: rgb(255, 0, 111);
+}
+
+#divider {
+    background-color: rgb(255, 0, 111);
+    border: 1px solid rgb(255, 0, 111);
+}
+
+#btn-cont {
+    display: flex;
+    flex-direction: column;
+}
+
+#profile-modal {
+    background-color: rgb(255, 0, 111);
+    width: 95%;
+    text-align: center;
+    margin: 5px auto;
+}

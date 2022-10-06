@@ -1,15 +1,15 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
-
+import { Router } from '@angular/router';
 import { IUserResponse } from 'src/app/interfaces/iuser-response';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-mat-modal-profile',
-  templateUrl: './mat-modal-profile.component.html',
-  styleUrls: ['./mat-modal-profile.component.scss']
+  selector: 'app-mat-modal-credential',
+  templateUrl: './mat-modal-credential.component.html',
+  styleUrls: ['./mat-modal-credential.component.scss']
 })
-export class MatModalProfileComponent implements OnInit {
+export class MatModalCredentialComponent implements OnInit {
 
   @ViewChild('f') form!: NgForm;
   error = undefined;
@@ -20,15 +20,15 @@ export class MatModalProfileComponent implements OnInit {
   responseId: number = this.parsedData.id;                 // id preso dal dal JSON parsed
   user!: IUserResponse;
 
-  constructor(private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
-    // Apre il modal, lo compila con i dati di ritorno (getUserInfo), al submit put dei dati
     this.getUserInfo(this.responseId);
   }
 
   onSubmit() {
-    this.updateUserInfo();
+    this.show = true;
+    this.updateCredentials();
   }
 
   getUserInfo(id: number) {
@@ -45,12 +45,13 @@ export class MatModalProfileComponent implements OnInit {
     )
   }
 
-  updateUserInfo() {
-    // this.form.value (obj) sono i primi 3 campi del profilo, this.responseId e' l'id dell'utente a cui fare l'update
-    return this.authService.updateUserInfo(this.form.value, this.responseId).subscribe(
+  updateCredentials() {
+    return this.authService.updateCredentials(this.form.value, this.responseId).subscribe(
       (resp) => {
-        this.show = true;
-        this.authService.reloadRoute();
+        // modifico username/password e lancio metodo logout() in modo da riaggiornare il sistema una volta ri-loggato
+        this.authService.logout();
+        this.router.navigate(['/login']);
+        window.alert("Credentials changed, please login again..");
         this.error = undefined;
       },
       (err) => {
@@ -58,6 +59,7 @@ export class MatModalProfileComponent implements OnInit {
         console.log(err.error);
       }
     )
+
   }
 
 }

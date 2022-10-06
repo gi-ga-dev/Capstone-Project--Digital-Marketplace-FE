@@ -4,22 +4,32 @@
 <mat-card class="example-card">
     <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{user.userName}}</mat-card-title>
+        <mat-card-title>Profile Username: {{user.userName}}</mat-card-title>
         <!-- === NOTA: non legge il role - mod. nel builder del metodo getAllUsersInfo() (java) === -->
         <mat-card-subtitle>
-            <!-- {{user.role}} --> #{{user.id}}
+            {{user.role}} #{{user.id}}
         </mat-card-subtitle>
     </mat-card-header>
 
     <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
 
-    <mat-card-content>
-        <p>{{user.firstName}}</p>
-        <p>{{user.lastName}}</p>
-        <p>{{user.email}}</p>
+
+    <mat-card-content id="profile-cont">
+        <p id="p-info"><b>First Name:</b> {{user.firstName}}</p>
+        <p id="p-info"><b>Last Name:</b> {{user.lastName}}</p>
+        <p id="p-info"><b>Email:</b> {{user.email}}</p>
     </mat-card-content>
 
-    <mat-card-actions>
-        <button mat-button (click)="openDialog()">Modify fields</button>
+    <mat-divider id="divider"></mat-divider>
+    <br>
+    <p id="divider-title">Danger Zone: here you can update your info</p>
+
+    <mat-card-actions id="btn-cont">
+        <button mat-button id="profile-modal" (click)="openProfileDialog()">Profile info</button>
+        <button mat-button id="profile-modal" (click)="openCredentialDialog()">Login Credentials</button>
+        <button mat-button id="profile-modal" (click)="openDeleteDialog()">Delete Account</button>
     </mat-card-actions>
+
+
+
 </mat-card>

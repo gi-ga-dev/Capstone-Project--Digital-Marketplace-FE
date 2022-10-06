@@ -15,6 +15,12 @@ input.example-right-align {
     -moz-appearance: textfield;
 }
 
+#inp-access {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 
 /* ========= Card ========= */
 

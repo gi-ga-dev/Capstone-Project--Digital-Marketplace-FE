@@ -13,13 +13,17 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatModalCredentialComponent } from './sub-components/mat-modal-credential.component';
+import { MatModalDeleteComponent } from './sub-components/mat-modal-delete.component';
 
 
 @NgModule({
   declarations: [
     ProfileComponent,
     MatCardProfileComponent,
-    MatModalProfileComponent
+    MatModalProfileComponent,
+    MatModalCredentialComponent,
+    MatModalDeleteComponent
   ],
   imports: [
     CommonModule,
