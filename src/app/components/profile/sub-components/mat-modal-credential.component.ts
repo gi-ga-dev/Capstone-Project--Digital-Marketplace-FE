@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 import { IUserDtoGetResponse } from 'src/app/interfaces/idto-user-response';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -13,22 +12,22 @@ export class MatModalCredentialComponent implements OnInit {
 
   @ViewChild('f') form!: NgForm;
   error = undefined;
-  hide: boolean = true;
-  show: boolean = false;
+  user!: IUserDtoGetResponse;
+
   authData: any = localStorage.getItem('isAuthenticated'); // oggetto JSON
   parsedData = JSON.parse(this.authData);                  // oggetto JSON parsed
   responseId: number = this.parsedData.id;                 // id preso dal dal JSON parsed
-  user!: IUserDtoGetResponse;
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     this.getUserInfo(this.responseId);
   }
 
   onSubmit() {
-    this.show = true;
     this.updateCredentials();
+    window.alert("Credentials changed, You will be re-directed to the Login page..");
+    this.authService.logout();
   }
 
   getUserInfo(id: number) {
@@ -49,9 +48,6 @@ export class MatModalCredentialComponent implements OnInit {
     return this.authService.updateCredentials(this.form.value, this.responseId).subscribe(
       (resp) => {
         // modifico username/password e lancio metodo logout() in modo da riaggiornare il sistema una volta ri-loggato
-        this.authService.logout();
-        this.router.navigate(['/login']);
-        window.alert("Credentials changed, please login again..");
         this.error = undefined;
       },
       (err) => {

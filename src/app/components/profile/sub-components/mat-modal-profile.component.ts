@@ -13,12 +13,11 @@ export class MatModalProfileComponent implements OnInit {
 
   @ViewChild('f') form!: NgForm;
   error = undefined;
-  hide: boolean = true;
-  show: boolean = false;
+  user!: IUserDtoGetResponse;
+
   authData: any = localStorage.getItem('isAuthenticated'); // oggetto JSON
   parsedData = JSON.parse(this.authData);                  // oggetto JSON parsed
   responseId: number = this.parsedData.id;                 // id preso dal dal JSON parsed
-  user!: IUserDtoGetResponse;
 
   constructor(private authService: AuthService) { }
 
@@ -29,6 +28,7 @@ export class MatModalProfileComponent implements OnInit {
 
   onSubmit() {
     this.updateUserInfo();
+    this.authService.reloadRoute();
   }
 
   getUserInfo(id: number) {
@@ -49,8 +49,6 @@ export class MatModalProfileComponent implements OnInit {
     // this.form.value (obj) sono i primi 3 campi del profilo, this.responseId e' l'id dell'utente a cui fare l'update
     return this.authService.updateUserInfo(this.form.value, this.responseId).subscribe(
       (resp) => {
-        this.show = true;
-        this.authService.reloadRoute();
         this.error = undefined;
       },
       (err) => {

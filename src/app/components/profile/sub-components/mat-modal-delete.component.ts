@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -14,11 +13,12 @@ export class MatModalDeleteComponent implements OnInit {
   error = undefined;
   hide: boolean = true;
   show: boolean = false;
+
   authData: any = localStorage.getItem('isAuthenticated'); // oggetto JSON
   parsedData = JSON.parse(this.authData);                  // oggetto JSON parsed
   responseId: number = this.parsedData.id;                 // id preso dal dal JSON parsed
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void { }
 

@@ -15,7 +15,7 @@ export class MatCardProfileComponent implements OnInit {
 
   error = undefined;
   users!: IUserDtoGetResponse[];
-  user!: IUserDtoGetResponse;
+  user!: IUserDtoGetResponse; // obj contenente username utente
 
   authData: any = localStorage.getItem('isAuthenticated'); // oggetto JSON
   parsedData = JSON.parse(this.authData);                  // oggetto JSON parsed
