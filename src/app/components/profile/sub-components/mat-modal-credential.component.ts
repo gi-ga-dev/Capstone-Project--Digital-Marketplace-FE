@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IUserResponse } from 'src/app/interfaces/iuser-response';
+import { IUserDtoGetResponse } from 'src/app/interfaces/idto-user-response';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class MatModalCredentialComponent implements OnInit {
   authData: any = localStorage.getItem('isAuthenticated'); // oggetto JSON
   parsedData = JSON.parse(this.authData);                  // oggetto JSON parsed
   responseId: number = this.parsedData.id;                 // id preso dal dal JSON parsed
-  user!: IUserResponse;
+  user!: IUserDtoGetResponse;
 
   constructor(private router: Router, private authService: AuthService) { }
 

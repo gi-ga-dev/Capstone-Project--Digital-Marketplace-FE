@@ -4,21 +4,22 @@ import { Router } from "@angular/router";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { BehaviorSubject, Observable, tap } from "rxjs";
 import { environment } from "src/environments/environment";
-import { IAuthToken } from "../interfaces/iauth-token";
-import { IAuthSubmit } from "../interfaces/iauth-submit";
-import { IUserResponse } from "../interfaces/iuser-response";
-import { IProfileRequest } from "../interfaces/iprofile-request";
-import { ICredentialRequest } from "../interfaces/icredential-request";
+import { IAuthJwtResponse } from "../interfaces/iauth-jwt-response";
+import { IAuthCredentialsRequest } from "../interfaces/iauth-credentials-request";
+
+import { IUserDtoGetResponse } from "../interfaces/idto-user-response";
+import { IDtoProfile } from "../interfaces/idto-profile";
+import { IDtoCredentials } from "../interfaces/idto-credentials";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  authSubject = new BehaviorSubject<IAuthToken | null>(null);
+  authSubject = new BehaviorSubject<IAuthJwtResponse | null>(null);
   helper = new JwtHelperService();
   error = undefined;
-  userDetails: IAuthSubmit[] = [];
+  userDetails: IAuthCredentialsRequest[] = [];
 
   /* per mandare headers al back-end e poter far funzionare i preauthorize */
   headers: {
@@ -64,11 +65,11 @@ export class AuthService {
 
   /* ============== Chiamate POST ============== */
 
-  login(obj: IAuthSubmit): Observable<IAuthToken> {
+  login(obj: IAuthCredentialsRequest): Observable<IAuthJwtResponse> {
     // LoginRequest (tramite username, password) --> <-- JwtResponse (Ritorna i dati compreso il token)
     // post dei valori del form (userName, password -> obj) 
     // se corrispondono a quelli presenti sul db, ritorna il token (con dati di ritorno = interfaccia IAuthToken)  
-    return this.http.post<IAuthToken>(environment.APIEndpoint + '/auth/login', obj).pipe(
+    return this.http.post<IAuthJwtResponse>(environment.APIEndpoint + '/auth/login', obj).pipe(
       tap(data => {
         this.authSubject.next(data);
         localStorage.setItem('isAuthenticated', JSON.stringify(data));
@@ -76,12 +77,12 @@ export class AuthService {
     )
   }
 
-  signup(obj: IAuthSubmit): Observable<Object> {
+  signup(obj: IAuthCredentialsRequest): Observable<Object> {
     // in UserController (Java) nella rotta '/users' tramite @PostMapping("/user") lancia il metodo createUser() 
     return this.http.post(environment.APIEndpoint + '/users/user', obj);
   }
 
-  registerAdmin(obj: IAuthSubmit): Observable<Object> {
+  registerAdmin(obj: IAuthCredentialsRequest): Observable<Object> {
     // solo un Admin loggato puo' creare altri Admin (necessario headers per accedere alla rotta)
     return this.http.post(environment.APIEndpoint + '/users/admin', obj, this.options);
   }
@@ -89,23 +90,23 @@ export class AuthService {
   /* ============== Chiamate GET ============== */
 
   // get di tutti gli users[] registrati
-  getAllUsersInfo(): Observable<IUserResponse[]> {
-    return this.http.get<IUserResponse[]>(environment.APIEndpoint + '/users/getAllInfo', this.options);
+  getAllUsersInfo(): Observable<IUserDtoGetResponse[]> {
+    return this.http.get<IUserDtoGetResponse[]>(environment.APIEndpoint + '/users/getAllInfo', this.options);
   }
 
-  // get del singolo user{} - id (IAuthToken) deve matchare con id (IUserResponse)
+  // get del singolo user{} - id (IAuthToken) deve matchare con id (IUserDtoGetResponse)
   // per recuperare info dell'utente in base all'id utente associato al token
-  getUserInfo(id: number): Observable<IUserResponse> {
-    return this.http.get<IUserResponse>(environment.APIEndpoint + '/users/' + id, this.options);
+  getUserInfo(id: number): Observable<IUserDtoGetResponse> {
+    return this.http.get<IUserDtoGetResponse>(environment.APIEndpoint + '/users/' + id, this.options);
   }
 
   /* ============== Chiamate PUT/PATCH ============== */
 
-  updateUserInfo(obj: IProfileRequest, id: number): Observable<Object> {
+  updateUserInfo(obj: IDtoProfile, id: number): Observable<Object> {
     return this.http.patch(environment.APIEndpoint + '/users/updateProfileInfo/' + id, obj, this.options);
   }
 
-  updateCredentials(obj: ICredentialRequest, id: number): Observable<Object> {
+  updateCredentials(obj: IDtoCredentials, id: number): Observable<Object> {
     return this.http.patch(environment.APIEndpoint + '/users/updateCredentials/' + id, obj, this.options);
   }
 

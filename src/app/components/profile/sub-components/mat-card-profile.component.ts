@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { IUserResponse } from 'src/app/interfaces/iuser-response';
+import { IUserDtoGetResponse } from 'src/app/interfaces/idto-user-response';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatModalCredentialComponent } from './mat-modal-credential.component';
 import { MatModalDeleteComponent } from './mat-modal-delete.component';
@@ -14,8 +14,8 @@ import { MatModalProfileComponent } from './mat-modal-profile.component';
 export class MatCardProfileComponent implements OnInit {
 
   error = undefined;
-  users!: IUserResponse[];
-  user!: IUserResponse;
+  users!: IUserDtoGetResponse[];
+  user!: IUserDtoGetResponse;
 
   authData: any = localStorage.getItem('isAuthenticated'); // oggetto JSON
   parsedData = JSON.parse(this.authData);                  // oggetto JSON parsed
