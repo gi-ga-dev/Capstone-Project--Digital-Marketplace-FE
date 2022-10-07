@@ -1,7 +1,7 @@
 <!-- ================ Profile Card ================ -->
 <!-- [*ngIf="user!=null"] Evita errore in console, perche' carica la pagina html e non trova le proprieta di ritorno del get -->
 
-<mat-card class="example-card">
+<mat-card class="example-card" *ngIf="user!=undefined">
     <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>Profile Username: {{user.userName}}</mat-card-title>
