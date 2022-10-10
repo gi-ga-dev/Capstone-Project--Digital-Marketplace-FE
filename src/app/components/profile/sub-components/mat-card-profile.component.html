@@ -4,10 +4,12 @@
 <mat-card class="example-card" *ngIf="user!=undefined">
     <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Profile Username: {{user.userName}}</mat-card-title>
-        <!-- === NOTA: non legge il role - mod. nel builder del metodo getAllUsersInfo() (java) === -->
+        <mat-card-title>Username: {{user.userName}}</mat-card-title>
         <mat-card-subtitle>
-            {{user.role}} #{{user.id}}
+            <p>{{user.role}} #{{user.id}}</p>
+            <p>Credit Balance: {{user.accountBalance}}$</p>
+            <p *ngIf="user.isSubscribed == true">Status: SUBSCRIBED</p>
+            <p *ngIf="user.isSubscribed == false">Status: NOT SUBSCRIBED</p>
         </mat-card-subtitle>
     </mat-card-header>
 

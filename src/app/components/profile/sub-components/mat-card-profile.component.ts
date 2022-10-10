@@ -15,13 +15,15 @@ export class MatCardProfileComponent implements OnInit {
 
   error = undefined;
   users!: IUserDtoGetResponse[];
-  user!: IUserDtoGetResponse; // obj contenente username utente
+  user!: IUserDtoGetResponse;
 
   authData: any = localStorage.getItem('isAuthenticated'); // oggetto JSON
   parsedData = JSON.parse(this.authData);                  // oggetto JSON parsed
   responseId: number = this.parsedData.id;                 // id preso dal dal JSON parsed
 
   constructor(private authService: AuthService, public dialog: MatDialog) { }
+
+  ngOnInit(): void { this.getUserInfo(this.responseId); }
 
   /* =========== Open Dialogues ============= */
 
@@ -47,10 +49,6 @@ export class MatCardProfileComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
-  }
-
-  ngOnInit(): void {
-    this.getUserInfo(this.responseId);
   }
 
   getUserInfo(id: number) {

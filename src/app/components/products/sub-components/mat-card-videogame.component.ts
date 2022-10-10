@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatModalAddbalanceComponent } from '../../header/sub-components/mat-modal-addbalance.component';
+import { MatModalSubscriptionComponent } from '../../header/sub-components/mat-modal-subscription.component';
 
 @Component({
   selector: 'app-mat-card-videogame',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MatCardVideogameComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
-  ngOnInit(): void {
+  openSubscriptionDialog() {
+    const dialogRef = this.dialog.open(MatModalSubscriptionComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
+
+  openAddBalanceDialog() {
+    const dialogRef = this.dialog.open(MatModalAddbalanceComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  ngOnInit(): void { }
 
 }

@@ -52,3 +52,10 @@
 :host ::ng-deep .mat-drawer-container {
     background-color: whitesmoke;
 }
+
+#sidenav-group {
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start
+}

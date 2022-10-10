@@ -79,12 +79,12 @@ export class AuthService {
 
   signup(obj: IAuthCredentialsRequest): Observable<Object> {
     // in UserController (Java) nella rotta '/users' tramite @PostMapping("/user") lancia il metodo createUser() 
-    return this.http.post(environment.APIEndpoint + '/users/user', obj);
+    return this.http.post(environment.APIEndpoint + '/users/createUser', obj);
   }
 
   registerAdmin(obj: IAuthCredentialsRequest): Observable<Object> {
     // solo un Admin loggato puo' creare altri Admin (necessario headers per accedere alla rotta)
-    return this.http.post(environment.APIEndpoint + '/users/admin', obj, this.options);
+    return this.http.post(environment.APIEndpoint + '/users/createAdmin', obj, this.options);
   }
 
   /* ============== Chiamate GET ============== */
@@ -103,11 +103,39 @@ export class AuthService {
   /* ============== Chiamate PUT/PATCH ============== */
 
   updateUserInfo(obj: IDtoProfile, id: number): Observable<Object> {
-    return this.http.patch(environment.APIEndpoint + '/users/updateProfileInfo/' + id, obj, this.options);
+    return this.http.patch(environment.APIEndpoint + '/users/' + id + '/updateProfileInfo', obj, this.options);
   }
 
   updateCredentials(obj: IDtoCredentials, id: number): Observable<Object> {
-    return this.http.patch(environment.APIEndpoint + '/users/updateCredentials/' + id, obj, this.options);
+    return this.http.patch(environment.APIEndpoint + '/users/' + id + '/updateCredentials', obj, this.options);
+  }
+
+  // ----------------------
+
+  subscribeMonthly(id: number) {
+    return this.http.patch(environment.APIEndpoint + '/users/' + id + '/subscribeMonthly', this.options);
+  }
+
+  subscribeSemestral(id: number) {
+    return this.http.patch(environment.APIEndpoint + '/users/' + id + '/subscribeSemestral', this.options);
+  }
+
+  subscribeAnnual(id: number) {
+    return this.http.patch(environment.APIEndpoint + '/users/' + id + '/subscribeAnnual', this.options);
+  }
+
+  // ----------------------
+
+  addFiveDollars(id: number) {
+    return this.http.patch(environment.APIEndpoint + '/users/' + id + '/addFiveDollars', this.options);
+  }
+
+  addTwentyFiveDollars(id: number) {
+    return this.http.patch(environment.APIEndpoint + '/users/' + id + '/addTwentyFiveDollars', this.options);
+  }
+
+  addFiftyDollars(id: number) {
+    return this.http.patch(environment.APIEndpoint + '/users/' + id + '/addFiftyDollars', this.options);
   }
 
   /* ============== Chiamate DELETE ============== */

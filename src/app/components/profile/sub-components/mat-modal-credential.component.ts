@@ -31,7 +31,7 @@ export class MatModalCredentialComponent implements OnInit {
   }
 
   getUserInfo(id: number) {
-    // prendi informazioni dell'utente, leggendo il responseId --> id dei dati nel localStorage (IAuthToken)    
+    // prendi informazioni dell'utente, leggendo il responseId --> id dei dati nel localStorage (IAuthJwt)    
     return this.authService.getUserInfo(id).subscribe(
       (resp) => {
         this.error = undefined;
@@ -47,7 +47,6 @@ export class MatModalCredentialComponent implements OnInit {
   updateCredentials() {
     return this.authService.updateCredentials(this.form.value, this.responseId).subscribe(
       (resp) => {
-        // modifico username/password e lancio metodo logout() in modo da riaggiornare il sistema una volta ri-loggato
         this.error = undefined;
       },
       (err) => {
@@ -55,7 +54,7 @@ export class MatModalCredentialComponent implements OnInit {
         console.log(err.error);
       }
     )
-
   }
+
 
 }

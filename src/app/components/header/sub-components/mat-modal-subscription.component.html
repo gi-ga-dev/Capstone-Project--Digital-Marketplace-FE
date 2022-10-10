@@ -1,0 +1,22 @@
+<mat-dialog-content class="mat-typography">
+
+    <mat-card class="example-card">
+
+        <mat-card-title>Subscribe</mat-card-title>
+        <!-- <mat-card-subtitle>To modify data you need to insert your username/password</mat-card-subtitle> -->
+
+        <mat-card-content id="inp-access">
+            <button mat-button (click)="subscribeMonthly()" [mat-dialog-close]="true" cdkFocusInitial>30-days
+                Subscription</button>
+            <button mat-button (click)="subscribeSemestral()" [mat-dialog-close]="true" cdkFocusInitial>180-days
+                Subscription</button>
+            <button mat-button (click)="subscribeAnnual()" [mat-dialog-close]="true" cdkFocusInitial>365-days
+                Subscription</button>
+            <mat-dialog-actions align="end">
+                <button mat-button class="subscription-dialog" mat-dialog-close>Cancel</button>
+            </mat-dialog-actions>
+        </mat-card-content>
+
+    </mat-card>
+
+</mat-dialog-content>

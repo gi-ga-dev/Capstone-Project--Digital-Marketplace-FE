@@ -7,4 +7,15 @@ export interface IUserDtoGetResponse {
     "email": string;
     "userName": string;
     "role": string;
+
+    "accountBalance": number;
+    "isSubscribed": boolean;
+    "subStart": string;
+    "subEnd": string;
+    "subTotalTime": number;
+    "subRemaining": number;
+    "purchaseHistory": [];
+    "videogamesList": [];
+    "musicList": [];
+    "bookList": [];
 }

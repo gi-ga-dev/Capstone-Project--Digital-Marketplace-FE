@@ -22,5 +22,14 @@
 
     <mat-card-actions>
         <button mat-button>Add to Library</button>
+
+        <!-- Balance / Subscription Modals -->
+        <button mat-button (click)="openAddBalanceDialog()">
+            <mat-icon>attach_money</mat-icon> Add Balance
+        </button>
+
+        <button mat-button (click)="openSubscriptionDialog()">
+            <mat-icon>subscriptions</mat-icon> Subscribe
+        </button>
     </mat-card-actions>
 </mat-card>

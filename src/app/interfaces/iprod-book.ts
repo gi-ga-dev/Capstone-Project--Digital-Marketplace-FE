@@ -1,4 +1,4 @@
-export interface IProdMusic {
+export interface IProdBook {
     // [proprieta' comuni]
     "id": number;
     "priceInitial": number; // prezzo iniziale memorizzato per calcolo
@@ -15,10 +15,9 @@ export interface IProdMusic {
     "genre": string;
     "ratings"?: number; // 1-5 stars (average)
     "reviews"?: number;  // 1000 reviews 
-    // [prop. music] --> downloaded from youtube
-    "plays"?: number;
-    "isrcCode": string; //12 digits alphanumeric
-    "artist": string;
-    "album": string;
-    "duration": string;
+    // [prop. books] --> downloaded pdf
+    "read"?: number; // quante volte e' stato letto
+    "isbnCode": number; // 10-13 digits numbers
+    "bookSeries": string;
+    "author": string;
 }

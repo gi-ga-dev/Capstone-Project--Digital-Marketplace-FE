@@ -14,11 +14,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
+import { MatModalSubscriptionComponent } from './sub-components/mat-modal-subscription.component';
+import { MatModalAddbalanceComponent } from './sub-components/mat-modal-addbalance.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    MatNavbarComponent
+    MatNavbarComponent,
+    MatModalSubscriptionComponent,
+    MatModalAddbalanceComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +37,9 @@ import { MatTableModule } from '@angular/material/table';
     ReactiveFormsModule,
     MatTabsModule,
     MatCardModule,
-    MatTableModule
+    MatDialogModule,
+    MatTableModule,
+    MatDividerModule
   ],
   exports: [
     HeaderComponent,
