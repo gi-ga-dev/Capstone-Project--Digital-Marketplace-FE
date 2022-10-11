@@ -14,16 +14,13 @@ export class MatModalProfileComponent implements OnInit {
   @ViewChild('f') form!: NgForm;
   error = undefined;
   user!: IUserDtoGetResponse;
-
-  authData: any = localStorage.getItem('isAuthenticated'); // oggetto JSON
-  parsedData = JSON.parse(this.authData);                  // oggetto JSON parsed
-  responseId: number = this.parsedData.id;                 // id preso dal dal JSON parsed
+  getId: number | undefined = this.authService.getId();
 
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     // Apre il modal, lo compila con i dati di ritorno (getUserInfo), al submit put dei dati
-    this.getUserInfo(this.responseId);
+    this.getUserInfo(this.getId);
   }
 
   onSubmit() {
@@ -31,8 +28,7 @@ export class MatModalProfileComponent implements OnInit {
     this.authService.reloadRoute();
   }
 
-  getUserInfo(id: number) {
-    // prendi informazioni dell'utente, leggendo il responseId --> id dei dati nel localStorage (IAuthToken)    
+  getUserInfo(id: number | undefined) {
     return this.authService.getUserInfo(id).subscribe(
       (resp) => {
         this.error = undefined;
@@ -46,8 +42,8 @@ export class MatModalProfileComponent implements OnInit {
   }
 
   updateUserInfo() {
-    // this.form.value (obj) sono i primi 3 campi del profilo, this.responseId e' l'id dell'utente a cui fare l'update
-    return this.authService.updateUserInfo(this.form.value, this.responseId).subscribe(
+    // this.form.value (obj) sono i primi 3 campi del profilo, this.getId e' l'id dell'utente a cui fare l'update
+    return this.authService.updateUserInfo(this.form.value, this.getId).subscribe(
       (resp) => {
         this.error = undefined;
       },

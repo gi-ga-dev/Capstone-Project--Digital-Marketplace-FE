@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { IUserDtoGetResponse } from 'src/app/interfaces/idto-user-response';
 import { AuthService } from 'src/app/services/auth.service';
+import { MatModalAddbalanceComponent } from '../../header/sub-components/mat-modal-addbalance.component';
+import { MatModalSubscriptionComponent } from '../../header/sub-components/mat-modal-subscription.component';
 import { MatModalCredentialComponent } from './mat-modal-credential.component';
 import { MatModalDeleteComponent } from './mat-modal-delete.component';
 import { MatModalProfileComponent } from './mat-modal-profile.component';
@@ -14,18 +16,28 @@ import { MatModalProfileComponent } from './mat-modal-profile.component';
 export class MatCardProfileComponent implements OnInit {
 
   error = undefined;
-  users!: IUserDtoGetResponse[];
   user!: IUserDtoGetResponse;
-
-  authData: any = localStorage.getItem('isAuthenticated'); // oggetto JSON
-  parsedData = JSON.parse(this.authData);                  // oggetto JSON parsed
-  responseId: number = this.parsedData.id;                 // id preso dal dal JSON parsed
+  getId: number | undefined = this.authService.getId();
 
   constructor(private authService: AuthService, public dialog: MatDialog) { }
 
-  ngOnInit(): void { this.getUserInfo(this.responseId); }
+  ngOnInit(): void { this.getUserInfo(this.getId); }
 
   /* =========== Open Dialogues ============= */
+
+  openSubscriptionDialog() {
+    const dialogRef = this.dialog.open(MatModalSubscriptionComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  openAddBalanceDialog() {
+    const dialogRef = this.dialog.open(MatModalAddbalanceComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
   /* Modal Modifica Informazioni base */
   openProfileDialog() {
@@ -51,7 +63,7 @@ export class MatCardProfileComponent implements OnInit {
     });
   }
 
-  getUserInfo(id: number) {
+  getUserInfo(id: number | undefined) {
     // prendi informazioni dell'utente, leggendo il responseId --> id dei dati nel localStorage (IAuthToken)    
     return this.authService.getUserInfo(id).subscribe(
       (resp) => {

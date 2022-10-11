@@ -1,15 +1,27 @@
-<!-- ================ Profile Card ================ -->
-<!-- [*ngIf="user!=null"] Evita errore in console, perche' carica la pagina html e non trova le proprieta di ritorno del get -->
-
 <mat-card class="example-card" *ngIf="user!=undefined">
+    <!-- funziona come un async await - dei dati di user -->
     <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
+        <div mat-card-avatar class="example-header-image"></div> <!-- small img -->
         <mat-card-title>Username: {{user.userName}}</mat-card-title>
         <mat-card-subtitle>
             <p>{{user.role}} #{{user.id}}</p>
+
             <p>Credit Balance: {{user.accountBalance}}$</p>
-            <p *ngIf="user.isSubscribed == true">Status: SUBSCRIBED</p>
-            <p *ngIf="user.isSubscribed == false">Status: NOT SUBSCRIBED</p>
+            <button mat-button (click)="openAddBalanceDialog()">
+                <mat-icon>attach_money</mat-icon> Add Balance
+            </button>
+
+            <div *ngIf="user.isSubscribed">
+                <p>Status: SUBSCRIBED</p>
+            </div>
+
+            <div *ngIf="!user.isSubscribed">
+                <p>Status: NOT SUBSCRIBED</p>
+                <button mat-button (click)="openSubscriptionDialog()">
+                    <mat-icon>subscriptions</mat-icon> Subscribe
+                </button>
+            </div>
+
         </mat-card-subtitle>
     </mat-card-header>
 

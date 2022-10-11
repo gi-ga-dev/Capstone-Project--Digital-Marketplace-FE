@@ -1,9 +1,6 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
-import { MatModalSubscriptionComponent } from './mat-modal-subscription.component';
-import { MatModalAddbalanceComponent } from './mat-modal-addbalance.component';
-import { IUserDtoGetResponse } from 'src/app/interfaces/idto-user-response';
 
 @Component({
   selector: 'app-mat-navbar',
@@ -13,50 +10,28 @@ import { IUserDtoGetResponse } from 'src/app/interfaces/idto-user-response';
 export class MatNavbarComponent implements OnInit, DoCheck {
 
   showProdTab: boolean = false;
-
-  accountBalance!: number;
   isAuthenticated!: boolean;
-  isSubscribed!: boolean;
+  getRole: string | undefined;
   error = undefined;
-  authData!: any;        // oggetto JSON
-  parsedData!: any;      // oggetto JSON parsed
 
   constructor(private authService: AuthService, public dialog: MatDialog) { }
 
   ngOnInit(): void { }
 
   ngDoCheck(): void {
+    // rileva cambiamento dopo il login
     if (localStorage.key(0)) {
-      // Sono loggato e controlla cambiamenti, se presente token, nascondi btns
+      this.getRole = this.authService.getRole()?.toString(); // [0] non e' consentito      
       this.isAuthenticated = true;
-      this.authData = localStorage.getItem('isAuthenticated');
-      this.parsedData = JSON.parse(this.authData);
-      this.accountBalance = this.parsedData.accountBalance;
-      this.isSubscribed = this.parsedData.isSubscribed;
-    } else { this.isAuthenticated = false; }
-
-    if (this.isSubscribed) {
-
+    } else {
+      this.getRole = undefined;
+      this.isAuthenticated = false;
     }
-
-  }
-
-  openSubscriptionDialog() {
-    const dialogRef = this.dialog.open(MatModalSubscriptionComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
-  openAddBalanceDialog() {
-    const dialogRef = this.dialog.open(MatModalAddbalanceComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
   }
 
   logout(): void {
     this.authService.logout();
+    this.isAuthenticated = false;
   }
 
   // ----------------------

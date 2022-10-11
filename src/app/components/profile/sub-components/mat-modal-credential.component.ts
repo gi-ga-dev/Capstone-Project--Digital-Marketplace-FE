@@ -13,15 +13,12 @@ export class MatModalCredentialComponent implements OnInit {
   @ViewChild('f') form!: NgForm;
   error = undefined;
   user!: IUserDtoGetResponse;
-
-  authData: any = localStorage.getItem('isAuthenticated'); // oggetto JSON
-  parsedData = JSON.parse(this.authData);                  // oggetto JSON parsed
-  responseId: number = this.parsedData.id;                 // id preso dal dal JSON parsed
+  getId: number | undefined = this.authService.getId();
 
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.getUserInfo(this.responseId);
+    this.getUserInfo(this.getId);
   }
 
   onSubmit() {
@@ -30,7 +27,7 @@ export class MatModalCredentialComponent implements OnInit {
     this.authService.logout();
   }
 
-  getUserInfo(id: number) {
+  getUserInfo(id: number | undefined) {
     // prendi informazioni dell'utente, leggendo il responseId --> id dei dati nel localStorage (IAuthJwt)    
     return this.authService.getUserInfo(id).subscribe(
       (resp) => {
@@ -45,7 +42,7 @@ export class MatModalCredentialComponent implements OnInit {
   }
 
   updateCredentials() {
-    return this.authService.updateCredentials(this.form.value, this.responseId).subscribe(
+    return this.authService.updateCredentials(this.form.value, this.getId).subscribe(
       (resp) => {
         this.error = undefined;
       },

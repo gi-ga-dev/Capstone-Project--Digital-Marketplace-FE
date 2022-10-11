@@ -9,17 +9,22 @@ const routes: Routes = [
   { path: 'login', component: LoginPage },
   { path: 'signup', component: SignupPage },
   {
-    path: 'products',
-    canActivate: [AuthGuard],
+    path: 'products', canActivate: [AuthGuard],
     loadChildren: () => import('./components/products/products.module').then(m => m.ProductsModule)
   },
   {
-    path: 'library',
-    canActivate: [AuthGuard],
+    path: 'library', canActivate: [AuthGuard],
     loadChildren: () => import('./components/library/library.module').then(m => m.LibraryModule)
   },
+  {
+    path: 'profile', canActivate: [AuthGuard],
+    loadChildren: () => import('./components/profile/profile.module').then(m => m.ProfileModule)
+  },
+  {
+    path: 'products-create', canActivate: [AuthGuard],
+    loadChildren: () => import('./components/products-create/products-create.module').then(m => m.ProductsCreateModule)
+  },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: 'profile', loadChildren: () => import('./components/profile/profile.module').then(m => m.ProfileModule) },
   { path: '**', loadChildren: () => import('./components/error404/error404.module').then(m => m.Error404Module) },
 ];
 

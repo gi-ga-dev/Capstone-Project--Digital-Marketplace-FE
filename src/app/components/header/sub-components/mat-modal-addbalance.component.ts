@@ -10,19 +10,15 @@ import { AuthService } from 'src/app/services/auth.service';
 export class MatModalAddbalanceComponent implements OnInit {
 
   error = undefined;
-  authData: any = localStorage.getItem('isAuthenticated'); // oggetto JSON
-  parsedData = JSON.parse(this.authData);                  // oggetto JSON parsed
-  responseId: number = this.parsedData.id;                 // id preso dal dal JSON parsed
-  user!: IUserDtoGetResponse; // obj contenente username utente
+  getId: number | undefined = this.authService.getId();
+  user!: IUserDtoGetResponse;
 
   constructor(private authService: AuthService) { }
 
-  ngOnInit(): void {
-    this.getUserInfo(this.responseId);
-  }
+  ngOnInit(): void { this.getUserInfo(this.getId); }
 
   addFiveDollars() {
-    return this.authService.addFiveDollars(this.responseId).subscribe(
+    return this.authService.addFiveDollars(this.getId).subscribe(
       (resp) => {
         window.alert("5$ Credits added to your Account Balance!");
         this.authService.reloadRoute();
@@ -36,7 +32,7 @@ export class MatModalAddbalanceComponent implements OnInit {
   }
 
   addTwentyFiveDollars() {
-    return this.authService.addTwentyFiveDollars(this.responseId).subscribe(
+    return this.authService.addTwentyFiveDollars(this.getId).subscribe(
       (resp) => {
         window.alert("25$ Credits added to your Account Balance!");
         this.authService.reloadRoute();
@@ -50,7 +46,7 @@ export class MatModalAddbalanceComponent implements OnInit {
   }
 
   addFiftyDollars() {
-    return this.authService.addFiftyDollars(this.responseId).subscribe(
+    return this.authService.addFiftyDollars(this.getId).subscribe(
       (resp) => {
         window.alert("50$ Credits added to your Account Balance!");
         this.authService.reloadRoute();
@@ -63,7 +59,9 @@ export class MatModalAddbalanceComponent implements OnInit {
     )
   }
 
-  getUserInfo(id: number) {
+  // ------------------------------------------------
+
+  getUserInfo(id: number | undefined) {
     // prendi informazioni dell'utente, leggendo il responseId --> id dei dati nel localStorage (IAuthToken)    
     return this.authService.getUserInfo(id).subscribe(
       (resp) => {

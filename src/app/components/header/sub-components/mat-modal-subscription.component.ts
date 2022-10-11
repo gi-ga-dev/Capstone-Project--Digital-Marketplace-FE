@@ -10,17 +10,15 @@ import { AuthService } from 'src/app/services/auth.service';
 export class MatModalSubscriptionComponent implements OnInit {
 
   error = undefined;
-  authData: any = localStorage.getItem('isAuthenticated'); // oggetto JSON
-  parsedData = JSON.parse(this.authData);                  // oggetto JSON parsed
-  responseId: number = this.parsedData.id;                 // id preso dal dal JSON parsed
-  user!: IUserDtoGetResponse; // obj contenente username utente
+  getId: number | undefined = this.authService.getId();
+  user!: IUserDtoGetResponse;
 
   constructor(private authService: AuthService) { }
 
-  ngOnInit(): void { this.getUserInfo(this.responseId); }
+  ngOnInit(): void { this.getUserInfo(this.getId); }
 
   subscribeMonthly() {
-    return this.authService.subscribeMonthly(this.responseId).subscribe(
+    return this.authService.subscribeMonthly(this.getId).subscribe(
       (resp) => {
         window.alert("Subscription success!");
         this.authService.reloadRoute();
@@ -35,7 +33,7 @@ export class MatModalSubscriptionComponent implements OnInit {
   }
 
   subscribeSemestral() {
-    return this.authService.subscribeSemestral(this.responseId).subscribe(
+    return this.authService.subscribeSemestral(this.getId).subscribe(
       (resp) => {
         window.alert("Subscription success!");
         this.authService.reloadRoute();
@@ -50,7 +48,7 @@ export class MatModalSubscriptionComponent implements OnInit {
   }
 
   subscribeAnnual() {
-    return this.authService.subscribeAnnual(this.responseId).subscribe(
+    return this.authService.subscribeAnnual(this.getId).subscribe(
       (resp) => {
         window.alert("Subscription success!");
         this.authService.reloadRoute();
@@ -64,7 +62,7 @@ export class MatModalSubscriptionComponent implements OnInit {
     )
   }
 
-  getUserInfo(id: number) {
+  getUserInfo(id: number | undefined) {
     // prendi informazioni dell'utente, leggendo il responseId --> id dei dati nel localStorage (IAuthToken)    
     return this.authService.getUserInfo(id).subscribe(
       (resp) => {

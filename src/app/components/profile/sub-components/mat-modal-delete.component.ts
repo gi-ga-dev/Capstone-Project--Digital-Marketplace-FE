@@ -13,10 +13,7 @@ export class MatModalDeleteComponent implements OnInit {
   error = undefined;
   hide: boolean = true;
   show: boolean = false;
-
-  authData: any = localStorage.getItem('isAuthenticated'); // oggetto JSON
-  parsedData = JSON.parse(this.authData);                  // oggetto JSON parsed
-  responseId: number = this.parsedData.id;                 // id preso dal dal JSON parsed
+  getId: number | undefined = this.authService.getId();
 
   constructor(private authService: AuthService) { }
 
@@ -29,7 +26,7 @@ export class MatModalDeleteComponent implements OnInit {
   }
 
   deleteAccount() {
-    return this.authService.deleteAccount(this.responseId).subscribe(
+    return this.authService.deleteAccount(this.getId).subscribe(
       (resp) => {
         this.error = undefined;
       },

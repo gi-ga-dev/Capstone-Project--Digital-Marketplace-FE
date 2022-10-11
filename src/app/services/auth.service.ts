@@ -16,9 +16,13 @@ import { IDtoCredentials } from "../interfaces/idto-credentials";
 })
 export class AuthService {
 
+  error = undefined;
   authSubject = new BehaviorSubject<IAuthJwtResponse | null>(null);
   helper = new JwtHelperService();
-  error = undefined;
+  authData!: any;
+  parsedData!: any;
+  parsedRole!: string | null;
+  parsedId!: number | undefined;
   userDetails: IAuthCredentialsRequest[] = [];
 
   /* per mandare headers al back-end e poter far funzionare i preauthorize */
@@ -96,51 +100,51 @@ export class AuthService {
 
   // get del singolo user{} - id (IAuthToken) deve matchare con id (IUserDtoGetResponse)
   // per recuperare info dell'utente in base all'id utente associato al token
-  getUserInfo(id: number): Observable<IUserDtoGetResponse> {
+  getUserInfo(id: number | undefined): Observable<IUserDtoGetResponse> {
     return this.http.get<IUserDtoGetResponse>(environment.APIEndpoint + '/users/' + id, this.options);
   }
 
   /* ============== Chiamate PUT/PATCH ============== */
 
-  updateUserInfo(obj: IDtoProfile, id: number): Observable<Object> {
+  updateUserInfo(obj: IDtoProfile, id: number | undefined): Observable<Object> {
     return this.http.patch(environment.APIEndpoint + '/users/' + id + '/updateProfileInfo', obj, this.options);
   }
 
-  updateCredentials(obj: IDtoCredentials, id: number): Observable<Object> {
+  updateCredentials(obj: IDtoCredentials, id: number | undefined): Observable<Object> {
     return this.http.patch(environment.APIEndpoint + '/users/' + id + '/updateCredentials', obj, this.options);
   }
 
   // ----------------------
 
-  subscribeMonthly(id: number) {
+  subscribeMonthly(id: number | undefined) {
     return this.http.patch(environment.APIEndpoint + '/users/' + id + '/subscribeMonthly', this.options);
   }
 
-  subscribeSemestral(id: number) {
+  subscribeSemestral(id: number | undefined) {
     return this.http.patch(environment.APIEndpoint + '/users/' + id + '/subscribeSemestral', this.options);
   }
 
-  subscribeAnnual(id: number) {
+  subscribeAnnual(id: number | undefined) {
     return this.http.patch(environment.APIEndpoint + '/users/' + id + '/subscribeAnnual', this.options);
   }
 
   // ----------------------
 
-  addFiveDollars(id: number) {
+  addFiveDollars(id: number | undefined) {
     return this.http.patch(environment.APIEndpoint + '/users/' + id + '/addFiveDollars', this.options);
   }
 
-  addTwentyFiveDollars(id: number) {
+  addTwentyFiveDollars(id: number | undefined) {
     return this.http.patch(environment.APIEndpoint + '/users/' + id + '/addTwentyFiveDollars', this.options);
   }
 
-  addFiftyDollars(id: number) {
+  addFiftyDollars(id: number | undefined) {
     return this.http.patch(environment.APIEndpoint + '/users/' + id + '/addFiftyDollars', this.options);
   }
 
   /* ============== Chiamate DELETE ============== */
 
-  deleteAccount(id: number) {
+  deleteAccount(id: number | undefined) {
     return this.http.delete(environment.APIEndpoint + '/users/' + id, this.options);
   }
 
@@ -151,6 +155,20 @@ export class AuthService {
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigate([currentRoute]);
     });
+  }
+
+  getId(): number | undefined {
+    this.authData = localStorage.getItem('isAuthenticated');
+    this.parsedData = JSON.parse(this.authData);
+    this.parsedId = this.parsedData.id;
+    return this.parsedId;
+  }
+
+  getRole(): string | null {
+    this.authData = localStorage.getItem('isAuthenticated');
+    this.parsedData = JSON.parse(this.authData);
+    this.parsedRole = this.parsedData.roles;
+    return this.parsedRole;
   }
 
 

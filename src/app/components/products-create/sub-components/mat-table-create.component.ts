@@ -1,5 +1,5 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AfterViewInit, Component, OnChanges, OnInit, ViewChild } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -9,9 +9,9 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { IProdVideogame } from 'src/app/interfaces/iprod-videogame';
 
 @Component({
-  selector: 'app-mat-products-table',
-  templateUrl: './mat-products-table.component.html',
-  styleUrls: ['./mat-products-table.component.scss'],
+  selector: 'app-mat-table-create',
+  templateUrl: './mat-table-create.component.html',
+  styleUrls: ['./mat-table-create.component.scss'],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({ height: '0px', minHeight: '0' })),
@@ -20,7 +20,7 @@ import { IProdVideogame } from 'src/app/interfaces/iprod-videogame';
     ])
   ]
 })
-export class MatProductsTableComponent implements OnInit, AfterViewInit, OnChanges {
+export class MatTableCreateComponent implements OnInit, AfterViewInit, OnChanges {
 
   @ViewChild('f') form!: NgForm;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
