@@ -68,7 +68,7 @@ export class AuthService {
   login(obj: IAuthCredentialsRequest): Observable<IAuthJwtResponse> {
     // LoginRequest (tramite username, password) --> <-- JwtResponse (Ritorna i dati compreso il token)
     // post dei valori del form (userName, password -> obj) 
-    // se corrispondono a quelli presenti sul db, ritorna il token (con dati di ritorno = interfaccia IAuthToken)  
+    // se corrispondono a quelli presenti sul db, ritorna il token (con dati di ritorno = interfaccia IJwtResponse)  
     return this.http.post<IAuthJwtResponse>(environment.APIEndpoint + '/auth/login', obj).pipe(
       tap(data => {
         this.authSubject.next(data);

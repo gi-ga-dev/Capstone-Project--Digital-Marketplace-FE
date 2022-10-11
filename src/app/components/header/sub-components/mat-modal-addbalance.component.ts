@@ -17,7 +17,9 @@ export class MatModalAddbalanceComponent implements OnInit {
 
   constructor(private authService: AuthService) { }
 
-  ngOnInit(): void { this.getUserInfo(this.responseId); }
+  ngOnInit(): void {
+    this.getUserInfo(this.responseId);
+  }
 
   addFiveDollars() {
     return this.authService.addFiveDollars(this.responseId).subscribe(

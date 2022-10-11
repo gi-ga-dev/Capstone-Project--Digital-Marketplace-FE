@@ -1,5 +1,4 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatModalSubscriptionComponent } from './mat-modal-subscription.component';
@@ -13,18 +12,34 @@ import { IUserDtoGetResponse } from 'src/app/interfaces/idto-user-response';
 })
 export class MatNavbarComponent implements OnInit, DoCheck {
 
-  showSignUp: boolean = true;
-  showLogin: boolean = true;
-  showLogout: boolean = false;
   showProdTab: boolean = false;
-  showAddBalance: boolean = false;
-  showSubscription: boolean = false;
 
+  accountBalance!: number;
+  isAuthenticated!: boolean;
+  isSubscribed!: boolean;
   error = undefined;
+  authData!: any;        // oggetto JSON
+  parsedData!: any;      // oggetto JSON parsed
 
   constructor(private authService: AuthService, public dialog: MatDialog) { }
 
   ngOnInit(): void { }
+
+  ngDoCheck(): void {
+    if (localStorage.key(0)) {
+      // Sono loggato e controlla cambiamenti, se presente token, nascondi btns
+      this.isAuthenticated = true;
+      this.authData = localStorage.getItem('isAuthenticated');
+      this.parsedData = JSON.parse(this.authData);
+      this.accountBalance = this.parsedData.accountBalance;
+      this.isSubscribed = this.parsedData.isSubscribed;
+    } else { this.isAuthenticated = false; }
+
+    if (this.isSubscribed) {
+
+    }
+
+  }
 
   openSubscriptionDialog() {
     const dialogRef = this.dialog.open(MatModalSubscriptionComponent);
@@ -40,27 +55,11 @@ export class MatNavbarComponent implements OnInit, DoCheck {
     });
   }
 
-  ngDoCheck(): void {
-    if (localStorage.key(0)) {
-      // Sono loggato e controlla cambiamenti, se presente token, nascondi btns
-      this.showLogout = true;
-      this.showLogin = false;
-      this.showSignUp = false;
-      this.showAddBalance = true;
-      this.showSubscription = true;
-    } else {
-      // Non sono loggato e nascondo il pulsante Logout
-      this.showLogout = false;
-      this.showLogin = true;
-      this.showSignUp = true;
-      this.showAddBalance = false;
-      this.showSubscription = false;
-    }
-  }
-
   logout(): void {
     this.authService.logout();
   }
+
+  // ----------------------
 
   toggleProdTab() {
     if (this.showProdTab == true) {
