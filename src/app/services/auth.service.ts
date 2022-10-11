@@ -10,6 +10,7 @@ import { IAuthCredentialsRequest } from "../interfaces/iauth-credentials-request
 import { IUserDtoGetResponse } from "../interfaces/idto-user-response";
 import { IDtoProfile } from "../interfaces/idto-profile";
 import { IDtoCredentials } from "../interfaces/idto-credentials";
+import { IProdVideogame } from "../interfaces/iprod-videogame";
 
 @Injectable({
   providedIn: 'root'
@@ -89,6 +90,10 @@ export class AuthService {
   registerAdmin(obj: IAuthCredentialsRequest): Observable<Object> {
     // solo un Admin loggato puo' creare altri Admin (necessario headers per accedere alla rotta)
     return this.http.post(environment.APIEndpoint + '/users/createAdmin', obj, this.options);
+  }
+
+  createVideogame(obj: IProdVideogame): Observable<Object> {
+    return this.http.post(environment.APIEndpoint + '/createVideogame', obj, this.options);
   }
 
   /* ============== Chiamate GET ============== */

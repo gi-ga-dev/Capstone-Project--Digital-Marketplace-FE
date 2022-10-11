@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { ProductsCreateRoutingModule } from './products-create-routing.module';
 import { ProductsCreateComponent } from './products-create.component';
-import { MatTableCreateComponent } from './sub-components/mat-table-create.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
@@ -15,12 +14,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
+import { MatCardCreateComponent } from './sub-components/mat-card-create.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 @NgModule({
   declarations: [
     ProductsCreateComponent,
-    MatTableCreateComponent
+    MatCardCreateComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +37,8 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule,
     ReactiveFormsModule,
     MatSortModule,
-    MatCardModule
+    MatCardModule,
+    MatRadioModule
   ]
 })
 export class ProductsCreateModule { }

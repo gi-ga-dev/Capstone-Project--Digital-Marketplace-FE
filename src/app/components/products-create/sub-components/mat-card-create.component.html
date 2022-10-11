@@ -1,0 +1,165 @@
+<mat-accordion class="example-headers-align" multi>
+    <form #f="ngForm" (ngSubmit)="onSubmit()">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title></mat-panel-title>
+                <mat-panel-description>
+                    Create Videogame
+                    <mat-icon>videogame_assets</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- Proprieta' comuni prodotti -->
+
+            <mat-form-field appearance="fill">
+                <mat-label>Initial Price</mat-label>
+                <input matInput ngModel type="number" name="priceInitial">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Actual Price</mat-label>
+                <input matInput ngModel type="number" name="priceActual">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Title</mat-label>
+                <input matInput ngModel type="text" name="title">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Description</mat-label>
+                <input matInput ngModel type="text" name="description">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Platform</mat-label>
+                <input matInput ngModel type="text" name="platform">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Publisher</mat-label>
+                <input matInput ngModel type="text" name="publisher">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Release Date</mat-label>
+                <input matInput ngModel type="text" name="releaseDate">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Language</mat-label>
+                <input matInput ngModel type="text" name="language">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Genre</mat-label>
+                <input matInput ngModel type="text" name="genre">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Genre</mat-label>
+                <input matInput ngModel type="text" name="genre">
+            </mat-form-field>
+
+            <!-- Proprieta' comuni videogames -->
+
+            <mat-form-field appearance="fill">
+                <mat-label>Unique Code</mat-label>
+                <input matInput ngModel type="number" name="uniqueCode">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Videogame series</mat-label>
+                <input matInput ngModel type="text" name="vgSeries">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Developer</mat-label>
+                <input matInput ngModel type="text" name="developer">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Age Recommendation</mat-label>
+                <input matInput ngModel type="number" name="ageRecommendation">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>N. of Players</mat-label>
+                <input matInput ngModel type="number" name="players">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Co-op Play</mat-label>
+                <input matInput ngModel type="text" name="coopPlay" placeholder="Type 'Yes' or 'No'">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Controller Support</mat-label>
+                <input matInput ngModel type="text" name="controllerSupport" placeholder="Type 'Yes' or 'No'">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Subtitles</mat-label>
+                <input matInput ngModel type="text" name="subtitles">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Min. Resolution</mat-label>
+                <input matInput ngModel type="number" name="minResolution">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Max. Resolution</mat-label>
+                <input matInput ngModel type="number" name="maxResolution">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Required Space</mat-label>
+                <input matInput ngModel type="text" name="requiredSpace">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Min. OS</mat-label>
+                <input matInput ngModel type="text" name="minOS">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Min. CPU</mat-label>
+                <input matInput ngModel type="text" name="minCPU">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Min. GPU</mat-label>
+                <input matInput ngModel type="text" name="minGPU">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Min. DirectX</mat-label>
+                <input matInput ngModel type="text" name="minDirectX">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Recommended OS</mat-label>
+                <input matInput ngModel type="text" name="recOS">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Recommended CPU</mat-label>
+                <input matInput ngModel type="text" name="recCPU">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Recommended GPU</mat-label>
+                <input matInput ngModel type="text" name="recGPU">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Recommended DirectX</mat-label>
+                <input matInput ngModel type="text" name="recDirectX">
+            </mat-form-field>
+
+            <button mat-button type="submit">Create</button>
+
+        </mat-expansion-panel>
+    </form>
+</mat-accordion>

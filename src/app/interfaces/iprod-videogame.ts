@@ -1,7 +1,7 @@
 export interface IProdVideogame {
 
     // [proprieta' comuni]
-    "id": number;
+    "id"?: number;
     "priceInitial": number; // prezzo iniziale memorizzato per calcolo
     "priceActual": number; // prezzo base visualizzato 
     "discount"?: number;
@@ -25,8 +25,8 @@ export interface IProdVideogame {
     "developer": string;
     "ageRecommendation": number;
     "players": number;
-    "coopPlay": boolean;          // if true ✓, false X
-    "controllerSupport": boolean; // if true ✓, false X    
+    "coopPlay": string;
+    "controllerSupport": string;
     "subtitles": string;
     "minResolution": number;
     "maxResolution": number; // 1080p
