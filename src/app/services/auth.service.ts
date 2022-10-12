@@ -11,6 +11,8 @@ import { IUserDtoGetResponse } from "../interfaces/idto-user-response";
 import { IDtoProfile } from "../interfaces/idto-profile";
 import { IDtoCredentials } from "../interfaces/idto-credentials";
 import { IProdVideogame } from "../interfaces/iprod-videogame";
+import { IProdMusic } from "../interfaces/iprod-music";
+import { IProdBook } from "../interfaces/iprod-book";
 
 @Injectable({
   providedIn: 'root'
@@ -94,6 +96,14 @@ export class AuthService {
 
   saveVideogame(obj: IProdVideogame): Observable<Object> {
     return this.http.post(environment.APIEndpoint + '/products/videogames/saveVideogame', obj, this.options);
+  }
+
+  saveMusic(obj: IProdMusic): Observable<Object> {
+    return this.http.post(environment.APIEndpoint + '/products/music/saveMusic', obj, this.options);
+  }
+
+  saveBook(obj: IProdBook): Observable<Object> {
+    return this.http.post(environment.APIEndpoint + '/products/books/saveBook', obj, this.options);
   }
 
   /* ============== Chiamate GET ============== */

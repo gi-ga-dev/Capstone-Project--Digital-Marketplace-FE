@@ -1,10 +1,8 @@
+<button mat-button *ngIf="getRole === 'ROLE_ADMIN'" id="vg-modal" (click)="openVideogameDialog()">
+    <mat-icon>create</mat-icon> Create Videogame
+</button>
+
 <div id="card-cont">
-
-    <button mat-button *ngIf="getRole === 'ROLE_ADMIN'" id="vg-modal" (click)="openVideogameDialog()">
-        <mat-icon>create</mat-icon> Create Videogame
-    </button>
-
-
+    <!-- Schede prodotti da ciclare in mat-card... -->
     <app-mat-card-videogame></app-mat-card-videogame>
-
 </div>

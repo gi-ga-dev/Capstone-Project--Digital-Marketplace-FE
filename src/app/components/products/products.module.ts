@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.page';
 import { VideogamesComponent } from './sub-pages/videogames.page';
-import { AudiobooksComponent } from './sub-pages/audiobooks.page';
+import { BooksComponent } from './sub-pages/books.page';
 import { MatCardVideogameComponent } from './sub-components/mat-card-videogame.component';
 import { MusicComponent } from './sub-pages/music.page';
 
@@ -18,15 +18,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatModalMusicComponent } from './sub-components/mat-modal-music.component';
+import { MatModalBookComponent } from './sub-components/mat-modal-book.component';
 
 @NgModule({
   declarations: [
     ProductsComponent,
     VideogamesComponent,
     MusicComponent,
-    AudiobooksComponent,
+    BooksComponent,
     MatCardVideogameComponent,
-    MatModalVideogameComponent
+    MatModalVideogameComponent,
+    MatModalMusicComponent,
+    MatModalBookComponent
   ],
   imports: [
     CommonModule,

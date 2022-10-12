@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
-import { MatModalMusicComponent } from '../sub-components/mat-modal-music.component';
+import { MatModalBookComponent } from '../sub-components/mat-modal-book.component';
 
 @Component({
-  templateUrl: './music.page.html',
-  styleUrls: ['./music.page.scss']
+  templateUrl: './books.page.html',
+  styleUrls: ['./books.page.scss']
 })
-export class MusicComponent implements OnInit {
+export class BooksComponent implements OnInit {
 
   getRole: string | undefined = this.authService.getRole()?.toString();
 
@@ -15,8 +15,8 @@ export class MusicComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  openMusicDialog() {
-    const dialogRef = this.dialog.open(MatModalMusicComponent);
+  openBookDialog() {
+    const dialogRef = this.dialog.open(MatModalBookComponent);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });

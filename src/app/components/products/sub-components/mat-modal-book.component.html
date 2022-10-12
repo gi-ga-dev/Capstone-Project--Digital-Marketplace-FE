@@ -1,0 +1,71 @@
+<mat-dialog-content class="mat-typography">
+    <mat-accordion class="example-headers-align" multi>
+        <form #f="ngForm" (ngSubmit)="onSubmit()">
+
+            <mat-form-field appearance="fill">
+                <mat-label>Initial Price</mat-label>
+                <input matInput ngModel type="number" name="priceInitial">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Actual Price</mat-label>
+                <input matInput ngModel type="number" name="priceActual">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Title</mat-label>
+                <input matInput ngModel type="text" name="title">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Description</mat-label>
+                <input matInput ngModel type="text" name="description">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Platform</mat-label>
+                <input matInput ngModel type="text" name="platform">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Publisher</mat-label>
+                <input matInput ngModel type="text" name="publisher">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Release Date</mat-label>
+                <input matInput ngModel type="text" name="releaseDate">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Language</mat-label>
+                <input matInput ngModel type="text" name="language">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Genre</mat-label>
+                <input matInput ngModel type="text" name="genre">
+            </mat-form-field>
+
+            <!-- Proprieta' comuni books -->
+
+            <mat-form-field appearance="fill">
+                <mat-label>Isbn Code</mat-label>
+                <input matInput ngModel type="number" name="isbnCode">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Book series</mat-label>
+                <input matInput ngModel type="text" name="bookSeries">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Author</mat-label>
+                <input matInput ngModel type="text" name="author">
+            </mat-form-field>
+
+            <button mat-button type="submit" [mat-dialog-close]="true" cdkFocusInitial>Create</button>
+
+        </form>
+    </mat-accordion>
+</mat-dialog-content>

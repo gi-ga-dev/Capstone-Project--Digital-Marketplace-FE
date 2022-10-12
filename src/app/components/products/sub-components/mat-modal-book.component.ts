@@ -3,11 +3,11 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-mat-modal-videogame',
-  templateUrl: './mat-modal-videogame.component.html',
-  styleUrls: ['./mat-modal-videogame.component.scss']
+  selector: 'app-mat-modal-book',
+  templateUrl: './mat-modal-book.component.html',
+  styleUrls: ['./mat-modal-book.component.scss']
 })
-export class MatModalVideogameComponent implements OnInit {
+export class MatModalBookComponent implements OnInit {
 
   @ViewChild('f') form!: NgForm;
   error = undefined;
@@ -16,10 +16,10 @@ export class MatModalVideogameComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  onSubmit() { this.saveVideogame(); }
+  onSubmit() { this.saveBook(); }
 
-  saveVideogame() {
-    this.authService.saveVideogame(this.form.value).subscribe(
+  saveBook() {
+    this.authService.saveBook(this.form.value).subscribe(
       (resp) => {
         this.error = undefined;
         console.log(resp);
