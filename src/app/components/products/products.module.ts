@@ -20,6 +20,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatModalMusicComponent } from './sub-components/mat-modal-music.component';
 import { MatModalBookComponent } from './sub-components/mat-modal-book.component';
+import { MatCardMusicComponent } from './sub-components/mat-card-music.component';
+import { MatCardBookComponent } from './sub-components/mat-card-book.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { MatModalBookComponent } from './sub-components/mat-modal-book.component
     MatCardVideogameComponent,
     MatModalVideogameComponent,
     MatModalMusicComponent,
-    MatModalBookComponent
+    MatModalBookComponent,
+    MatCardMusicComponent,
+    MatCardBookComponent
   ],
   imports: [
     CommonModule,

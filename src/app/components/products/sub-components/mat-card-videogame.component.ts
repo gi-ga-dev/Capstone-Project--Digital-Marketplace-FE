@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { MatModalAddbalanceComponent } from '../../header/sub-components/mat-modal-addbalance.component';
-import { MatModalSubscriptionComponent } from '../../header/sub-components/mat-modal-subscription.component';
+import { IProdVideogame } from 'src/app/interfaces/iprod-videogame';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-mat-card-videogame',
@@ -10,22 +9,25 @@ import { MatModalSubscriptionComponent } from '../../header/sub-components/mat-m
 })
 export class MatCardVideogameComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  error = undefined;
+  isDiscounted!: boolean;
+  videogames: IProdVideogame[] = [];
 
-  openSubscriptionDialog() {
-    const dialogRef = this.dialog.open(MatModalSubscriptionComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+  constructor(private authService: AuthService) { }
+
+  ngOnInit(): void { this.getAllVideogames(); }
+
+  getAllVideogames() {
+    return this.authService.getAllVideogames().subscribe(
+      (resp) => {
+        this.error = undefined;
+        this.videogames = resp;
+      },
+      (err) => {
+        this.error = err.error;
+        console.log(err.error);
+      }
+    )
   }
-
-  openAddBalanceDialog() {
-    const dialogRef = this.dialog.open(MatModalAddbalanceComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
-  ngOnInit(): void { }
 
 }

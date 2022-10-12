@@ -119,6 +119,20 @@ export class AuthService {
     return this.http.get<IUserDtoGetResponse>(environment.APIEndpoint + '/users/' + id, this.options);
   }
 
+  // -------------------------------
+
+  getAllVideogames(): Observable<IProdVideogame[]> {
+    return this.http.get<IProdVideogame[]>(environment.APIEndpoint + '/products/getAllVideogames', this.options);
+  }
+
+  getAllMusic(): Observable<IProdMusic[]> {
+    return this.http.get<IProdMusic[]>(environment.APIEndpoint + '/products/getAllMusic', this.options);
+  }
+
+  getAllBooks(): Observable<IProdBook[]> {
+    return this.http.get<IProdBook[]>(environment.APIEndpoint + '/products/getAllBooks', this.options);
+  }
+
   /* ============== Chiamate PUT/PATCH ============== */
 
   updateUserInfo(obj: IDtoProfile, id: number | undefined): Observable<Object> {

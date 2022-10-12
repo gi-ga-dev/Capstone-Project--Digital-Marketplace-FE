@@ -2,10 +2,9 @@ export interface IProdMusic {
     // [proprieta' comuni]
     "id"?: number;
     "priceInitial": number; // prezzo iniziale memorizzato per calcolo
-    "priceActual": number; // prezzo base visualizzato 
+    "priceDiscounted"?: number; // prezzo base visualizzato 
     "discount"?: number;
-    // if(discounted)  --> priceActual = priceInitial - (priceInitial/100*n)
-    // if(!discounted) --> priceActual = priceInitial;
+    // if(isDiscounted)  --> priceDiscounted = priceInitial - (priceInitial/100*n)
     "title": string;
     "description": string;
     "platform": string; // dove e' possibile installarlo

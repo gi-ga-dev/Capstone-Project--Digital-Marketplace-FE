@@ -16,13 +16,15 @@ export class MatModalVideogameComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  onSubmit() { this.saveVideogame(); }
+  onSubmit() {
+    this.saveVideogame();
+    this.authService.reloadRoute();
+  }
 
   saveVideogame() {
     this.authService.saveVideogame(this.form.value).subscribe(
       (resp) => {
         this.error = undefined;
-        console.log(resp);
       },
       (err) => {
         this.error = err.error;

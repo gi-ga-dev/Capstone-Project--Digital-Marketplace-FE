@@ -1,0 +1,43 @@
+<mat-card class="example-card" *ngFor="let book of books">
+
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-header>
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <mat-card-title>Title: {{book.title}}</mat-card-title>
+        <!-- <mat-card-subtitle></mat-card-subtitle> -->
+    </mat-card-header>
+
+    <mat-card-content>
+        <p>Initial Price: {{book.priceInitial}}$</p>
+
+        <p *ngIf="isDiscounted">Actual Price: {{book.priceDiscounted}}$</p>
+        <p *ngIf="isDiscounted">Discount: {{book.discount}}%</p>
+
+        <p>Description: {{book.description}}</p>
+        <p>Platform: {{book.platform}}</p>
+        <p>Publisher: {{book.publisher}}</p>
+        <p>Release Date: {{book.releaseDate}}</p>
+        <p>Language: {{book.language}}</p>
+        <p>Genre: {{book.genre}}</p>
+
+        <p>Ratings: <span *ngIf="book.ratings!== null ; else ratingsBlock">{{book.ratings}}</span></p>
+        <ng-template #ratingsBlock> No ratings yet...</ng-template>
+
+        <p>Reviews: <span *ngIf="book.reviews!== null ; else reviewsBlock">{{book.reviews}}</span></p>
+        <ng-template #reviewsBlock> No reviews yet...</ng-template>
+
+        <!-- Proprieta' esclusive Books -->
+
+        <p>Read: <span *ngIf="book.read!== null ; else readBlock">{{book.read}}</span></p>
+        <ng-template #readBlock> No Read yet...</ng-template>
+
+        <p>Isbn Code: {{book.isbnCode}}</p>
+        <p>Book Series: {{book.bookSeries}}</p>
+        <p>Author: {{book.author}}</p>
+
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-button>Add to Library</button>
+    </mat-card-actions>
+</mat-card>
