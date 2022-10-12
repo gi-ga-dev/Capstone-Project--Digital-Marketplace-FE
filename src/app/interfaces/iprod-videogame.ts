@@ -30,13 +30,5 @@ export interface IProdVideogame {
     "subtitles": string;
     "minResolution": number;
     "maxResolution": number; // 1080p
-    "requiredSpace": string;
-    "minOS": string;
-    "minCPU": string;
-    "minGPU": string;
-    "minDirectX": string;
-    "recOS": string;
-    "recCPU": string;
-    "recGPU": string;
-    "recDirectX": string;
+    "requiredSpace": number;
 }

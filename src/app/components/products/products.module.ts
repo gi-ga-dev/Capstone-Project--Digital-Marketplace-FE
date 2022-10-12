@@ -13,6 +13,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatModalVideogameComponent } from './sub-components/mat-modal-videogame.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,8 @@ import { MatCardModule } from '@angular/material/card';
     VideogamesComponent,
     MusicComponent,
     AudiobooksComponent,
-    MatCardVideogameComponent
+    MatCardVideogameComponent,
+    MatModalVideogameComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +35,12 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatExpansionModule,
+    MatDialogModule
   ]
 })
 export class ProductsModule { }

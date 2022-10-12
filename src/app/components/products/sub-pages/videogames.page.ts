@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AuthService } from 'src/app/services/auth.service';
+import { MatModalVideogameComponent } from '../sub-components/mat-modal-videogame.component';
 
 @Component({
   templateUrl: './videogames.page.html',
@@ -6,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideogamesComponent implements OnInit {
 
-  constructor() { }
+  getRole: string | undefined = this.authService.getRole()?.toString();
 
-  ngOnInit(): void {
+  constructor(private authService: AuthService, public dialog: MatDialog) { }
+
+  ngOnInit(): void { }
+
+  openVideogameDialog() {
+    const dialogRef = this.dialog.open(MatModalVideogameComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 }

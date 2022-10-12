@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
 import { NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-mat-card-create',
-  templateUrl: './mat-card-create.component.html',
-  styleUrls: ['./mat-card-create.component.scss']
+  selector: 'app-mat-modal-videogame',
+  templateUrl: './mat-modal-videogame.component.html',
+  styleUrls: ['./mat-modal-videogame.component.scss']
 })
-export class MatCardCreateComponent implements OnInit {
+export class MatModalVideogameComponent implements OnInit {
 
   @ViewChild('f') form!: NgForm;
   error = undefined;
@@ -19,9 +19,10 @@ export class MatCardCreateComponent implements OnInit {
   onSubmit() { this.createVideogame(); }
 
   createVideogame() {
-    this.authService.createVideogame(this.form.value).subscribe(
+    this.authService.saveVideogame(this.form.value).subscribe(
       (resp) => {
         this.error = undefined;
+        console.log(resp);
       },
       (err) => {
         this.error = err.error;

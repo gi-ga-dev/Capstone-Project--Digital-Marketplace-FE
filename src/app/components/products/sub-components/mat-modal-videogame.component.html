@@ -1,15 +1,6 @@
-<mat-accordion class="example-headers-align" multi>
-    <form #f="ngForm" (ngSubmit)="onSubmit()">
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title></mat-panel-title>
-                <mat-panel-description>
-                    Create Videogame
-                    <mat-icon>videogame_assets</mat-icon>
-                </mat-panel-description>
-            </mat-expansion-panel-header>
-
-            <!-- Proprieta' comuni prodotti -->
+<mat-dialog-content class="mat-typography">
+    <mat-accordion class="example-headers-align" multi>
+        <form #f="ngForm" (ngSubmit)="onSubmit()">
 
             <mat-form-field appearance="fill">
                 <mat-label>Initial Price</mat-label>
@@ -49,11 +40,6 @@
             <mat-form-field appearance="fill">
                 <mat-label>Language</mat-label>
                 <input matInput ngModel type="text" name="language">
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>Genre</mat-label>
-                <input matInput ngModel type="text" name="genre">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
@@ -115,51 +101,11 @@
 
             <mat-form-field appearance="fill">
                 <mat-label>Required Space</mat-label>
-                <input matInput ngModel type="text" name="requiredSpace">
+                <input matInput ngModel type="number" name="requiredSpace">
             </mat-form-field>
 
-            <mat-form-field appearance="fill">
-                <mat-label>Min. OS</mat-label>
-                <input matInput ngModel type="text" name="minOS">
-            </mat-form-field>
+            <button mat-button type="submit" [mat-dialog-close]="true" cdkFocusInitial>Create</button>
 
-            <mat-form-field appearance="fill">
-                <mat-label>Min. CPU</mat-label>
-                <input matInput ngModel type="text" name="minCPU">
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>Min. GPU</mat-label>
-                <input matInput ngModel type="text" name="minGPU">
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>Min. DirectX</mat-label>
-                <input matInput ngModel type="text" name="minDirectX">
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>Recommended OS</mat-label>
-                <input matInput ngModel type="text" name="recOS">
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>Recommended CPU</mat-label>
-                <input matInput ngModel type="text" name="recCPU">
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>Recommended GPU</mat-label>
-                <input matInput ngModel type="text" name="recGPU">
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>Recommended DirectX</mat-label>
-                <input matInput ngModel type="text" name="recDirectX">
-            </mat-form-field>
-
-            <button mat-button type="submit">Create</button>
-
-        </mat-expansion-panel>
-    </form>
-</mat-accordion>
+        </form>
+    </mat-accordion>
+</mat-dialog-content>

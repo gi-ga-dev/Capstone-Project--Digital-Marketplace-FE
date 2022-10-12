@@ -92,8 +92,8 @@ export class AuthService {
     return this.http.post(environment.APIEndpoint + '/users/createAdmin', obj, this.options);
   }
 
-  createVideogame(obj: IProdVideogame): Observable<Object> {
-    return this.http.post(environment.APIEndpoint + '/createVideogame', obj, this.options);
+  saveVideogame(obj: IProdVideogame): Observable<Object> {
+    return this.http.post(environment.APIEndpoint + '/products/videogames/saveVideogame', obj, this.options);
   }
 
   /* ============== Chiamate GET ============== */

@@ -20,10 +20,6 @@ const routes: Routes = [
     path: 'profile', canActivate: [AuthGuard],
     loadChildren: () => import('./components/profile/profile.module').then(m => m.ProfileModule)
   },
-  {
-    path: 'products-create', canActivate: [AuthGuard],
-    loadChildren: () => import('./components/products-create/products-create.module').then(m => m.ProductsCreateModule)
-  },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: '**', loadChildren: () => import('./components/error404/error404.module').then(m => m.Error404Module) },
 ];

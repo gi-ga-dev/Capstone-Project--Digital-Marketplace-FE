@@ -18,7 +18,6 @@ import { HomeModule } from './components/home/home.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     FlexLayoutModule,
-
     HeaderModule,
     HomeModule,
     FooterModule,
