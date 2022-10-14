@@ -210,6 +210,10 @@ export class AuthService {
     return this.http.delete(environment.APIEndpoint + '/users/' + id, this.options);
   }
 
+  deleteFromCart(shopId: number | undefined, productId: number | undefined) {
+    return this.http.delete(environment.APIEndpoint + '/shop-system/' + shopId + "/" + productId + "/deleteFromCart", this.options);
+  }
+
   /* ======= Reload della rotta (non del browser) ======= */
 
   reloadRoute() {

@@ -37,8 +37,10 @@ export class MatCardVideogameComponent implements OnInit {
       (resp) => {
         this.error = undefined;
         window.alert("Product Added to Shopping Cart");
+        this.authService.reloadRoute();
       },
       (err) => {
+        window.alert("Product already in Shopping Cart...");
         this.error = err.error;
         console.log(err.error);
       }

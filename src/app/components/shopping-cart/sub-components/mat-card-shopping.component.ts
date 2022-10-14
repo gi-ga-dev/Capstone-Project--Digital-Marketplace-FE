@@ -26,10 +26,22 @@ export class MatCardShoppingComponent implements OnInit {
         this.cartProducts = resp;
       },
       (err) => {
-        console.log("Ho trovato un errore nel get e faccio il reload della pagina");
-        location.reload();
         this.error = err.error;
         console.log(err.error);
+      }
+    )
+  }
+
+  deleteFromCart(shopId: number | undefined, productId: number | undefined) {
+    this.authService.deleteFromCart(shopId, productId).subscribe(
+      (resp) => {
+        this.error = undefined;
+      },
+      (err) => {
+        this.error = err.error;
+        console.log(err.error);
+        window.alert("Delete from Shopping Cart successfull");
+        this.authService.reloadRoute();
       }
     )
 

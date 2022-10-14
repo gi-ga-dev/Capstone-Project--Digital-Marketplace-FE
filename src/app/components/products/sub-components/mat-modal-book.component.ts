@@ -16,15 +16,13 @@ export class MatModalBookComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  onSubmit() {
-    this.saveBook();
-    this.authService.reloadRoute();
-  }
+  onSubmit() { this.saveBook(); }
 
   saveBook() {
     this.authService.saveBook(this.form.value).subscribe(
       (resp) => {
         this.error = undefined;
+        this.authService.reloadRoute();
       },
       (err) => {
         this.error = err.error;

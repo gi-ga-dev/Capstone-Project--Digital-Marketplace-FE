@@ -17,7 +17,7 @@
             <p>Title: {{product.title}}</p>
             <p>Price: {{product.priceInitial}}$</p>
 
-            <button mat-button>
+            <button mat-button (click)="deleteFromCart(getId, product.id)">
                 <!-- aggiungere btn remove -> deleteById -->
                 <mat-icon>remove_shopping_cart</mat-icon>
             </button>

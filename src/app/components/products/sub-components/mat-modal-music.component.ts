@@ -16,15 +16,13 @@ export class MatModalMusicComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  onSubmit() {
-    this.saveMusic();
-    this.authService.reloadRoute();
-  }
+  onSubmit() { this.saveMusic(); }
 
   saveMusic() {
     this.authService.saveMusic(this.form.value).subscribe(
       (resp) => {
         this.error = undefined;
+        this.authService.reloadRoute();
       },
       (err) => {
         this.error = err.error;

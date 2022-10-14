@@ -35,6 +35,7 @@ export class MatCardMusicComponent implements OnInit {
     this.authService.addToCart(shopId, productId).subscribe(
       (resp) => {
         this.error = undefined;
+        window.alert("Product Added to Shopping Cart");
       },
       (err) => {
         this.error = err.error;
