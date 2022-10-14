@@ -1,6 +1,7 @@
 export interface IProdMusic {
     // [proprieta' comuni]
     "id"?: number;
+    "productType": string;
     "priceInitial": number; // prezzo iniziale memorizzato per calcolo
     "priceDiscounted"?: number; // prezzo base visualizzato 
     "discount"?: number;

@@ -12,6 +12,7 @@ export class MatCardMusicComponent implements OnInit {
   error = undefined;
   isDiscounted!: boolean;
   music: IProdMusic[] = [];
+  getId: number | undefined = this.authService.getId();
 
   constructor(private authService: AuthService) { }
 
@@ -22,6 +23,18 @@ export class MatCardMusicComponent implements OnInit {
       (resp) => {
         this.error = undefined;
         this.music = resp;
+      },
+      (err) => {
+        this.error = err.error;
+        console.log(err.error);
+      }
+    )
+  }
+
+  addToCart(shopId: number | undefined, productId: number | undefined) {
+    this.authService.addToCart(shopId, productId).subscribe(
+      (resp) => {
+        this.error = undefined;
       },
       (err) => {
         this.error = err.error;

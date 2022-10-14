@@ -2,6 +2,7 @@ export interface IProdVideogame {
 
     // [proprieta' comuni]
     "id"?: number;
+    "productType": string;
     "priceInitial": number; // prezzo iniziale memorizzato per calcolo
     "priceDiscounted"?: number;
     "discount"?: number;

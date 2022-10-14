@@ -38,6 +38,8 @@
     </mat-card-content>
 
     <mat-card-actions>
-        <button mat-button>Add to Library</button>
+        <button mat-button>Get Free!</button> <!-- if(isSubscribed) -> add to library & purchase history -->
+        <button mat-button (click)="addToCart(getId, book.id)">Add to Cart</button>
+        <button mat-button>Add to WishList</button> <!-- Aggiungere alla pagina Wishlist -->
     </mat-card-actions>
 </mat-card>

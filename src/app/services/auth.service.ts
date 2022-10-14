@@ -94,6 +94,8 @@ export class AuthService {
     return this.http.post(environment.APIEndpoint + '/users/createAdmin', obj, this.options);
   }
 
+  // POST Prodotti da acquistare (inseriti nel db (no lista) tramite input) 
+
   saveVideogame(obj: IProdVideogame): Observable<Object> {
     return this.http.post(environment.APIEndpoint + '/products/videogames/saveVideogame', obj, this.options);
   }
@@ -104,6 +106,13 @@ export class AuthService {
 
   saveBook(obj: IProdBook): Observable<Object> {
     return this.http.post(environment.APIEndpoint + '/products/books/saveBook', obj, this.options);
+  }
+
+  // POST Prodotti da aggiungere al carrello (cartList e db)
+
+  addToCart(shopId: number | undefined, productId: number | undefined): Observable<Object> {
+    // gli passo l'id dell'utente, dato che e' uguale all'id dello shop-system
+    return this.http.post(environment.APIEndpoint + '/shop-system/' + shopId + '/' + productId + '/addToCart', this.options);
   }
 
   /* ============== Chiamate GET ============== */
@@ -119,7 +128,7 @@ export class AuthService {
     return this.http.get<IUserDtoGetResponse>(environment.APIEndpoint + '/users/' + id, this.options);
   }
 
-  // -------------------------------
+  // ---------------- Products ------------------
 
   getAllVideogames(): Observable<IProdVideogame[]> {
     return this.http.get<IProdVideogame[]>(environment.APIEndpoint + '/products/getAllVideogames', this.options);
@@ -131,6 +140,30 @@ export class AuthService {
 
   getAllBooks(): Observable<IProdBook[]> {
     return this.http.get<IProdBook[]>(environment.APIEndpoint + '/products/getAllBooks', this.options);
+  }
+
+  // get by id (potrebbero servire in futuro)
+
+  getVideogameById(id: number | undefined) {
+    return this.http.get<IProdVideogame>(environment.APIEndpoint + '/products/' + id + '/getVideogameById', this.options);
+  }
+
+  getMusicById(id: number | undefined) {
+    return this.http.get<IProdMusic>(environment.APIEndpoint + '/products/' + id + '/getMusicById', this.options);
+  }
+
+  getBookById(id: number | undefined) {
+    return this.http.get<IProdBook>(environment.APIEndpoint + '/products/' + id + '/getBookById', this.options);
+  }
+
+  // ---------------- Shop System ------------------
+
+  getShopSystemById(shopId: number | undefined) {
+    return this.http.get(environment.APIEndpoint + '/shop-system/' + shopId + '/getShopSystemById', this.options);
+  }
+
+  getCartListById(shopId: number | undefined) {
+    return this.http.get<IProdVideogame[] | IProdMusic[] | IProdBook[]>(environment.APIEndpoint + '/shop-system/' + shopId + '/getCartListById', this.options);
   }
 
   /* ============== Chiamate PUT/PATCH ============== */
