@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
-import { MatModalVideogameComponent } from '../sub-components/mat-modal-videogame.component';
+import { MatModalVideogameComponent } from '../mat-modal-videogame/mat-modal-videogame.component';
 
 @Component({
   templateUrl: './videogames.page.html',

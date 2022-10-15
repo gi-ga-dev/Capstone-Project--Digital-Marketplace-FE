@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
-import { MatModalBookComponent } from '../sub-components/mat-modal-book.component';
+import { MatModalBookComponent } from '../mat-modal-book/mat-modal-book.component';
 
 @Component({
   templateUrl: './books.page.html',

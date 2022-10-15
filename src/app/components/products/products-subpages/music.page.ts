@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
-import { MatModalMusicComponent } from '../sub-components/mat-modal-music.component';
+import { MatModalMusicComponent } from '../mat-modal-music/mat-modal-music.component';
 
 @Component({
   templateUrl: './music.page.html',

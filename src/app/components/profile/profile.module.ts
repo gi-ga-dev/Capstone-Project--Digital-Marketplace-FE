@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfileRoutingModule } from './profile-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /* ------------- Components ----------------- */
 import { ProfileComponent } from './profile.component';
@@ -14,7 +15,6 @@ import { MatModalAddbalanceComponent } from './mat-modal-addbalance/mat-modal-ad
 /* ------------- Material ----------------- */
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
