@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IProdVideogame } from 'src/app/interfaces/iprod-videogame';
 import { AuthService } from 'src/app/services/auth.service';
+import { ProductsService } from 'src/app/services/products.service';
+import { ShopsystemService } from 'src/app/services/shopsystem.service';
 
 @Component({
   selector: 'app-mat-card-videogame',
@@ -15,12 +17,15 @@ export class MatCardVideogameComponent implements OnInit {
   videogames: IProdVideogame[] = [];
   getId: number | undefined = this.authService.getId();
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private prodService: ProductsService,
+    private shopService: ShopsystemService) { }
 
   ngOnInit(): void { this.getAllVideogames(); }
 
   getAllVideogames() {
-    return this.authService.getAllVideogames().subscribe(
+    return this.prodService.getAllVideogames().subscribe(
       (resp) => {
         this.error = undefined;
         this.videogames = resp;
@@ -33,7 +38,7 @@ export class MatCardVideogameComponent implements OnInit {
   }
 
   addToCart(shopId: number | undefined, productId: number | undefined) {
-    return this.authService.addToCart(shopId, productId).subscribe(
+    return this.shopService.addToCart(shopId, productId).subscribe(
       (resp) => {
         this.error = undefined;
         window.alert("Product Added to Shopping Cart");
@@ -47,9 +52,10 @@ export class MatCardVideogameComponent implements OnInit {
     )
   }
 
+  // NON IN USO!!
   getProductById(id: number | undefined) {
     // prendo oggetto presente nel db tramite id
-    return this.authService.getVideogameById(id).subscribe(
+    return this.prodService.getVideogameById(id).subscribe(
       (resp) => {
         this.error = undefined;
         this.videogame = resp;

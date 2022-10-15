@@ -35,7 +35,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {
 
     let tokenJson = localStorage.getItem('isAuthenticated');
-    // se autenticato, parse del token e autorizza chiamate REST
+    // Iniettare nei constructor services per autorizzare chiamate REST
     if (tokenJson) {
       let token = JSON.parse(tokenJson);
       this.headers.Authorization = `Bearer ${token.token}`;
@@ -91,28 +91,7 @@ export class AuthService {
     return this.http.post(environment.APIEndpoint + '/users/createAdmin', obj, this.options);
   }
 
-  // POST Prodotti da acquistare (inseriti nel db (no lista) tramite input) 
-
-  saveVideogame(obj: IProdVideogame): Observable<Object> {
-    return this.http.post(environment.APIEndpoint + '/products/videogames/saveVideogame', obj, this.options);
-  }
-
-  saveMusic(obj: IProdMusic): Observable<Object> {
-    return this.http.post(environment.APIEndpoint + '/products/music/saveMusic', obj, this.options);
-  }
-
-  saveBook(obj: IProdBook): Observable<Object> {
-    return this.http.post(environment.APIEndpoint + '/products/books/saveBook', obj, this.options);
-  }
-
-  // POST Prodotti da aggiungere al carrello (cartList e db)
-
-  addToCart(shopId: number | undefined, productId: number | undefined): Observable<Object> {
-    // gli passo l'id dell'utente, dato che e' uguale all'id dello shop-system
-    return this.http.post(environment.APIEndpoint + '/shop-system/' + shopId + '/' + productId + '/addToCart', this.options);
-  }
-
-  /* ============== Chiamate GET ============== */
+  // ============== GET ==============
 
   // get di tutti gli users[] registrati
   getAllUsersInfo(): Observable<IUserDtoGetResponse[]> {
@@ -125,45 +104,7 @@ export class AuthService {
     return this.http.get<IUserDtoGetResponse>(environment.APIEndpoint + '/users/' + id, this.options);
   }
 
-  // ---------------- Products ------------------
-
-  getAllVideogames(): Observable<IProdVideogame[]> {
-    return this.http.get<IProdVideogame[]>(environment.APIEndpoint + '/products/getAllVideogames', this.options);
-  }
-
-  getAllMusic(): Observable<IProdMusic[]> {
-    return this.http.get<IProdMusic[]>(environment.APIEndpoint + '/products/getAllMusic', this.options);
-  }
-
-  getAllBooks(): Observable<IProdBook[]> {
-    return this.http.get<IProdBook[]>(environment.APIEndpoint + '/products/getAllBooks', this.options);
-  }
-
-  // get by id (potrebbero servire in futuro)
-
-  getVideogameById(id: number | undefined) {
-    return this.http.get<IProdVideogame>(environment.APIEndpoint + '/products/' + id + '/getVideogameById', this.options);
-  }
-
-  getMusicById(id: number | undefined) {
-    return this.http.get<IProdMusic>(environment.APIEndpoint + '/products/' + id + '/getMusicById', this.options);
-  }
-
-  getBookById(id: number | undefined) {
-    return this.http.get<IProdBook>(environment.APIEndpoint + '/products/' + id + '/getBookById', this.options);
-  }
-
-  // ---------------- Shop System ------------------
-
-  getShopSystemById(shopId: number | undefined) {
-    return this.http.get(environment.APIEndpoint + '/shop-system/' + shopId + '/getShopSystemById', this.options);
-  }
-
-  getCartListById(shopId: number | undefined) {
-    return this.http.get<IProdVideogame[] | IProdMusic[] | IProdBook[]>(environment.APIEndpoint + '/shop-system/' + shopId + '/getCartListById', this.options);
-  }
-
-  /* ============== Chiamate PUT/PATCH ============== */
+  // ============== PUT/PATCH ==============
 
   updateUserInfo(obj: IDtoProfile, id: number | undefined): Observable<Object> {
     return this.http.patch(environment.APIEndpoint + '/users/' + id + '/updateProfileInfo', obj, this.options);
@@ -201,17 +142,13 @@ export class AuthService {
     return this.http.patch(environment.APIEndpoint + '/users/' + id + '/addFiftyDollars', this.options);
   }
 
-  /* ============== Chiamate DELETE ============== */
+  // ============== DELETE ==============
 
   deleteAccount(id: number | undefined) {
     return this.http.delete(environment.APIEndpoint + '/users/' + id, this.options);
   }
 
-  deleteFromCart(shopId: number | undefined, productId: number | undefined) {
-    return this.http.delete(environment.APIEndpoint + '/shop-system/' + shopId + "/" + productId + "/deleteFromCart", this.options);
-  }
-
-  /* ======= Reload della rotta (non del browser) ======= */
+  // ============== Metodi Utili ==============
 
   reloadRoute() {
     const currentRoute = this.router.url;

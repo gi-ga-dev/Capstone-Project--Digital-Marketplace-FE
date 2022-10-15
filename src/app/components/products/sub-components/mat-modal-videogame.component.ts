@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-mat-modal-videogame',
@@ -12,14 +13,16 @@ export class MatModalVideogameComponent implements OnInit {
   @ViewChild('f') form!: NgForm;
   error = undefined;
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private prodService: ProductsService) { }
 
   ngOnInit(): void { }
 
   onSubmit() { this.saveVideogame(); }
 
   saveVideogame() {
-    this.authService.saveVideogame(this.form.value).subscribe(
+    this.prodService.saveVideogame(this.form.value).subscribe(
       (resp) => {
         this.error = undefined;
         this.authService.reloadRoute();

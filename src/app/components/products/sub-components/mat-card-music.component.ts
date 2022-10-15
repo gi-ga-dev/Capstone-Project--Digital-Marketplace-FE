@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IProdMusic } from 'src/app/interfaces/iprod-music';
 import { AuthService } from 'src/app/services/auth.service';
+import { ProductsService } from 'src/app/services/products.service';
+import { ShopsystemService } from 'src/app/services/shopsystem.service';
 
 @Component({
   selector: 'app-mat-card-music',
@@ -14,12 +16,15 @@ export class MatCardMusicComponent implements OnInit {
   music: IProdMusic[] = [];
   getId: number | undefined = this.authService.getId();
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private prodService: ProductsService,
+    private shopService: ShopsystemService) { }
 
   ngOnInit(): void { this.getAllMusic(); }
 
   getAllMusic() {
-    return this.authService.getAllMusic().subscribe(
+    return this.prodService.getAllMusic().subscribe(
       (resp) => {
         this.error = undefined;
         this.music = resp;
@@ -32,7 +37,7 @@ export class MatCardMusicComponent implements OnInit {
   }
 
   addToCart(shopId: number | undefined, productId: number | undefined) {
-    this.authService.addToCart(shopId, productId).subscribe(
+    this.shopService.addToCart(shopId, productId).subscribe(
       (resp) => {
         this.error = undefined;
         window.alert("Product Added to Shopping Cart");

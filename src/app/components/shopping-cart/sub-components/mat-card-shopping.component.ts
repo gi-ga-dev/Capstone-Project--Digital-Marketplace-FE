@@ -3,6 +3,7 @@ import { IProdBook } from 'src/app/interfaces/iprod-book';
 import { IProdMusic } from 'src/app/interfaces/iprod-music';
 import { IProdVideogame } from 'src/app/interfaces/iprod-videogame';
 import { AuthService } from 'src/app/services/auth.service';
+import { ShopsystemService } from 'src/app/services/shopsystem.service';
 
 @Component({
   selector: 'app-mat-card-shopping',
@@ -15,12 +16,14 @@ export class MatCardShoppingComponent implements OnInit {
   cartProducts: any[] = [];
   getId: number | undefined = this.authService.getId();
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private shopService: ShopsystemService) { }
 
   ngOnInit(): void { this.getCartListById(this.getId); }
 
   getCartListById(shopId: number | undefined) {
-    return this.authService.getCartListById(shopId).subscribe(
+    return this.shopService.getCartListById(shopId).subscribe(
       (resp) => {
         this.error = undefined;
         this.cartProducts = resp;
@@ -33,7 +36,7 @@ export class MatCardShoppingComponent implements OnInit {
   }
 
   deleteFromCart(shopId: number | undefined, productId: number | undefined) {
-    this.authService.deleteFromCart(shopId, productId).subscribe(
+    this.shopService.deleteFromCart(shopId, productId).subscribe(
       (resp) => {
         this.error = undefined;
       },
