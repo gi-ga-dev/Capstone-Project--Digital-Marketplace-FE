@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.page';
-import { VideogamesComponent } from './sub-pages/videogames.page';
-import { BooksComponent } from './sub-pages/books.page';
+import { VideogamesComponent } from './products-subpages/videogames.page';
+import { BooksComponent } from './products-subpages/books.page';
 import { MatCardVideogameComponent } from './sub-components/mat-card-videogame.component';
-import { MusicComponent } from './sub-pages/music.page';
+import { MusicComponent } from './products-subpages/music.page';
 
 /* ---------- Material ---------- */
 import { MatInputModule } from '@angular/material/input';

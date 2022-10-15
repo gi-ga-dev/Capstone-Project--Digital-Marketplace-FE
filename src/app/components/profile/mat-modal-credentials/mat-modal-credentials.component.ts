@@ -4,11 +4,11 @@ import { IUserDtoGetResponse } from 'src/app/interfaces/idto-user-response';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-mat-modal-credential',
-  templateUrl: './mat-modal-credential.component.html',
-  styleUrls: ['./mat-modal-credential.component.scss']
+  selector: 'app-mat-modal-credentials',
+  templateUrl: './mat-modal-credentials.component.html',
+  styleUrls: ['./mat-modal-credentials.component.scss']
 })
-export class MatModalCredentialComponent implements OnInit {
+export class MatModalCredentialsComponent implements OnInit {
 
   @ViewChild('f') form!: NgForm;
   error = undefined;

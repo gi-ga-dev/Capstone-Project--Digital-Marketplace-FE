@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IProdBook } from 'src/app/interfaces/iprod-book';
-import { IProdMusic } from 'src/app/interfaces/iprod-music';
-import { IProdVideogame } from 'src/app/interfaces/iprod-videogame';
 import { AuthService } from 'src/app/services/auth.service';
 import { ShopsystemService } from 'src/app/services/shopsystem.service';
 

@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { IUserDtoGetResponse } from 'src/app/interfaces/idto-user-response';
 import { AuthService } from 'src/app/services/auth.service';
-import { MatModalAddbalanceComponent } from '../../header/sub-components/mat-modal-addbalance.component';
-import { MatModalSubscriptionComponent } from '../../header/sub-components/mat-modal-subscription.component';
-import { MatModalCredentialComponent } from './mat-modal-credential.component';
-import { MatModalDeleteComponent } from './mat-modal-delete.component';
-import { MatModalProfileComponent } from './mat-modal-profile.component';
+import { MatModalAddbalanceComponent } from '../mat-modal-addbalance/mat-modal-addbalance.component';
+import { MatModalCredentialsComponent } from '../mat-modal-credentials/mat-modal-credentials.component';
+import { MatModalDeleteComponent } from '../mat-modal-delete/mat-modal-delete.component';
+import { MatModalProfileComponent } from '../mat-modal-profile/mat-modal-profile.component';
+import { MatModalSubscriptionComponent } from '../mat-modal-subscription/mat-modal-subscription.component';
 
 @Component({
   selector: 'app-mat-card-profile',
@@ -49,7 +49,7 @@ export class MatCardProfileComponent implements OnInit {
 
   /* Modal Modifica Credenziali di Accesso */
   openCredentialDialog() {
-    const dialogRef = this.dialog.open(MatModalCredentialComponent);
+    const dialogRef = this.dialog.open(MatModalCredentialsComponent);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });

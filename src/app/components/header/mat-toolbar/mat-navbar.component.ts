@@ -1,5 +1,4 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -14,7 +13,7 @@ export class MatNavbarComponent implements OnInit, DoCheck {
   getRole: string | undefined;
   error = undefined;
 
-  constructor(private authService: AuthService, public dialog: MatDialog) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void { }
 
