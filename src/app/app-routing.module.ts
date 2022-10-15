@@ -14,8 +14,9 @@ const routes: Routes = [
   { path: 'purchase-history', canActivate: [AuthGuard], loadChildren: () => import('./components/purchase-history/purchase-history.module').then(m => m.PurchaseHistoryModule) },
   { path: 'shopping-cart', canActivate: [AuthGuard], loadChildren: () => import('./components/shopping-cart/shopping-cart.module').then(m => m.ShoppingCartModule) },
   { path: 'wishlist', canActivate: [AuthGuard], loadChildren: () => import('./components/wishlist/wishlist.module').then(m => m.WishlistModule) },
-  { path: '**', loadChildren: () => import('./components/error404/error404.module').then(m => m.Error404Module) },
-  { path: '', pathMatch: 'full', redirectTo: 'home' }
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: '**', loadChildren: () => import('./components/error404/error404.module').then(m => m.Error404Module) }
+
 ];
 
 @NgModule({

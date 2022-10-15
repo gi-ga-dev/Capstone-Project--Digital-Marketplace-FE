@@ -38,6 +38,7 @@ export class MatCardBookComponent implements OnInit {
         window.alert("Product Added to Shopping Cart");
       },
       (err) => {
+        window.alert("Product already in Shopping Cart...");
         this.error = err.error;
         console.log(err.error);
       }

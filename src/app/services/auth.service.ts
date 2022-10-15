@@ -6,7 +6,6 @@ import { BehaviorSubject, Observable, tap } from "rxjs";
 import { environment } from "src/environments/environment";
 import { IAuthJwtResponse } from "../interfaces/iauth-jwt-response";
 import { IAuthCredentialsRequest } from "../interfaces/iauth-credentials-request";
-
 import { IUserDtoGetResponse } from "../interfaces/idto-user-response";
 import { IDtoProfile } from "../interfaces/idto-profile";
 import { IDtoCredentials } from "../interfaces/idto-credentials";
@@ -19,16 +18,14 @@ import { IProdBook } from "../interfaces/iprod-book";
 })
 export class AuthService {
 
-  error = undefined;
   authSubject = new BehaviorSubject<IAuthJwtResponse | null>(null);
   helper = new JwtHelperService();
   authData!: any;
   parsedData!: any;
   parsedRole!: string | null;
   parsedId!: number | undefined;
-  userDetails: IAuthCredentialsRequest[] = [];
 
-  /* per mandare headers al back-end e poter far funzionare i preauthorize */
+  // inviare headers al back-end per funzionamento dei preauthorize
   headers: {
     Authorization?: string;
     "Content-Type": string
@@ -70,7 +67,7 @@ export class AuthService {
     console.log("Successfully logged out");
   }
 
-  /* ============== Chiamate POST ============== */
+  // ============== POST ==============
 
   login(obj: IAuthCredentialsRequest): Observable<IAuthJwtResponse> {
     // LoginRequest (tramite username, password) --> <-- JwtResponse (Ritorna i dati compreso il token)
