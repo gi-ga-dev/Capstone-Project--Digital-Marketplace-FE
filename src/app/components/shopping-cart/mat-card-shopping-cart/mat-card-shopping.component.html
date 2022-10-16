@@ -30,8 +30,9 @@
         <br>
 
         <div>
+            <!-- *ngIf="shopSystem != undefined" rimuove errore -->
             <p>Tot. Quantity: {{cartProducts.length}}</p>
-            <!-- <p *ngIf="cartProducts != undefined">Tot. Price: {{cartProducts}}</p> -->
+            <p>Tot. Price: {{shopSystem.cartSubtotal}}$</p>
             <button mat-button (click)="commitPurchase(getId)">Purchase</button>
         </div>
 

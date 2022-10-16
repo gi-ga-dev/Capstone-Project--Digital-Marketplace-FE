@@ -8,6 +8,7 @@ import { IAuthJwtResponse } from "../interfaces/iauth-jwt-response";
 import { IProdBook } from "../interfaces/iprod-book";
 import { IProdMusic } from "../interfaces/iprod-music";
 import { IProdVideogame } from "../interfaces/iprod-videogame";
+import { IShopSystem } from "../interfaces/ishop-system";
 
 @Injectable({
   providedIn: 'root'
@@ -54,8 +55,14 @@ export class ShopsystemService {
   // ============== GET ==============
 
   getShopSystemById(shopId: number | undefined) {
-    return this.http.get(environment.APIEndpoint + '/shop-system/' + shopId + '/getShopSystemById', this.options);
+    return this.http.get<IShopSystem>(environment.APIEndpoint + '/shop-system/' + shopId + '/getShopSystemById', this.options);
   }
+
+  getShopSystemBasicInfo(shopId: number | undefined) {
+    return this.http.get<IShopSystem>(environment.APIEndpoint + '/shop-system/' + shopId + '/getShopSystemBasicInfo', this.options);
+  }
+
+  // ---------------
 
   getCartListByShopId(shopId: number | undefined) {
     return this.http.get<IProdVideogame[] | IProdMusic[] | IProdBook[]>(environment.APIEndpoint + '/shop-system/' + shopId + '/getCartListByShopId', this.options);

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IShopSystem } from 'src/app/interfaces/ishop-system';
 import { AuthService } from 'src/app/services/auth.service';
 import { ShopsystemService } from 'src/app/services/shopsystem.service';
 
@@ -11,15 +12,36 @@ export class MatCardShoppingComponent implements OnInit {
 
   error = undefined;
   cartProducts: any[] = [];
+  shopSystem!: IShopSystem;
   getId: number | undefined = this.authService.getId();
 
   constructor(
     private authService: AuthService,
     private shopService: ShopsystemService) { }
 
-  ngOnInit(): void { this.getCartListByShopId(this.getId); }
+  ngOnInit(): void {
+    // da getListByShopId ottengo array da ciclare
+    // da getShopSystemBasicInfo aggiorno ed ottengo la prop. cartSubtotal dove ho memorizzato il prezzo totale degli elem nel carrello
+    this.getCartListByShopId(this.getId);
+    this.getShopSystemBasicInfo(this.getId);
+  }
+
+  getShopSystemBasicInfo(shopId: number | undefined) {
+    // ottengo lo shop system per leggere proprieta' (subTotal)
+    return this.shopService.getShopSystemBasicInfo(shopId).subscribe(
+      (resp) => {
+        this.error = undefined;
+        this.shopSystem = resp;
+      },
+      (err) => {
+        this.error = err.error;
+        console.log(err.error);
+      }
+    )
+  }
 
   getCartListByShopId(shopId: number | undefined) {
+    // ottengo lista carrello per ciclare e riportare tutte le schede prodotto
     return this.shopService.getCartListByShopId(shopId).subscribe(
       (resp) => {
         this.error = undefined;
