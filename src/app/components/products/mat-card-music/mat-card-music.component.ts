@@ -41,9 +41,25 @@ export class MatCardMusicComponent implements OnInit {
       (resp) => {
         this.error = undefined;
         window.alert("Product Added to Shopping Cart");
+        this.authService.reloadRoute();
       },
       (err) => {
         window.alert("Product already in Shopping Cart...");
+        this.error = err.error;
+        console.log(err.error);
+      }
+    )
+  }
+
+  addToWishList(shopId: number | undefined, productId: number | undefined) {
+    return this.shopService.addToWishList(shopId, productId).subscribe(
+      (resp) => {
+        this.error = undefined;
+        window.alert("Product Added to WishList");
+        this.authService.reloadRoute();
+      },
+      (err) => {
+        window.alert("Product already in WishList...");
         this.error = err.error;
         console.log(err.error);
       }

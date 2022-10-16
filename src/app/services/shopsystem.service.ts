@@ -43,14 +43,26 @@ export class ShopsystemService {
     return this.http.post(environment.APIEndpoint + '/shop-system/' + shopId + '/' + productId + '/addToCart', this.options);
   }
 
+  addToWishList(shopId: number | undefined, productId: number | undefined): Observable<Object> {
+    return this.http.post(environment.APIEndpoint + '/shop-system/' + shopId + '/' + productId + '/addToWishList', this.options);
+  }
+
+  commitPurchase(shopId: number | undefined): Observable<Object> {
+    return this.http.post(environment.APIEndpoint + '/shop-system/' + shopId + '/commitPurchase', this.options);
+  }
+
   // ============== GET ==============
 
   getShopSystemById(shopId: number | undefined) {
     return this.http.get(environment.APIEndpoint + '/shop-system/' + shopId + '/getShopSystemById', this.options);
   }
 
-  getCartListById(shopId: number | undefined) {
-    return this.http.get<IProdVideogame[] | IProdMusic[] | IProdBook[]>(environment.APIEndpoint + '/shop-system/' + shopId + '/getCartListById', this.options);
+  getCartListByShopId(shopId: number | undefined) {
+    return this.http.get<IProdVideogame[] | IProdMusic[] | IProdBook[]>(environment.APIEndpoint + '/shop-system/' + shopId + '/getCartListByShopId', this.options);
+  }
+
+  getWishListByShopId(shopId: number | undefined) {
+    return this.http.get<IProdVideogame[] | IProdMusic[] | IProdBook[]>(environment.APIEndpoint + '/shop-system/' + shopId + '/getWishListByShopId', this.options);
   }
 
   // ============== PUT/PATCH ==============
@@ -59,6 +71,10 @@ export class ShopsystemService {
 
   deleteFromCart(shopId: number | undefined, productId: number | undefined) {
     return this.http.delete(environment.APIEndpoint + '/shop-system/' + shopId + "/" + productId + "/deleteFromCart", this.options);
+  }
+
+  deleteFromWishList(shopId: number | undefined, productId: number | undefined) {
+    return this.http.delete(environment.APIEndpoint + '/shop-system/' + shopId + "/" + productId + "/deleteFromWishList", this.options);
   }
 
 

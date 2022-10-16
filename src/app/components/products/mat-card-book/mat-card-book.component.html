@@ -10,7 +10,7 @@
     <mat-card-content>
         <p>Initial Price: {{book.priceInitial}}$</p>
 
-        <p *ngIf="isDiscounted">Actual Price: {{book.priceDiscounted}}$</p>
+        <p *ngIf="isDiscounted">Price Discounted: {{book.priceFinal}}$</p>
         <p *ngIf="isDiscounted">Discount: {{book.discount}}%</p>
 
         <p>Description: {{book.description}}</p>
@@ -40,6 +40,6 @@
     <mat-card-actions>
         <button mat-button>Get Free!</button> <!-- if(isSubscribed) -> add to library & purchase history -->
         <button mat-button (click)="addToCart(getId, book.id)">Add to Cart</button>
-        <button mat-button>Add to WishList</button> <!-- Aggiungere alla pagina Wishlist -->
+        <button mat-button (click)="addToWishList(getId, book.id)">Add to WishList</button>
     </mat-card-actions>
 </mat-card>

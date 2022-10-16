@@ -9,6 +9,7 @@
     </mat-card-header>
 
     <mat-card-content>
+        <!-- GET elem nel carrello - Generare una riga per ogni elem nella cartList -->
         <div *ngFor="let product of cartProducts">
             <mat-divider></mat-divider>
             <p>Product Type: {{product.productType}}</p>
@@ -16,18 +17,24 @@
             <p>Price: {{product.priceInitial}}$</p>
 
             <button mat-button (click)="deleteFromCart(getId, product.id)">
-                <!-- aggiungere btn remove -> deleteById -->
                 <mat-icon>remove_shopping_cart</mat-icon>
+            </button>
+
+            <button mat-button (click)="addToWishList(getId, product.id)">
+                <mat-icon>favorite</mat-icon>
             </button>
 
             <mat-divider></mat-divider>
         </div>
 
-    </mat-card-content>
+        <br>
 
-    <mat-card-actions>
-        <button mat-button>Purchase</button>
-        <button mat-button>Add to WishList</button>
-    </mat-card-actions>
+        <div>
+            <p>Tot. Quantity: {{cartProducts.length}}</p>
+            <!-- <p *ngIf="cartProducts != undefined">Tot. Price: {{cartProducts}}</p> -->
+            <button mat-button (click)="commitPurchase(getId)">Purchase</button>
+        </div>
+
+    </mat-card-content>
 
 </mat-card>

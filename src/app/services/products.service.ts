@@ -64,16 +64,8 @@ export class ProductsService {
     return this.http.get<IProdBook[]>(environment.APIEndpoint + '/products/getAllBooks', this.options);
   }
 
-  getVideogameById(id: number | undefined) {
-    return this.http.get<IProdVideogame>(environment.APIEndpoint + '/products/' + id + '/getVideogameById', this.options);
-  }
-
-  getMusicById(id: number | undefined) {
-    return this.http.get<IProdMusic>(environment.APIEndpoint + '/products/' + id + '/getMusicById', this.options);
-  }
-
-  getBookById(id: number | undefined) {
-    return this.http.get<IProdBook>(environment.APIEndpoint + '/products/' + id + '/getBookById', this.options);
+  getProductById(id: number | undefined) {
+    return this.http.get<IProdVideogame | IProdMusic | IProdBook>(environment.APIEndpoint + '/products/' + id + '/getProductById', this.options);
   }
 
   // ============== PUT/PATCH ==============

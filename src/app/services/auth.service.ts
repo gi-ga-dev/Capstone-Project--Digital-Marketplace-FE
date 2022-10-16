@@ -9,9 +9,6 @@ import { IAuthCredentialsRequest } from "../interfaces/iauth-credentials-request
 import { IUserDtoGetResponse } from "../interfaces/idto-user-response";
 import { IDtoProfile } from "../interfaces/idto-profile";
 import { IDtoCredentials } from "../interfaces/idto-credentials";
-import { IProdVideogame } from "../interfaces/iprod-videogame";
-import { IProdMusic } from "../interfaces/iprod-music";
-import { IProdBook } from "../interfaces/iprod-book";
 
 @Injectable({
   providedIn: 'root'
@@ -98,7 +95,7 @@ export class AuthService {
     return this.http.get<IUserDtoGetResponse[]>(environment.APIEndpoint + '/users/getAllInfo', this.options);
   }
 
-  // get del singolo user{} - id (IAuthToken) deve matchare con id (IUserDtoGetResponse)
+  // get del singolo user{} - id (IAuthJwt) deve matchare con id (IUserDtoGetResponse)
   // per recuperare info dell'utente in base all'id utente associato al token
   getUserInfo(id: number | undefined): Observable<IUserDtoGetResponse> {
     return this.http.get<IUserDtoGetResponse>(environment.APIEndpoint + '/users/' + id, this.options);

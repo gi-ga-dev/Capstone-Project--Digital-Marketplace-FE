@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ShoppingCartRoutingModule } from './shopping-cart-routing.module';
+
+/* ------------- Components ----------------- */
 import { ShoppingCartComponent } from './shopping-cart.component';
 import { MatCardShoppingComponent } from './mat-card-shopping-cart/mat-card-shopping.component';
+
+/* ------------- Material ----------------- */
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';

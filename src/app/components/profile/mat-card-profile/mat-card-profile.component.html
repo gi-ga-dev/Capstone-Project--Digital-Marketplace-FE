@@ -6,6 +6,8 @@
         <mat-card-subtitle>
             <p>{{user.role}} #{{user.id}}</p>
 
+            <p>Articles Purchased: {{user.qntPurchased}}</p>
+
             <p>Credit Balance: {{user.accountBalance}}$</p>
             <button mat-button (click)="openAddBalanceDialog()">
                 <mat-icon>attach_money</mat-icon> Add Balance

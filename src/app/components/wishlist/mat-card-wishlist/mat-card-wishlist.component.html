@@ -1,0 +1,30 @@
+<mat-card class="example-card">
+
+    <mat-card-header>
+        <mat-card-title>
+            <mat-icon>favorite</mat-icon> Your Wish List
+        </mat-card-title>
+        <mat-divider></mat-divider>
+        <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
+    </mat-card-header>
+
+    <mat-card-content>
+        <div *ngFor="let product of wishlistProducts">
+            <mat-divider></mat-divider>
+            <p>Product Type: {{product.productType}}</p>
+            <p>Title: {{product.title}}</p>
+            <p>Price: {{product.priceInitial}}$</p>
+
+            <button mat-button (click)="deleteFromWishList(getId, product.id)">
+                <mat-icon>remove_shopping_cart</mat-icon>
+            </button>
+
+            <button mat-button>Go to Product Page</button>
+
+
+            <mat-divider></mat-divider>
+        </div>
+
+    </mat-card-content>
+
+</mat-card>

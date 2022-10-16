@@ -17,10 +17,10 @@ export class MatCardShoppingComponent implements OnInit {
     private authService: AuthService,
     private shopService: ShopsystemService) { }
 
-  ngOnInit(): void { this.getCartListById(this.getId); }
+  ngOnInit(): void { this.getCartListByShopId(this.getId); }
 
-  getCartListById(shopId: number | undefined) {
-    return this.shopService.getCartListById(shopId).subscribe(
+  getCartListByShopId(shopId: number | undefined) {
+    return this.shopService.getCartListByShopId(shopId).subscribe(
       (resp) => {
         this.error = undefined;
         this.cartProducts = resp;
@@ -44,8 +44,36 @@ export class MatCardShoppingComponent implements OnInit {
         this.authService.reloadRoute();
       }
     )
+  }
 
+  addToWishList(shopId: number | undefined, productId: number | undefined) {
+    return this.shopService.addToWishList(shopId, productId).subscribe(
+      (resp) => {
+        this.error = undefined;
+        window.alert("Product added to WishList");
+        this.authService.reloadRoute();
+      },
+      (err) => {
+        window.alert("Product already in WishList...");
+        this.error = err.error;
+        console.log(err.error);
+      }
+    )
+  }
 
+  commitPurchase(shopId: number | undefined) {
+    return this.shopService.commitPurchase(shopId).subscribe(
+      (resp) => {
+        this.error = undefined;
+        window.alert("Purchase Completed!");
+        this.authService.reloadRoute();
+      },
+      (err) => {
+        window.alert("Account Balance is insufficient...");
+        this.error = err.error;
+        console.log(err.error);
+      }
+    )
   }
 
 }

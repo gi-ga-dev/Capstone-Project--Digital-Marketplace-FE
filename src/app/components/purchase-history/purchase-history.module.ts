@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { PurchaseHistoryRoutingModule } from './purchase-history-routing.module';
 import { PurchaseHistoryComponent } from './purchase-history.component';
 
+/* ------------- Components ----------------- */
+/* ------------- Material ----------------- */
 
 @NgModule({
   declarations: [

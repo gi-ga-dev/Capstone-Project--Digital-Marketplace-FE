@@ -2,8 +2,8 @@ export interface IProdBook {
     // [proprieta' comuni]
     "id"?: number;
     "productType": string;
-    "priceInitial": number; // prezzo iniziale memorizzato per calcolo
-    "priceDiscounted"?: number; // prezzo base visualizzato 
+    "priceInitial": number; // lo scrivo nel campo di input alla creazione oggetto, serve per tenere memorizzato il prezzo iniziale nel caso di uno sconto
+    "priceFinal": number; // priceFinal sara' quello sempre visualizzato, quando viene istanziato, e' = a priceInitial
     "discount"?: number;
     // if(isDiscounted)  --> priceDiscounted = priceInitial - (priceInitial/100*n)
     "title": string;

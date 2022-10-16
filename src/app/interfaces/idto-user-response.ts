@@ -7,7 +7,7 @@ export interface IUserDtoGetResponse {
     "email": string;
     "userName": string;
     "role": string;
-
+    "qntPurchased": number;
     "accountBalance": number;
     "isSubscribed": boolean;
     "subStart": string;
