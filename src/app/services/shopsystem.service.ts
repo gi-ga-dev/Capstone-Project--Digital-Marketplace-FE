@@ -39,6 +39,10 @@ export class ShopsystemService {
 
   // Prodotti da aggiungere al liste (es. cartList) e DB 
 
+  addFreeWithSub(shopId: number | undefined, productId: number | undefined): Observable<Object> {
+    return this.http.post(environment.APIEndpoint + '/shop-system/' + shopId + '/' + productId + '/addFreeWithSub', this.options);
+  }
+
   addToCart(shopId: number | undefined, productId: number | undefined): Observable<Object> {
     // gli passo l'id dell'utente, dato che e' uguale all'id dello shop-system
     return this.http.post(environment.APIEndpoint + '/shop-system/' + shopId + '/' + productId + '/addToCart', this.options);
@@ -70,6 +74,14 @@ export class ShopsystemService {
 
   getWishListByShopId(shopId: number | undefined) {
     return this.http.get<IProdVideogame[] | IProdMusic[] | IProdBook[]>(environment.APIEndpoint + '/shop-system/' + shopId + '/getWishListByShopId', this.options);
+  }
+
+  getLibraryListByShopId(shopId: number | undefined) {
+    return this.http.get<IProdVideogame[] | IProdMusic[] | IProdBook[]>(environment.APIEndpoint + '/shop-system/' + shopId + '/getLibraryListByShopId', this.options);
+  }
+
+  getHistoryListByShopId(shopId: number | undefined) {
+    return this.http.get<IProdVideogame[] | IProdMusic[] | IProdBook[]>(environment.APIEndpoint + '/shop-system/' + shopId + '/getHistoryListByShopId', this.options);
   }
 
   // ============== PUT/PATCH ==============

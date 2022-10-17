@@ -1,0 +1,17 @@
+<mat-dialog-content class="mat-typography">
+    <mat-card class="example-card">
+
+        <mat-card-title>Complete your purchase.</mat-card-title>
+        <mat-card-subtitle>Select a purchase method.</mat-card-subtitle>
+
+        <mat-dialog-actions align="end">
+            <button mat-button class="purchase-dialog" [mat-dialog-close]="true" cdkFocusInitial
+                (click)="addFreeWithSub(getId, product.id)">Get
+                Free w/ Sub</button>
+
+            <button mat-button class="purchase-dialog" [mat-dialog-close]="true" cdkFocusInitial
+                (click)="addToCart(getId, product.id)">Purchase - Add to Cart</button>
+        </mat-dialog-actions>
+
+    </mat-card>
+</mat-dialog-content>

@@ -52,6 +52,10 @@ export class ProductsService {
 
   // ============== GET ==============
 
+  getAllProducts(): Observable<IProdVideogame[] | IProdMusic[] | IProdBook[]> {
+    return this.http.get<IProdVideogame[] | IProdMusic[] | IProdBook[]>(environment.APIEndpoint + '/products/getAllProducts', this.options);
+  }
+
   getAllVideogames(): Observable<IProdVideogame[]> {
     return this.http.get<IProdVideogame[]>(environment.APIEndpoint + '/products/getAllVideogames', this.options);
   }
@@ -64,8 +68,8 @@ export class ProductsService {
     return this.http.get<IProdBook[]>(environment.APIEndpoint + '/products/getAllBooks', this.options);
   }
 
-  getProductById(id: number | undefined) {
-    return this.http.get<IProdVideogame | IProdMusic | IProdBook>(environment.APIEndpoint + '/products/' + id + '/getProductById', this.options);
+  getProductById(prodId: number | undefined) {
+    return this.http.get<IProdVideogame | IProdMusic | IProdBook>(environment.APIEndpoint + '/products/' + prodId + '/getProductById', this.options);
   }
 
   // ============== PUT/PATCH ==============

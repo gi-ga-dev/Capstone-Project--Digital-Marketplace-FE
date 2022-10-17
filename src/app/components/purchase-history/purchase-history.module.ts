@@ -1,19 +1,29 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { PurchaseHistoryRoutingModule } from './purchase-history-routing.module';
-import { PurchaseHistoryComponent } from './purchase-history.component';
 
 /* ------------- Components ----------------- */
+import { PurchaseHistoryComponent } from './purchase-history.component';
+import { MatCardPurchaseHistoryComponent } from './mat-card-purchase-history/mat-card-purchase-history.component';
+
 /* ------------- Material ----------------- */
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
-    PurchaseHistoryComponent
+    PurchaseHistoryComponent,
+    MatCardPurchaseHistoryComponent
   ],
   imports: [
     CommonModule,
-    PurchaseHistoryRoutingModule
+    PurchaseHistoryRoutingModule,
+    MatCardModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatIconModule
   ]
 })
 export class PurchaseHistoryModule { }

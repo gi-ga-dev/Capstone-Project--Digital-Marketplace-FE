@@ -20,14 +20,12 @@ export class MatCardShoppingComponent implements OnInit {
     private shopService: ShopsystemService) { }
 
   ngOnInit(): void {
-    // da getListByShopId ottengo array da ciclare
-    // da getShopSystemBasicInfo aggiorno ed ottengo la prop. cartSubtotal dove ho memorizzato il prezzo totale degli elem nel carrello
     this.getCartListByShopId(this.getId);
     this.getShopSystemBasicInfo(this.getId);
   }
 
   getShopSystemBasicInfo(shopId: number | undefined) {
-    // ottengo lo shop system per leggere proprieta' (subTotal)
+    // ottengo lo shop system per leggere proprieta' (subTotal e prodQnt)
     return this.shopService.getShopSystemBasicInfo(shopId).subscribe(
       (resp) => {
         this.error = undefined;

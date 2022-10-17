@@ -38,8 +38,9 @@
     </mat-card-content>
 
     <mat-card-actions>
-        <button mat-button>Get Free!</button> <!-- if(isSubscribed) -> add to library & purchase history -->
-        <button mat-button (click)="addToCart(getId, book.id)">Add to Cart</button>
+        <!-- prendo book.id dal ciclo sopra, passo id dal parametro del dialog al ts -->
+        <button mat-button (click)="openPurchaseDialog(book.id)">Get Free w/ Sub -or- Purchase for
+            {{book.priceInitial}}$</button>
         <button mat-button (click)="addToWishList(getId, book.id)">Add to WishList</button>
     </mat-card-actions>
 </mat-card>

@@ -24,6 +24,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatModalPurchaseComponent } from './mat-modal-purchase/mat-modal-purchase.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatCardBookComponent,
     MatModalVideogameComponent,
     MatModalMusicComponent,
-    MatModalBookComponent
+    MatModalBookComponent,
+    MatModalPurchaseComponent
   ],
   imports: [
     CommonModule,
