@@ -29,7 +29,7 @@
 
         <br>
 
-        <div>
+        <div *ngIf="shopSystem != undefined">
             <!-- *ngIf="shopSystem != undefined" rimuove errore -->
             <p>Tot. Quantity: {{cartProducts.length}}</p>
             <p>Tot. Price: {{shopSystem.cartSubtotal}}$</p>
