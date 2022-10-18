@@ -17,8 +17,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatFormSignupAdminComponent } from './signup/mat-form-signup-admin/mat-form-signup-admin.component';
 import { MatModalSignupAdminComponent } from './signup/mat-modal-signup-admin/mat-modal-signup-admin.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,6 @@ import { MatModalSignupAdminComponent } from './signup/mat-modal-signup-admin/ma
     SignupPage,
     LoginMatCardComponent,
     SignupMatCardComponent,
-    MatFormSignupAdminComponent,
     MatModalSignupAdminComponent
   ],
   imports: [
@@ -39,7 +38,8 @@ import { MatModalSignupAdminComponent } from './signup/mat-modal-signup-admin/ma
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatDialogModule
   ]
 })
 export class AuthModule { }
