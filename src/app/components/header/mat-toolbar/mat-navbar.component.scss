@@ -52,7 +52,7 @@
 
 /* per sovrapporre la sidenav sopra il contenuto */
 :host ::ng-deep .mat-drawer-content {
-    display: unset;
+    display: contents;
 }
 
 :host ::ng-deep .mat-drawer-container {

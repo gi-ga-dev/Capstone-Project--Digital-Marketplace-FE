@@ -83,7 +83,7 @@ export class AuthService {
     return this.http.post(environment.APIEndpoint + '/users/createUser', obj);
   }
 
-  registerAdmin(obj: IAuthCredentialsRequest): Observable<Object> {
+  createAdmin(obj: IAuthCredentialsRequest): Observable<Object> {
     // solo un Admin loggato puo' creare altri Admin (necessario headers per accedere alla rotta)
     return this.http.post(environment.APIEndpoint + '/users/createAdmin', obj, this.options);
   }

@@ -1,0 +1,34 @@
+<mat-dialog-content class="mat-typography">
+
+    <mat-card class="example-card">
+
+        <mat-card-title>Admin Actions</mat-card-title>
+        <!-- <mat-card-subtitle>To modify data you need to insert your username/password</mat-card-subtitle> -->
+
+        <mat-card-content>
+
+            <mat-dialog-actions align="end" *ngIf="getRole === 'ROLE_ADMIN'">
+
+                <button mat-button id="product-modal" (click)="openSignupAdminDialog()">
+                    <mat-icon>person_add</mat-icon> Create Admin
+                </button>
+
+                <button mat-button id="product-modal" (click)="openVideogameDialog()">
+                    <mat-icon>videogame_asset</mat-icon> Create Videogame
+                </button>
+
+                <button mat-button id="product-modal" (click)="openMusicDialog()">
+                    <mat-icon>music_video</mat-icon> Create Music
+                </button>
+
+                <button mat-button id="product-modal" (click)="openBookDialog()">
+                    <mat-icon>book</mat-icon> Create Book
+                </button>
+
+                <button mat-button id="cancel-btn" mat-dialog-close>Cancel</button>
+            </mat-dialog-actions>
+        </mat-card-content>
+
+    </mat-card>
+
+</mat-dialog-content>

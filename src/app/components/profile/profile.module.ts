@@ -20,6 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatModalAdminComponent } from './mat-modal-admin/mat-modal-admin.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatModalCredentialsComponent,
     MatModalDeleteComponent,
     MatModalSubscriptionComponent,
-    MatModalAddbalanceComponent
+    MatModalAddbalanceComponent,
+    MatModalAdminComponent
   ],
   imports: [
     CommonModule,

@@ -59,8 +59,10 @@
                 <input matInput ngModel type="text" name="author">
             </mat-form-field>
 
-            <button mat-button type="submit" [mat-dialog-close]="true" cdkFocusInitial>Create</button>
-
+            <div>
+                <button mat-button id="action-btns" mat-dialog-close>Cancel</button>
+                <button mat-button id="action-btns" type="submit">Create</button>
+            </div>
         </form>
     </mat-accordion>
 </mat-dialog-content>

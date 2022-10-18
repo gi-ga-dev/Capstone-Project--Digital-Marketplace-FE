@@ -9,14 +9,14 @@
 
         <mat-card-content id="inp-access">
 
-            <mat-form-field color="warn" appearance="fill">
+            <mat-form-field appearance="fill">
                 <mat-label>Enter your username</mat-label>
                 <!-- il campo userName deve essere lo stesso della classe LoginRequest (Java) -->
                 <input matInput ngModel name="userName" type="text">
                 <mat-icon matSuffix>person</mat-icon>
             </mat-form-field>
 
-            <mat-form-field color="warn" appearance="fill">
+            <mat-form-field appearance="fill">
                 <mat-label>Enter your password</mat-label>
                 <input matInput type="password" ngModel name="password">
                 <mat-icon matSuffix>lock_open</mat-icon>
@@ -27,7 +27,7 @@
             </mat-card-actions>
 
             <mat-card-footer *ngIf="show">
-                <mat-progress-bar color="warn" mode="indeterminate"></mat-progress-bar>
+                <mat-progress-bar mode="indeterminate"></mat-progress-bar>
                 <div *ngIf="error">
                     <p id="error">Username/password incorrect</p>
                 </div>

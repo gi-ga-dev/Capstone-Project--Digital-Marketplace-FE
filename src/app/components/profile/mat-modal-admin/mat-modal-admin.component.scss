@@ -1,0 +1,19 @@
+#card-cont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px;
+}
+
+#product-modal {
+    background-color: rgb(255, 0, 111);
+    width: 95%;
+    text-align: center;
+    margin: 5px auto;
+}
+
+#cancel-btn {
+    width: 45%;
+    text-align: center;
+    margin: 0 auto;
+}

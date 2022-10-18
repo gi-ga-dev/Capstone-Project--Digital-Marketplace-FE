@@ -1,8 +1,8 @@
 <form #f="ngForm" (ngSubmit)="onSubmit()">
     <mat-card class="example-card">
 
-        <mat-card-title>Register</mat-card-title>
-        <mat-card-subtitle>Insert your registration details</mat-card-subtitle>
+        <mat-card-title>Register New Admin</mat-card-title>
+        <mat-card-subtitle>Insert registration details</mat-card-subtitle>
 
         <mat-card-content id="inp-access">
             <mat-form-field appearance="fill">
@@ -41,7 +41,6 @@
             </mat-card-actions>
 
             <mat-card-footer *ngIf="show">
-                <mat-progress-bar mode="indeterminate"></mat-progress-bar>
                 <div *ngIf="error">
                     <p id="error">All fields are mandatory</p>
                 </div>

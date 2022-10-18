@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { IUserDtoGetResponse } from 'src/app/interfaces/idto-user-response';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatModalAddbalanceComponent } from '../mat-modal-addbalance/mat-modal-addbalance.component';
+import { MatModalAdminComponent } from '../mat-modal-admin/mat-modal-admin.component';
 import { MatModalCredentialsComponent } from '../mat-modal-credentials/mat-modal-credentials.component';
 import { MatModalDeleteComponent } from '../mat-modal-delete/mat-modal-delete.component';
 import { MatModalProfileComponent } from '../mat-modal-profile/mat-modal-profile.component';
@@ -18,12 +19,20 @@ export class MatCardProfileComponent implements OnInit {
   error = undefined;
   user!: IUserDtoGetResponse;
   getId: number | undefined = this.authService.getId();
+  getRole: string | undefined = this.authService.getRole()?.toString();
 
   constructor(private authService: AuthService, public dialog: MatDialog) { }
 
   ngOnInit(): void { this.getUserInfo(this.getId); }
 
   /* =========== Open Dialogues ============= */
+
+  openAdminDialog() {
+    const dialogRef = this.dialog.open(MatModalAdminComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
   openSubscriptionDialog() {
     const dialogRef = this.dialog.open(MatModalSubscriptionComponent);

@@ -99,8 +99,10 @@
                 <input matInput ngModel type="number" name="requiredSpace">
             </mat-form-field>
 
-            <button mat-button type="submit" [mat-dialog-close]="true" cdkFocusInitial>Create</button>
-
+            <div>
+                <button mat-button id="action-btns" mat-dialog-close>Cancel</button>
+                <button mat-button id="action-btns" type="submit">Create</button>
+            </div>
         </form>
     </mat-accordion>
 </mat-dialog-content>
