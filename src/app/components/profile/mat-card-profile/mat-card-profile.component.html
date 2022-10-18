@@ -8,16 +8,26 @@
 
             <p>Articles Purchased: {{user.qntPurchased}}</p>
 
-            <p>Credit Balance: {{user.accountBalance}}$</p>
+            <p>Credit Balance: {{user.accountBalance.toFixed(2)}}$</p>
             <button mat-button (click)="openAddBalanceDialog()">
                 <mat-icon>attach_money</mat-icon> Add Balance
             </button>
 
+            <mat-divider id="divider"></mat-divider>
+
             <div *ngIf="user.isSubscribed">
-                <p>Status: SUBSCRIBED</p>
+                <p>Subscription Details:</p>
+                <p>Status: SUBSCRIBED <mat-icon>local_play</mat-icon>
+                </p>
+                <p>Current Plan: {{user.subTotalTime}} Days</p>
+                <p>Expiration: {{user.subRemaining}} Days</p>
+                <p>Start: {{user.subStart}}</p>
+                <p>End: {{user.subEnd}}</p>
+
             </div>
 
             <div *ngIf="!user.isSubscribed">
+                <p>Subscription Details:</p>
                 <p>Status: NOT SUBSCRIBED</p>
                 <button mat-button (click)="openSubscriptionDialog()">
                     <mat-icon>subscriptions</mat-icon> Subscribe

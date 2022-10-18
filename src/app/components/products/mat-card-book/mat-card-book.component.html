@@ -8,7 +8,7 @@
     </mat-card-header>
 
     <mat-card-content>
-        <p>Initial Price: {{book.priceInitial}}$</p>
+        <p>Initial Price: {{book.priceInitial.toFixed(2)}}$</p>
 
         <p *ngIf="isDiscounted">Price Discounted: {{book.priceFinal}}$</p>
         <p *ngIf="isDiscounted">Discount: {{book.discount}}%</p>

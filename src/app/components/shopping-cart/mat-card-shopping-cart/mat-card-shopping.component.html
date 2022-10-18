@@ -14,7 +14,7 @@
             <mat-divider></mat-divider>
             <p>Product Type: {{product.productType}}</p>
             <p>Title: {{product.title}}</p>
-            <p>Price: {{product.priceInitial}}$</p>
+            <p>Price: {{product.priceInitial.toFixed(2)}}$</p>
             <p>Purchase Method:</p>
 
             <button mat-button (click)="deleteFromCart(getId, product.id)">
@@ -33,7 +33,7 @@
         <div *ngIf="shopSystem != undefined">
             <!-- *ngIf="shopSystem != undefined" rimuove errore -->
             <p>Tot. Quantity: {{cartProducts.length}}</p>
-            <p>Tot. Price: {{shopSystem.cartSubtotal}}$</p>
+            <p>Tot. Price: {{shopSystem.cartSubtotal.toFixed(2)}}$</p>
             <button mat-button (click)="commitPurchase(getId)">Purchase</button>
         </div>
 
