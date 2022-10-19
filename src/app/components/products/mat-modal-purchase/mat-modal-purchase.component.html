@@ -1,8 +1,74 @@
 <mat-dialog-content class="mat-typography">
     <mat-card class="example-card">
 
-        <mat-card-title>Complete your purchase.</mat-card-title>
-        <mat-card-subtitle>Select a purchase method.</mat-card-subtitle>
+        <mat-card-header>
+            <mat-card-title>Product Info</mat-card-title>
+            <!-- <mat-card-subtitle>Select a purchase method.</mat-card-subtitle> -->
+        </mat-card-header>
+
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+
+        <mat-card-content>
+            <div>
+                <p>Title: {{product.title}}</p>
+                <p>Base Price: {{product.price.toFixed(2)}}$</p>
+                <p>Description: {{product.description}}</p>
+                <p>Platform: {{product.platform}}</p>
+                <p>Publisher: {{product.publisher}}</p>
+                <p>Release Date: {{product.releaseDate}}</p>
+                <p>Language: {{product.language}}</p>
+                <p>Genre: {{product.genre}}</p>
+
+                <p>Ratings: <span *ngIf="product.ratings!== null ; else ratingsBlock">{{product.ratings}}</span></p>
+                <ng-template #ratingsBlock> No ratings yet...</ng-template>
+
+                <p>Reviews: <span *ngIf="product.reviews!== null ; else reviewsBlock">{{product.reviews}}</span></p>
+                <ng-template #reviewsBlock> No reviews yet...</ng-template>
+            </div>
+
+            <!-- Prop. Videogames -->
+
+            <div *ngIf="product.productType == 'Videogame'">
+
+                <p>Downloads: <span *ngIf="product.downloads!== null;else downloadsBlock">{{product.downloads}}</span>
+                </p>
+                <ng-template #downloadsBlock> No Downloads yet...</ng-template>
+
+                <p>Videogame Series: {{product.vgSeries}}</p>
+
+                <p>DLC's: <span *ngIf="product.dlc!== null ; else dlcBlock">{{product.dlc}}</span></p>
+                <ng-template #dlcBlock> No DLC realesed yet...</ng-template>
+
+                <p>Developer: {{product.developer}}</p>
+                <p>Age ageRecommendation: {{product.ageRecommendation}}+</p>
+                <p>N. of Players: {{product.players}}</p>
+                <p>Co-op Play: {{product.coopPlay}}</p>
+                <p>Controller Support: {{product.controllerSupport}}</p>
+                <p>Subtitles: {{product.subtitles}}</p>
+                <p>Required Space: {{product.requiredSpace}}GB</p>
+
+            </div>
+
+            <div *ngIf="product.productType == 'Music'">
+                <p>Plays: <span *ngIf="product.plays!== null ; else playsBlock">{{product.plays}}</span></p>
+                <ng-template #playsBlock> No Plays yet...</ng-template>
+
+                <p>Artist: {{product.artist}}</p>
+                <p>Album: {{product.album}}</p>
+                <p>Duration: {{product.duration}}</p>
+            </div>
+
+            <div *ngIf="product.productType == 'Book'">
+                <p>Read: <span *ngIf="product.read!== null ; else readBlock">{{product.read}}</span></p>
+                <ng-template #readBlock> No Read yet...</ng-template>
+
+                <p>N. of Pages: {{product.pages}}</p>
+                <p>Isbn Code: {{product.isbnCode}}</p>
+                <p>Book Series: {{product.bookSeries}}</p>
+                <p>Author: {{product.author}}</p>
+            </div>
+
+        </mat-card-content>
 
         <mat-dialog-actions align="end">
             <button mat-button class="purchase-dialog" [mat-dialog-close]="true" cdkFocusInitial

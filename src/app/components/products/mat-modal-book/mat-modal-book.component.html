@@ -3,8 +3,13 @@
         <form #f="ngForm" (ngSubmit)="onSubmit()">
 
             <mat-form-field appearance="fill">
-                <mat-label>Initial Price</mat-label>
-                <input matInput ngModel type="number" name="priceInitial">
+                <mat-label>Image URL</mat-label>
+                <input matInput ngModel type="text" name="imgLink">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Base Price</mat-label>
+                <input matInput ngModel type="number" name="price">
                 <span matPrefix>$&nbsp;</span>
             </mat-form-field>
 
@@ -46,8 +51,13 @@
             <!-- Proprieta' comuni books -->
 
             <mat-form-field appearance="fill">
+                <mat-label>N. of Pages</mat-label>
+                <input matInput ngModel type="number" name="pages">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
                 <mat-label>Isbn Code</mat-label>
-                <input matInput ngModel type="number" name="isbnCode">
+                <input matInput ngModel type="text" name="isbnCode">
             </mat-form-field>
 
             <mat-form-field appearance="fill">

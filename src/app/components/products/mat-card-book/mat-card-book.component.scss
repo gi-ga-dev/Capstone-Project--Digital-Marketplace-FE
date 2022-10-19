@@ -1,9 +1,47 @@
-.example-card {
-    margin: 10px;
-    width: 350px;
+#card-cont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
+.example-card {
+    margin: 5px;
+    width: 300px;
+}
+
+#card-content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: grey;
+    border-radius: 5px;
+}
+
+:host ::ng-deep .mat-card-header,
+.mat-card-actions {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    margin: 0;
+}
+
+#title {
+    margin-top: 15px;
+    color: black;
+    font-weight: 500;
+}
+
+#span {
+    line-height: 0.5em;
+}
+
+#btns {
+    color: black;
+    width: 95%;
+    margin: 2px;
+    background-color: rgba(220, 139, 33, 0.783);
+}
+
+#btns:hover {
+    background-color: orange;
 }

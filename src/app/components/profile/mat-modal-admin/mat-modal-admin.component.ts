@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { MatModalSignupAdminComponent } from '../../auth/signup/mat-modal-signup-admin/mat-modal-signup-admin.component';
 import { MatModalBookComponent } from '../../products/mat-modal-book/mat-modal-book.component';
 import { MatModalMusicComponent } from '../../products/mat-modal-music/mat-modal-music.component';
+import { MatModalSalesEventComponent } from '../../products/mat-modal-sales-event/mat-modal-sales-event.component';
 import { MatModalVideogameComponent } from '../../products/mat-modal-videogame/mat-modal-videogame.component';
 
 @Component({
@@ -21,6 +22,13 @@ export class MatModalAdminComponent implements OnInit {
 
   openSignupAdminDialog() {
     const dialogRef = this.dialog.open(MatModalSignupAdminComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  openEventDialog() {
+    const dialogRef = this.dialog.open(MatModalSalesEventComponent);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });

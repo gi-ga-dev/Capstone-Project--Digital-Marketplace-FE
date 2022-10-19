@@ -1,46 +1,29 @@
-<mat-card class="example-card" *ngFor="let book of books">
+<div id="card-cont">
+    <mat-card class="example-card" *ngFor="let book of books">
 
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-header>
-        <!-- <div mat-card-avatar class="example-header-image"></div> -->
-        <mat-card-title>Title: {{book.title}}</mat-card-title>
-        <!-- <mat-card-subtitle></mat-card-subtitle> -->
-    </mat-card-header>
+        <img mat-card-image [src]=book.imgLink>
 
-    <mat-card-content>
-        <p>Initial Price: {{book.priceInitial.toFixed(2)}}$</p>
+        <div id="card-content">
 
-        <p *ngIf="isDiscounted">Price Discounted: {{book.priceFinal}}$</p>
-        <p *ngIf="isDiscounted">Discount: {{book.discount}}%</p>
+            <mat-card-header>
+                <div id="title">{{book.author}} - {{book.title}}</div>
+                <div id="title">Price: {{book.price.toFixed(2)}}$</div>
+            </mat-card-header>
 
-        <p>Description: {{book.description}}</p>
-        <p>Platform: {{book.platform}}</p>
-        <p>Publisher: {{book.publisher}}</p>
-        <p>Release Date: {{book.releaseDate}}</p>
-        <p>Language: {{book.language}}</p>
-        <p>Genre: {{book.genre}}</p>
+            <mat-card-actions>
 
-        <p>Ratings: <span *ngIf="book.ratings!== null ; else ratingsBlock">{{book.ratings}}</span></p>
-        <ng-template #ratingsBlock> No ratings yet...</ng-template>
+                <button id="btns" mat-button (click)="openPurchaseDialog(book.id)">
+                    <div>Get Free w/ Sub</div>
+                    <div id="span">---------or---------</div>
+                    <div>Purchase for {{book.price.toFixed(2)}}$</div>
+                </button>
 
-        <p>Reviews: <span *ngIf="book.reviews!== null ; else reviewsBlock">{{book.reviews}}</span></p>
-        <ng-template #reviewsBlock> No reviews yet...</ng-template>
+                <button id="btns" mat-button (click)="addToWishList(getId, book.id)">
+                    <div>Add to WishList</div>
+                </button>
 
-        <!-- Proprieta' esclusive Books -->
+            </mat-card-actions>
+        </div>
 
-        <p>Read: <span *ngIf="book.read!== null ; else readBlock">{{book.read}}</span></p>
-        <ng-template #readBlock> No Read yet...</ng-template>
-
-        <p>Isbn Code: {{book.isbnCode}}</p>
-        <p>Book Series: {{book.bookSeries}}</p>
-        <p>Author: {{book.author}}</p>
-
-    </mat-card-content>
-
-    <mat-card-actions>
-        <!-- prendo book.id dal ciclo sopra, passo id dal parametro del dialog al ts -->
-        <button mat-button (click)="openPurchaseDialog(book.id)">Get Free w/ Sub -or- Purchase for
-            {{book.priceInitial}}$</button>
-        <button mat-button (click)="addToWishList(getId, book.id)">Add to WishList</button>
-    </mat-card-actions>
-</mat-card>
+    </mat-card>
+</div>

@@ -43,6 +43,7 @@ export class MatCardVideogameComponent implements OnInit {
       (resp) => {
         this.error = undefined;
         this.videogames = resp;
+        console.log(resp);
       },
       (err) => {
         this.error = err.error;

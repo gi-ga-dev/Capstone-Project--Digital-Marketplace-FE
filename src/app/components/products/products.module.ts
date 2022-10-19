@@ -15,6 +15,8 @@ import { MatCardBookComponent } from './mat-card-book/mat-card-book.component';
 import { MatModalVideogameComponent } from './mat-modal-videogame/mat-modal-videogame.component';
 import { MatModalMusicComponent } from './mat-modal-music/mat-modal-music.component';
 import { MatModalBookComponent } from './mat-modal-book/mat-modal-book.component';
+import { MatModalPurchaseComponent } from './mat-modal-purchase/mat-modal-purchase.component';
+import { MatModalSalesEventComponent } from './mat-modal-sales-event/mat-modal-sales-event.component';
 
 /* ------------- Material ----------------- */
 import { MatInputModule } from '@angular/material/input';
@@ -24,7 +26,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatModalPurchaseComponent } from './mat-modal-purchase/mat-modal-purchase.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { MatModalPurchaseComponent } from './mat-modal-purchase/mat-modal-purcha
     MatModalVideogameComponent,
     MatModalMusicComponent,
     MatModalBookComponent,
-    MatModalPurchaseComponent
+    MatModalPurchaseComponent,
+    MatModalSalesEventComponent
   ],
   imports: [
     CommonModule,

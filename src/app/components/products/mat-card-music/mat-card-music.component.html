@@ -1,47 +1,29 @@
-<mat-card class="example-card" *ngFor="let msc of music">
+<div id="card-cont">
+    <mat-card class="example-card" *ngFor="let msc of music">
 
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-header>
-        <!-- <div mat-card-avatar class="example-header-image"></div> -->
-        <mat-card-title>Title: {{msc.title}}</mat-card-title>
-        <!-- <mat-card-subtitle></mat-card-subtitle> -->
-    </mat-card-header>
+        <img mat-card-image [src]=msc.imgLink>
 
-    <mat-card-content>
-        <p>Initial Price: {{msc.priceInitial.toFixed(2)}}$</p>
+        <div id="card-content">
 
-        <p *ngIf="isDiscounted">Price Discounted: {{msc.priceFinal}}$</p>
-        <p *ngIf="isDiscounted">Discount: {{msc.discount}}%</p>
+            <mat-card-header>
+                <div id="title">{{msc.artist}} - {{msc.title}}</div>
+                <div id="title">Price: {{msc.price.toFixed(2)}}$</div>
+            </mat-card-header>
 
-        <p>Description: {{msc.description}}</p>
-        <p>Platform: {{msc.platform}}</p>
-        <p>Publisher: {{msc.publisher}}</p>
-        <p>Release Date: {{msc.releaseDate}}</p>
-        <p>Language: {{msc.language}}</p>
-        <p>Genre: {{msc.genre}}</p>
+            <mat-card-actions>
 
-        <p>Ratings: <span *ngIf="msc.ratings!== null ; else ratingsBlock">{{msc.ratings}}</span></p>
-        <ng-template #ratingsBlock> No ratings yet...</ng-template>
+                <button id="btns" mat-button (click)="openPurchaseDialog(msc.id)">
+                    <div>Get Free w/ Sub</div>
+                    <div id="span">---------or---------</div>
+                    <div>Purchase for {{msc.price.toFixed(2)}}$</div>
+                </button>
 
-        <p>Reviews: <span *ngIf="msc.reviews!== null ; else reviewsBlock">{{msc.reviews}}</span></p>
-        <ng-template #reviewsBlock> No reviews yet...</ng-template>
+                <button id="btns" mat-button (click)="addToWishList(getId, msc.id)">
+                    <div>Add to WishList</div>
+                </button>
 
-        <!-- Proprieta' esclusive Music -->
+            </mat-card-actions>
+        </div>
 
-        <p>Plays: <span *ngIf="msc.plays!== null ; else playsBlock">{{msc.plays}}</span></p>
-        <ng-template #playsBlock> No Plays yet...</ng-template>
-
-        <p>Isrc Code: {{msc.isrcCode}}</p>
-        <p>Artist: {{msc.artist}}</p>
-        <p>Album: {{msc.album}}</p>
-        <p>Duration: {{msc.duration}}</p>
-
-    </mat-card-content>
-
-    <mat-card-actions>
-        <!-- prendo msc.id dal ciclo sopra, passo id dal parametro del dialog al ts -->
-        <button mat-button (click)="openPurchaseDialog(msc.id)">Get Free w/ Sub -or- Purchase for
-            {{msc.priceInitial}}$</button>
-        <button mat-button (click)="addToWishList(getId, msc.id)">Add to WishList</button>
-    </mat-card-actions>
-</mat-card>
+    </mat-card>
+</div>

@@ -3,8 +3,13 @@
         <form #f="ngForm" (ngSubmit)="onSubmit()">
 
             <mat-form-field appearance="fill">
-                <mat-label>Initial Price</mat-label>
-                <input matInput ngModel type="number" name="priceInitial">
+                <mat-label>Image URL</mat-label>
+                <input matInput ngModel type="text" name="imgLink">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Base Price</mat-label>
+                <input matInput ngModel type="number" name="price">
                 <span matPrefix>$&nbsp;</span>
             </mat-form-field>
 
@@ -46,11 +51,6 @@
             <!-- Proprieta' comuni videogames -->
 
             <mat-form-field appearance="fill">
-                <mat-label>Unique Code</mat-label>
-                <input matInput ngModel type="number" name="uniqueCode">
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
                 <mat-label>Videogame series</mat-label>
                 <input matInput ngModel type="text" name="vgSeries">
             </mat-form-field>
@@ -72,27 +72,18 @@
 
             <mat-form-field appearance="fill">
                 <mat-label>Co-op Play</mat-label>
-                <input matInput ngModel type="text" name="coopPlay" placeholder="Type 'Yes' or 'No'">
+                <input matInput ngModel type="text" name="coopPlay" placeholder="Type 'Yes' or 'Single Player only'">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>Controller Support</mat-label>
-                <input matInput ngModel type="text" name="controllerSupport" placeholder="Type 'Yes' or 'No'">
+                <input matInput ngModel type="text" name="controllerSupport"
+                    placeholder="Type 'Full' or 'Partial Support'">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>Subtitles</mat-label>
                 <input matInput ngModel type="text" name="subtitles">
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>Min. Resolution</mat-label>
-                <input matInput ngModel type="number" name="minResolution">
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>Max. Resolution</mat-label>
-                <input matInput ngModel type="number" name="maxResolution">
             </mat-form-field>
 
             <mat-form-field appearance="fill">

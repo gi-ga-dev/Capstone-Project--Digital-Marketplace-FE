@@ -1,0 +1,32 @@
+<mat-dialog-content class="mat-typography">
+    <mat-accordion class="example-headers-align" multi>
+        <form #f="ngForm" (ngSubmit)="onSubmit()">
+
+            <mat-form-field appearance="fill">
+                <mat-label>Event Name</mat-label>
+                <input matInput ngModel type="string" name="eventName">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Discount</mat-label>
+                <input matInput ngModel type="number" name="discount">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Event Start</mat-label>
+                <input matInput ngModel type="string" name="eventStart">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Event End</mat-label>
+                <input matInput ngModel type="string" name="eventEnd">
+            </mat-form-field>
+
+            <div>
+                <button mat-button id="action-btns" mat-dialog-close>Cancel</button>
+                <button mat-button id="action-btns" type="submit" [mat-dialog-close]="true" cdkFocusInitial>Create
+                    Event</button>
+            </div>
+        </form>
+    </mat-accordion>
+</mat-dialog-content>

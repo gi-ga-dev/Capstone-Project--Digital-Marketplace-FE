@@ -13,7 +13,7 @@
             <mat-divider></mat-divider>
             <p>Product Type: {{product.productType}}</p>
             <p>Title: {{product.title}}</p>
-            <p>Price: {{product.priceInitial.toFixed(2)}}$</p>
+            <p>Price: {{product.price.toFixed(2)}}$</p>
 
             <button mat-button (click)="deleteFromWishList(getId, product.id)">
                 <mat-icon>remove_shopping_cart</mat-icon>

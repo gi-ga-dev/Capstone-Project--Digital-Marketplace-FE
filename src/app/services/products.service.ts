@@ -8,6 +8,7 @@ import { IAuthJwtResponse } from "../interfaces/iauth-jwt-response";
 import { IProdBook } from "../interfaces/iprod-book";
 import { IProdMusic } from "../interfaces/iprod-music";
 import { IProdVideogame } from "../interfaces/iprod-videogame";
+import { ISalesEvent } from "../interfaces/isales-event";
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,10 @@ export class ProductsService {
 
   saveBook(obj: IProdBook): Observable<Object> {
     return this.http.post(environment.APIEndpoint + '/products/books/saveBook', obj, this.options);
+  }
+
+  createEvent(obj: ISalesEvent): Observable<Object> {
+    return this.http.post(environment.APIEndpoint + '/products/createEvent', obj, this.options);
   }
 
   // ============== GET ==============

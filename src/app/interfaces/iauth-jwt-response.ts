@@ -5,6 +5,4 @@ export interface IAuthJwtResponse {
     "id"?: number;
     "userName"?: string;
     "roles"?: [];
-    "accountBalance": number;
-    "isSubscribed": boolean;
 }
