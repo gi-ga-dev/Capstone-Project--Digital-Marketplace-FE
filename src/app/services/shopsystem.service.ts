@@ -45,7 +45,7 @@ export class ShopsystemService {
 
   addToCart(shopId: number | undefined, productId: number | undefined): Observable<Object> {
     // gli passo l'id dell'utente, dato che e' uguale all'id dello shop-system
-    return this.http.post(environment.APIEndpoint + '/shop-system/' + shopId + '/' + productId + '/addToCart', this.options);
+    return this.http.post<IProdBook>(environment.APIEndpoint + '/shop-system/' + shopId + '/' + productId + '/addToCart', this.options);
   }
 
   addToWishList(shopId: number | undefined, productId: number | undefined): Observable<Object> {

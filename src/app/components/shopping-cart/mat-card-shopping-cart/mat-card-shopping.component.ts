@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { tap } from 'rxjs';
 import { IShopSystem } from 'src/app/interfaces/ishop-system';
 import { AuthService } from 'src/app/services/auth.service';
 import { ShopsystemService } from 'src/app/services/shopsystem.service';
@@ -52,6 +53,15 @@ export class MatCardShoppingComponent implements OnInit {
     )
   }
 
+  getCartListForBadgeCount(shopId: number | undefined) {
+    return this.shopService.getCartListByShopId(shopId).pipe(
+      tap(data => {
+        // prendo quantita' carrello per utilizzarlo come conteggio per il badge
+        localStorage.setItem('badgeCount', JSON.stringify(data.length));
+      })
+    )
+  }
+
   deleteFromCart(shopId: number | undefined, productId: number | undefined) {
     this.shopService.deleteFromCart(shopId, productId).subscribe(
       (resp) => {
@@ -62,6 +72,8 @@ export class MatCardShoppingComponent implements OnInit {
         console.log(err.error);
         window.alert("Delete from Shopping Cart successfull");
         this.authService.reloadRoute();
+        // aggiorno carrello dopo eliminazione prodotto
+        this.getCartListForBadgeCount(shopId).subscribe();
       }
     )
   }

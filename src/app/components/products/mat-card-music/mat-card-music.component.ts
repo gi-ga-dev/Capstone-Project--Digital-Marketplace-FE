@@ -64,7 +64,6 @@ export class MatCardMusicComponent implements OnInit {
       (resp) => {
         this.error = undefined;
         window.alert("Product Added to WishList");
-        this.authService.reloadRoute();
       },
       (err) => {
         window.alert("Product already in WishList...");

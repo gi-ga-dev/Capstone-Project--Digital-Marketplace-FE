@@ -25,7 +25,6 @@ export class MatModalMusicComponent implements OnInit {
     this.prodService.saveMusic(this.form.value).subscribe(
       (resp) => {
         this.error = undefined;
-        this.authService.reloadRoute();
       },
       (err) => {
         this.error = err.error;

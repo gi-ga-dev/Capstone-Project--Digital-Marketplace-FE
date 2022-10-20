@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { tap } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { ShopsystemService } from 'src/app/services/shopsystem.service';
@@ -32,8 +33,6 @@ export class MatModalPurchaseComponent implements OnInit {
         this.product = resp;
       },
       (err) => {
-        console.log("Ho trovato un errore nel get e faccio il reload della pagina");
-        location.reload();
         this.error = err.error;
         console.log(err.error);
       }
@@ -45,7 +44,6 @@ export class MatModalPurchaseComponent implements OnInit {
       (resp) => {
         this.error = undefined;
         window.alert("Product Added to Shopping Cart");
-        this.authService.reloadRoute();
       },
       (err) => {
         window.alert("You are not subscribed...");
@@ -60,13 +58,23 @@ export class MatModalPurchaseComponent implements OnInit {
       (resp) => {
         this.error = undefined;
         window.alert("Product Added to Shopping Cart");
-        this.authService.reloadRoute();
+        // quando aggiungo al carrello utilizzo get per riportare la quantita' nel local
+        this.getCartListForBadgeCount(shopId).subscribe();
       },
       (err) => {
         window.alert("Product already in Shopping Cart...");
         this.error = err.error;
         console.log(err.error);
       }
+    )
+  }
+
+  getCartListForBadgeCount(shopId: number | undefined) {
+    return this.shopService.getCartListByShopId(shopId).pipe(
+      tap(data => {
+        // prendo quantita' carrello per utilizzarlo come conteggio per il badge
+        localStorage.setItem('badgeCount', JSON.stringify(data.length));
+      })
     )
   }
 

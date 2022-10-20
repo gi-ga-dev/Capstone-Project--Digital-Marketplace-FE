@@ -17,10 +17,14 @@ export class AuthService {
 
   authSubject = new BehaviorSubject<IAuthJwtResponse | null>(null);
   helper = new JwtHelperService();
+
   authData!: any;
   parsedData!: any;
   parsedRole!: string | null;
   parsedId!: number | undefined;
+
+  badgeCount!: any;
+  parsedBadge!: number | undefined;
 
   // inviare headers al back-end per funzionamento dei preauthorize
   headers: {
@@ -166,6 +170,12 @@ export class AuthService {
     this.parsedData = JSON.parse(this.authData);
     this.parsedRole = this.parsedData.roles;
     return this.parsedRole;
+  }
+
+  getBadgeCount(): number | undefined {
+    this.badgeCount = localStorage.getItem('badgeCount');
+    this.parsedBadge = JSON.parse(this.badgeCount);
+    return this.parsedBadge;
   }
 
 

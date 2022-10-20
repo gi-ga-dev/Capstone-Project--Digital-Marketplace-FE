@@ -9,6 +9,7 @@ import { ThemeService } from 'src/app/services/theme.service';
 })
 export class MatNavbarComponent implements OnInit, DoCheck {
 
+  badgeCount: number | undefined;
   isDarkMode!: boolean;
   showProdTab: boolean = false;
   isAuthenticated!: boolean;
@@ -22,12 +23,14 @@ export class MatNavbarComponent implements OnInit, DoCheck {
   ngDoCheck(): void {
     // rileva cambiamento dopo il login
     if (localStorage.getItem("isAuthenticated")) {
-      this.getRole = this.authService.getRole()?.toString(); // [0] non e' consentito      
+      this.getRole = this.authService.getRole()?.toString(); // [0] non e' consentito
+      this.badgeCount = this.authService.getBadgeCount();
       this.isAuthenticated = true;
     } else {
       this.getRole = undefined;
       this.isAuthenticated = false;
     }
+
   }
 
   logout(): void {

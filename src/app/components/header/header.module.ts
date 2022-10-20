@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 /* ------------- Components ----------------- */
 import { HeaderComponent } from './header.component';
@@ -13,7 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { FormsModule } from '@angular/forms';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     MatSidenavModule,
     MatDividerModule,
     MatSlideToggleModule,
-    FormsModule
+    FormsModule,
+    MatBadgeModule
   ],
   exports: [
     HeaderComponent,

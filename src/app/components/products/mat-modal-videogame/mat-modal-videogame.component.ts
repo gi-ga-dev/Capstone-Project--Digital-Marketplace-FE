@@ -25,7 +25,6 @@ export class MatModalVideogameComponent implements OnInit {
     this.prodService.saveVideogame(this.form.value).subscribe(
       (resp) => {
         this.error = undefined;
-        this.authService.reloadRoute();
       },
       (err) => {
         this.error = err.error;
