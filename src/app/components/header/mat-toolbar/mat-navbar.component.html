@@ -1,33 +1,40 @@
 <mat-toolbar class="toolbar">
 
     <div id="logo-home-cont">
-
         <a mat-button (click)="hideProdTab()" [routerLink]="['/home']" routerLinkActive="router-link-active"
             class="logo-cont">
             <!-- <img src="../../../assets/img-logo.png" id="img-logo"> --> LOGO CONTAINER
         </a>
-
         <a mat-button (click)="hideProdTab()" href="#" [routerLink]="['/home']" routerLinkActive="router-link-active">
             <mat-icon>home</mat-icon> Home
         </a>
-
     </div>
 
     <div id="prod-cont">
-
         <a mat-button (click)="toggleProdTab()">
-            <mat-icon>store</mat-icon> Products
+            <mat-icon>camera</mat-icon> Products
+            <mat-icon *ngIf="!showProdTab">expand_more</mat-icon>
+            <mat-icon *ngIf="showProdTab">expand_less</mat-icon>
         </a>
-
     </div>
 
     <div id="profile-cont">
-
         <button type="button" mat-button (click)="drawer.toggle()">
             <mat-icon>reorder</mat-icon>
         </button>
-
     </div>
+
+    <button mat-button>
+        <mat-icon id="toggle-theme" *ngIf="!isDarkMode ; else darkBlock" (click)="toggleDarkMode()"
+            [(ngModel)]="isDarkMode">wb_sunny
+        </mat-icon>
+    </button>
+
+    <ng-template #darkBlock>
+        <mat-icon id="toggle-theme" (click)="toggleDarkMode()" [(ngModel)]="!isDarkMode">brightness_2</mat-icon>
+    </ng-template>
+
+
 
 </mat-toolbar>
 

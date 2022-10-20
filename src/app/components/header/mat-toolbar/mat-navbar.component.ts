@@ -1,5 +1,6 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-mat-navbar',
@@ -8,12 +9,14 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class MatNavbarComponent implements OnInit, DoCheck {
 
+  isDarkMode!: boolean;
+  showFiller = false;
   showProdTab: boolean = false;
   isAuthenticated!: boolean;
   getRole: string | undefined;
   error = undefined;
 
-  constructor(private authService: AuthService) { }
+  constructor(private themeService: ThemeService, private authService: AuthService) { }
 
   ngOnInit(): void { }
 
@@ -34,6 +37,14 @@ export class MatNavbarComponent implements OnInit, DoCheck {
   }
 
   // ----------------------
+
+  toggleDarkMode() {
+    this.isDarkMode = this.themeService.isDarkMode();
+
+    this.isDarkMode
+      ? this.themeService.update('light-mode')
+      : this.themeService.update('dark-mode');
+  }
 
   toggleProdTab() {
     if (this.showProdTab == true) {

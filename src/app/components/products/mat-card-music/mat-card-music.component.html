@@ -6,20 +6,23 @@
         <div id="card-content">
 
             <mat-card-header>
-                <div id="title">{{msc.artist}} - {{msc.title}}</div>
+                <div id="title">{{msc.artist}}</div>
+                <div id="title">{{msc.title}}</div>
                 <div id="title">Price: {{msc.price.toFixed(2)}}$</div>
             </mat-card-header>
+        </div>
 
+        <div id="card-btns">
             <mat-card-actions>
 
-                <button id="btns" mat-button (click)="openPurchaseDialog(msc.id)">
-                    <div>Get Free w/ Sub</div>
-                    <div id="span">---------or---------</div>
-                    <div>Purchase for {{msc.price.toFixed(2)}}$</div>
+                <button id="btns" mat-button (click)="openPurchaseDialog(msc.id)" matTooltip="Purchase Product"
+                    matTooltipPosition="below">
+                    <mat-icon>attach_money</mat-icon>
                 </button>
 
-                <button id="btns" mat-button (click)="addToWishList(getId, msc.id)">
-                    <div>Add to WishList</div>
+                <button id="btns" mat-button (click)="addToWishList(getId, msc.id)" matTooltip="Add to Wishlist"
+                    matTooltipPosition="below">
+                    <mat-icon>favorite</mat-icon>
                 </button>
 
             </mat-card-actions>

@@ -1,83 +1,96 @@
 <mat-dialog-content class="mat-typography">
+
     <mat-card class="example-card">
 
         <mat-card-header>
-            <mat-card-title>Product Info</mat-card-title>
+            <mat-card-title><span id="title">Product Info</span></mat-card-title>
             <!-- <mat-card-subtitle>Select a purchase method.</mat-card-subtitle> -->
         </mat-card-header>
 
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <img mat-card-image [src]="product.imgLink">
 
-        <mat-card-content>
-            <div>
-                <p>Title: {{product.title}}</p>
-                <p>Base Price: {{product.price.toFixed(2)}}$</p>
-                <p>Description: {{product.description}}</p>
-                <p>Platform: {{product.platform}}</p>
-                <p>Publisher: {{product.publisher}}</p>
-                <p>Release Date: {{product.releaseDate}}</p>
-                <p>Language: {{product.language}}</p>
-                <p>Genre: {{product.genre}}</p>
+        <mat-card-content id="card-content">
+            <div id="card-data">
+                <!-- <p><span id="properties">Description: </span>{{product.description}}</p> -->
 
-                <p>Ratings: <span *ngIf="product.ratings!== null ; else ratingsBlock">{{product.ratings}}</span></p>
+                <p><span id="properties">Title: </span>{{product.title}}</p>
+                <p><span id="properties">Base Price: </span>{{product.price.toFixed(2)}}$</p>
+                <p><span id="properties">Platform: </span>{{product.platform}}</p>
+                <p><span id="properties">Publisher: </span>{{product.publisher}}</p>
+                <p><span id="properties">Release Date: </span>{{product.releaseDate}}</p>
+                <!-- <p><span id="properties">Language: </span>{{product.language}}</p> -->
+                <p><span id="properties">Genre: </span>{{product.genre}}</p>
+
+                <p><span id="properties">Ratings: </span><span
+                        *ngIf="product.ratings!== null ; else ratingsBlock">{{product.ratings}}</span></p>
                 <ng-template #ratingsBlock> No ratings yet...</ng-template>
 
-                <p>Reviews: <span *ngIf="product.reviews!== null ; else reviewsBlock">{{product.reviews}}</span></p>
+                <p><span id="properties">Reviews: </span><span
+                        *ngIf="product.reviews!== null ; else reviewsBlock">{{product.reviews}}</span></p>
                 <ng-template #reviewsBlock> No reviews yet...</ng-template>
+
+                <!-- ======== Properties Videogames ======== -->
+
+                <span *ngIf="product.productType == 'Videogame'">
+
+                    <p><span id="properties">Downloads: </span> <span
+                            *ngIf="product.downloads!== null;else downloadsBlock">{{product.downloads}}</span>
+                    </p>
+                    <ng-template #downloadsBlock> No Downloads yet...</ng-template>
+
+                    <p><span id="properties">Videogame Series: </span>{{product.vgSeries}}</p>
+
+                    <p><span id="properties">DLC's: </span> <span
+                            *ngIf="product.dlc!== null ; else dlcBlock">{{product.dlc}}</span></p>
+                    <ng-template #dlcBlock> No DLC realesed yet...</ng-template>
+
+                    <p><span id="properties">Developer: </span>{{product.developer}}</p>
+                    <p><span id="properties">Age Recommendation: </span>{{product.ageRecommendation}}+</p>
+                    <p><span id="properties">N. of Players: </span>{{product.players}}</p>
+                    <p><span id="properties">Co-op Play: </span>{{product.coopPlay}}</p>
+                    <p><span id="properties">Controller Support: </span>{{product.controllerSupport}}</p>
+                    <p><span id="properties">Subtitles: </span>{{product.subtitles}}</p>
+                    <p><span id="properties">Required Space: </span>{{product.requiredSpace}}GB</p>
+
+                </span>
+
+                <!-- ======== Properties Music ======== -->
+
+                <span *ngIf="product.productType == 'Music'">
+                    <p><span id="properties">Plays: </span> <span
+                            *ngIf="product.plays!== null ; else playsBlock">{{product.plays}}</span></p>
+                    <ng-template #playsBlock> No Plays yet...</ng-template>
+
+                    <p><span id="properties">Artist: </span>{{product.artist}}</p>
+                    <p><span id="properties">Album: </span>{{product.album}}</p>
+                    <p><span id="properties">Duration: </span>{{product.duration}}</p>
+                </span>
+
+                <!-- ======== Properties Books ======== -->
+
+                <span *ngIf="product.productType == 'Book'">
+                    <p><span id="properties">Read: </span> <span
+                            *ngIf="product.read!== null ; else readBlock">{{product.read}}</span></p>
+                    <ng-template #readBlock> No Read yet...</ng-template>
+
+                    <p><span id="properties">N. of Pages: </span>{{product.pages}}</p>
+                    <p><span id="properties">Isbn Code: </span>{{product.isbnCode}}</p>
+                    <p><span id="properties">Book Series: </span>{{product.bookSeries}}</p>
+                    <p><span id="properties">Author: </span>{{product.author}}</p>
+                </span>
+
             </div>
 
-            <!-- Prop. Videogames -->
+            <mat-dialog-actions align="end">
+                <button mat-button id="btns" [mat-dialog-close]="true" cdkFocusInitial
+                    (click)="addFreeWithSub(getId, product.id)">Get
+                    Free w/ Subscription</button>
 
-            <div *ngIf="product.productType == 'Videogame'">
-
-                <p>Downloads: <span *ngIf="product.downloads!== null;else downloadsBlock">{{product.downloads}}</span>
-                </p>
-                <ng-template #downloadsBlock> No Downloads yet...</ng-template>
-
-                <p>Videogame Series: {{product.vgSeries}}</p>
-
-                <p>DLC's: <span *ngIf="product.dlc!== null ; else dlcBlock">{{product.dlc}}</span></p>
-                <ng-template #dlcBlock> No DLC realesed yet...</ng-template>
-
-                <p>Developer: {{product.developer}}</p>
-                <p>Age ageRecommendation: {{product.ageRecommendation}}+</p>
-                <p>N. of Players: {{product.players}}</p>
-                <p>Co-op Play: {{product.coopPlay}}</p>
-                <p>Controller Support: {{product.controllerSupport}}</p>
-                <p>Subtitles: {{product.subtitles}}</p>
-                <p>Required Space: {{product.requiredSpace}}GB</p>
-
-            </div>
-
-            <div *ngIf="product.productType == 'Music'">
-                <p>Plays: <span *ngIf="product.plays!== null ; else playsBlock">{{product.plays}}</span></p>
-                <ng-template #playsBlock> No Plays yet...</ng-template>
-
-                <p>Artist: {{product.artist}}</p>
-                <p>Album: {{product.album}}</p>
-                <p>Duration: {{product.duration}}</p>
-            </div>
-
-            <div *ngIf="product.productType == 'Book'">
-                <p>Read: <span *ngIf="product.read!== null ; else readBlock">{{product.read}}</span></p>
-                <ng-template #readBlock> No Read yet...</ng-template>
-
-                <p>N. of Pages: {{product.pages}}</p>
-                <p>Isbn Code: {{product.isbnCode}}</p>
-                <p>Book Series: {{product.bookSeries}}</p>
-                <p>Author: {{product.author}}</p>
-            </div>
+                <button mat-button id="btns" [mat-dialog-close]="true" cdkFocusInitial
+                    (click)="addToCart(getId, product.id)">Purchase for {{product.price.toFixed(2)}}$</button>
+            </mat-dialog-actions>
 
         </mat-card-content>
-
-        <mat-dialog-actions align="end">
-            <button mat-button class="purchase-dialog" [mat-dialog-close]="true" cdkFocusInitial
-                (click)="addFreeWithSub(getId, product.id)">Get
-                Free w/ Sub</button>
-
-            <button mat-button class="purchase-dialog" [mat-dialog-close]="true" cdkFocusInitial
-                (click)="addToCart(getId, product.id)">Purchase - Add to Cart</button>
-        </mat-dialog-actions>
 
     </mat-card>
 </mat-dialog-content>
