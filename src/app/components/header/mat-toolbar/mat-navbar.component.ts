@@ -10,7 +10,6 @@ import { ThemeService } from 'src/app/services/theme.service';
 export class MatNavbarComponent implements OnInit, DoCheck {
 
   isDarkMode!: boolean;
-  showFiller = false;
   showProdTab: boolean = false;
   isAuthenticated!: boolean;
   getRole: string | undefined;
@@ -22,7 +21,7 @@ export class MatNavbarComponent implements OnInit, DoCheck {
 
   ngDoCheck(): void {
     // rileva cambiamento dopo il login
-    if (localStorage.key(0)) {
+    if (localStorage.getItem("isAuthenticated")) {
       this.getRole = this.authService.getRole()?.toString(); // [0] non e' consentito      
       this.isAuthenticated = true;
     } else {

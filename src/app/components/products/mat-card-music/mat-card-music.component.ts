@@ -20,6 +20,7 @@ export class MatCardMusicComponent implements OnInit {
   msc!: IProdVideogame | IProdMusic | IProdBook;
   music: IProdMusic[] = [];
   getId: number | undefined = this.authService.getId();
+  showSpinner: boolean = false;
 
   constructor(
     public dialog: MatDialog,
@@ -27,7 +28,14 @@ export class MatCardMusicComponent implements OnInit {
     private prodService: ProductsService,
     private shopService: ShopsystemService) { }
 
-  ngOnInit(): void { this.getAllMusic(); }
+  ngOnInit(): void {
+    // lo spinner e' visibile per 0.3 sec prima del get all
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.showSpinner = false;
+      this.getAllMusic();
+    }, 300);
+  }
 
   openPurchaseDialog(prodId: number | undefined) {
     const dialogRef = this.dialog.open(MatModalPurchaseComponent, {

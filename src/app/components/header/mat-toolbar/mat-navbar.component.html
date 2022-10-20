@@ -1,17 +1,17 @@
 <mat-toolbar class="toolbar">
 
     <div id="logo-home-cont">
-        <a mat-button (click)="hideProdTab()" [routerLink]="['/home']" routerLinkActive="router-link-active"
+        <a mat-button (click)="drawer.close()" [routerLink]="['/home']" routerLinkActive="router-link-active"
             class="logo-cont">
             <!-- <img src="../../../assets/img-logo.png" id="img-logo"> --> LOGO CONTAINER
         </a>
-        <a mat-button (click)="hideProdTab()" href="#" [routerLink]="['/home']" routerLinkActive="router-link-active">
+        <a mat-button (click)="drawer.close()" href="#" [routerLink]="['/home']" routerLinkActive="router-link-active">
             <mat-icon>home</mat-icon> Home
         </a>
     </div>
 
     <div id="prod-cont">
-        <a mat-button (click)="toggleProdTab()">
+        <a mat-button (click)="drawer.close()" (click)="toggleProdTab()">
             <mat-icon>camera</mat-icon> Products
             <mat-icon *ngIf="!showProdTab">expand_more</mat-icon>
             <mat-icon *ngIf="showProdTab">expand_less</mat-icon>
@@ -24,32 +24,23 @@
         </button>
     </div>
 
-    <button mat-button>
-        <mat-icon id="toggle-theme" *ngIf="!isDarkMode ; else darkBlock" (click)="toggleDarkMode()"
-            [(ngModel)]="isDarkMode">wb_sunny
-        </mat-icon>
-    </button>
-
-    <ng-template #darkBlock>
-        <mat-icon id="toggle-theme" (click)="toggleDarkMode()" [(ngModel)]="!isDarkMode">brightness_2</mat-icon>
-    </ng-template>
-
-
-
 </mat-toolbar>
 
 <!-- ================== Product Toolbar ================== -->
 
 <mat-toolbar class="prod-toolbar" *ngIf="showProdTab; else elseBlock">
-    <a mat-button href="#" [routerLink]="['/products/videogames']" routerLinkActive="router-link-active">
+    <a mat-button (click)="drawer.close()" href="#" [routerLink]="['/products/videogames']"
+        routerLinkActive="router-link-active">
         <mat-icon>videogame_asset</mat-icon> Videogames
     </a>
 
-    <a mat-button href="#" [routerLink]="['/products/music']" routerLinkActive="router-link-active">
+    <a mat-button (click)="drawer.close()" href="#" [routerLink]="['/products/music']"
+        routerLinkActive="router-link-active">
         <mat-icon>music_note</mat-icon> Music
     </a>
 
-    <a mat-button href="#" [routerLink]="['/products/books']" routerLinkActive="router-link-active">
+    <a mat-button (click)="drawer.close()" href="#" [routerLink]="['/products/books']"
+        routerLinkActive="router-link-active">
         <mat-icon>book</mat-icon> Books
     </a>
 </mat-toolbar>
@@ -63,31 +54,40 @@
 <mat-drawer-container class="example-container" autosize>
     <mat-drawer #drawer class="example-sidenav" mode="side" position="end">
 
+        <div id="theme-group">
+            <mat-icon *ngIf="isDarkMode">wb_sunny</mat-icon>
+            <mat-icon *ngIf="!isDarkMode">brightness_2</mat-icon>
+
+            <mat-slide-toggle id="toggle-theme" (click)="toggleDarkMode()" [(ngModel)]="isDarkMode">
+
+            </mat-slide-toggle>
+        </div>
+
         <div id="sidenav-group" *ngIf="isAuthenticated">
 
             <p mat-card-avatar class="example-header-image"></p>
 
-            <a mat-button (click)="hideProdTab()" href="#" [routerLink]="['/profile']"
+            <a mat-button (click)="drawer.close()" (click)="hideProdTab()" href="#" [routerLink]="['/profile']"
                 routerLinkActive="router-link-active">
                 <mat-icon>fingerprint</mat-icon> View Profile
             </a>
 
-            <a mat-button (click)="hideProdTab()" href="#" [routerLink]="['/shopping-cart']"
+            <a mat-button (click)="drawer.close()" (click)="hideProdTab()" href="#" [routerLink]="['/shopping-cart']"
                 routerLinkActive="router-link-active">
                 <mat-icon>shop</mat-icon> Shopping Cart
             </a>
 
-            <a mat-button (click)="hideProdTab()" href="#" [routerLink]="['/library']"
+            <a mat-button (click)="drawer.close()" (click)="hideProdTab()" href="#" [routerLink]="['/library']"
                 routerLinkActive="router-link-active">
                 <mat-icon>local_library</mat-icon> Library
             </a>
 
-            <a mat-button (click)="hideProdTab()" href="#" [routerLink]="['/wishlist']"
+            <a mat-button (click)="drawer.close()" (click)="hideProdTab()" href="#" [routerLink]="['/wishlist']"
                 routerLinkActive="router-link-active">
                 <mat-icon>favorite</mat-icon> Wishlist
             </a>
 
-            <a mat-button (click)="hideProdTab()" href="#" [routerLink]="['/purchase-history']"
+            <a mat-button (click)="drawer.close()" (click)="hideProdTab()" href="#" [routerLink]="['/purchase-history']"
                 routerLinkActive="router-link-active">
                 <mat-icon>history</mat-icon> Purchase History
             </a>

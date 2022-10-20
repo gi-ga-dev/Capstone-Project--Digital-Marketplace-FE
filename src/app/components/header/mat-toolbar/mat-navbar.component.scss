@@ -1,4 +1,4 @@
-/* ===== Navbar ===== */
+// ============ Navbar ============
 
 .toolbar {
     display: flex;
@@ -12,42 +12,34 @@
     align-items: center;
 }
 
-#toggle-theme {
-    cursor: pointer;
-}
+// ============ Sidenav ============
 
-/* ===== Sidenav ===== */
-
-.example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-}
-
+// mat-drawer-container
 .example-container {
     width: 100%;
-    //height: 100%;
     border: 1px solid rgba(0, 0, 0, 0.5);
-}
-
-.example-sidenav-content {
-    display: flex;
-    //height: 100%;
-    background-color: whitesmoke;
-    align-items: center;
-    justify-content: center;
 }
 
 .example-sidenav {
     padding: 20px;
 }
 
+// contenuto pagine
+.example-sidenav-content {
+    display: flex;
+    background-color: rgb(183, 183, 183);
+    align-items: center;
+    justify-content: center;
+}
+
+// contenitore sidenav
 :host ::ng-deep .mat-drawer-inner-container {
     display: flex;
     flex-direction: column;
     width: 180px;
 }
 
-/* per sovrapporre la sidenav sopra il contenuto */
+// per sovrapporre la sidenav sopra il contenuto
 :host ::ng-deep .mat-drawer-content {
     display: contents;
 }
@@ -56,9 +48,36 @@
     background-color: whitesmoke;
 }
 
+// contenitore sidenav (eccetto btn theme)
 #sidenav-group {
-    background-color: grey;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
+
+// contenitore btn theme
+#theme-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 8px 16px 3px 16px;
+}
+
+// mat-slide-toggle
+#toggle-theme {
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+// Modificare colori toggle 
+/* ::ng-deep .light-mode .mat-slide-toggle-bar {
+    background-color: red;
+} */
+
+// Modificare colori toggle quando non e' checked
+/* :host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: red;
+}
+:host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: black;
+} */
