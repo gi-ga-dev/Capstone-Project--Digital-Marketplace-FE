@@ -44,6 +44,7 @@ export class MatModalPurchaseComponent implements OnInit {
       (resp) => {
         this.error = undefined;
         window.alert("Product Added to Shopping Cart");
+        this.getCartListForBadgeCount(shopId).subscribe();
       },
       (err) => {
         window.alert("You are not subscribed...");
@@ -58,7 +59,6 @@ export class MatModalPurchaseComponent implements OnInit {
       (resp) => {
         this.error = undefined;
         window.alert("Product Added to Shopping Cart");
-        // quando aggiungo al carrello utilizzo get per riportare la quantita' nel local
         this.getCartListForBadgeCount(shopId).subscribe();
       },
       (err) => {
@@ -70,9 +70,10 @@ export class MatModalPurchaseComponent implements OnInit {
   }
 
   getCartListForBadgeCount(shopId: number | undefined) {
+    // get lista carrello per conteggio badge avviene quando:
+    // addToCart, addFreeWithSub, removeFromCart, Login, e Logout (rimuove dal local)
     return this.shopService.getCartListByShopId(shopId).pipe(
       tap(data => {
-        // prendo quantita' carrello per utilizzarlo come conteggio per il badge
         localStorage.setItem('badgeCount', JSON.stringify(data.length));
       })
     )

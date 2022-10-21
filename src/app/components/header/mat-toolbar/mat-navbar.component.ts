@@ -16,7 +16,9 @@ export class MatNavbarComponent implements OnInit, DoCheck {
   getRole: string | undefined;
   error = undefined;
 
-  constructor(private themeService: ThemeService, private authService: AuthService) { }
+  constructor(
+    private themeService: ThemeService,
+    private authService: AuthService) { }
 
   ngOnInit(): void { }
 
@@ -36,9 +38,8 @@ export class MatNavbarComponent implements OnInit, DoCheck {
   logout(): void {
     this.authService.logout();
     this.isAuthenticated = false;
+    localStorage.removeItem("badgeCount");
   }
-
-  // ----------------------
 
   toggleDarkMode() {
     this.isDarkMode = this.themeService.isDarkMode();

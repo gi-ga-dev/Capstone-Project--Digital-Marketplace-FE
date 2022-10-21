@@ -54,9 +54,10 @@ export class MatCardShoppingComponent implements OnInit {
   }
 
   getCartListForBadgeCount(shopId: number | undefined) {
+    // get lista carrello per conteggio badge avviene quando:
+    // addToCart, addFreeWithSub, removeFromCart, Login, e Logout (rimuove dal local)
     return this.shopService.getCartListByShopId(shopId).pipe(
       tap(data => {
-        // prendo quantita' carrello per utilizzarlo come conteggio per il badge
         localStorage.setItem('badgeCount', JSON.stringify(data.length));
       })
     )
