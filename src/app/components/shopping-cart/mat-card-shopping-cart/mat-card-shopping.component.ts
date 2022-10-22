@@ -53,16 +53,6 @@ export class MatCardShoppingComponent implements OnInit {
     )
   }
 
-  getCartListForBadgeCount(shopId: number | undefined) {
-    // get lista carrello per conteggio badge avviene quando:
-    // addToCart, addFreeWithSub, removeFromCart, Login, e Logout (rimuove dal local)
-    return this.shopService.getCartListByShopId(shopId).pipe(
-      tap(data => {
-        localStorage.setItem('badgeCount', JSON.stringify(data.length));
-      })
-    )
-  }
-
   deleteFromCart(shopId: number | undefined, productId: number | undefined) {
     this.shopService.deleteFromCart(shopId, productId).subscribe(
       (resp) => {
@@ -74,7 +64,7 @@ export class MatCardShoppingComponent implements OnInit {
         window.alert("Delete from Shopping Cart successfull");
         this.authService.reloadRoute();
         // aggiorno carrello dopo eliminazione prodotto
-        this.getCartListForBadgeCount(shopId).subscribe();
+        this.authService.getCartListForBadgeCount(shopId).subscribe();
       }
     )
   }
@@ -100,6 +90,7 @@ export class MatCardShoppingComponent implements OnInit {
         this.error = undefined;
         window.alert("Purchase Completed!");
         this.authService.reloadRoute();
+        this.authService.getCartListForBadgeCount(shopId).subscribe();
       },
       (err) => {
         window.alert("Account Balance is insufficient...");

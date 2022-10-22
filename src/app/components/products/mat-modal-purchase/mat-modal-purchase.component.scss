@@ -76,6 +76,11 @@
     background-color: orange;
 }
 
+// mat-card-footer p
+#required {
+    font-size: 0.7em;
+}
+
 // Media Queries
 @media (max-width: 500px) {
     :host ::ng-deep .mat-dialog-content {
@@ -85,6 +90,11 @@
     .example-card {
         width: 280px;
         font-size: 0.7em;
+    }
+
+    // mat-card-footer p
+    #required {
+        font-size: 0.4em;
     }
 }
 
@@ -96,8 +106,13 @@
     .example-card {
         width: 350px;
         font-size: 0.8em;
-
     }
+
+    // mat-card-footer p
+    #required {
+        font-size: 0.5em;
+    }
+
 }
 
 @media (min-width: 961px) and (max-width: 1280) {
@@ -108,5 +123,10 @@
     .example-card {
         width: 500px;
         font-size: 0.9em;
+    }
+
+    // mat-card-footer p
+    #required {
+        font-size: 0.6em;
     }
 }

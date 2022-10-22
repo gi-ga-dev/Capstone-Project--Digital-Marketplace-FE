@@ -39,8 +39,12 @@ export class ShopsystemService {
 
   // Prodotti da aggiungere al liste (es. cartList) e DB 
 
-  addFreeWithSub(shopId: number | undefined, productId: number | undefined): Observable<Object> {
-    return this.http.post(environment.APIEndpoint + '/shop-system/' + shopId + '/' + productId + '/addFreeWithSub', this.options);
+  purchaseWithSub(shopId: number | undefined, productId: number | undefined): Observable<Object> {
+    return this.http.post(environment.APIEndpoint + '/shop-system/' + shopId + '/' + productId + '/purchaseWithSub', this.options);
+  }
+
+  purchaseWithBalance(shopId: number | undefined, productId: number | undefined): Observable<Object> {
+    return this.http.post(environment.APIEndpoint + '/shop-system/' + shopId + '/' + productId + '/purchaseWithBalance', this.options);
   }
 
   addToCart(shopId: number | undefined, productId: number | undefined): Observable<Object> {

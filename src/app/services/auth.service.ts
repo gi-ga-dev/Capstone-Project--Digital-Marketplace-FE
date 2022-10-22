@@ -9,6 +9,7 @@ import { IAuthCredentialsRequest } from "../interfaces/iauth-credentials-request
 import { IUserDtoGetResponse } from "../interfaces/idto-user-response";
 import { IDtoProfile } from "../interfaces/idto-profile";
 import { IDtoCredentials } from "../interfaces/idto-credentials";
+import { ShopsystemService } from "./shopsystem.service";
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +34,10 @@ export class AuthService {
   } = { "Content-Type": "application/json" };
   options = { headers: this.headers }
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(
+    private shopService: ShopsystemService,
+    private http: HttpClient,
+    private router: Router) {
 
     let tokenJson = localStorage.getItem('isAuthenticated');
     // Iniettare nei constructor services per autorizzare chiamate REST
@@ -176,6 +180,16 @@ export class AuthService {
     this.badgeCount = localStorage.getItem('badgeCount');
     this.parsedBadge = JSON.parse(this.badgeCount);
     return this.parsedBadge;
+  }
+
+  getCartListForBadgeCount(shopId: number | undefined) {
+    // get lista carrello per conteggio badge avviene quando:
+    // addToCart, addFreeWithSub, commitPurchase, removeFromCart, Login, e Logout (rimuove dal local)
+    return this.shopService.getCartListByShopId(shopId).pipe(
+      tap(data => {
+        localStorage.setItem('badgeCount', JSON.stringify(data.length));
+      })
+    )
   }
 
 

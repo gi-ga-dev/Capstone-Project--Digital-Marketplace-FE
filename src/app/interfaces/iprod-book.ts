@@ -1,6 +1,7 @@
 export interface IProdBook {
     // [proprieta' comuni]
     "id"?: number;
+    "paymentMethod"?: string;
     "imgLink": string;
     "productType": string;
     "price": number;

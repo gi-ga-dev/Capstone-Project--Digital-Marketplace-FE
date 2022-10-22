@@ -1,6 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { tap } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { ShopsystemService } from 'src/app/services/shopsystem.service';
@@ -39,15 +38,37 @@ export class MatModalPurchaseComponent implements OnInit {
     )
   }
 
-  addFreeWithSub(shopId: number | undefined, productId: number | undefined) {
-    return this.shopService.addFreeWithSub(shopId, productId).subscribe(
+  // ---------------------------------------
+
+  purchaseWithSub(shopId: number | undefined, productId: number | undefined) {
+    return this.shopService.purchaseWithSub(shopId, productId).subscribe(
       (resp) => {
         this.error = undefined;
-        window.alert("Product Added to Shopping Cart");
-        this.getCartListForBadgeCount(shopId).subscribe();
+        window.alert("Purchase completed. Product added to your Library...");
       },
       (err) => {
-        window.alert("You are not subscribed...");
+        window.alert("You are not subscribed or Product already in Shopping Cart or Library......");
+        // aggiungere apertura modal subscribe
+
+        // getIsSubscribed() nell'authService
+        // if(isSubscribed == false) open Subscription Modal
+
+
+        this.error = err.error;
+        console.log(err.error);
+      }
+    )
+  }
+
+  purchaseWithBalance(shopId: number | undefined, productId: number | undefined) {
+    return this.shopService.purchaseWithBalance(shopId, productId).subscribe(
+      (resp) => {
+        this.error = undefined;
+        window.alert("Purchase completed. Product added to your Library...");
+      },
+      (err) => {
+        window.alert("Balance insufficient or Product already in Shopping Cart or Library...");
+        // aggiungere apertura modal add balance
         this.error = err.error;
         console.log(err.error);
       }
@@ -59,23 +80,13 @@ export class MatModalPurchaseComponent implements OnInit {
       (resp) => {
         this.error = undefined;
         window.alert("Product Added to Shopping Cart");
-        this.getCartListForBadgeCount(shopId).subscribe();
+        this.authService.getCartListForBadgeCount(shopId).subscribe();
       },
       (err) => {
-        window.alert("Product already in Shopping Cart...");
+        window.alert("Product already in Shopping Cart or Library...");
         this.error = err.error;
         console.log(err.error);
       }
-    )
-  }
-
-  getCartListForBadgeCount(shopId: number | undefined) {
-    // get lista carrello per conteggio badge avviene quando:
-    // addToCart, addFreeWithSub, removeFromCart, Login, e Logout (rimuove dal local)
-    return this.shopService.getCartListByShopId(shopId).pipe(
-      tap(data => {
-        localStorage.setItem('badgeCount', JSON.stringify(data.length));
-      })
     )
   }
 

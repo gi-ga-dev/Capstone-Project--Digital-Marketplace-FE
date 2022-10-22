@@ -1,6 +1,7 @@
 export interface IProdMusic {
     // [proprieta' comuni]
     "id"?: number;
+    "paymentMethod"?: string;
     "imgLink": string;
     "productType": string;
     "price": number;
