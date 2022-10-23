@@ -8,6 +8,10 @@
         <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
     </mat-card-header>
 
+    <div id="spinner-cont" *ngIf="showSpinner">
+        <mat-spinner color="warn"></mat-spinner>
+    </div>
+
     <mat-card-content>
         <div *ngFor="let product of libraryProducts">
             <mat-divider></mat-divider>

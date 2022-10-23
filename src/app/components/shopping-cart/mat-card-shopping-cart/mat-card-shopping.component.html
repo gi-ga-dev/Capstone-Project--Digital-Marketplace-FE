@@ -8,7 +8,11 @@
         <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
     </mat-card-header>
 
-    <mat-card-content>
+    <div id="spinner-cont" *ngIf="showSpinner">
+        <mat-spinner color="warn"></mat-spinner>
+    </div>
+
+    <mat-card-content *ngIf="cartProducts.length !== 0; else emptyblock">
         <!-- GET elem nel carrello - Generare una riga per ogni elem nella cartList -->
         <div *ngFor="let product of cartProducts">
             <mat-divider></mat-divider>
@@ -38,5 +42,11 @@
         </div>
 
     </mat-card-content>
+
+    <ng-template #emptyblock>
+
+        <mat-card-content id="emptyblock-cont" *ngIf="showString">Your Shopping Cart is empty!</mat-card-content>
+
+    </ng-template>
 
 </mat-card>

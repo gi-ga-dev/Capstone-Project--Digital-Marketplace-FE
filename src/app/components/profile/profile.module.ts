@@ -11,6 +11,7 @@ import { MatModalCredentialsComponent } from './mat-modal-credentials/mat-modal-
 import { MatModalDeleteComponent } from './mat-modal-delete/mat-modal-delete.component';
 import { MatModalSubscriptionComponent } from './mat-modal-subscription/mat-modal-subscription.component';
 import { MatModalAddbalanceComponent } from './mat-modal-addbalance/mat-modal-addbalance.component';
+import { MatModalAdminComponent } from './mat-modal-admin/mat-modal-admin.component';
 
 /* ------------- Material ----------------- */
 import { MatCardModule } from '@angular/material/card';
@@ -20,7 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatModalAdminComponent } from './mat-modal-admin/mat-modal-admin.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { MatModalAdminComponent } from './mat-modal-admin/mat-modal-admin.compon
     MatIconModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatDividerModule
+    MatDividerModule,
+    MatProgressSpinnerModule
   ]
 })
 export class ProfileModule { }

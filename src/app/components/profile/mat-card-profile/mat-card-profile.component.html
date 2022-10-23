@@ -58,6 +58,8 @@
         <button mat-button id="profile-modal" (click)="openDeleteDialog()">Delete Account</button>
     </mat-card-actions>
 
-
-
 </mat-card>
+
+<div id="spinner-cont" *ngIf="showSpinner">
+    <mat-spinner color="warn"></mat-spinner>
+</div>

@@ -12,12 +12,19 @@ export class MatCardLibraryComponent implements OnInit {
   error = undefined;
   libraryProducts: any[] = [];
   getId: number | undefined = this.authService.getId();
+  showSpinner: boolean = false;
 
   constructor(
     private authService: AuthService,
     private shopService: ShopsystemService) { }
 
-  ngOnInit(): void { this.getLibraryListByShopId(this.getId); }
+  ngOnInit(): void {
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.showSpinner = false;
+      this.getLibraryListByShopId(this.getId);
+    }, 300);
+  }
 
   getLibraryListByShopId(shopId: number | undefined) {
     return this.shopService.getLibraryListByShopId(shopId).subscribe(

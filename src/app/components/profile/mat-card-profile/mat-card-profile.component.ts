@@ -20,10 +20,17 @@ export class MatCardProfileComponent implements OnInit {
   user!: IUserDtoGetResponse;
   getId: number | undefined = this.authService.getId();
   getRole: string | undefined = this.authService.getRole()?.toString();
+  showSpinner: boolean = false;
 
   constructor(private authService: AuthService, public dialog: MatDialog) { }
 
-  ngOnInit(): void { this.getUserInfo(this.getId); }
+  ngOnInit(): void {
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.showSpinner = false;
+      this.getUserInfo(this.getId);
+    }, 300);
+  }
 
   /* =========== Open Dialogues ============= */
 

@@ -15,6 +15,7 @@ export class MatCardWishlistComponent implements OnInit {
   error = undefined;
   wishlistProducts: any[] = [];
   getId: number | undefined = this.authService.getId();
+  showSpinner: boolean = false;
 
   constructor(
     public dialog: MatDialog,
@@ -22,7 +23,13 @@ export class MatCardWishlistComponent implements OnInit {
     private authService: AuthService,
     private shopService: ShopsystemService) { }
 
-  ngOnInit(): void { this.getWishListByShopId(this.getId); }
+  ngOnInit(): void {
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.showSpinner = false;
+      this.getWishListByShopId(this.getId);
+    }, 300);
+  }
 
   openPurchaseDialog(prodId: number | undefined) {
     // permette di aprire il modal purchase del prodotto cliccato nella wishlist

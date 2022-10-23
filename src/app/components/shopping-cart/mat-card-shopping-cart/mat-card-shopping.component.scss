@@ -1,7 +1,41 @@
 .example-card {
     margin: 10px;
-    width: 400px;
+    width: 700px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#spinner-cont {
+    display: flex;
+    align-items: center;
+    height: 300px;
+}
+
+#emptyblock-cont {
+    display: flex;
+    align-items: center;
+    height: 300px;
+}
+
+// Media Queries
+@media (max-width: 500px) {
+    .example-card {
+        width: 280px;
+        font-size: 0.7em;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 960px) {
+    .example-card {
+        width: 350px;
+        font-size: 0.8em;
+    }
+}
+
+@media (min-width: 961px) and (max-width: 1280px) {
+    .example-card {
+        width: 500px;
+        font-size: 0.9em;
+    }
 }

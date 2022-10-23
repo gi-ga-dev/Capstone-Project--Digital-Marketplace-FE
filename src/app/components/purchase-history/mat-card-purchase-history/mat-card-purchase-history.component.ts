@@ -12,12 +12,19 @@ export class MatCardPurchaseHistoryComponent implements OnInit {
   error = undefined;
   historyProducts: any[] = [];
   getId: number | undefined = this.authService.getId();
+  showSpinner: boolean = false;
 
   constructor(
     private authService: AuthService,
     private shopService: ShopsystemService) { }
 
-  ngOnInit(): void { this.getHistoryListByShopId(this.getId) }
+  ngOnInit(): void {
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.showSpinner = false;
+      this.getHistoryListByShopId(this.getId);
+    }, 300);
+  }
 
   getHistoryListByShopId(shopId: number | undefined) {
     return this.shopService.getHistoryListByShopId(shopId).subscribe(

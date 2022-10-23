@@ -15,14 +15,26 @@ export class MatCardShoppingComponent implements OnInit {
   cartProducts: any[] = [];
   shopSystem!: IShopSystem;
   getId: number | undefined = this.authService.getId();
+  showSpinner: boolean = false;
+  showString: boolean = false;
 
   constructor(
     private authService: AuthService,
     private shopService: ShopsystemService) { }
 
   ngOnInit(): void {
-    this.getCartListByShopId(this.getId);
-    this.getShopSystemBasicInfo(this.getId);
+    // spinner e get dopo 0,3 sec
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.showSpinner = false;
+      this.getCartListByShopId(this.getId);
+      this.getShopSystemBasicInfo(this.getId);
+    }, 300);
+
+    // dopo 0,4 sec mostrato contenuto emptyblock
+    setTimeout(() => {
+      this.showString = true;
+    }, 400);
   }
 
   getShopSystemBasicInfo(shopId: number | undefined) {
