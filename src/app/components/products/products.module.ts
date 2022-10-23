@@ -28,6 +28,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatModalPurchaseWithbalanceComponent } from './mat-modal-purchase-withbalance/mat-modal-purchase-withbalance.component';
+import { MatModalPurchaseWithsubComponent } from './mat-modal-purchase-withsub/mat-modal-purchase-withsub.component';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatModalMusicComponent,
     MatModalBookComponent,
     MatModalPurchaseComponent,
-    MatModalSalesEventComponent
+    MatModalSalesEventComponent,
+    MatModalPurchaseWithbalanceComponent,
+    MatModalPurchaseWithsubComponent
   ],
   imports: [
     CommonModule,
@@ -58,7 +63,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatExpansionModule,
     MatDialogModule,
     MatTooltipModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDividerModule
   ]
 })
 export class ProductsModule { }

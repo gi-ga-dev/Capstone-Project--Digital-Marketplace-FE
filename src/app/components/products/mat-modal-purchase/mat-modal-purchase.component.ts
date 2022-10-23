@@ -3,8 +3,9 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { ShopsystemService } from 'src/app/services/shopsystem.service';
-import { MatModalAddbalanceComponent } from '../../profile/mat-modal-addbalance/mat-modal-addbalance.component';
 import { MatModalSubscriptionComponent } from '../../profile/mat-modal-subscription/mat-modal-subscription.component';
+import { MatModalPurchaseWithbalanceComponent } from '../mat-modal-purchase-withbalance/mat-modal-purchase-withbalance.component';
+import { MatModalPurchaseWithsubComponent } from '../mat-modal-purchase-withsub/mat-modal-purchase-withsub.component';
 
 @Component({
   selector: 'app-mat-modal-purchase',
@@ -24,6 +25,7 @@ export class MatModalPurchaseComponent implements OnInit {
     private authService: AuthService,
     private prodService: ProductsService,
     private shopService: ShopsystemService,
+    // primo inject id, da mat-card a mat-modal purchase
     @Inject(MAT_DIALOG_DATA) public data: { id: number | undefined }) { }
 
   ngOnInit(): void {
@@ -34,15 +36,33 @@ export class MatModalPurchaseComponent implements OnInit {
     this.authService.setSubAndBalance(this.getId).subscribe();
   }
 
-  openSubscriptionDialog() {
-    const dialogRef = this.dialog.open(MatModalSubscriptionComponent);
+  // ---> contenitori dei commit purchase with sub/balance
+
+  openPurchaseWithSubDialog() {
+    // prendo id ricevuto da mat-card e lo inietto nel secondo modal
+    // aprire modal solo se e' utente iscritto
+    if (this.isSubscribed == true) {
+      const dialogRef = this.dialog.open(MatModalPurchaseWithsubComponent, {
+        data: { id: this.data.id }
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+    } else this.openSubscriptionDialog();
+  }
+
+  openPurchaseWithBalanceDialog() {
+    // prendo id ricevuto da mat-card e lo inietto nel secondo modal
+    const dialogRef = this.dialog.open(MatModalPurchaseWithbalanceComponent, {
+      data: { id: this.data.id }
+    });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
 
-  openAddBalanceDialog() {
-    const dialogRef = this.dialog.open(MatModalAddbalanceComponent);
+  openSubscriptionDialog() {
+    const dialogRef = this.dialog.open(MatModalSubscriptionComponent);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
@@ -59,42 +79,6 @@ export class MatModalPurchaseComponent implements OnInit {
         this.product = resp;
       },
       (err) => {
-        this.error = err.error;
-        console.log(err.error);
-      }
-    )
-  }
-
-  purchaseWithSub(shopId: number | undefined, productId: number | undefined) {
-    return this.shopService.purchaseWithSub(shopId, productId).subscribe(
-      (resp) => {
-        this.error = undefined;
-        window.alert("Purchase completed. Product added to your Library...");
-      },
-      (err) => {
-        // essendo nell'errore, le condizioni sono 2 - non iscritto oppure prodotto gia' acquistato
-        // get di isSubscribed from localStorage, se non e' iscritto, apre modal subscription
-        if (this.isSubscribed == false) {
-          this.openSubscriptionDialog();
-        } else window.alert("Product is already in your Library!");
-        this.error = err.error;
-        console.log(err.error);
-      }
-    )
-  }
-
-  purchaseWithBalance(shopId: number | undefined, productId: number | undefined) {
-    return this.shopService.purchaseWithBalance(shopId, productId).subscribe(
-      (resp) => {
-        this.error = undefined;
-        window.alert("Purchase completed. Product added to your Library...");
-      },
-      (err) => {
-        // essendo nell'errore, le condizioni sono 2 - balance non sufficiente oppure prodotto gia' acquistato
-        // prezzo prodotto e accountbalance per comparazione, se balance inferiore aprire modal addBalance
-        if (this.accountBalance < this.product.price) {
-          this.openAddBalanceDialog();
-        } else window.alert("Product is already in your Library!");
         this.error = err.error;
         console.log(err.error);
       }

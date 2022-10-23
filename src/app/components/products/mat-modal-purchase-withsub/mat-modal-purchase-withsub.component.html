@@ -1,0 +1,31 @@
+<mat-dialog-content class="mat-typography">
+
+    <mat-card class="example-card">
+
+        <mat-card-title>Order Summary</mat-card-title>
+        <mat-card-subtitle>Review your order and confirm purchase</mat-card-subtitle>
+
+        <mat-card-content id="card-content">
+
+            <mat-divider></mat-divider>
+            <p>Product: {{product.title}}</p>
+            <!-- <p>Payment Method: {{product.paymentMethod}}</p> -->
+            <mat-divider></mat-divider>
+            <p>Price: 0.00$</p>
+            <mat-divider></mat-divider>
+            <p>Subtotal: 0.00$</p>
+
+        </mat-card-content>
+
+
+        <mat-dialog-actions align="end">
+            <button mat-button id="btns" mat-dialog-close>Cancel</button>
+
+            <button mat-button id="btns" [mat-dialog-close]="true" cdkFocusInitial
+                (click)="purchaseWithSub(getId, product.id)">Place Order</button>
+
+        </mat-dialog-actions>
+
+    </mat-card>
+
+</mat-dialog-content>

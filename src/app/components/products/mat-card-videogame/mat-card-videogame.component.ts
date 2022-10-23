@@ -38,6 +38,7 @@ export class MatCardVideogameComponent implements OnInit {
   }
 
   openPurchaseDialog(prodId: number | undefined) {
+    // prendo id (dai prodotti ciclati in html passo id nel paramentro di questo metodo) e lo inietto nel modal purchase
     const dialogRef = this.dialog.open(MatModalPurchaseComponent, {
       data: { id: prodId }
     });
@@ -53,8 +54,6 @@ export class MatCardVideogameComponent implements OnInit {
         this.videogames = resp;
       },
       (err) => {
-        console.log("Il server e' ripartito, per eseguire il get faccio il reload della pagina");
-        location.reload();
         this.error = err.error;
         console.log(err.error);
       }
@@ -68,7 +67,7 @@ export class MatCardVideogameComponent implements OnInit {
         window.alert("Product Added to WishList");
       },
       (err) => {
-        window.alert("Product already in WishList...");
+        window.alert("Product already in WishList or Library...");
         this.error = err.error;
         console.log(err.error);
       }

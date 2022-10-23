@@ -1,15 +1,3 @@
-#inp-access {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-// input + underline (in responsive mobile settare al 100%)
-/* :host ::ng-deep .mat-form-field-flex,
-:host ::ng-deep .mat-form-field-underline {
-    width: 80%;
-} */
-
 #divider {
     background-color: rgb(255, 0, 111);
     border: 1px solid rgb(255, 0, 111);

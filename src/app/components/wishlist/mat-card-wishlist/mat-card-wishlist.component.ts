@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { IProdBook } from 'src/app/interfaces/iprod-book';
-import { IProdMusic } from 'src/app/interfaces/iprod-music';
-import { IProdVideogame } from 'src/app/interfaces/iprod-videogame';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ShopsystemService } from 'src/app/services/shopsystem.service';
+import { MatModalPurchaseComponent } from '../../products/mat-modal-purchase/mat-modal-purchase.component';
 
 @Component({
   selector: 'app-mat-card-wishlist',
@@ -17,10 +17,22 @@ export class MatCardWishlistComponent implements OnInit {
   getId: number | undefined = this.authService.getId();
 
   constructor(
+    public dialog: MatDialog,
+    private router: Router,
     private authService: AuthService,
     private shopService: ShopsystemService) { }
 
   ngOnInit(): void { this.getWishListByShopId(this.getId); }
+
+  openPurchaseDialog(prodId: number | undefined) {
+    // permette di aprire il modal purchase del prodotto cliccato nella wishlist
+    const dialogRef = this.dialog.open(MatModalPurchaseComponent, {
+      data: { id: prodId }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
   getWishListByShopId(shopId: number | undefined) {
     return this.shopService.getWishListByShopId(shopId).subscribe(

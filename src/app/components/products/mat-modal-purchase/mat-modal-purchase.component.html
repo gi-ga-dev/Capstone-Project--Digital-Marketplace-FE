@@ -82,11 +82,13 @@
             </div>
 
             <mat-dialog-actions align="end">
-                <button mat-button id="btns" [mat-dialog-close]="true" cdkFocusInitial
-                    (click)="purchaseWithSub(getId, product.id)">Purchase for Free*</button>
 
                 <button mat-button id="btns" [mat-dialog-close]="true" cdkFocusInitial
-                    (click)="purchaseWithBalance(getId, product.id)">Purchase for {{product.price.toFixed(2)}}$</button>
+                    (click)="openPurchaseWithSubDialog()">Purchase for Free*</button>
+
+                <button mat-button id="btns" [mat-dialog-close]="true" cdkFocusInitial
+                    (click)="openPurchaseWithBalanceDialog()">Purchase for
+                    {{product.price.toFixed(2)}}$</button>
 
                 <button mat-button id="btns" [mat-dialog-close]="true" cdkFocusInitial
                     (click)="addToCart(getId, product.id)">Add to Cart</button>
