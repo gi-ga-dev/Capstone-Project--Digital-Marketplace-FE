@@ -10,6 +10,9 @@ import { IUserDtoGetResponse } from "../interfaces/idto-user-response";
 import { IDtoProfile } from "../interfaces/idto-profile";
 import { IDtoCredentials } from "../interfaces/idto-credentials";
 import { ShopsystemService } from "./shopsystem.service";
+import { IProdVideogame } from "../interfaces/iprod-videogame";
+import { IProdMusic } from "../interfaces/iprod-music";
+import { IProdBook } from "../interfaces/iprod-book";
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +29,12 @@ export class AuthService {
 
   badgeCount!: any;
   parsedBadge!: number | undefined;
+
+  subData!: any;
+  isSubscribed!: boolean | undefined;
+
+  balanceData!: any;
+  accountBalance!: number;
 
   // inviare headers al back-end per funzionamento dei preauthorize
   headers: {
@@ -182,9 +191,23 @@ export class AuthService {
     return this.parsedBadge;
   }
 
-  getCartListForBadgeCount(shopId: number | undefined) {
+  getIsSubscribed(): boolean | undefined {
+    this.subData = localStorage.getItem('isSubscribed');
+    this.isSubscribed = JSON.parse(this.subData);
+    return this.isSubscribed;
+  }
+
+  getAccountBalance(): number {
+    this.balanceData = localStorage.getItem('accountBalance');
+    this.accountBalance = JSON.parse(this.balanceData);
+    return this.accountBalance;
+  }
+
+  // ------------------------
+
+  setCartListForBadgeCount(shopId: number | undefined): Observable<IProdVideogame[] | IProdMusic[] | IProdBook[]> {
     // get lista carrello per conteggio badge avviene quando:
-    // addToCart, addFreeWithSub, commitPurchase, removeFromCart, Login, e Logout (rimuove dal local)
+    // addToCart, addFreeWithSub, commitPurchase, removeFromCart, Login, e Logout --> (rimuove dal local)
     return this.shopService.getCartListByShopId(shopId).pipe(
       tap(data => {
         localStorage.setItem('badgeCount', JSON.stringify(data.length));
@@ -192,5 +215,13 @@ export class AuthService {
     )
   }
 
+  setSubAndBalance(shopId: number | undefined): Observable<IUserDtoGetResponse> {
+    return this.getUserInfo(shopId).pipe(
+      tap(data => {
+        localStorage.setItem('isSubscribed', JSON.stringify(data.isSubscribed));
+        localStorage.setItem('accountBalance', JSON.stringify(data.accountBalance));
+      })
+    )
+  }
 
 }

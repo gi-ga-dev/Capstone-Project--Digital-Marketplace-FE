@@ -20,6 +20,8 @@ export class MatModalAddbalanceComponent implements OnInit {
   addFiveDollars() {
     return this.authService.addFiveDollars(this.getId).subscribe(
       (resp) => {
+        // per un secondo controllo al momento della sub inserisco/aggiorno prop. isSubscribed/accountBalance nel local
+        this.authService.setSubAndBalance(this.getId).subscribe();
         window.alert("5$ Credits added to your Account Balance!");
         this.authService.reloadRoute();
         this.error = undefined;
@@ -34,6 +36,8 @@ export class MatModalAddbalanceComponent implements OnInit {
   addTwentyFiveDollars() {
     return this.authService.addTwentyFiveDollars(this.getId).subscribe(
       (resp) => {
+        // per un secondo controllo al momento della sub inserisco/aggiorno prop. isSubscribed/accountBalance nel local
+        this.authService.setSubAndBalance(this.getId).subscribe();
         window.alert("25$ Credits added to your Account Balance!");
         this.authService.reloadRoute();
         this.error = undefined;
@@ -48,6 +52,8 @@ export class MatModalAddbalanceComponent implements OnInit {
   addFiftyDollars() {
     return this.authService.addFiftyDollars(this.getId).subscribe(
       (resp) => {
+        // per un secondo controllo al momento della sub inserisco/aggiorno prop. isSubscribed/accountBalance nel local
+        this.authService.setSubAndBalance(this.getId).subscribe();
         window.alert("50$ Credits added to your Account Balance!");
         this.authService.reloadRoute();
         this.error = undefined;

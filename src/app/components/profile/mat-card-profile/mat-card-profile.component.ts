@@ -80,8 +80,8 @@ export class MatCardProfileComponent implements OnInit {
         this.user = resp;
       },
       (err) => {
-        console.log("Ho trovato un errore nel get e faccio il reload della pagina");
-        // reload della pagina per aggiornare username presente nel localStorage
+        // questo problema avviene quando restarto il server e riloggo senza aver riavviato il browser
+        console.log("Il server e' ripartito, per eseguire il get faccio il reload della pagina");
         location.reload();
         this.error = err.error;
         console.log(err.error);

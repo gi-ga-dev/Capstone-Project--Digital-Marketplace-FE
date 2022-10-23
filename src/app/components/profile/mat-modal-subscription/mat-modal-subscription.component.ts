@@ -12,6 +12,8 @@ export class MatModalSubscriptionComponent implements OnInit {
   error = undefined;
   getId: number | undefined = this.authService.getId();
   user!: IUserDtoGetResponse;
+  isSubscribed: boolean | undefined = this.authService.getIsSubscribed();
+  accountBalance: number = this.authService.getAccountBalance();
 
   constructor(private authService: AuthService) { }
 
@@ -20,12 +22,15 @@ export class MatModalSubscriptionComponent implements OnInit {
   subscribeMonthly() {
     return this.authService.subscribeMonthly(this.getId).subscribe(
       (resp) => {
+        // per un secondo controllo al momento della sub inserisco/aggiorno prop. isSubscribed/accountBalance nel local
+        this.authService.setSubAndBalance(this.getId).subscribe();
         window.alert("Subscription success!");
         this.authService.reloadRoute();
         this.error = undefined;
       },
       (err) => {
-        window.alert("Account balance insufficient, or you are already subscribed!");
+        // unica condizione di errore, balance non sufficiente (se gia' iscritto il button scompare di suo)  
+        if (this.accountBalance < 4.90) { window.alert("Account balance insufficient..."); }
         this.error = err.error;
         console.log(err.error);
       }
@@ -35,12 +40,15 @@ export class MatModalSubscriptionComponent implements OnInit {
   subscribeSemestral() {
     return this.authService.subscribeSemestral(this.getId).subscribe(
       (resp) => {
+        // per un secondo controllo al momento della sub inserisco/aggiorno prop. isSubscribed/accountBalance nel local
+        this.authService.setSubAndBalance(this.getId).subscribe();
         window.alert("Subscription success!");
         this.authService.reloadRoute();
         this.error = undefined;
       },
       (err) => {
-        window.alert("Account balance insufficient, or you are already subscribed!");
+        // unica condizione di errore, balance non sufficiente (se gia' iscritto il button scompare di suo)  
+        if (this.accountBalance < 24.90) { window.alert("Account balance insufficient..."); }
         this.error = err.error;
         console.log(err.error);
       }
@@ -50,12 +58,15 @@ export class MatModalSubscriptionComponent implements OnInit {
   subscribeAnnual() {
     return this.authService.subscribeAnnual(this.getId).subscribe(
       (resp) => {
+        // per un secondo controllo al momento della sub inserisco/aggiorno prop. isSubscribed/accountBalance nel local
+        this.authService.setSubAndBalance(this.getId).subscribe();
         window.alert("Subscription success!");
         this.authService.reloadRoute();
         this.error = undefined;
       },
       (err) => {
-        window.alert("Account balance insufficient, or you are already subscribed!");
+        // unica condizione di errore, balance non sufficiente (se gia' iscritto il button scompare di suo)  
+        if (this.accountBalance < 44.90) { window.alert("Account balance insufficient..."); }
         this.error = err.error;
         console.log(err.error);
       }
@@ -70,9 +81,6 @@ export class MatModalSubscriptionComponent implements OnInit {
         this.user = resp;
       },
       (err) => {
-        console.log("Ho trovato un errore nel get e faccio il reload della pagina");
-        // reload della pagina per aggiornare username presente nel localStorage
-        location.reload();
         this.error = err.error;
         console.log(err.error);
       }

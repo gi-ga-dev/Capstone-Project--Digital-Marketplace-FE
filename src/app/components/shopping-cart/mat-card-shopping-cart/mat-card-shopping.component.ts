@@ -64,7 +64,7 @@ export class MatCardShoppingComponent implements OnInit {
         window.alert("Delete from Shopping Cart successfull");
         this.authService.reloadRoute();
         // aggiorno carrello dopo eliminazione prodotto
-        this.authService.getCartListForBadgeCount(shopId).subscribe();
+        this.authService.setCartListForBadgeCount(shopId).subscribe();
       }
     )
   }
@@ -90,7 +90,7 @@ export class MatCardShoppingComponent implements OnInit {
         this.error = undefined;
         window.alert("Purchase Completed!");
         this.authService.reloadRoute();
-        this.authService.getCartListForBadgeCount(shopId).subscribe();
+        this.authService.setCartListForBadgeCount(shopId).subscribe();
       },
       (err) => {
         window.alert("Account Balance is insufficient...");

@@ -9,12 +9,14 @@ import { ThemeService } from 'src/app/services/theme.service';
 })
 export class MatNavbarComponent implements OnInit, DoCheck {
 
-  badgeCount: number | undefined;
+  error = undefined;
   isDarkMode!: boolean;
   showProdTab: boolean = false;
+
   isAuthenticated!: boolean;
   getRole: string | undefined;
-  error = undefined;
+  badgeCount: number | undefined;
+  isSubscribed!: boolean | undefined;
 
   constructor(
     private themeService: ThemeService,
@@ -39,6 +41,8 @@ export class MatNavbarComponent implements OnInit, DoCheck {
     this.authService.logout();
     this.isAuthenticated = false;
     localStorage.removeItem("badgeCount");
+    localStorage.removeItem("isSubscribed");
+    localStorage.removeItem("accountBalance");
   }
 
   toggleDarkMode() {

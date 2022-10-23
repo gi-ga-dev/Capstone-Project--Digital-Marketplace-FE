@@ -53,6 +53,8 @@ export class MatCardVideogameComponent implements OnInit {
         this.videogames = resp;
       },
       (err) => {
+        console.log("Il server e' ripartito, per eseguire il get faccio il reload della pagina");
+        location.reload();
         this.error = err.error;
         console.log(err.error);
       }

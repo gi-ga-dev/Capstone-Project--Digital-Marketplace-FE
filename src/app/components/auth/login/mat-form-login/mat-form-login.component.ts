@@ -31,7 +31,8 @@ export class LoginMatCardComponent implements OnInit {
         this.error = undefined;
         console.log("--> User logged in");
         this.router.navigate(['home']);
-        this.authService.getCartListForBadgeCount(this.authService.getId()).subscribe();
+        this.authService.setCartListForBadgeCount(this.authService.getId()).subscribe();
+        this.authService.setSubAndBalance(this.authService.getId()).subscribe();
       },
       err => {
         this.error = err.error;
