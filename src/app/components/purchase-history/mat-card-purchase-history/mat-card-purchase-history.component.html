@@ -2,31 +2,41 @@
 
     <mat-card-header>
         <mat-card-title>
-            <mat-icon>gavel</mat-icon> Your Purchase History
+            <div id="title-cont">
+                <mat-icon id="gavel-icon">gavel</mat-icon> Your Purchase History
+            </div>
         </mat-card-title>
         <mat-divider></mat-divider>
-        <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
     </mat-card-header>
 
-    <div id="spinner-cont" *ngIf="showSpinner">
-        <mat-spinner color="warn"></mat-spinner>
-    </div>
-
-    <mat-card-content>
+    <mat-card-content *ngIf="historyProducts.length !== 0; else emptyblock">
+        <!-- GET elem nel carrello - Generare una riga per ogni elem nella lista -->
         <div *ngFor="let product of historyProducts">
-            <mat-divider></mat-divider>
-            <p>Product Type: {{product.productType}}</p>
-            <p>Title: {{product.title}}</p>
-            <p>Price: {{product.price.toFixed(2)}}$</p>
-            <!-- Aggiungere Table -->
-            <!-- ngIf se il metodo di pagamento e' subscription e isSubscribed = false DISABILITARE CAMPO del Table-->
-            <p>Payment Method: {{product.paymentMethod}}</p>
 
-            <!-- RIEMPIRE CON ALTRI DATI PRODOTTO -->
+            <mat-divider id="divider"></mat-divider>
 
-            <mat-divider></mat-divider>
+            <div id="cart-cont">
+
+                <p id="prod-type">Type: {{product.productType}}</p>
+                <p id="prod-title">Title: {{product.title}}</p>
+                <p id="prod-price">Price: {{product.price.toFixed(2)}}$</p>
+                <p id="prod-method">Method: {{product.paymentMethod}}</p>
+
+            </div>
         </div>
+
+        <mat-divider id="divider"></mat-divider>
 
     </mat-card-content>
 
+    <ng-template #emptyblock>
+
+        <mat-card-content id="emptyblock-cont" *ngIf="showString">Your Purchase History is empty!</mat-card-content>
+
+    </ng-template>
+
 </mat-card>
+
+<div id="spinner-cont" *ngIf="showSpinner">
+    <mat-spinner color="accent"></mat-spinner>
+</div>

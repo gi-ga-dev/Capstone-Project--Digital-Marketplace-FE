@@ -2,33 +2,52 @@
 
     <mat-card-header>
         <mat-card-title>
-            <mat-icon>favorite</mat-icon> Your Wish List
+            <div id="title-cont">
+                <mat-icon id="favorite-icon">favorite</mat-icon> Your Wishlist
+            </div>
         </mat-card-title>
         <mat-divider></mat-divider>
         <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
     </mat-card-header>
 
-    <div id="spinner-cont" *ngIf="showSpinner">
-        <mat-spinner color="warn"></mat-spinner>
-    </div>
-
-    <mat-card-content>
+    <mat-card-content *ngIf="wishlistProducts.length !== 0; else emptyblock">
+        <!-- GET elem nel carrello - Generare una riga per ogni elem nella cartList -->
         <div *ngFor="let product of wishlistProducts">
-            <mat-divider></mat-divider>
-            <p>Product Type: {{product.productType}}</p>
-            <p>Title: {{product.title}}</p>
-            <p>Price: {{product.price.toFixed(2)}}$</p>
 
-            <button mat-button (click)="deleteFromWishList(getId, product.id)">
-                <mat-icon>remove_shopping_cart</mat-icon>
-            </button>
+            <mat-divider id="divider"></mat-divider>
 
-            <button mat-button (click)="openPurchaseDialog(product.id)">Go to Product Page</button>
+            <div id="cart-cont">
 
+                <p id="prod-type"><span id="properties">Type: </span>{{product.productType}}</p>
+                <p id="prod-title"><span id="properties">Title: </span>{{product.title}}</p>
 
-            <mat-divider></mat-divider>
+                <div id="btn-cont">
+                    <button id="btns" mat-button (click)="deleteFromWishList(getId, product.id)"
+                        matTooltip="Delete from Wishlist" matTooltipPosition="left">
+                        <mat-icon>remove_shopping_cart</mat-icon>
+                    </button>
+
+                    <button id="btns" mat-button (click)="openPurchaseDialog(product.id)"
+                        matTooltip="Go to Product Page" matTooltipPosition="right">
+                        <mat-icon>person</mat-icon>
+                    </button>
+                </div>
+
+            </div>
         </div>
+
+        <mat-divider id="divider"></mat-divider>
 
     </mat-card-content>
 
+    <ng-template #emptyblock>
+
+        <mat-card-content id="emptyblock-cont" *ngIf="showString">Your Wishlist is empty!</mat-card-content>
+
+    </ng-template>
+
 </mat-card>
+
+<div id="spinner-cont" *ngIf="showSpinner">
+    <mat-spinner color="accent"></mat-spinner>
+</div>

@@ -1,7 +1,7 @@
-@import "~@angular/material/theming";
+@import "@angular/material/theming";
 @include mat-core();
 
-$mat-primary-scheme: (
+$primary-light-scheme: (
     100: #c5cae9,
     500: #61699a,
     700: #303f9f,
@@ -11,7 +11,17 @@ $mat-primary-scheme: (
     ),
 );
 
-$mat-accent-scheme: (
+$accent-light-scheme: (
+    100: #e3c38c,
+    500: #d7a54f,
+    700: #ffa200,
+    contrast: (100: rgba(0, 0, 0, 0.87),
+        500: rgba(0, 0, 0, 0.87),
+        700: #ffffff,
+    ),
+);
+
+$warn-light-scheme: (
     100: #ff80ab,
     500: #ff4081,
     700: #f50057,
@@ -21,32 +31,103 @@ $mat-accent-scheme: (
     ),
 );
 
-$mat-warn-scheme: (
-    100: #ff80ab,
-    500: #ff4081,
-    700: #f50057,
-    contrast: (100: rgba(0, 0, 0, 0.87),
-        500: rgba(0, 0, 0, 0.87),
-        700: #ffffff,
-    ),
-);
+// -------------------------
+// Utilizzo Theme System:
+// Inserire selettori nel .light-mode e .dark-mode per i componenti che devono subire un cambiamento
+// basta fare piccole modifiche come background e color. La struttura dei componenti come display flex 
+// saranno nei loro rispettivi file .scss 
 
-$mat-primary-palette: mat-palette($mat-primary-scheme);
-$mat-accent-palette: mat-palette($mat-accent-scheme);
+$primary-light-pal: mat-palette($primary-light-scheme);
+$accent-light-pal: mat-palette($accent-light-scheme);
+$warn-light-pal: mat-palette($warn-light-scheme);
 
-$app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
+$app-light-theme: mat-light-theme($primary-light-pal, $accent-light-pal, $warn-light-pal);
 
 .light-mode {
     @include angular-material-theme($app-light-theme);
+
+    // -----------> Sidenav <-----------
+
+    .example-sidenav-content {
+        background: rgba(211, 211, 211, 0.249);
+    }
+
+    // -----------> Shopping Cart Page <-----------
+
+    .example-card {
+        background-color: #4486d611;
+        border: 1px solid rgb(232, 169, 52);
+    }
+
+    #divider {
+        background-color: rgb(232, 169, 52);
+    }
+
+    #btns {
+        // delete-wishlist btns
+        border: 2px solid black;
+        background: rgba(232, 169, 52, 0.742);
+        color: black;
+    }
+
+    #btns:hover {
+        background-color: orange;
+        color: white;
+    }
+
+    #btn-purchase {
+        border: 2px solid black;
+        background: rgba(232, 169, 52, 0.742);
+        color: black;
+    }
+
+    #btn-purchase:hover {
+        background-color: orange;
+        color: white;
+    }
+
+
 }
 
-$app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
+// -------------------------
+
+$app-dark-theme: mat-dark-theme($primary-light-pal, $accent-light-pal, $warn-light-pal);
 
 .dark-mode {
     @include angular-material-theme($app-dark-theme);
 
     background-color: #333;
-    color: whitesmoke;
+    color: rgb(234, 233, 233);
+
+    // -----------> Shopping Cart Page <-----------
+
+    .example-card {
+        border: 1px solid black;
+    }
+
+    #btns {
+        // delete-wishlist btns
+        border: 2px solid rgb(38, 38, 38);
+        background: rgba(232, 169, 52, 0.742);
+        color: rgb(64, 42, 0);
+    }
+
+    #btns:hover {
+        background-color: orange;
+        color: white;
+    }
+
+    #btn-purchase {
+        border: 2px solid rgb(38, 38, 38);
+        background: rgba(232, 169, 52, 0.742);
+        color: rgb(64, 42, 0);
+    }
+
+    #btn-purchase:hover {
+        background-color: orange;
+        color: white;
+    }
+
 }
 
 html,

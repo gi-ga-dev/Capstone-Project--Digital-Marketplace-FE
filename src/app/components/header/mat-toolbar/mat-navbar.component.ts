@@ -1,4 +1,5 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit, HostBinding } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { ThemeService } from 'src/app/services/theme.service';
 
@@ -10,13 +11,17 @@ import { ThemeService } from 'src/app/services/theme.service';
 export class MatNavbarComponent implements OnInit, DoCheck {
 
   error = undefined;
-  isDarkMode!: boolean;
   showProdTab: boolean = false;
 
   isAuthenticated!: boolean;
   getRole: string | undefined;
   badgeCount: number | undefined;
   isSubscribed!: boolean | undefined;
+
+  isDarkMode!: boolean;
+  showFiller = false;
+  toggleControl = new FormControl(false);
+  @HostBinding('class') className = ''
 
   constructor(
     private themeService: ThemeService,

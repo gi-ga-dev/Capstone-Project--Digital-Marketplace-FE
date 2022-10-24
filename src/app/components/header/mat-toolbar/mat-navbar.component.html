@@ -28,7 +28,7 @@
 
 <!-- ================== Product Toolbar ================== -->
 
-<mat-toolbar class="prod-toolbar" *ngIf="showProdTab; else elseBlock">
+<mat-toolbar color="accent" class="prod-toolbar" *ngIf="showProdTab; else elseBlock">
     <a mat-button (click)="drawer.close()" href="#" [routerLink]="['/products/videogames']"
         routerLinkActive="router-link-active">
         <mat-icon>videogame_asset</mat-icon> Videogames
@@ -72,7 +72,7 @@
                 <mat-icon>fingerprint</mat-icon> View Profile
             </a>
 
-            <a matBadge="{{badgeCount}}" matBadgeColor="warn" mat-button (click)="drawer.close()"
+            <a matBadge="{{badgeCount}}" matBadgeColor="accent" mat-button (click)="drawer.close()"
                 (click)="hideProdTab()" href="#" [routerLink]="['/shopping-cart']"
                 routerLinkActive="router-link-active">
                 <mat-icon>shop</mat-icon> Shopping Cart

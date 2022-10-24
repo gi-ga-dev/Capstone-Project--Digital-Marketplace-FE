@@ -1,8 +1,9 @@
 .example-card {
     border-radius: 5px;
-    border: 2px solid black;
     margin: 5px;
-    width: 1000px;
+    width: 1280px;
+    //margin-bottom: 500px;
+    //background: linear-gradient(135deg, rgba(129, 128, 128, 0.2) 0%, rgba(1, 0, 0, 0.2) 50%, rgba(129, 128, 128, 0.2) 100%);
 }
 
 .mat-card-header {
@@ -25,8 +26,8 @@
 }
 
 #divider {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 #cart-cont {
@@ -35,6 +36,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
+
+    #properties {
+        font-weight: 600;
+    }
 
     #prod-type {
         width: 15%;
@@ -52,17 +57,12 @@
     }
 
     #btns {
-        border: 2px solid rgb(33, 33, 33);
-        color: rgb(33, 33, 33);
+        // delete-wishlist btns
         cursor: pointer;
         border-radius: 5px;
         margin: 0 3px;
         width: 47%;
-        background-color: rgba(220, 139, 33, 0.783);
-    }
-
-    #btns:hover {
-        background-color: orange;
+        //background: linear-gradient(135deg, rgba(129, 128, 128, 0.4) 0%, rgba(1, 0, 0, 0.4) 50%, rgba(129, 128, 128, 0.4) 100%);
     }
 
     #prod-price {
@@ -78,17 +78,16 @@
     flex-wrap: wrap;
     align-items: center;
 
+    #properties {
+        font-weight: 600;
+    }
+
     #btn-purchase {
         font-weight: 700;
         cursor: pointer;
         border-radius: 5px;
         width: 150px;
         padding: 15px;
-        background-color: rgba(220, 139, 33, 0.783);
-    }
-
-    #btn-purchase:hover {
-        background-color: orange;
     }
 }
 
@@ -100,8 +99,8 @@
 
 #emptyblock-cont {
     display: flex;
-    align-items: center;
-    //height: 300px;
+    justify-content: center;
+    margin: 100px 0;
 }
 
 // -------> Media Queries

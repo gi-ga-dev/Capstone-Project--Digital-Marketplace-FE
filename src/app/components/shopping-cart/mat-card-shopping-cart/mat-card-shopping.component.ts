@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { tap } from 'rxjs';
+import { Component, OnInit, HostBinding } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { IShopSystem } from 'src/app/interfaces/ishop-system';
 import { AuthService } from 'src/app/services/auth.service';
 import { ShopsystemService } from 'src/app/services/shopsystem.service';

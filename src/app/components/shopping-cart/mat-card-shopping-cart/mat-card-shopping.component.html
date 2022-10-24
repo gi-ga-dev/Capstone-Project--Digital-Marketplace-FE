@@ -18,32 +18,32 @@
 
             <div id="cart-cont">
 
-                <p id="prod-type">Product Type: {{product.productType}}</p>
-                <p id="prod-title">Title: {{product.title}}</p>
+                <p id="prod-type"><span id="properties">Type: </span>{{product.productType}}</p>
+                <p id="prod-title"><span id="properties">Title: </span>{{product.title}}</p>
 
                 <div id="btn-cont">
-                    <button id="btns" mat-button (click)="deleteFromCart(getId, product.id)">
+                    <button id="btns" mat-button (click)="deleteFromCart(getId, product.id)"
+                        matTooltip="Delete from Cart" matTooltipPosition="below">
                         <mat-icon>remove_shopping_cart</mat-icon>
                     </button>
 
-                    <button id="btns" mat-button (click)="addToWishList(getId, product.id)">
+                    <button id="btns" mat-button (click)="addToWishList(getId, product.id)" matTooltip="Add to Wishlist"
+                        matTooltipPosition="below">
                         <mat-icon>favorite</mat-icon>
                     </button>
                 </div>
-                <p id="prod-price">Price: {{product.price.toFixed(2)}}$</p>
+                <p id="prod-price"><span id="properties">Price: </span>{{product.price.toFixed(2)}}$</p>
 
             </div>
-
-            <mat-divider id="divider"></mat-divider>
         </div>
 
-        <br>
+        <mat-divider id="divider"></mat-divider>
 
         <div id="subtotal-cont" *ngIf="shopSystem != undefined">
             <!-- *ngIf="shopSystem != undefined" rimuove errore -->
-            <p>Tot. Quantity: {{cartProducts.length}}</p>
+            <p><span id="properties">Tot. Quantity: </span>{{cartProducts.length}}</p>
             <button id="btn-purchase" mat-button (click)="commitPurchase(getId)">Place Order</button>
-            <p>Tot. Price: {{shopSystem.cartSubtotal.toFixed(2)}}$</p>
+            <p><span id="properties">Tot. Price: </span>{{shopSystem.cartSubtotal.toFixed(2)}}$</p>
         </div>
 
     </mat-card-content>
@@ -57,5 +57,5 @@
 </mat-card>
 
 <div id="spinner-cont" *ngIf="showSpinner">
-    <mat-spinner color="warn"></mat-spinner>
+    <mat-spinner color="accent"></mat-spinner>
 </div>

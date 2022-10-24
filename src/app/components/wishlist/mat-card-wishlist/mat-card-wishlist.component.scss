@@ -1,13 +1,109 @@
 .example-card {
-    margin: 10px;
-    width: 400px;
+    border-radius: 5px;
+    margin: 5px;
+    width: 1280px;
+}
+
+.mat-card-header {
+    justify-content: center;
+
+    #title-cont {
+        display: flex;
+        align-items: center;
+
+        #favorite-icon {
+            margin-right: 5px;
+        }
+    }
+
+}
+
+// font-size generale
+:host ::ng-deep .mat-card-content {
+    font-size: 1.1em;
+}
+
+#divider {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+#cart-cont {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
+
+    #properties {
+        font-weight: 600;
+    }
+
+    #prod-type {
+        width: 20%;
+        text-align: left;
+    }
+
+    #prod-title {
+        width: 30%;
+        text-align: left;
+    }
+
+    #btn-cont {
+        width: 40%;
+        text-align: left;
+    }
+
+    #btns {
+        // delete-wishlist btns
+        cursor: pointer;
+        border-radius: 5px;
+        margin: 0 3px;
+        width: 20%;
+    }
+
 }
 
 #spinner-cont {
     display: flex;
-    align-items: center;
+    justify-content: center;
     height: 500px;
+}
+
+#emptyblock-cont {
+    display: flex;
+    justify-content: center;
+    margin: 100px 0;
+}
+
+// -------> Media Queries
+
+@media (max-width: 500px) {
+    .example-card {
+        width: 380px;
+    }
+
+    :host ::ng-deep .mat-card-content {
+        font-size: 0.9em;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 960px) {
+    .example-card {
+        width: 500px;
+    }
+
+    :host ::ng-deep .mat-card-content {
+        font-size: 1em;
+    }
+}
+
+@media (min-width: 961px) and (max-width: 1280px) {
+    .example-card {
+        width: 800px;
+    }
+
+    :host ::ng-deep .mat-card-content {
+        font-size: 1.1em;
+    }
 }

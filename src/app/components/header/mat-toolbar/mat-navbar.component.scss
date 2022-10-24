@@ -6,7 +6,6 @@
 }
 
 .prod-toolbar {
-    background-color: grey;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +25,7 @@
 
 // settare height contenuto pagine alle stesse dimensioni del device in uso
 :host ::ng-deep .mat-drawer-container {
-    height: 100%;
+    //height: 100%;
     justify-content: center;
     align-items: flex-start;
 }
@@ -36,7 +35,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
 }
 
 // contenitore sidenav

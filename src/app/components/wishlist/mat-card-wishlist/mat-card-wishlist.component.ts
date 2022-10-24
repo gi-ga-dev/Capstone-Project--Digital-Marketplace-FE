@@ -16,6 +16,7 @@ export class MatCardWishlistComponent implements OnInit {
   wishlistProducts: any[] = [];
   getId: number | undefined = this.authService.getId();
   showSpinner: boolean = false;
+  showString: boolean = false;
 
   constructor(
     public dialog: MatDialog,
@@ -24,11 +25,17 @@ export class MatCardWishlistComponent implements OnInit {
     private shopService: ShopsystemService) { }
 
   ngOnInit(): void {
+    // spinner e get dopo 0,3 sec
     this.showSpinner = true;
     setTimeout(() => {
       this.showSpinner = false;
       this.getWishListByShopId(this.getId);
     }, 300);
+
+    // dopo 0,4 sec mostrato contenuto emptyblock
+    setTimeout(() => {
+      this.showString = true;
+    }, 400);
   }
 
   openPurchaseDialog(prodId: number | undefined) {
