@@ -7,7 +7,6 @@
 
 .mat-card-header {
     justify-content: center;
-    color: rgb(245, 245, 245);
 
     #title-cont {
         display: flex;
@@ -23,7 +22,6 @@
 // font-size generale
 :host ::ng-deep .mat-card-content {
     font-size: 1.1em;
-    color: rgb(245, 245, 245);
 }
 
 #divider {
