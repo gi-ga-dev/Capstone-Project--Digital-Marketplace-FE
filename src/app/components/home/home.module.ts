@@ -10,7 +10,6 @@ import { HomeContentComponent } from './sub-components/home-content.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { FooterModule } from '../footer/footer.module';
 
 @NgModule({
   declarations: [
@@ -22,8 +21,7 @@ import { FooterModule } from '../footer/footer.module';
     HomeRoutingModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule,
-    FooterModule
+    MatCardModule
 
   ]
 })

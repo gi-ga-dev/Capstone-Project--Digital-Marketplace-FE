@@ -8,6 +8,7 @@ import { LoginPage } from './login/login.page';
 import { SignupPage } from './signup/signup.page';
 import { LoginMatCardComponent } from './login/mat-form-login/mat-form-login.component';
 import { SignupMatCardComponent } from './signup/mat-form-signup/mat-form-signup.component';
+import { MatModalSignupAdminComponent } from './signup/mat-modal-signup-admin/mat-modal-signup-admin.component';
 
 /* ------------- Material ----------------- */
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -17,7 +18,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatModalSignupAdminComponent } from './signup/mat-modal-signup-admin/mat-modal-signup-admin.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
