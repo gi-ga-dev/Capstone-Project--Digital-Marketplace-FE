@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
-import { MatModalSignupAdminComponent } from '../../auth/signup/mat-modal-signup-admin/mat-modal-signup-admin.component';
+import { MatModalSignupAdminComponent } from '../../auth/mat-modal-signup-admin/mat-modal-signup-admin.component';
 import { MatModalBookComponent } from '../../products/mat-modal-book/mat-modal-book.component';
 import { MatModalMusicComponent } from '../../products/mat-modal-music/mat-modal-music.component';
 import { MatModalSalesEventComponent } from '../../products/mat-modal-sales-event/mat-modal-sales-event.component';

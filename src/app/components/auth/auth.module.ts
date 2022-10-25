@@ -4,11 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 /* ------------- Components ----------------- */
-import { LoginPage } from './login/login.page';
-import { SignupPage } from './signup/signup.page';
-import { LoginMatCardComponent } from './login/mat-form-login/mat-form-login.component';
-import { SignupMatCardComponent } from './signup/mat-form-signup/mat-form-signup.component';
-import { MatModalSignupAdminComponent } from './signup/mat-modal-signup-admin/mat-modal-signup-admin.component';
+import { AuthPage } from './auth.page';
+import { LoginMatCardComponent } from './mat-form-login/mat-form-login.component';
+import { SignupMatCardComponent } from './mat-form-signup/mat-form-signup.component';
+import { MatModalSignupAdminComponent } from './mat-modal-signup-admin/mat-modal-signup-admin.component';
 
 /* ------------- Material ----------------- */
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -23,8 +22,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
-    LoginPage,
-    SignupPage,
+    AuthPage,
     LoginMatCardComponent,
     SignupMatCardComponent,
     MatModalSignupAdminComponent

@@ -79,7 +79,7 @@ export class AuthService {
   logout() {
     this.authSubject.next(null);
     localStorage.removeItem('isAuthenticated');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth']);
     console.log("Successfully logged out");
   }
 

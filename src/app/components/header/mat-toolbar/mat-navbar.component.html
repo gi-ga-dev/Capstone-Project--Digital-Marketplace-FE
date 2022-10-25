@@ -90,23 +90,19 @@
 
         </div>
 
-        <mat-divider></mat-divider>
+        <mat-divider id="auth-divider"></mat-divider>
 
         <!-- Authentication Group -->
         <div id="sidenav-group">
-            <a mat-button href="#" *ngIf="!isAuthenticated" [routerLink]="['/login']"
+            <a mat-button href="#" *ngIf="!isAuthenticated" [routerLink]="['/auth']"
                 routerLinkActive="router-link-active">
-                <mat-icon>login</mat-icon> Login
+                <mat-icon>lock_open</mat-icon> Login/Signup
             </a>
 
             <button mat-button type="button" *ngIf="isAuthenticated" (click)="logout()">
                 <mat-icon>logout</mat-icon> Logout
             </button>
 
-            <a mat-button href="#" *ngIf="!isAuthenticated" [routerLink]="['/signup']"
-                routerLinkActive="router-link-active">
-                <mat-icon>lock_open</mat-icon> Signup
-            </a>
         </div>
 
     </mat-drawer>
