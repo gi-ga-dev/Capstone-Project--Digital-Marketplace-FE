@@ -1,47 +1,48 @@
-<form #f="ngForm" (ngSubmit)="onSubmit()">
+<form #f="ngForm" (ngSubmit)="onSubmit()" *ngIf="!hasRegistered">
     <mat-card class="example-card">
 
-        <mat-card-title>Register</mat-card-title>
+        <mat-card-title>Signup</mat-card-title>
         <mat-card-subtitle>Insert your registration details</mat-card-subtitle>
 
-        <mat-card-content id="inp-access">
-            <mat-form-field appearance="fill">
+        <mat-card-content>
+
+            <mat-form-field color="accent" appearance="fill">
                 <mat-label>Enter your First Name</mat-label>
                 <input matInput ngModel name="firstName" type="text">
                 <mat-icon matSuffix>person_outline</mat-icon>
             </mat-form-field>
 
-            <mat-form-field appearance="fill">
+            <mat-form-field color="accent" appearance="fill">
                 <mat-label>Enter your Last Name</mat-label>
                 <input matInput ngModel name="lastName" type="text">
                 <mat-icon matSuffix>people</mat-icon>
             </mat-form-field>
 
-            <mat-form-field appearance="fill">
+            <mat-form-field color="accent" appearance="fill">
                 <mat-label>Enter your email</mat-label>
                 <input matInput ngModel name="email" type="email" placeholder="pat@example.com">
                 <mat-icon matSuffix>email</mat-icon>
             </mat-form-field>
 
-            <mat-form-field appearance="fill">
+            <mat-form-field color="accent" appearance="fill">
                 <mat-label>Enter your username</mat-label>
                 <!-- il campo userName deve essere lo stesso della classe LoginRequest (Java) -->
                 <input matInput ngModel name="userName" type="text">
                 <mat-icon matSuffix>person</mat-icon>
             </mat-form-field>
 
-            <mat-form-field appearance="fill">
+            <mat-form-field color="accent" appearance="fill">
                 <mat-label>Enter your password</mat-label>
                 <input matInput type="password" ngModel name="password">
                 <mat-icon matSuffix>lock_open</mat-icon>
             </mat-form-field>
 
             <mat-card-actions>
-                <button mat-button type="submit">Register</button>
+                <button id="btns" mat-button type="submit">Signup</button>
             </mat-card-actions>
 
             <mat-card-footer *ngIf="show">
-                <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                <mat-progress-bar color="accent" mode="indeterminate"></mat-progress-bar>
                 <div *ngIf="error">
                     <p id="error">All fields are mandatory</p>
                 </div>

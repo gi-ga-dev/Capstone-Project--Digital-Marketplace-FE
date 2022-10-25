@@ -15,45 +15,38 @@ input.example-right-align {
     -moz-appearance: textfield;
 }
 
-#inp-access {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
 /* ========= Card ========= */
 
 .example-card {
     max-width: 350px;
+    height: 450px;
     margin: auto;
     text-align: center;
     font-size: 0.7em;
-    background-color: rgb(109, 110, 111);
-    border: 1px solid rgba(62, 63, 63, 0.8);
 }
 
 :host ::ng-deep .mat-card {
     padding: 0 0 15px 0;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 :host ::ng-deep .mat-card-title,
 .mat-card-subtitle {
-    background-color: rgb(57, 57, 57);
     margin-top: 0;
     margin-bottom: 0;
 }
 
 :host ::ng-deep .mat-card-title {
-    padding-top: 10px;
+    padding-top: 25px;
 }
 
 :host ::ng-deep .mat-card-subtitle {
     padding: 10px 0;
-    margin-bottom: 25px;
 }
 
 :host ::ng-deep .mat-progress-bar {
-    width: 300px;
+    width: 75%;
     margin: auto;
 }
 
@@ -61,25 +54,23 @@ input.example-right-align {
 
 :host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
     // dimensioni campi input
-    width: 250px !important;
+    width: 275px !important;
 }
 
 :host ::ng-deep .mat-form-field-wrapper {
     // margine tra le righe di input
-    margin-bottom: -15px !important;
+    margin-bottom: -12px !important;
 }
 
 /* ======== button ======== */
 
 :host ::ng-deep .mat-button {
-    width: 50%;
+    width: 275px;
     height: 40px;
-    background-color: rgb(255, 0, 111);
-    color: black;
-    border: 1px solid rgba(62, 63, 63, 0.8);
 }
 
 #error {
-    color: rgb(255, 0, 111);
+    margin-top: 5px;
+    color: rgb(245, 77, 121);
     font-size: 1.1em;
 }

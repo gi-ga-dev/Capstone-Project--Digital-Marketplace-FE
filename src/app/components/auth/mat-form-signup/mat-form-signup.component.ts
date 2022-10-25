@@ -13,6 +13,7 @@ export class SignupMatCardComponent implements OnInit {
   @ViewChild('f') form!: NgForm;
   error = undefined;
   show: boolean = false;
+  hasRegistered: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -23,7 +24,7 @@ export class SignupMatCardComponent implements OnInit {
     this.authService.signup(this.form.value).subscribe(
       (resp) => {
         this.error = undefined;
-        this.router.navigate(['/login']);
+        this.hasRegistered = true;
       },
       (err) => {
         console.log(err.error);

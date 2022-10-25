@@ -19,6 +19,7 @@ input.example-right-align {
 
 .example-card {
     max-width: 350px;
+    height: 450px;
     margin: auto;
     text-align: center;
     font-size: 0.7em;
@@ -26,21 +27,24 @@ input.example-right-align {
 
 :host ::ng-deep .mat-card {
     padding: 0 0 15px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 :host ::ng-deep .mat-card-title,
 .mat-card-subtitle {
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 15px;
 }
 
 :host ::ng-deep .mat-card-title {
-    padding-top: 15px;
+    padding-top: 25px;
 }
 
 :host ::ng-deep .mat-card-subtitle {
     padding: 10px 0;
-    margin-bottom: 15px;
 }
 
 :host ::ng-deep .mat-progress-bar {
