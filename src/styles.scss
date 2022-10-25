@@ -48,14 +48,45 @@ $app-light-theme: mat-light-theme($primary-light-pal, $accent-light-pal, $warn-l
 
     .orange-snackbar {
         border: 2px solid black;
-        background: rgba(232, 169, 52, 0.742);
+        background: rgba(232, 169, 52, 1);
         color: black;
     }
 
     // -----------> Sidenav <-----------
 
+    // contenuto pagine
     .example-sidenav-content {
         background: rgba(211, 211, 211, 0.249);
+
+
+        .login-cont {
+            background: url('../src/assets/images/img-login.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 800px;
+        }
+
+        // -------> Media Queries (contenuto pagine)
+
+        @media (max-width: 500px) {
+            .login-cont {
+                height: 600px;
+            }
+        }
+
+        @media (min-width: 501px) and (max-width: 960px) {
+            .login-cont {
+                height: 800px;
+            }
+        }
+
+        @media (min-width: 961px) and (max-width: 1280px) {
+            .login-cont {
+                height: 1000px;
+            }
+        }
+
     }
 
     // -----------> Library Page <-----------
@@ -92,6 +123,7 @@ $app-light-theme: mat-light-theme($primary-light-pal, $accent-light-pal, $warn-l
         background-color: rgb(232, 169, 52);
     }
 
+    // utilizzabile in ogni componente chiamandolo nell'html
     #btns {
         // delete-wishlist btns
         border: 2px solid black;
@@ -115,10 +147,9 @@ $app-light-theme: mat-light-theme($primary-light-pal, $accent-light-pal, $warn-l
         color: white;
     }
 
-
 }
 
-// -------------------------
+// -------------------------> DARK THEME <------------------------
 
 $app-dark-theme: mat-dark-theme($primary-light-pal, $accent-light-pal, $warn-light-pal);
 
@@ -132,6 +163,43 @@ $app-dark-theme: mat-dark-theme($primary-light-pal, $accent-light-pal, $warn-lig
         border: 2px solid rgb(38, 38, 38);
         background: rgba(232, 169, 52, 0.742);
         color: rgb(64, 42, 0);
+    }
+
+    // -----------> Sidenav <-----------
+
+    // contenuto pagine
+    .example-sidenav-content {
+        //background: rgba(211, 211, 211, 0.249);
+
+
+        .login-cont {
+            background: url('../src/assets/images/img-login.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 800px;
+        }
+
+        // -------> Media Queries (contenuto pagine)
+
+        @media (max-width: 500px) {
+            .login-cont {
+                height: 600px;
+            }
+        }
+
+        @media (min-width: 501px) and (max-width: 960px) {
+            .login-cont {
+                height: 800px;
+            }
+        }
+
+        @media (min-width: 961px) and (max-width: 1280px) {
+            .login-cont {
+                height: 1000px;
+            }
+        }
+
     }
 
     // -----------> Library Page <-----------
