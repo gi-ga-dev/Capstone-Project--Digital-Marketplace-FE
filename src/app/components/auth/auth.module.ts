@@ -19,6 +19,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatModalSignupAdminComponent } from './signup/mat-modal-signup-admin/mat-modal-signup-admin.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatCardModule,
     MatDividerModule,
     MatProgressBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ]
 })
 export class AuthModule { }

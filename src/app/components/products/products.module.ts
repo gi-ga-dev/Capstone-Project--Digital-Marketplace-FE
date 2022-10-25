@@ -31,6 +31,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatModalPurchaseWithbalanceComponent } from './mat-modal-purchase-withbalance/mat-modal-purchase-withbalance.component';
 import { MatModalPurchaseWithsubComponent } from './mat-modal-purchase-withsub/mat-modal-purchase-withsub.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatDialogModule,
     MatTooltipModule,
     MatProgressSpinnerModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSnackBarModule
   ]
 })
 export class ProductsModule { }

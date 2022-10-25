@@ -69,7 +69,7 @@ export class MatCardWishlistComponent implements OnInit {
       (err) => {
         this.error = err.error;
         console.log(err.error);
-        window.alert("Delete from WishList successfull");
+        this.authService.openSnackBar("Delete from Wishlist successfull", 'orange-snackbar', 3);
         this.authService.reloadRoute();
       }
     )

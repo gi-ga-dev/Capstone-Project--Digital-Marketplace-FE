@@ -46,6 +46,12 @@ $app-light-theme: mat-light-theme($primary-light-pal, $accent-light-pal, $warn-l
 .light-mode {
     @include angular-material-theme($app-light-theme);
 
+    .orange-snackbar {
+        border: 2px solid black;
+        background: rgba(232, 169, 52, 0.742);
+        color: black;
+    }
+
     // -----------> Sidenav <-----------
 
     .example-sidenav-content {
@@ -121,6 +127,12 @@ $app-dark-theme: mat-dark-theme($primary-light-pal, $accent-light-pal, $warn-lig
 
     background-color: #333;
     color: rgb(234, 233, 233);
+
+    .orange-snackbar {
+        border: 2px solid rgb(38, 38, 38);
+        background: rgba(232, 169, 52, 0.742);
+        color: rgb(64, 42, 0);
+    }
 
     // -----------> Library Page <-----------
 

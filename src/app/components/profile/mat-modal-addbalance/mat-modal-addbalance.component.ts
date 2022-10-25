@@ -22,7 +22,7 @@ export class MatModalAddbalanceComponent implements OnInit {
       (resp) => {
         // per un secondo controllo al momento della sub inserisco/aggiorno prop. isSubscribed/accountBalance nel local
         this.authService.setSubAndBalance(this.getId).subscribe();
-        window.alert("5$ Credits added to your Account Balance!");
+        this.authService.openSnackBar("5$ Credits added to your Account Balance!", 'orange-snackbar', 3);
         this.authService.reloadRoute();
         this.error = undefined;
       },
@@ -38,7 +38,7 @@ export class MatModalAddbalanceComponent implements OnInit {
       (resp) => {
         // per un secondo controllo al momento della sub inserisco/aggiorno prop. isSubscribed/accountBalance nel local
         this.authService.setSubAndBalance(this.getId).subscribe();
-        window.alert("25$ Credits added to your Account Balance!");
+        this.authService.openSnackBar("25$ Credits added to your Account Balance!", 'orange-snackbar', 3);
         this.authService.reloadRoute();
         this.error = undefined;
       },
@@ -54,7 +54,7 @@ export class MatModalAddbalanceComponent implements OnInit {
       (resp) => {
         // per un secondo controllo al momento della sub inserisco/aggiorno prop. isSubscribed/accountBalance nel local
         this.authService.setSubAndBalance(this.getId).subscribe();
-        window.alert("50$ Credits added to your Account Balance!");
+        this.authService.openSnackBar("50$ Credits added to your Account Balance!", 'orange-snackbar', 3);
         this.authService.reloadRoute();
         this.error = undefined;
       },

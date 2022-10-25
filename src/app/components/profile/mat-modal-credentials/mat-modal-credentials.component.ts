@@ -23,7 +23,7 @@ export class MatModalCredentialsComponent implements OnInit {
 
   onSubmit() {
     this.updateCredentials();
-    window.alert("Credentials changed, You will be re-directed to the Login page..");
+    this.authService.openSnackBar("Credentials changed, You will be re-directed to the Login page...", 'orange-snackbar', 3);
     this.authService.logout();
   }
 

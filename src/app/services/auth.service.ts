@@ -13,6 +13,7 @@ import { ShopsystemService } from "./shopsystem.service";
 import { IProdVideogame } from "../interfaces/iprod-videogame";
 import { IProdMusic } from "../interfaces/iprod-music";
 import { IProdBook } from "../interfaces/iprod-book";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +45,7 @@ export class AuthService {
   options = { headers: this.headers }
 
   constructor(
+    private _snackBar: MatSnackBar,
     private shopService: ShopsystemService,
     private http: HttpClient,
     private router: Router) {
@@ -169,6 +171,10 @@ export class AuthService {
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigate([currentRoute]);
     });
+  }
+
+  openSnackBar(message: string, cssClass: string, durationSec: number) {
+    this._snackBar.open(message, 'Close', { panelClass: [cssClass], duration: durationSec * 1000 });
   }
 
   getId(): number | undefined {

@@ -54,7 +54,7 @@ export class MatModalPurchaseWithbalanceComponent implements OnInit {
     return this.shopService.purchaseWithBalance(shopId, productId).subscribe(
       (resp) => {
         this.error = undefined;
-        window.alert("Purchase completed. Product added to your Library...");
+        this.authService.openSnackBar("Purchase completed. Product added to your Library...", 'orange-snackbar', 3);
         //si puo' aprire il modal di acquisto anche dalla wishlist, quindi dopo l'acquisto delete e aggiorno rotta
         this.shopService.deleteFromWishList(this.getId, this.product.id).subscribe();
         this.authService.reloadRoute();
@@ -64,8 +64,8 @@ export class MatModalPurchaseWithbalanceComponent implements OnInit {
         // prezzo prodotto e accountbalance per comparazione, se balance inferiore aprire modal addBalance
         if (this.accountBalance < this.product.price) {
           this.openAddBalanceDialog();
-          window.alert("Credit is insufficient, please recharge your balance");
-        } else window.alert("Product is already in your Library!");
+          this.authService.openSnackBar("Credit is insufficient, please recharge your balance", 'orange-snackbar', 3);
+        } else this.authService.openSnackBar("Product is already in your Library!", 'orange-snackbar', 3);
         this.error = err.error;
         console.log(err.error);
       }

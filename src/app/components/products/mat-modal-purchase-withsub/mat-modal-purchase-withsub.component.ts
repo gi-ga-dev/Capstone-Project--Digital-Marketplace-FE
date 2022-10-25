@@ -44,13 +44,13 @@ export class MatModalPurchaseWithsubComponent implements OnInit {
     return this.shopService.purchaseWithSub(shopId, productId).subscribe(
       (resp) => {
         this.error = undefined;
-        window.alert("Purchase completed. Product added to your Library...");
+        this.authService.openSnackBar("Purchase completed. Product added to your Library...", 'orange-snackbar', 3);
         //si puo' aprire il modal di acquisto anche dalla wishlist, quindi dopo l'acquisto delete e aggiorno rotta
         this.shopService.deleteFromWishList(this.getId, this.product.id).subscribe();
         this.authService.reloadRoute();
       },
       (err) => {
-        window.alert("Product is already in your Library!");
+        this.authService.openSnackBar("Product is already in your Library!", 'orange-snackbar', 3);
         this.error = err.error;
         console.log(err.error);
       }

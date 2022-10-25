@@ -11,7 +11,6 @@ const routes: Routes = [
   { path: 'products', canActivate: [AuthGuard], loadChildren: () => import('./components/products/products.module').then(m => m.ProductsModule) },
   { path: 'profile', canActivate: [AuthGuard], loadChildren: () => import('./components/profile/profile.module').then(m => m.ProfileModule) },
   { path: 'library', canActivate: [AuthGuard], loadChildren: () => import('./components/library/library.module').then(m => m.LibraryModule) },
-  { path: 'purchase-history', canActivate: [AuthGuard], loadChildren: () => import('./components/purchase-history/purchase-history.module').then(m => m.PurchaseHistoryModule) },
   { path: 'shopping-cart', canActivate: [AuthGuard], loadChildren: () => import('./components/shopping-cart/shopping-cart.module').then(m => m.ShoppingCartModule) },
   { path: 'wishlist', canActivate: [AuthGuard], loadChildren: () => import('./components/wishlist/wishlist.module').then(m => m.WishlistModule) },
   { path: '', pathMatch: 'full', redirectTo: 'home' },

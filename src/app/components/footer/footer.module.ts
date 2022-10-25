@@ -19,7 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
   ],
   imports: [
     CommonModule,
-    AppRoutingModule,
+    /* inserire AppRoutingModule solo se si utilizza componente in tutte le pagine */
     MatIconModule,
     MatToolbarModule,
     MatButtonModule

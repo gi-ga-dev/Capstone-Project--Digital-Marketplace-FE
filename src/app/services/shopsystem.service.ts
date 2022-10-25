@@ -84,10 +84,6 @@ export class ShopsystemService {
     return this.http.get<IProdVideogame[] | IProdMusic[] | IProdBook[]>(environment.APIEndpoint + '/shop-system/' + shopId + '/getLibraryListByShopId', this.options);
   }
 
-  getHistoryListByShopId(shopId: number | undefined) {
-    return this.http.get<IProdVideogame[] | IProdMusic[] | IProdBook[]>(environment.APIEndpoint + '/shop-system/' + shopId + '/getHistoryListByShopId', this.options);
-  }
-
   // ============== PUT/PATCH ==============
 
   // ============== DELETE ==============

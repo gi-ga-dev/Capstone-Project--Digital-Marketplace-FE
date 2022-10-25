@@ -90,11 +90,11 @@ export class MatModalPurchaseComponent implements OnInit {
     return this.shopService.addToCart(shopId, productId).subscribe(
       (resp) => {
         this.error = undefined;
-        window.alert("Product Added to Shopping Cart");
+        this.authService.openSnackBar("Product added to Shopping Cart", 'orange-snackbar', 3);
         this.authService.setCartListForBadgeCount(shopId).subscribe();
       },
       (err) => {
-        window.alert("Product already in Shopping Cart or Library...");
+        this.authService.openSnackBar("Product already in Shopping Cart or Library...", 'orange-snackbar', 3);
         this.error = err.error;
         console.log(err.error);
       }

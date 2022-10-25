@@ -20,7 +20,6 @@ import { HomeModule } from './components/home/home.module';
     FlexLayoutModule,
     HeaderModule,
     HomeModule,
-    FooterModule,
     AuthModule
   ],
   providers: [],

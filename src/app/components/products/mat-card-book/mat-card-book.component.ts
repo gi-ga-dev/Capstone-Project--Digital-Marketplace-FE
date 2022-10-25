@@ -64,10 +64,10 @@ export class MatCardBookComponent implements OnInit {
     return this.shopService.addToWishList(shopId, productId).subscribe(
       (resp) => {
         this.error = undefined;
-        window.alert("Product Added to WishList");
+        this.authService.openSnackBar("Product Added to WishList", 'orange-snackbar', 3);
       },
       (err) => {
-        window.alert("Product already in WishList or Library...");
+        this.authService.openSnackBar("Product already in WishList or Library...", 'orange-snackbar', 3);
         this.error = err.error;
         console.log(err.error);
       }

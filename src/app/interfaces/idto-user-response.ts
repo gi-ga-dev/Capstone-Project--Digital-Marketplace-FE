@@ -14,7 +14,6 @@ export interface IUserDtoGetResponse {
     "subEnd": string;
     "subTotalTime": number;
     "subRemaining": number;
-    "purchaseHistory": [];
     "videogamesList": [];
     "musicList": [];
     "bookList": [];
