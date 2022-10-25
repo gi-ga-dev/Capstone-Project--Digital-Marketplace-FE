@@ -7,6 +7,11 @@
     margin: 10px 0;
 }
 
+// contenitore image
+.mat-card-image {
+    width: 100%;
+}
+
 // contenitore dialog
 :host ::ng-deep .mat-dialog-content {
     padding: 0;
@@ -51,11 +56,6 @@
     line-height: 0.9em;
     color: black;
     text-align: center;
-}
-
-// span proprieta' per grassetto
-#properties {
-    font-weight: 500;
 }
 
 // contenitore buttons

@@ -19,6 +19,7 @@ export class MatModalPurchaseComponent implements OnInit {
   getId: number | undefined = this.authService.getId();
   isSubscribed: boolean | undefined = this.authService.getIsSubscribed();
   accountBalance: number = this.authService.getAccountBalance();
+  showSpinner: boolean = false;
 
   constructor(
     public dialog: MatDialog,

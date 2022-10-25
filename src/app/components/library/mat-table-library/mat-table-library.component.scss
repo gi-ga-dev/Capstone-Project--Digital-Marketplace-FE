@@ -1,0 +1,183 @@
+/* ======= Table Parametri Default ========= */
+
+/* Table Completo (Form Filter, Table e Paginator) */
+.mat-form-field,
+table,
+:host ::ng-deep .mat-paginator {
+    // in questo modo funziona da width 400px in su
+    // sotto 86% width il paginator e' di dimensioni ridotte rispetto agli altri 
+    width: 86%;
+    margin: auto;
+}
+
+#filter-cont {
+    // per settare il filter al centro (margin auto non funziona)
+    display: flex;
+    flex-direction: column;
+}
+
+td,
+th {
+    width: 25%;
+}
+
+tr.example-detail-row {
+    height: 0;
+}
+
+.example-element-row td {
+    border-bottom-width: 0;
+}
+
+.example-element-detail {
+    overflow: hidden;
+}
+
+.example-element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+}
+
+.example-element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+}
+
+.example-element-description-attribution {
+    opacity: 0.5;
+}
+
+/* ======= Table-Header ======= */
+
+.mat-elevation-z8 {
+    box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 5%), 0px 8px 10px 1px rgb(0 0 0 / 3%), 0px 3px 14px 2px rgb(0 0 0 / 4%);
+}
+
+:host ::ng-deep .mat-header-cell {
+    font-size: 1em;
+    padding-top: 12px;
+}
+
+/* ======= Table-Content ======= */
+
+:host ::ng-deep .mat-cell {
+    font-size: 0.9em;
+}
+
+#title {
+    font-size: 1.5em;
+}
+
+.library-card {
+    width: 100%;
+    border: none;
+    border-radius: unset;
+    margin-bottom: 20px;
+}
+
+:host ::ng-deep .mat-card-content {
+    font-size: 1.1em;
+}
+
+#img-cont {
+    margin: auto;
+}
+
+.mat-card-image {
+    width: 100%;
+}
+
+:host ::ng-deep .example-element-description {
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+/* ======= Table-Paginator ======= */
+
+:host ::ng-deep .mat-paginator {
+    font-size: 1em;
+}
+
+:host ::ng-deep .mat-paginator-container {
+    display: flex;
+    padding: 0;
+    flex-wrap: unset;
+}
+
+#spinner-cont {
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    margin-top: 200px;
+}
+
+// -------> Media Queries
+
+@media (max-width: 500px) {
+
+    :host ::ng-deep .mat-card-content {
+        font-size: 1em;
+    }
+
+    :host ::ng-deep .example-element-description {
+        padding: 0;
+        display: block;
+        flex-wrap: unset;
+    }
+
+    :host ::ng-deep .mat-header-cell,
+    :host ::ng-deep .mat-paginator {
+        font-size: 0.7em;
+    }
+
+    :host ::ng-deep .mat-cell {
+        font-size: 0.6em;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 700px) {
+
+    :host ::ng-deep .example-element-description {
+        padding: 0;
+        display: block;
+        flex-wrap: unset;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 960px) {
+
+    :host ::ng-deep .mat-card-content {
+        font-size: 1em;
+    }
+
+    :host ::ng-deep .mat-header-cell,
+    :host ::ng-deep .mat-paginator {
+        font-size: 0.8em;
+    }
+
+    :host ::ng-deep .mat-cell {
+        font-size: 0.7em;
+    }
+}
+
+@media (min-width: 961px) and (max-width: 1280px) {
+
+    :host ::ng-deep .mat-card-content {
+        font-size: 1.1em;
+    }
+
+    :host ::ng-deep .mat-header-cell,
+    :host ::ng-deep .mat-paginator {
+        font-size: 0.9em;
+    }
+
+    :host ::ng-deep .mat-cell {
+        font-size: 0.8em;
+    }
+}

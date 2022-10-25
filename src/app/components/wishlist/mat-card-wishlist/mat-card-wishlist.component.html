@@ -18,8 +18,8 @@
 
             <div id="cart-cont">
 
-                <p id="prod-type"><span id="properties">Type: </span>{{product.productType}}</p>
-                <p id="prod-title"><span id="properties">Title: </span>{{product.title}}</p>
+                <p id="prod-type"><b>Type: </b>{{product.productType}}</p>
+                <p id="prod-title"><b>Title: </b>{{product.title}}</p>
 
                 <div id="btn-cont">
                     <button id="btns" mat-button (click)="deleteFromWishList(getId, product.id)"
@@ -29,7 +29,7 @@
 
                     <button id="btns" mat-button (click)="openPurchaseDialog(product.id)"
                         matTooltip="Go to Product Page" matTooltipPosition="right">
-                        <mat-icon>person</mat-icon>
+                        <mat-icon>assignment_returned</mat-icon>
                     </button>
                 </div>
 

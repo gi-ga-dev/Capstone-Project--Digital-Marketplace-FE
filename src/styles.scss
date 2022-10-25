@@ -52,9 +52,32 @@ $app-light-theme: mat-light-theme($primary-light-pal, $accent-light-pal, $warn-l
         background: rgba(211, 211, 211, 0.249);
     }
 
+    // -----------> Library Page <-----------
+
+    tr.example-element-row:not(.example-expanded-row):hover {
+        background: whitesmoke;
+    }
+
+    tr.example-element-row:not(.example-expanded-row):active {
+        background: #efefef;
+    }
+
+    td.mat-cell,
+    td.mat-footer-cell {
+        background-color: rgba(68, 134, 214, 0.0666666667);
+    }
+
+    .mat-header-cell {
+        background-color: rgba(232, 169, 52, 1);
+    }
+
+    .mat-paginator {
+        background-color: rgb(194, 194, 194);
+    }
+
     // -----------> Shopping Cart Page <-----------
 
-    .example-card {
+    .shoppingcart-card {
         background-color: #4486d611;
         border: 1px solid rgb(232, 169, 52);
     }
@@ -98,6 +121,28 @@ $app-dark-theme: mat-dark-theme($primary-light-pal, $accent-light-pal, $warn-lig
 
     background-color: #333;
     color: rgb(234, 233, 233);
+
+    // -----------> Library Page <-----------
+
+    tr.example-element-row:not(.example-expanded-row):hover {
+        background: rgba(109, 110, 111, 0.5);
+    }
+
+    tr.example-element-row:not(.example-expanded-row):active {
+        background: rgba(109, 110, 111, 0.5);
+    }
+
+    .mat-header-cell {
+        background-color: rgba(232, 169, 52, 0.742);
+    }
+
+    .mat-paginator {
+        background-color: rgb(109, 110, 111);
+    }
+
+    .library-card {
+        background-color: rgb(84, 84, 84);
+    }
 
     // -----------> Shopping Cart Page <-----------
 

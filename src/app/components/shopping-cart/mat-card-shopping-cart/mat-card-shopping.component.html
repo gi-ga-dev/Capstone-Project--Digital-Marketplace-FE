@@ -1,4 +1,4 @@
-<mat-card class="example-card">
+<mat-card class="shoppingcart-card">
 
     <mat-card-header>
         <mat-card-title>
@@ -18,8 +18,8 @@
 
             <div id="cart-cont">
 
-                <p id="prod-type"><span id="properties">Type: </span>{{product.productType}}</p>
-                <p id="prod-title"><span id="properties">Title: </span>{{product.title}}</p>
+                <p id="prod-type"><b>Type: </b>{{product.productType}}</p>
+                <p id="prod-title"><b>Title: </b>{{product.title}}</p>
 
                 <div id="btn-cont">
                     <button id="btns" mat-button (click)="deleteFromCart(getId, product.id)"
@@ -32,7 +32,7 @@
                         <mat-icon>favorite</mat-icon>
                     </button>
                 </div>
-                <p id="prod-price"><span id="properties">Price: </span>{{product.price.toFixed(2)}}$</p>
+                <p id="prod-price"><b>Price: </b>{{product.price.toFixed(2)}}$</p>
 
             </div>
         </div>
@@ -41,9 +41,9 @@
 
         <div id="subtotal-cont" *ngIf="shopSystem != undefined">
             <!-- *ngIf="shopSystem != undefined" rimuove errore -->
-            <p><span id="properties">Tot. Quantity: </span>{{cartProducts.length}}</p>
+            <p><b>Tot. Quantity: </b>{{cartProducts.length}}</p>
             <button id="btn-purchase" mat-button (click)="commitPurchase(getId)">Place Order</button>
-            <p><span id="properties">Tot. Price: </span>{{shopSystem.cartSubtotal.toFixed(2)}}$</p>
+            <p><b>Tot. Price: </b>{{shopSystem.cartSubtotal.toFixed(2)}}$</p>
         </div>
 
     </mat-card-content>

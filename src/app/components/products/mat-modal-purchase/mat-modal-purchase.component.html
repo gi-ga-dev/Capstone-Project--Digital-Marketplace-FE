@@ -11,72 +11,67 @@
 
         <mat-card-content id="card-content">
             <div id="card-data">
-                <!-- <p><span id="properties">Description: </span>{{product.description}}</p> -->
 
-                <p><span id="properties">Title: </span>{{product.title}}</p>
-                <p><span id="properties">Base Price: </span>{{product.price.toFixed(2)}}$</p>
-                <p><span id="properties">Platform: </span>{{product.platform}}</p>
-                <p><span id="properties">Publisher: </span>{{product.publisher}}</p>
-                <p><span id="properties">Release Date: </span>{{product.releaseDate}}</p>
-                <!-- <p><span id="properties">Language: </span>{{product.language}}</p> -->
-                <p><span id="properties">Genre: </span>{{product.genre}}</p>
+                <p><b>Title: </b>{{product.title}}</p>
+                <p><b>Base Price: </b>{{product.price.toFixed(2)}}$</p>
+                <p><b>Platform: </b>{{product.platform}}</p>
+                <p><b>Publisher: </b>{{product.publisher}}</p>
+                <p><b>Release Date: </b>{{product.releaseDate}}</p>
+                <p><b>Genre: </b>{{product.genre}}</p>
 
-                <p><span id="properties">Ratings: </span><span
-                        *ngIf="product.ratings!== null ; else ratingsBlock">{{product.ratings}}</span></p>
+                <p><b>Ratings: </b><span *ngIf="product.ratings!== null ; else ratingsBlock">{{product.ratings}}</span>
+                </p>
                 <ng-template #ratingsBlock> No ratings yet...</ng-template>
 
-                <p><span id="properties">Reviews: </span><span
-                        *ngIf="product.reviews!== null ; else reviewsBlock">{{product.reviews}}</span></p>
+                <p><b>Reviews: </b><span *ngIf="product.reviews!== null ; else reviewsBlock">{{product.reviews}}</span>
+                </p>
                 <ng-template #reviewsBlock> No reviews yet...</ng-template>
 
                 <!-- ======== Properties Videogames ======== -->
 
                 <span *ngIf="product.productType == 'Videogame'">
 
-                    <p><span id="properties">Downloads: </span> <span
+                    <p><b>Downloads: </b> <span
                             *ngIf="product.downloads!== null;else downloadsBlock">{{product.downloads}}</span>
                     </p>
                     <ng-template #downloadsBlock> No Downloads yet...</ng-template>
 
-                    <p><span id="properties">Videogame Series: </span>{{product.vgSeries}}</p>
+                    <p><b>Videogame Series: </b>{{product.vgSeries}}</p>
 
-                    <p><span id="properties">DLC's: </span> <span
-                            *ngIf="product.dlc!== null ; else dlcBlock">{{product.dlc}}</span></p>
+                    <p><b>DLC's: </b> <span *ngIf="product.dlc!== null ; else dlcBlock">{{product.dlc}}</span></p>
                     <ng-template #dlcBlock> No DLC realesed yet...</ng-template>
 
-                    <p><span id="properties">Developer: </span>{{product.developer}}</p>
-                    <p><span id="properties">Age Recommendation: </span>{{product.ageRecommendation}}+</p>
-                    <p><span id="properties">N. of Players: </span>{{product.players}}</p>
-                    <p><span id="properties">Co-op Play: </span>{{product.coopPlay}}</p>
-                    <p><span id="properties">Controller Support: </span>{{product.controllerSupport}}</p>
-                    <p><span id="properties">Subtitles: </span>{{product.subtitles}}</p>
-                    <p><span id="properties">Required Space: </span>{{product.requiredSpace}}GB</p>
+                    <p><b>Developer: </b>{{product.developer}}</p>
+                    <p><b>Age Recommendation: </b>{{product.ageRecommendation}}+</p>
+                    <p><b>N. of Players: </b>{{product.players}}</p>
+                    <p><b>Co-op Play: </b>{{product.coopPlay}}</p>
+                    <p><b>Controller Support: </b>{{product.controllerSupport}}</p>
+                    <p><b>Subtitles: </b>{{product.subtitles}}</p>
+                    <p><b>Required Space: </b>{{product.requiredSpace}}GB</p>
 
                 </span>
 
                 <!-- ======== Properties Music ======== -->
 
                 <span *ngIf="product.productType == 'Music'">
-                    <p><span id="properties">Plays: </span> <span
-                            *ngIf="product.plays!== null ; else playsBlock">{{product.plays}}</span></p>
+                    <p><b>Plays: </b> <span *ngIf="product.plays!== null ; else playsBlock">{{product.plays}}</span></p>
                     <ng-template #playsBlock> No Plays yet...</ng-template>
 
-                    <p><span id="properties">Artist: </span>{{product.artist}}</p>
-                    <p><span id="properties">Album: </span>{{product.album}}</p>
-                    <p><span id="properties">Duration: </span>{{product.duration}}</p>
+                    <p><b>Artist: </b>{{product.artist}}</p>
+                    <p><b>Album: </b>{{product.album}}</p>
+                    <p><b>Duration: </b>{{product.duration}}</p>
                 </span>
 
                 <!-- ======== Properties Books ======== -->
 
                 <span *ngIf="product.productType == 'Book'">
-                    <p><span id="properties">Read: </span> <span
-                            *ngIf="product.read!== null ; else readBlock">{{product.read}}</span></p>
+                    <p><b>Read: </b> <span *ngIf="product.read!== null ; else readBlock">{{product.read}}</span></p>
                     <ng-template #readBlock> No Read yet...</ng-template>
 
-                    <p><span id="properties">N. of Pages: </span>{{product.pages}}</p>
-                    <p><span id="properties">Isbn Code: </span>{{product.isbnCode}}</p>
-                    <p><span id="properties">Book Series: </span>{{product.bookSeries}}</p>
-                    <p><span id="properties">Author: </span>{{product.author}}</p>
+                    <p><b>N. of Pages: </b>{{product.pages}}</p>
+                    <p><b>Isbn Code: </b>{{product.isbnCode}}</p>
+                    <p><b>Book Series: </b>{{product.bookSeries}}</p>
+                    <p><b>Author: </b>{{product.author}}</p>
                 </span>
 
             </div>
@@ -101,3 +96,7 @@
 
     </mat-card>
 </mat-dialog-content>
+
+<!-- <div *ngIf="showSpinner">
+    <mat-spinner color="accent"></mat-spinner>
+</div> -->
