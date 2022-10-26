@@ -54,6 +54,8 @@ export class MatCardVideogameComponent implements OnInit {
         this.videogames = resp;
       },
       (err) => {
+        console.log("Il server e' ripartito, per eseguire il get faccio il reload della pagina");
+        location.reload();
         this.error = err.error;
         console.log(err.error);
       }
@@ -64,10 +66,10 @@ export class MatCardVideogameComponent implements OnInit {
     return this.shopService.addToWishList(shopId, productId).subscribe(
       (resp) => {
         this.error = undefined;
-        this.authService.openSnackBar("Product added to Wishlist", 'orange-snackbar', 3);
+        this.authService.openSnackBar("Product added to Wishlist", 'primary-snackbar', 3);
       },
       (err) => {
-        this.authService.openSnackBar("Product already in Wishlist or Library...", 'orange-snackbar', 3);
+        this.authService.openSnackBar("Product already in Wishlist or Library...", 'primary-snackbar', 3);
         this.error = err.error;
         console.log(err.error);
       }

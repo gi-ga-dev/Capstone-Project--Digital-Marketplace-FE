@@ -174,7 +174,7 @@ export class AuthService {
   }
 
   openSnackBar(message: string, cssClass: string, durationSec: number) {
-    this._snackBar.open(message, 'Close', { panelClass: [cssClass], duration: durationSec * 1000 });
+    this._snackBar.open(message, '', { panelClass: [cssClass], duration: durationSec * 1000 });
   }
 
   getId(): number | undefined {

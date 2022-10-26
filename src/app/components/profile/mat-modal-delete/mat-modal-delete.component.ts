@@ -21,7 +21,7 @@ export class MatModalDeleteComponent implements OnInit {
 
   onSubmit() {
     this.deleteAccount();
-    this.authService.openSnackBar("Account deleted successfully. Re-directing you to the Login page...", 'orange-snackbar', 3);
+    this.authService.openSnackBar("Account deleted successfully. Re-directing you to the Login page...", 'primary-snackbar', 3);
     this.authService.logout();
   }
 

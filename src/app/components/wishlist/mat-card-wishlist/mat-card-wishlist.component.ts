@@ -55,6 +55,8 @@ export class MatCardWishlistComponent implements OnInit {
         this.wishlistProducts = resp;
       },
       (err) => {
+        console.log("Il server e' ripartito, per eseguire il get faccio il reload della pagina");
+        location.reload();
         this.error = err.error;
         console.log(err.error);
       }
@@ -69,7 +71,7 @@ export class MatCardWishlistComponent implements OnInit {
       (err) => {
         this.error = err.error;
         console.log(err.error);
-        this.authService.openSnackBar("Delete from Wishlist successfull", 'orange-snackbar', 3);
+        this.authService.openSnackBar("Delete from Wishlist successfull", 'primary-snackbar', 3);
         this.authService.reloadRoute();
       }
     )

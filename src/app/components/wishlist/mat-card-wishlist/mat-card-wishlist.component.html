@@ -1,53 +1,55 @@
-<mat-card class="example-card">
+<div id="wishlist-cont">
+    <mat-card class="cart-and-wishlist-card">
 
-    <mat-card-header>
-        <mat-card-title>
-            <div id="title-cont">
-                <mat-icon id="favorite-icon">favorite</mat-icon> Your Wishlist
+        <mat-card-header>
+            <mat-card-title>
+                <div id="title-cont">
+                    <mat-icon id="favorite-icon">favorite</mat-icon> Your Wishlist
+                </div>
+            </mat-card-title>
+            <mat-divider></mat-divider>
+            <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
+        </mat-card-header>
+
+        <mat-card-content *ngIf="wishlistProducts.length !== 0; else emptyblock">
+            <!-- GET elem nel carrello - Generare una riga per ogni elem nella cartList -->
+            <div *ngFor="let product of wishlistProducts">
+
+                <mat-divider id="divider"></mat-divider>
+
+                <div id="list-cont">
+
+                    <p id="prod-type"><b>Type: </b>{{product.productType}}</p>
+                    <p id="prod-title"><b>Title: </b>{{product.title}}</p>
+
+                    <div id="btn-cont">
+                        <button id="btns" mat-button (click)="deleteFromWishList(getId, product.id)"
+                            matTooltip="Delete from Wishlist" matTooltipPosition="left">
+                            <mat-icon>remove_shopping_cart</mat-icon>
+                        </button>
+
+                        <button id="btns" mat-button (click)="openPurchaseDialog(product.id)"
+                            matTooltip="Go to Product Page" matTooltipPosition="right">
+                            <mat-icon>assignment_returned</mat-icon>
+                        </button>
+                    </div>
+
+                </div>
             </div>
-        </mat-card-title>
-        <mat-divider></mat-divider>
-        <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
-    </mat-card-header>
-
-    <mat-card-content *ngIf="wishlistProducts.length !== 0; else emptyblock">
-        <!-- GET elem nel carrello - Generare una riga per ogni elem nella cartList -->
-        <div *ngFor="let product of wishlistProducts">
 
             <mat-divider id="divider"></mat-divider>
 
-            <div id="cart-cont">
+        </mat-card-content>
 
-                <p id="prod-type"><b>Type: </b>{{product.productType}}</p>
-                <p id="prod-title"><b>Title: </b>{{product.title}}</p>
+        <ng-template #emptyblock>
 
-                <div id="btn-cont">
-                    <button id="btns" mat-button (click)="deleteFromWishList(getId, product.id)"
-                        matTooltip="Delete from Wishlist" matTooltipPosition="left">
-                        <mat-icon>remove_shopping_cart</mat-icon>
-                    </button>
+            <mat-card-content id="emptyblock-cont" *ngIf="showString">Your Wishlist is empty!</mat-card-content>
 
-                    <button id="btns" mat-button (click)="openPurchaseDialog(product.id)"
-                        matTooltip="Go to Product Page" matTooltipPosition="right">
-                        <mat-icon>assignment_returned</mat-icon>
-                    </button>
-                </div>
+        </ng-template>
 
-            </div>
-        </div>
-
-        <mat-divider id="divider"></mat-divider>
-
-    </mat-card-content>
-
-    <ng-template #emptyblock>
-
-        <mat-card-content id="emptyblock-cont" *ngIf="showString">Your Wishlist is empty!</mat-card-content>
-
-    </ng-template>
-
-</mat-card>
+    </mat-card>
+</div>
 
 <div id="spinner-cont" *ngIf="showSpinner">
-    <mat-spinner color="accent"></mat-spinner>
+    <mat-spinner></mat-spinner>
 </div>

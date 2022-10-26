@@ -1,17 +1,17 @@
 @import "@angular/material/theming";
 @include mat-core();
 
-$primary-light-scheme: (
-    100: #c5cae9,
-    500: #61699a,
-    700: #303f9f,
+$blue-light-scheme: (
+    100: #8bb6db,
+    500: #617e9a,
+    700: #1e5a85,
     contrast: (100: rgba(0, 0, 0, 0.87),
         500: #ffffff,
         700: #ffffff,
     ),
 );
 
-$accent-light-scheme: (
+$orange-light-scheme: (
     100: #e3c38c,
     500: #d7a54f,
     700: #ffa200,
@@ -37,22 +37,55 @@ $warn-light-scheme: (
 // basta fare piccole modifiche come background e color. La struttura dei componenti come display flex 
 // saranno nei loro rispettivi file .scss 
 
-$primary-light-pal: mat-palette($primary-light-scheme);
-$accent-light-pal: mat-palette($accent-light-scheme);
+$blue-light-pal: mat-palette($blue-light-scheme);
+$orange-light-pal: mat-palette($orange-light-scheme);
 $warn-light-pal: mat-palette($warn-light-scheme);
 
-$app-light-theme: mat-light-theme($primary-light-pal, $accent-light-pal, $warn-light-pal);
+$app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-light-pal);
+
+// -------------------------> LIGHT THEME <------------------------
 
 .light-mode {
     @include angular-material-theme($app-light-theme);
 
-    .orange-snackbar {
-        border: 2px solid black;
-        background: rgba(232, 169, 52, 1);
+    // ---> Selettori utilizzabili in ogni componente chiamandolo nell'html
+
+    #btns,
+    #btn-purchase {
+        border: 1px solid black;
+        background: #4486d682;
         color: black;
     }
 
+    #btns:hover,
+    #btn-purchase:hover {
+        background-color: #4486d6;
+        color: white;
+    }
+
+    .primary-snackbar {
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: #4486d6dd;
+        color: black;
+        display: flex;
+        justify-content: center;
+    }
+
+    #spinner-cont {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 300px;
+    }
+
+    #divider {
+        background-color: #4486d611;
+    }
+
     // -----------> Sidenav Content & Auth Page <-----------
+
+    // inserire height fisse solo nelle pagine che hanno contenuto fisso (Home, Auth, Profile)
 
     .example-sidenav-content {
         background: rgba(211, 211, 211, 0.249);
@@ -74,17 +107,19 @@ $app-light-theme: mat-light-theme($primary-light-pal, $accent-light-pal, $warn-l
                 flex-direction: column;
                 align-items: center;
 
-                .example-card {
+                .login-card {
                     height: unset;
                     margin: 10px 0;
                 }
             }
+
         }
 
         @media (max-width: 1280px) {
             #auth-cont {
                 height: 800px;
             }
+
         }
     }
 
@@ -107,53 +142,37 @@ $app-light-theme: mat-light-theme($primary-light-pal, $accent-light-pal, $warn-l
     }
 
     .mat-header-cell {
-        background-color: rgba(232, 169, 52, 1);
+        background-color: #4486d6c3;
+        color: black;
     }
 
     .mat-paginator {
         background-color: rgb(194, 194, 194);
     }
 
-    // -----------> Shopping Cart Page <-----------
+    // -----------> Shopping Cart & Wishlist Pages <-----------
 
-    .shoppingcart-card {
+    .cart-and-wishlist-card {
         background-color: #4486d611;
-        border: 1px solid rgb(232, 169, 52);
     }
 
-    #divider {
-        background-color: rgb(232, 169, 52);
+    // -----------> Products Page <-----------
+    #product-card-content {
+        background-color: #4486d611;
+
+        .mat-card-header {
+            #title {
+                color: black;
+            }
+        }
     }
 
-    // utilizzabile in ogni componente chiamandolo nell'html
-    #btns {
-        // delete-wishlist btns
-        border: 2px solid black;
-        background: rgba(232, 169, 52, 0.742);
-        color: black;
-    }
-
-    #btns:hover {
-        background-color: orange;
-        color: white;
-    }
-
-    #btn-purchase {
-        border: 2px solid black;
-        background: rgba(232, 169, 52, 0.742);
-        color: black;
-    }
-
-    #btn-purchase:hover {
-        background-color: orange;
-        color: white;
-    }
 
 }
 
 // -------------------------> DARK THEME <------------------------
 
-$app-dark-theme: mat-dark-theme($primary-light-pal, $accent-light-pal, $warn-light-pal);
+$app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-pal);
 
 .dark-mode {
     @include angular-material-theme($app-dark-theme);
@@ -161,10 +180,35 @@ $app-dark-theme: mat-dark-theme($primary-light-pal, $accent-light-pal, $warn-lig
     background-color: #333;
     color: rgb(234, 233, 233);
 
-    .orange-snackbar {
-        border: 2px solid rgb(38, 38, 38);
+    // ---> Selettori utilizzabili in ogni componente chiamandolo nell'html
+
+    #btns,
+    #btn-purchase {
+        border: 1px solid rgb(38, 38, 38);
         background: rgba(232, 169, 52, 0.742);
         color: rgb(64, 42, 0);
+    }
+
+    #btns:hover,
+    #btn-purchase:hover {
+        background-color: orange;
+        color: white;
+    }
+
+    .primary-snackbar {
+        border: 1px solid rgb(38, 38, 38);
+        border-radius: 5px;
+        background: rgba(232, 169, 52, 0.89);
+        color: rgb(64, 42, 0);
+        display: flex;
+        justify-content: center;
+    }
+
+    #spinner-cont {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 300px;
     }
 
     // -----------> Sidenav Content & Auth Page <-----------
@@ -189,7 +233,7 @@ $app-dark-theme: mat-dark-theme($primary-light-pal, $accent-light-pal, $warn-lig
                 flex-direction: column;
                 align-items: center;
 
-                .example-card {
+                .login-card {
                     height: unset;
                     margin: 10px 0;
                 }
@@ -215,6 +259,7 @@ $app-dark-theme: mat-dark-theme($primary-light-pal, $accent-light-pal, $warn-lig
 
     .mat-header-cell {
         background-color: rgba(232, 169, 52, 0.742);
+        color: white;
     }
 
     .mat-paginator {
@@ -225,36 +270,23 @@ $app-dark-theme: mat-dark-theme($primary-light-pal, $accent-light-pal, $warn-lig
         background-color: rgb(84, 84, 84);
     }
 
-    // -----------> Shopping Cart Page <-----------
+    // -----------> Shopping Cart & Wishlist Pages <-----------
 
-    .example-card {
-        border: 1px solid black;
-    }
 
-    #btns {
-        // delete-wishlist btns
-        border: 2px solid rgb(38, 38, 38);
-        background: rgba(232, 169, 52, 0.742);
-        color: rgb(64, 42, 0);
-    }
+    // -----------> Products Page <-----------
+    #product-card-content {
+        background-color: rgba(191, 152, 80, 0.38);
 
-    #btns:hover {
-        background-color: orange;
-        color: white;
-    }
-
-    #btn-purchase {
-        border: 2px solid rgb(38, 38, 38);
-        background: rgba(232, 169, 52, 0.742);
-        color: rgb(64, 42, 0);
-    }
-
-    #btn-purchase:hover {
-        background-color: orange;
-        color: white;
+        .mat-card-header {
+            #title {
+                color: rgb(230, 230, 230);
+            }
+        }
     }
 
 }
+
+// ----------------------------------------
 
 html,
 body {

@@ -80,10 +80,10 @@ export class MatTableLibraryComponent implements OnInit, AfterViewInit, OnChange
       (resp) => {
         this.error = undefined;
         this.libraryProducts = resp;
-        console.log(this.libraryProducts);
-        console.log(resp);
       },
       (err) => {
+        console.log("Il server e' ripartito, per eseguire il get faccio il reload della pagina");
+        location.reload();
         this.error = err.error;
         console.log(err.error);
       }

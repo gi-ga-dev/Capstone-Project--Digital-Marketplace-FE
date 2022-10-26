@@ -1,61 +1,63 @@
-<mat-card class="shoppingcart-card">
+<div id="shoppingcart-cont">
+    <mat-card class="cart-and-wishlist-card">
 
-    <mat-card-header>
-        <mat-card-title>
-            <div id="title-cont">
-                <mat-icon id="shop-icon">shop</mat-icon> Your Shopping Cart
+        <mat-card-header>
+            <mat-card-title>
+                <div id="title-cont">
+                    <mat-icon id="shop-icon">shop</mat-icon> Your Shopping Cart
+                </div>
+            </mat-card-title>
+            <mat-divider></mat-divider>
+            <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
+        </mat-card-header>
+
+        <mat-card-content *ngIf="cartProducts.length !== 0; else emptyblock">
+            <!-- GET elem nel carrello - Generare una riga per ogni elem nella cartList -->
+            <div *ngFor="let product of cartProducts">
+
+                <mat-divider id="divider"></mat-divider>
+
+                <div id="cart-cont">
+
+                    <p id="prod-type"><b>Type: </b>{{product.productType}}</p>
+                    <p id="prod-title"><b>Title: </b>{{product.title}}</p>
+
+                    <div id="btn-cont">
+                        <button id="btns" mat-button (click)="deleteFromCart(getId, product.id)"
+                            matTooltip="Delete from Cart" matTooltipPosition="below">
+                            <mat-icon>remove_shopping_cart</mat-icon>
+                        </button>
+
+                        <button id="btns" mat-button (click)="addToWishList(getId, product.id)"
+                            matTooltip="Add to Wishlist" matTooltipPosition="below">
+                            <mat-icon>favorite</mat-icon>
+                        </button>
+                    </div>
+                    <p id="prod-price"><b>Price: </b>{{product.price.toFixed(2)}}$</p>
+
+                </div>
             </div>
-        </mat-card-title>
-        <mat-divider></mat-divider>
-        <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
-    </mat-card-header>
-
-    <mat-card-content *ngIf="cartProducts.length !== 0; else emptyblock">
-        <!-- GET elem nel carrello - Generare una riga per ogni elem nella cartList -->
-        <div *ngFor="let product of cartProducts">
 
             <mat-divider id="divider"></mat-divider>
 
-            <div id="cart-cont">
-
-                <p id="prod-type"><b>Type: </b>{{product.productType}}</p>
-                <p id="prod-title"><b>Title: </b>{{product.title}}</p>
-
-                <div id="btn-cont">
-                    <button id="btns" mat-button (click)="deleteFromCart(getId, product.id)"
-                        matTooltip="Delete from Cart" matTooltipPosition="below">
-                        <mat-icon>remove_shopping_cart</mat-icon>
-                    </button>
-
-                    <button id="btns" mat-button (click)="addToWishList(getId, product.id)" matTooltip="Add to Wishlist"
-                        matTooltipPosition="below">
-                        <mat-icon>favorite</mat-icon>
-                    </button>
-                </div>
-                <p id="prod-price"><b>Price: </b>{{product.price.toFixed(2)}}$</p>
-
+            <div id="subtotal-cont" *ngIf="shopSystem != undefined">
+                <!-- *ngIf="shopSystem != undefined" rimuove errore -->
+                <p><b>Tot. Quantity: </b>{{cartProducts.length}}</p>
+                <button id="btn-purchase" mat-button (click)="commitPurchase(getId)">Place Order</button>
+                <p><b>Tot. Price: </b>{{shopSystem.cartSubtotal.toFixed(2)}}$</p>
             </div>
-        </div>
 
-        <mat-divider id="divider"></mat-divider>
+        </mat-card-content>
 
-        <div id="subtotal-cont" *ngIf="shopSystem != undefined">
-            <!-- *ngIf="shopSystem != undefined" rimuove errore -->
-            <p><b>Tot. Quantity: </b>{{cartProducts.length}}</p>
-            <button id="btn-purchase" mat-button (click)="commitPurchase(getId)">Place Order</button>
-            <p><b>Tot. Price: </b>{{shopSystem.cartSubtotal.toFixed(2)}}$</p>
-        </div>
+        <ng-template #emptyblock>
 
-    </mat-card-content>
+            <mat-card-content id="emptyblock-cont" *ngIf="showString">Your Shopping Cart is empty!</mat-card-content>
 
-    <ng-template #emptyblock>
+        </ng-template>
 
-        <mat-card-content id="emptyblock-cont" *ngIf="showString">Your Shopping Cart is empty!</mat-card-content>
-
-    </ng-template>
-
-</mat-card>
+    </mat-card>
+</div>
 
 <div id="spinner-cont" *ngIf="showSpinner">
-    <mat-spinner color="accent"></mat-spinner>
+    <mat-spinner></mat-spinner>
 </div>

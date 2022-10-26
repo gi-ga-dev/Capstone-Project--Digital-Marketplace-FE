@@ -1,4 +1,6 @@
-/* ======= Table Parametri Default ========= */
+#library-cont {
+    height: 100%;
+}
 
 /* Table Completo (Form Filter, Table e Paginator) */
 .mat-form-field,
@@ -55,7 +57,7 @@ tr.example-detail-row {
 /* ======= Table-Header ======= */
 
 .mat-elevation-z8 {
-    box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 5%), 0px 8px 10px 1px rgb(0 0 0 / 3%), 0px 3px 14px 2px rgb(0 0 0 / 4%);
+    box-shadow: none;
 }
 
 :host ::ng-deep .mat-header-cell {
@@ -65,37 +67,52 @@ tr.example-detail-row {
 
 /* ======= Table-Content ======= */
 
+// contenitore image e card
+:host ::ng-deep .example-element-description {
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.mat-card-content>p {
+    line-height: 1.2em;
+}
+
 :host ::ng-deep .mat-cell {
     font-size: 0.9em;
 }
 
-#title {
-    font-size: 1.5em;
-}
-
+// card prodotto
 .library-card {
-    width: 100%;
+    width: 75%;
+    margin: auto;
     border: none;
     border-radius: unset;
     margin-bottom: 20px;
 }
 
+// titolo prodotto
+#title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+// contenuto card
 :host ::ng-deep .mat-card-content {
     font-size: 1.1em;
 }
 
+// contenitore image
 #img-cont {
     margin: auto;
-}
-
-.mat-card-image {
-    width: 100%;
-}
-
-:host ::ng-deep .example-element-description {
-    padding: 0;
     display: flex;
-    flex-wrap: nowrap;
+}
+
+// dimensioni immagine
+.mat-card-image {
+    width: 75%;
+    margin: auto;
 }
 
 /* ======= Table-Paginator ======= */
@@ -110,7 +127,7 @@ tr.example-detail-row {
     flex-wrap: unset;
 }
 
-#spinner-cont {
+#spinner-cont-table {
     display: flex;
     justify-content: center;
     height: 300px;
@@ -139,9 +156,13 @@ tr.example-detail-row {
     :host ::ng-deep .mat-cell {
         font-size: 0.6em;
     }
+
+    .mat-card-content>p {
+        line-height: 0.7em;
+    }
 }
 
-@media (min-width: 501px) and (max-width: 700px) {
+@media (min-width: 501px) and (max-width: 750px) {
 
     :host ::ng-deep .example-element-description {
         padding: 0;
@@ -164,6 +185,10 @@ tr.example-detail-row {
     :host ::ng-deep .mat-cell {
         font-size: 0.7em;
     }
+
+    .mat-card-content>p {
+        line-height: 0.8em;
+    }
 }
 
 @media (min-width: 961px) and (max-width: 1280px) {
@@ -179,5 +204,9 @@ tr.example-detail-row {
 
     :host ::ng-deep .mat-cell {
         font-size: 0.8em;
+    }
+
+    .mat-card-content>p {
+        line-height: 1em;
     }
 }

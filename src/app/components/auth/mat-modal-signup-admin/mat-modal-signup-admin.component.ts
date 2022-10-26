@@ -23,7 +23,7 @@ export class MatModalSignupAdminComponent implements OnInit {
     this.authService.createAdmin(this.form.value).subscribe(
       (resp) => {
         this.error = undefined;
-        this.authService.openSnackBar("Admin creation successfull!", 'orange-snackbar', 3);
+        this.authService.openSnackBar("Admin creation successfull!", 'primary-snackbar', 3);
       },
       (err) => {
         console.log(err.error);

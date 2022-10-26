@@ -59,6 +59,8 @@ export class MatCardShoppingComponent implements OnInit {
         this.cartProducts = resp;
       },
       (err) => {
+        console.log("Il server e' ripartito, per eseguire il get faccio il reload della pagina");
+        location.reload();
         this.error = err.error;
         console.log(err.error);
       }
@@ -73,7 +75,7 @@ export class MatCardShoppingComponent implements OnInit {
       (err) => {
         this.error = err.error;
         console.log(err.error);
-        this.authService.openSnackBar("Delete from Shopping Cart successfull", 'orange-snackbar', 3);
+        this.authService.openSnackBar("Delete from Shopping Cart successfull", 'primary-snackbar', 3);
         this.authService.reloadRoute();
         // aggiorno carrello dopo eliminazione prodotto
         this.authService.setCartListForBadgeCount(shopId).subscribe();
@@ -85,11 +87,11 @@ export class MatCardShoppingComponent implements OnInit {
     return this.shopService.addToWishList(shopId, productId).subscribe(
       (resp) => {
         this.error = undefined;
-        this.authService.openSnackBar("Product added to Wishlist", 'orange-snackbar', 3);
+        this.authService.openSnackBar("Product added to Wishlist", 'primary-snackbar', 3);
         this.authService.reloadRoute();
       },
       (err) => {
-        this.authService.openSnackBar("Product already in WishList...", 'orange-snackbar', 3);
+        this.authService.openSnackBar("Product already in WishList...", 'primary-snackbar', 3);
         this.error = err.error;
         console.log(err.error);
       }
@@ -100,12 +102,12 @@ export class MatCardShoppingComponent implements OnInit {
     return this.shopService.commitPurchase(shopId).subscribe(
       (resp) => {
         this.error = undefined;
-        this.authService.openSnackBar("Purchase Completed!", 'orange-snackbar', 3);
+        this.authService.openSnackBar("Purchase Completed!", 'primary-snackbar', 3);
         this.authService.reloadRoute();
         this.authService.setCartListForBadgeCount(shopId).subscribe();
       },
       (err) => {
-        this.authService.openSnackBar("Account Balance is insufficient...", 'orange-snackbar', 3);
+        this.authService.openSnackBar("Account Balance is insufficient...", 'primary-snackbar', 3);
         this.error = err.error;
         console.log(err.error);
       }

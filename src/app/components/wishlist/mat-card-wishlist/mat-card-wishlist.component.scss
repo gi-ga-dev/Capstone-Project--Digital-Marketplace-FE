@@ -1,26 +1,115 @@
-.example-card {
-    border-radius: 5px;
-    margin: 5px;
-    width: 1280px;
-}
-
-.mat-card-header {
+#wishlist-cont {
+    display: flex;
     justify-content: center;
 
-    #title-cont {
-        display: flex;
-        align-items: center;
+    .cart-and-wishlist-card {
+        border: 1px solid black;
+        border-radius: 5px;
+        margin: 5px;
+        width: 1280px;
 
-        #favorite-icon {
-            margin-right: 5px;
+        .mat-card-header {
+            justify-content: center;
+
+            #title-cont {
+                display: flex;
+                align-items: center;
+
+                #shop-icon {
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        // font-size generale
+        .mat-card-content {
+            font-size: 1.1em;
+
+            #list-cont {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+
+                #prod-type {
+                    width: 35%;
+                    text-align: left;
+                }
+
+                #prod-title {
+                    width: 50%;
+                    text-align: left;
+                }
+
+                #btn-cont {
+                    width: 15%;
+                    text-align: left;
+                }
+
+                #btns {
+                    // delete-wishlist btns
+                    cursor: pointer;
+                    border-radius: 5px;
+                    margin: 0 3px;
+                }
+
+                #prod-price {
+                    width: 15%;
+                    text-align: left;
+                }
+            }
+
+            #subtotal-cont {
+                display: flex;
+                justify-content: space-around;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+
+                #btn-purchase {
+                    font-weight: 700;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    width: 150px;
+                    padding: 15px;
+                }
+            }
         }
     }
 
-}
+    // -------> Media Queries
 
-// font-size generale
-:host ::ng-deep .mat-card-content {
-    font-size: 1.1em;
+    @media (max-width: 500px) {
+        .cart-and-wishlist-card {
+            width: 380px;
+
+            .mat-card-content {
+                font-size: 0.9em;
+            }
+        }
+    }
+
+    @media (min-width: 501px) and (max-width: 960px) {
+        .cart-and-wishlist-card {
+            width: 500px;
+
+            .mat-card-content {
+                font-size: 1em;
+            }
+        }
+    }
+
+    @media (min-width: 961px) and (max-width: 1280px) {
+        .cart-and-wishlist-card {
+            width: 800px;
+
+            .mat-card-content {
+                font-size: 1.1em;
+            }
+        }
+    }
+
 }
 
 #divider {
@@ -28,78 +117,8 @@
     margin-bottom: 12px;
 }
 
-#cart-cont {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-
-    #prod-type {
-        width: 20%;
-        text-align: left;
-    }
-
-    #prod-title {
-        width: 30%;
-        text-align: left;
-    }
-
-    #btn-cont {
-        width: 40%;
-        text-align: left;
-    }
-
-    #btns {
-        // delete-wishlist btns
-        cursor: pointer;
-        border-radius: 5px;
-        margin: 0 3px;
-        width: 20%;
-    }
-
-}
-
-#spinner-cont {
-    display: flex;
-    justify-content: center;
-    height: 500px;
-}
-
 #emptyblock-cont {
     display: flex;
     justify-content: center;
     margin: 100px 0;
-}
-
-// -------> Media Queries
-
-@media (max-width: 500px) {
-    .example-card {
-        width: 380px;
-    }
-
-    :host ::ng-deep .mat-card-content {
-        font-size: 0.9em;
-    }
-}
-
-@media (min-width: 501px) and (max-width: 960px) {
-    .example-card {
-        width: 500px;
-    }
-
-    :host ::ng-deep .mat-card-content {
-        font-size: 1em;
-    }
-}
-
-@media (min-width: 961px) and (max-width: 1280px) {
-    .example-card {
-        width: 800px;
-    }
-
-    :host ::ng-deep .mat-card-content {
-        font-size: 1.1em;
-    }
 }

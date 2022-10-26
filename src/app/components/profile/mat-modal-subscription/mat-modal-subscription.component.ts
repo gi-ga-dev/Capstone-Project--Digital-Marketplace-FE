@@ -24,14 +24,14 @@ export class MatModalSubscriptionComponent implements OnInit {
       (resp) => {
         // per un secondo controllo al momento della sub inserisco/aggiorno prop. isSubscribed/accountBalance nel local
         this.authService.setSubAndBalance(this.getId).subscribe();
-        this.authService.openSnackBar("1-Month Subscription success!", 'orange-snackbar', 3);
+        this.authService.openSnackBar("1-Month Subscription success!", 'primary-snackbar', 3);
         this.authService.reloadRoute();
         this.error = undefined;
       },
       (err) => {
         // unica condizione di errore, balance non sufficiente (se gia' iscritto il button scompare di suo)  
         if (this.accountBalance < 4.90) {
-          this.authService.openSnackBar("Account balance insufficient...", 'orange-snackbar', 3);
+          this.authService.openSnackBar("Account balance insufficient...", 'primary-snackbar', 3);
         }
         this.error = err.error;
         console.log(err.error);
@@ -44,14 +44,14 @@ export class MatModalSubscriptionComponent implements OnInit {
       (resp) => {
         // per un secondo controllo al momento della sub inserisco/aggiorno prop. isSubscribed/accountBalance nel local
         this.authService.setSubAndBalance(this.getId).subscribe();
-        this.authService.openSnackBar("6-Months Subscription success!", 'orange-snackbar', 3);
+        this.authService.openSnackBar("6-Months Subscription success!", 'primary-snackbar', 3);
         this.authService.reloadRoute();
         this.error = undefined;
       },
       (err) => {
         // unica condizione di errore, balance non sufficiente (se gia' iscritto il button scompare di suo)  
         if (this.accountBalance < 24.90) {
-          this.authService.openSnackBar("Account balance insufficient...", 'orange-snackbar', 3);
+          this.authService.openSnackBar("Account balance insufficient...", 'primary-snackbar', 3);
         }
         this.error = err.error;
         console.log(err.error);
@@ -64,14 +64,14 @@ export class MatModalSubscriptionComponent implements OnInit {
       (resp) => {
         // per un secondo controllo al momento della sub inserisco/aggiorno prop. isSubscribed/accountBalance nel local
         this.authService.setSubAndBalance(this.getId).subscribe();
-        this.authService.openSnackBar("1-Year Subscription success!", 'orange-snackbar', 3);
+        this.authService.openSnackBar("1-Year Subscription success!", 'primary-snackbar', 3);
         this.authService.reloadRoute();
         this.error = undefined;
       },
       (err) => {
         // unica condizione di errore, balance non sufficiente (se gia' iscritto il button scompare di suo)  
         if (this.accountBalance < 44.90) {
-          this.authService.openSnackBar("Account balance insufficient...", 'orange-snackbar', 3);
+          this.authService.openSnackBar("Account balance insufficient...", 'primary-snackbar', 3);
         }
         this.error = err.error;
         console.log(err.error);

@@ -54,6 +54,8 @@ export class MatCardBookComponent implements OnInit {
         this.books = resp;
       },
       (err) => {
+        console.log("Il server e' ripartito, per eseguire il get faccio il reload della pagina");
+        location.reload();
         this.error = err.error;
         console.log(err.error);
       }
@@ -64,10 +66,10 @@ export class MatCardBookComponent implements OnInit {
     return this.shopService.addToWishList(shopId, productId).subscribe(
       (resp) => {
         this.error = undefined;
-        this.authService.openSnackBar("Product Added to WishList", 'orange-snackbar', 3);
+        this.authService.openSnackBar("Product Added to WishList", 'primary-snackbar', 3);
       },
       (err) => {
-        this.authService.openSnackBar("Product already in WishList or Library...", 'orange-snackbar', 3);
+        this.authService.openSnackBar("Product already in WishList or Library...", 'primary-snackbar', 3);
         this.error = err.error;
         console.log(err.error);
       }
