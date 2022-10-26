@@ -1,22 +1,4 @@
-#library-cont {
-    height: 100%;
-}
-
-/* Table Completo (Form Filter, Table e Paginator) */
-.mat-form-field,
-table,
-:host ::ng-deep .mat-paginator {
-    // in questo modo funziona da width 400px in su
-    // sotto 86% width il paginator e' di dimensioni ridotte rispetto agli altri 
-    width: 86%;
-    margin: auto;
-}
-
-#filter-cont {
-    // per settare il filter al centro (margin auto non funziona)
-    display: flex;
-    flex-direction: column;
-}
+// --------------------- Valori Default -----------------------
 
 td,
 th {
@@ -29,10 +11,6 @@ tr.example-detail-row {
 
 .example-element-row td {
     border-bottom-width: 0;
-}
-
-.example-element-detail {
-    overflow: hidden;
 }
 
 .example-element-diagram {
@@ -50,81 +28,243 @@ tr.example-detail-row {
     line-height: normal;
 }
 
-.example-element-description-attribution {
+.img-and-card-content-attribution {
     opacity: 0.5;
 }
 
-/* ======= Table-Header ======= */
+// --------------------------------------------
 
-.mat-elevation-z8 {
-    box-shadow: none;
+#library-cont {
+    height: 100%;
+
+    /* ======= Table-Filter ======= */
+
+    #filter-cont {
+        // per settare il filter al centro (margin auto non funziona)
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* ======= Table-Container ======= */
+
+    .mat-elevation-z8 {
+        box-shadow: none;
+
+        #table-cont {
+
+            .mat-header-cell {
+                font-size: 1em;
+                padding-top: 12px;
+            }
+
+            .mat-cell {
+                font-size: 0.9em;
+            }
+
+            .table-details {
+                overflow: hidden;
+
+                // contenitore image e card
+                .img-and-card-content {
+                    padding: 0;
+                    display: flex;
+                    flex-wrap: nowrap;
+
+                    // contenitore image
+                    #img-cont {
+                        margin: auto;
+                        display: flex;
+
+                        // dimensioni immagine
+                        .mat-card-image {
+                            width: 75%;
+                            margin: auto;
+                        }
+                    }
+
+                    // card prodotto
+                    .library-card {
+                        width: 75%;
+                        margin: auto;
+                        border: none;
+                        border-radius: unset;
+                        margin-bottom: 20px;
+
+                        // titolo prodotto
+                        #title {
+                            font-size: 1.5em;
+                            font-weight: bold;
+                            margin-bottom: 15px;
+                        }
+
+                        // contenuto card
+                        .mat-card-content {
+                            font-size: 1.1em;
+                        }
+
+                        .mat-card-content>p {
+                            line-height: 1.4em;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        /* ======= Table-Paginator ======= */
+
+        .mat-paginator {
+            font-size: 1em;
+
+            .mat-paginator-container {
+                display: flex;
+                padding: 0;
+                flex-wrap: unset;
+            }
+        }
+
+    }
+
+    // -------> Media Queries
+
+    @media (max-width: 500px) {
+        .mat-elevation-z8 {
+            #table-cont {
+                .mat-header-cell {
+                    font-size: 0.7em;
+                }
+
+                .mat-cell {
+                    font-size: 0.6em;
+                }
+
+                .table-details {
+                    .img-and-card-content {
+                        padding: 0;
+                        display: block;
+                        flex-wrap: unset;
+
+                        .library-card {
+                            .mat-card-content {
+                                font-size: 1em;
+                            }
+
+                            .mat-card-content>p {
+                                line-height: 0.9em;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .mat-paginator {
+                font-size: 0.7em;
+            }
+        }
+    }
+
+    //-----------------------------------
+
+    @media (min-width: 501px) and (max-width: 750px) {
+        .mat-elevation-z8 {
+            #table-cont {
+                .table-details {
+                    .img-and-card-content {
+                        padding: 0;
+                        display: block;
+                        flex-wrap: unset;
+                    }
+                }
+            }
+        }
+    }
+
+    //-----------------------------------
+
+    @media (min-width: 501px) and (max-width: 960px) {
+        .mat-elevation-z8 {
+            #table-cont {
+                .mat-header-cell {
+                    font-size: 0.8em;
+                }
+
+                .mat-cell {
+                    font-size: 0.7em;
+                }
+
+                .table-details {
+                    .img-and-card-content {
+                        padding: 0;
+                        display: block;
+                        flex-wrap: unset;
+
+                        .library-card {
+                            .mat-card-content {
+                                font-size: 1em;
+                            }
+
+                            .mat-card-content>p {
+                                line-height: 1em;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .mat-paginator {
+                font-size: 0.8em;
+            }
+        }
+    }
+
+    //-----------------------------------
+
+    @media (min-width: 961px) and (max-width: 1280px) {
+        .mat-elevation-z8 {
+            #table-cont {
+                .mat-header-cell {
+                    font-size: 0.9em;
+                }
+
+                .mat-cell {
+                    font-size: 0.8em;
+                }
+
+                .table-details {
+                    .img-and-card-content {
+                        padding: 0;
+                        display: block;
+                        flex-wrap: unset;
+
+                        .library-card {
+                            .mat-card-content {
+                                font-size: 1.1em;
+                            }
+
+                            .mat-card-content>p {
+                                line-height: 1.2em;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .mat-paginator {
+                font-size: 0.9em;
+            }
+        }
+    }
+
 }
 
-:host ::ng-deep .mat-header-cell {
-    font-size: 1em;
-    padding-top: 12px;
-}
-
-/* ======= Table-Content ======= */
-
-// contenitore image e card
-:host ::ng-deep .example-element-description {
-    padding: 0;
-    display: flex;
-    flex-wrap: nowrap;
-}
-
-.mat-card-content>p {
-    line-height: 1.2em;
-}
-
-:host ::ng-deep .mat-cell {
-    font-size: 0.9em;
-}
-
-// card prodotto
-.library-card {
-    width: 75%;
-    margin: auto;
-    border: none;
-    border-radius: unset;
-    margin-bottom: 20px;
-}
-
-// titolo prodotto
-#title {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-// contenuto card
-:host ::ng-deep .mat-card-content {
-    font-size: 1.1em;
-}
-
-// contenitore image
-#img-cont {
-    margin: auto;
-    display: flex;
-}
-
-// dimensioni immagine
-.mat-card-image {
-    width: 75%;
-    margin: auto;
-}
-
-/* ======= Table-Paginator ======= */
-
+/* Table Completo (Form Filter, Table e Paginator) */
+.mat-form-field,
+table,
 :host ::ng-deep .mat-paginator {
-    font-size: 1em;
-}
-
-:host ::ng-deep .mat-paginator-container {
-    display: flex;
-    padding: 0;
-    flex-wrap: unset;
+    // in questo modo funziona da width 400px in su
+    // sotto 86% width il paginator e' di dimensioni ridotte rispetto agli altri 
+    width: 86%;
+    margin: auto;
 }
 
 #spinner-cont-table {
@@ -132,81 +272,4 @@ tr.example-detail-row {
     justify-content: center;
     height: 300px;
     margin-top: 200px;
-}
-
-// -------> Media Queries
-
-@media (max-width: 500px) {
-
-    :host ::ng-deep .mat-card-content {
-        font-size: 1em;
-    }
-
-    :host ::ng-deep .example-element-description {
-        padding: 0;
-        display: block;
-        flex-wrap: unset;
-    }
-
-    :host ::ng-deep .mat-header-cell,
-    :host ::ng-deep .mat-paginator {
-        font-size: 0.7em;
-    }
-
-    :host ::ng-deep .mat-cell {
-        font-size: 0.6em;
-    }
-
-    .mat-card-content>p {
-        line-height: 0.7em;
-    }
-}
-
-@media (min-width: 501px) and (max-width: 750px) {
-
-    :host ::ng-deep .example-element-description {
-        padding: 0;
-        display: block;
-        flex-wrap: unset;
-    }
-}
-
-@media (min-width: 501px) and (max-width: 960px) {
-
-    :host ::ng-deep .mat-card-content {
-        font-size: 1em;
-    }
-
-    :host ::ng-deep .mat-header-cell,
-    :host ::ng-deep .mat-paginator {
-        font-size: 0.8em;
-    }
-
-    :host ::ng-deep .mat-cell {
-        font-size: 0.7em;
-    }
-
-    .mat-card-content>p {
-        line-height: 0.8em;
-    }
-}
-
-@media (min-width: 961px) and (max-width: 1280px) {
-
-    :host ::ng-deep .mat-card-content {
-        font-size: 1.1em;
-    }
-
-    :host ::ng-deep .mat-header-cell,
-    :host ::ng-deep .mat-paginator {
-        font-size: 0.9em;
-    }
-
-    :host ::ng-deep .mat-cell {
-        font-size: 0.8em;
-    }
-
-    .mat-card-content>p {
-        line-height: 1em;
-    }
 }
