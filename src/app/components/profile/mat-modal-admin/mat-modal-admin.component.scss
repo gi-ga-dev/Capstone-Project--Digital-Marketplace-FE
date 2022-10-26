@@ -1,3 +1,7 @@
+.mat-typography {
+    padding: 0;
+}
+
 #card-cont {
     display: flex;
     flex-wrap: wrap;
@@ -5,15 +9,18 @@
     margin: 10px;
 }
 
-#product-modal {
-    background-color: rgb(255, 0, 111);
+#btns-create-modal {
     width: 95%;
     text-align: center;
     margin: 5px auto;
 }
 
-#cancel-btn {
+#btn-cancel {
     width: 45%;
     text-align: center;
-    margin: 0 auto;
+    margin: 10px auto;
+}
+
+#title {
+    text-align: center;
 }

@@ -51,14 +51,25 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
     // ---> Selettori utilizzabili in ogni componente chiamandolo nell'html
 
     #btns,
-    #btn-purchase {
+    #btn-purchase,
+    #action-btns,
+    #btns-create-modal {
         border: 1px solid black;
         background: #4486d682;
         color: black;
     }
 
+    #btn-cancel {
+        border: 1px solid black;
+        background: #4486d611;
+        color: black;
+    }
+
     #btns:hover,
-    #btn-purchase:hover {
+    #btn-purchase:hover,
+    #action-btns:hover,
+    #btns-create-modal:hover,
+    #btn-cancel:hover {
         background-color: #4486d6;
         color: white;
     }
@@ -167,6 +178,8 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
         }
     }
 
+    // -------------------> Modals <------------------------
+
 
 }
 
@@ -183,15 +196,26 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
     // ---> Selettori utilizzabili in ogni componente chiamandolo nell'html
 
     #btns,
-    #btn-purchase {
+    #btn-purchase,
+    #action-btns,
+    #btns-create-modal {
         border: 1px solid rgb(38, 38, 38);
         background: rgba(232, 169, 52, 0.742);
         color: rgb(64, 42, 0);
     }
 
+    #btn-cancel {
+        border: 1px solid rgb(38, 38, 38);
+        background: rgba(191, 152, 80, 0.523);
+        color: rgb(64, 42, 0);
+    }
+
     #btns:hover,
-    #btn-purchase:hover {
-        background-color: orange;
+    #btn-purchase:hover,
+    #action-btns:hover,
+    #btns-create-modal:hover,
+    #btn-cancel:hover {
+        background-color: #ffa200;
         color: white;
     }
 
@@ -283,6 +307,10 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
             }
         }
     }
+
+    // -------------------> Modals <------------------------
+
+
 
 }
 

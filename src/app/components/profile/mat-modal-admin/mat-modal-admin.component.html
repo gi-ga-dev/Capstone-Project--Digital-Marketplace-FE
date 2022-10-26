@@ -2,34 +2,36 @@
 
     <mat-card class="example-card">
 
-        <mat-card-title>Admin Actions</mat-card-title>
+        <mat-card-title>
+            <p id="title">Admin Actions</p>
+        </mat-card-title>
         <!-- <mat-card-subtitle>To modify data you need to insert your username/password</mat-card-subtitle> -->
 
         <mat-card-content>
 
             <mat-dialog-actions align="end" *ngIf="getRole === 'ROLE_ADMIN'">
 
-                <button mat-button id="product-modal" (click)="openSignupAdminDialog()">
+                <button mat-button id="btns-create-modal" (click)="openSignupAdminDialog()">
                     <mat-icon>person_add</mat-icon> Create Admin
                 </button>
 
-                <button mat-button id="product-modal" (click)="openEventDialog()">
+                <button mat-button id="btns-create-modal" (click)="openEventDialog()">
                     <mat-icon>event_available</mat-icon> Create Sales Event
                 </button>
 
-                <button mat-button id="product-modal" (click)="openVideogameDialog()">
+                <button mat-button id="btns-create-modal" (click)="openVideogameDialog()">
                     <mat-icon>videogame_asset</mat-icon> Create Videogame
                 </button>
 
-                <button mat-button id="product-modal" (click)="openMusicDialog()">
+                <button mat-button id="btns-create-modal" (click)="openMusicDialog()">
                     <mat-icon>music_video</mat-icon> Create Music
                 </button>
 
-                <button mat-button id="product-modal" (click)="openBookDialog()">
+                <button mat-button id="btns-create-modal" (click)="openBookDialog()">
                     <mat-icon>book</mat-icon> Create Book
                 </button>
 
-                <button mat-button id="cancel-btn" mat-dialog-close>Cancel</button>
+                <button mat-button id="btn-cancel" mat-dialog-close>Cancel</button>
             </mat-dialog-actions>
         </mat-card-content>
 
