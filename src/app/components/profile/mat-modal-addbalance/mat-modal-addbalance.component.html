@@ -2,23 +2,33 @@
 
     <mat-card class="example-card">
 
-        <mat-card-title>Charge your Account Balance</mat-card-title>
+        <mat-card-title id="modals-titles">Charge your Account Balance</mat-card-title>
         <!-- <mat-card-subtitle>To modify data you need to insert your username/password</mat-card-subtitle> -->
 
-        <mat-card-content id="inp-access">
-            <button mat-button (click)="addFiveDollars()" [mat-dialog-close]="true" cdkFocusInitial>Add 5$
-                Credit</button>
-            <button mat-button (click)="addTwentyFiveDollars()" [mat-dialog-close]="true" cdkFocusInitial>Add 25$
-                Credit</button>
-            <button mat-button (click)="addFiftyDollars()" [mat-dialog-close]="true" cdkFocusInitial>Add 50$
-                Credit</button>
+        <mat-card-content>
+
+            <div id="addbalance-cont">
+
+                <button id="btns-addbalance" mat-button (click)="addFiveDollars()" [mat-dialog-close]="true"
+                    cdkFocusInitial>Add 5$ Credit
+                </button>
+
+                <button id="btns-addbalance" mat-button (click)="addTwentyFiveDollars()" [mat-dialog-close]="true"
+                    cdkFocusInitial>Add 25$ Credit
+                </button>
+
+                <button id="btns-addbalance" mat-button (click)="addFiftyDollars()" [mat-dialog-close]="true"
+                    cdkFocusInitial>Add 50$ Credit
+                </button>
+            </div>
+
             <mat-dialog-actions align="end">
-                <button mat-button class="subscription-dialog" mat-dialog-close>Cancel</button>
+                <button mat-button id="btn-cancel" mat-dialog-close>Cancel</button>
             </mat-dialog-actions>
         </mat-card-content>
 
         <mat-card-footer *ngIf="error">
-            <p>Credits re-charge failed!</p>
+            <p id="error">Credits re-charge failed!</p>
         </mat-card-footer>
 
     </mat-card>

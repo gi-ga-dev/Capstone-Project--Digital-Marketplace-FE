@@ -1,21 +1,123 @@
 <mat-dialog-content class="mat-typography">
 
-    <mat-card class="example-card">
+    <mat-card id="sub-card-outer">
 
-        <mat-card-title>Subscribe</mat-card-title>
-        <!-- <mat-card-subtitle>To modify data you need to insert your username/password</mat-card-subtitle> -->
+        <mat-card-title id="modals-titles">Enjoy our Premium Subscription!</mat-card-title>
+        <mat-card-subtitle id="modals-titles">Start getting our products for FREE!</mat-card-subtitle>
 
-        <mat-card-content id="inp-access">
-            <button mat-button (click)="subscribeMonthly()" [mat-dialog-close]="true" cdkFocusInitial>30-days
-                Subscription</button>
-            <button mat-button (click)="subscribeSemestral()" [mat-dialog-close]="true" cdkFocusInitial>180-days
-                Subscription</button>
-            <button mat-button (click)="subscribeAnnual()" [mat-dialog-close]="true" cdkFocusInitial>365-days
-                Subscription</button>
-            <mat-dialog-actions align="end">
-                <button mat-button class="subscription-dialog" mat-dialog-close>Cancel</button>
-            </mat-dialog-actions>
-        </mat-card-content>
+        <!-- Contenitore delle 3 Card -->
+        <div id="subcription-cont">
+
+            <!-- Contenitore Card Singola -->
+            <mat-card-content id="subscription-card">
+
+                <div id="sub-titles-div">
+
+                    <mat-card-title id="subscription-title">30-days Subscription!</mat-card-title>
+                    <mat-card-subtitle id="subscription-subtitle">The price for 30 days then auto-renews to $4.90 billed
+                        monthly.
+                        Cancel any time.
+                    </mat-card-subtitle>
+                </div>
+
+                <div id="sub-text-div">
+
+                    <p>Subscription Benefits include:</p>
+                    <p>- Full Access to our Catalogue</p>
+                    <p>- Get Products for Free*</p>
+                    <p>- Play, Listen, Read anywhere</p>
+                    <p>- 7-Day Money Back Guarantee</p>
+                </div>
+
+                <div id="sub-btn-div">
+
+                    <button id="btns-subscribe" mat-button (click)="subscribeMonthly()" [mat-dialog-close]="true"
+                        cdkFocusInitial>Subscribe
+                    </button>
+
+                    <mat-card-footer>
+                        <p id="sub-footer">*Requires Continuous Subscription Status</p>
+                    </mat-card-footer>
+                </div>
+
+            </mat-card-content>
+
+            <!-- ------------------------------------------- -->
+
+            <mat-card-content id="subscription-card">
+
+                <div id="sub-titles-div">
+
+                    <mat-card-title id="subscription-title">180-days Subscription!</mat-card-title>
+                    <mat-card-subtitle id="subscription-subtitle">The price for 180 days then auto-renews to $24.90
+                        billed every
+                        six months. Cancel
+                        any time.</mat-card-subtitle>
+                </div>
+
+                <div id="sub-text-div">
+
+                    <p>Subscription Benefits include:</p>
+                    <p>- Full Access to our Catalogue</p>
+                    <p>- Get Products for Free*</p>
+                    <p>- Play, Listen, Read anywhere</p>
+                    <p>- 7-Day Money Back Guarantee</p>
+                </div>
+
+                <div id="sub-btn-div">
+
+                    <button id="btns-subscribe" mat-button (click)="subscribeSemestral()" [mat-dialog-close]="true"
+                        cdkFocusInitial>Subscribe
+                    </button>
+
+                    <mat-card-footer>
+                        <p id="sub-footer">*Requires Continuous Subscription Status</p>
+                    </mat-card-footer>
+                </div>
+
+            </mat-card-content>
+
+            <!-- ------------------------------------------- -->
+
+            <mat-card-content id="subscription-card">
+
+                <div id="sub-titles-div">
+
+                    <mat-card-title id="subscription-title">365-days Subscription!</mat-card-title>
+                    <mat-card-subtitle id="subscription-subtitle">The price for 365 days then auto-renews to $44.90
+                        billed
+                        annually. Cancel any
+                        time.
+                    </mat-card-subtitle>
+                </div>
+
+                <div id="sub-text-div">
+
+                    <p>Subscription Benefits include:</p>
+                    <p>- Full Access to our Catalogue</p>
+                    <p>- Get Products for Free*</p>
+                    <p>- Play, Listen, Read anywhere</p>
+                    <p>- 7-Day Money Back Guarantee</p>
+                </div>
+
+                <div id="sub-btn-div">
+
+                    <button id="btns-subscribe" mat-button (click)="subscribeAnnual()" [mat-dialog-close]="true"
+                        cdkFocusInitial>Subscribe
+                    </button>
+
+                    <mat-card-footer>
+                        <p id="sub-footer">*Requires Continuous Subscription Status</p>
+                    </mat-card-footer>
+                </div>
+
+            </mat-card-content>
+
+        </div>
+
+        <mat-dialog-actions align="end" style="padding: 0;">
+            <button mat-button id="btn-cancel" mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
 
     </mat-card>
 

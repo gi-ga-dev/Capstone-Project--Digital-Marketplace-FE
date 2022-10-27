@@ -1,22 +1,68 @@
-#inp-access {
+#sub-card-outer {
+    padding: 0;
+    border: none;
+}
+
+// Contenitore delle 3 Card
+#subcription-cont {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: center;
 }
 
-#divider {
-    background-color: rgb(255, 0, 111);
-    border: 1px solid rgb(255, 0, 111);
+// Contenitore Card Singola
+#subscription-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 33%;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 16px;
+    border-radius: 5px;
 }
 
-.subscription-dialog {
-    background-color: rgb(255, 0, 111);
+#subscription-title {
+    text-align: center;
+    margin-bottom: 13px;
+    font-size: 1.5em;
+}
+
+#subscription-subtitle {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+}
+
+// Divisione Card in 3 parti per avere tutte le Card con elementi allineati 
+// indipendentemente dalla quantita' di testo dentro
+#sub-titles-div {
+    height: 30%;
+}
+
+#sub-text-div {
+    height: 50%;
+}
+
+#sub-btn-div {
+    height: 20%;
+}
+
+// -------------------
+
+#sub-footer {
+    font-size: 0.8em;
+}
+
+#btns-subscribe {
+    width: 200px;
+    height: 50px;
+}
+
+#btn-cancel {
     width: 45%;
     text-align: center;
     margin: 0 auto;
-}
-
-.error {
-    color: rgb(255, 0, 111);
-    font-size: 1.1em;
 }

@@ -53,7 +53,10 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
     #btns,
     #btn-purchase,
     #action-btns,
-    #btns-create-modal {
+    #btns-create-modal,
+    #btns-profile,
+    #btns-addbalance,
+    #btns-subscribe {
         border: 1px solid black;
         background: #4486d682;
         color: black;
@@ -69,7 +72,10 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
     #btn-purchase:hover,
     #action-btns:hover,
     #btns-create-modal:hover,
-    #btn-cancel:hover {
+    #btn-cancel:hover,
+    #btns-profile:hover,
+    #btns-addbalance:hover,
+    #btns-subscribe:hover {
         background-color: #4486d6;
         color: white;
     }
@@ -92,6 +98,11 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
 
     #divider {
         background-color: #4486d611;
+    }
+
+    #error {
+        color: rgb(245, 77, 121);
+        font-size: 1.1em;
     }
 
     // -----------> Sidenav Content & Auth Page <-----------
@@ -180,6 +191,28 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
 
     // -------------------> Modals <------------------------
 
+    #modals-titles {
+        text-align: center;
+        margin-bottom: 26px;
+    }
+
+    // [Profile Page]
+    #profile-card-modals {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #btns-profile {
+        width: 45%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    // [Subscription]
+    #subscription-card {
+        background-color: #4486d611;
+    }
 
 }
 
@@ -198,7 +231,10 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
     #btns,
     #btn-purchase,
     #action-btns,
-    #btns-create-modal {
+    #btns-create-modal,
+    #btns-profile,
+    #btns-addbalance,
+    #btns-subscribe {
         border: 1px solid rgb(38, 38, 38);
         background: rgba(232, 169, 52, 0.742);
         color: rgb(64, 42, 0);
@@ -214,7 +250,10 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
     #btn-purchase:hover,
     #action-btns:hover,
     #btns-create-modal:hover,
-    #btn-cancel:hover {
+    #btn-cancel:hover,
+    #btns-profile:hover,
+    #btns-addbalance:hover,
+    #btns-subscribe:hover {
         background-color: #ffa200;
         color: white;
     }
@@ -233,6 +272,11 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
         align-items: center;
         justify-content: center;
         height: 300px;
+    }
+
+    #error {
+        color: rgb(245, 77, 121);
+        font-size: 1.1em;
     }
 
     // -----------> Sidenav Content & Auth Page <-----------
@@ -310,7 +354,28 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
 
     // -------------------> Modals <------------------------
 
+    #modals-titles {
+        text-align: center;
+        margin-bottom: 26px;
+    }
 
+    // [Profile Page]
+    #profile-card-modals {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #btns-profile {
+        width: 45%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    // [Subscription]
+    #subscription-card {
+        background-color: rgba(191, 152, 80, 0.38);
+    }
 
 }
 

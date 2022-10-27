@@ -4,11 +4,12 @@
         <mat-card class="example-card">
 
             <mat-card-title>Are you sure you want to delete your Account?</mat-card-title>
-            <mat-card-subtitle>All your purchases associated will be deleted.</mat-card-subtitle>
+            <mat-card-subtitle id="modals-titles">All purchases associated with this account will be deleted.
+            </mat-card-subtitle>
 
             <mat-dialog-actions align="end">
-                <button mat-button class="delete-dialog" mat-dialog-close>Cancel</button>
-                <button mat-button class="delete-dialog" [mat-dialog-close]="true" cdkFocusInitial
+                <button mat-button id="btns-profile" mat-dialog-close>Cancel</button>
+                <button mat-button id="btns-profile" [mat-dialog-close]="true" cdkFocusInitial
                     type="submit">Delete</button>
             </mat-dialog-actions>
 

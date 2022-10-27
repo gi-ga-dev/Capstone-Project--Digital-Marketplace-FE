@@ -1,22 +1,22 @@
-#inp-access {
+// [Add Balance]
+#addbalance-cont {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
 }
 
-#divider {
-    background-color: rgb(255, 0, 111);
-    border: 1px solid rgb(255, 0, 111);
+#addbalance-sub-cont {
+    display: flex;
 }
 
-.subscription-dialog {
-    background-color: rgb(255, 0, 111);
+#btns-addbalance {
+    width: 200px;
+    height: 75px;
+    margin: 0 3px;
+}
+
+#btn-cancel {
     width: 45%;
     text-align: center;
     margin: 0 auto;
-}
-
-.error {
-    color: rgb(255, 0, 111);
-    font-size: 1.1em;
 }
