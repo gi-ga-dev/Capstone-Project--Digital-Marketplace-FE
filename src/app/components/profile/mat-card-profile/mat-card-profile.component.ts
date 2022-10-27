@@ -42,7 +42,8 @@ export class MatCardProfileComponent implements OnInit {
   }
 
   openSubscriptionDialog() {
-    const dialogRef = this.dialog.open(MatModalSubscriptionComponent);
+    // dare una classe al dialog per modificarla nello style principale
+    const dialogRef = this.dialog.open(MatModalSubscriptionComponent, { panelClass: 'sub-dialog-container' });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });

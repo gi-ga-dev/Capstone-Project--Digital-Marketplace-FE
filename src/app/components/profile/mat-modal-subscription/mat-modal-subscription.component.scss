@@ -1,6 +1,16 @@
+// settare padding del dialog a 0;
+// utile se si usa una card, aumentarne il padding;
+.mat-typography {
+    padding: 0;
+}
+
 #sub-card-outer {
     padding: 0;
     border: none;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 // Contenitore delle 3 Card
@@ -9,6 +19,9 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
+    // width del container fissa (card rettangolari)
+    //width: min-content;
+    width: 1100px;
 }
 
 // Contenitore Card Singola
@@ -17,52 +30,144 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    width: 33%;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 16px;
-    border-radius: 5px;
+    height: 400px;
+    margin-left: 4px;
+    margin-right: 4px;
+    padding: 32px 8px;
+    border-radius: 10px;
 }
 
 #subscription-title {
     text-align: center;
-    margin-bottom: 13px;
+    margin-bottom: 18px;
     font-size: 1.5em;
 }
 
 #subscription-subtitle {
     text-align: center;
-    margin-bottom: 20px;
-    font-size: 0.9em;
+    margin-bottom: 18px;
+    font-size: 1em;
 }
 
 // Divisione Card in 3 parti per avere tutte le Card con elementi allineati 
 // indipendentemente dalla quantita' di testo dentro
-#sub-titles-div {
-    height: 30%;
+#sub-title-div {
+    height: 10%;
+}
+
+#sub-subtitle-div {
+    height: 20%;
 }
 
 #sub-text-div {
-    height: 50%;
+    height: 45%;
+    font-size: 1.1em;
 }
 
 #sub-btn-div {
     height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 // -------------------
 
 #sub-footer {
-    font-size: 0.8em;
+    font-size: 0.9em;
+    text-align: center;
 }
 
 #btns-subscribe {
-    width: 200px;
-    height: 50px;
+    width: 100%;
+    height: 40px;
+    font-size: 1em;
 }
 
 #btn-cancel {
-    width: 45%;
+    width: 200px;
     text-align: center;
     margin: 0 auto;
+    font-size: 1.1em;
+}
+
+// --------> Media Queries
+
+/* @media (min-width: 721px) and (max-width: 900px) {
+
+    #subcription-cont {
+        width: 600px;
+    }
+} */
+
+@media (min-width: 901px) and (max-width: 1150px) {
+
+    #subcription-cont {
+        width: 700px;
+    }
+
+    #subscription-card {
+        padding: 24px 4px;
+        height: 330px;
+    }
+
+    #subscription-title {
+        margin-bottom: 4px;
+        font-size: 1.3em;
+    }
+
+    #subscription-subtitle {
+        margin-bottom: 4px;
+        font-size: 0.8em;
+    }
+
+    #sub-text-div {
+        font-size: 0.9em;
+    }
+
+    #sub-footer {
+        font-size: 0.7em;
+    }
+
+    #btns-subscribe {
+        height: 35px;
+        font-size: 0.8em;
+    }
+
+}
+
+@media (min-width: 1151px) and (max-width: 1400px) {
+
+    #subcription-cont {
+        width: 900px;
+    }
+
+    #subscription-card {
+        padding: 28px 6px;
+        height: 350px;
+    }
+
+    #subscription-title {
+        margin-bottom: 10px;
+        font-size: 1.4em;
+    }
+
+    #subscription-subtitle {
+        margin-bottom: 10px;
+        font-size: 0.9em;
+    }
+
+    #sub-text-div {
+        font-size: 1em;
+    }
+
+    #sub-footer {
+        font-size: 0.8em;
+    }
+
+    #btns-subscribe {
+        height: 35px;
+        font-size: 0.9em;
+    }
+
 }

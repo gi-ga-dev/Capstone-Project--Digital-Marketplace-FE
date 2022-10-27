@@ -377,6 +377,21 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
         background-color: rgba(191, 152, 80, 0.38);
     }
 
+    .sub-dialog-container {
+        .mat-dialog-container {
+            //width: 1300px;
+            padding: 0;
+            border-radius: 10px;
+        }
+
+        // per eliminare scroll orizzontale
+        .mat-dialog-content {
+            display: contents;
+        }
+
+
+    }
+
 }
 
 // ----------------------------------------
