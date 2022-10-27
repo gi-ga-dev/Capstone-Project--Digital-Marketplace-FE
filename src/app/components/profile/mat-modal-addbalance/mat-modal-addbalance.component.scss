@@ -1,4 +1,9 @@
-// [Add Balance]
+// settare padding del dialog a 0;
+// utile se si usa una card, aumentarne il padding;
+.mat-typography {
+    padding: 0;
+}
+
 #addbalance-cont {
     display: flex;
     flex-direction: row;

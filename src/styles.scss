@@ -82,7 +82,7 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
 
     .primary-snackbar {
         border: 1px solid black;
-        border-radius: 5px;
+        border-radius: 10px;
         background-color: #4486d6dd;
         color: black;
         display: flex;
@@ -278,7 +278,7 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
 
     .primary-snackbar {
         border: 1px solid rgb(38, 38, 38);
-        border-radius: 5px;
+        border-radius: 10px;
         background: rgba(232, 169, 52, 0.89);
         color: rgb(64, 42, 0);
         display: flex;
@@ -431,7 +431,7 @@ body {
 }
 
 
-// ----> Classe Dialog Subscription Modificata con panelClass
+// ----> Componente Dialog Subscription Modificata con panelClass
 
 .sub-dialog-container {
 
@@ -440,7 +440,6 @@ body {
     }
 
     .mat-dialog-container {
-        //width: 1300px;
         padding: 0;
         border-radius: 10px;
     }

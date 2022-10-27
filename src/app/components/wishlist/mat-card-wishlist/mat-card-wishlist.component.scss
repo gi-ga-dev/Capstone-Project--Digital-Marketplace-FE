@@ -4,7 +4,7 @@
 
     .cart-and-wishlist-card {
         border: 1px solid black;
-        border-radius: 5px;
+        border-radius: 10px;
         margin: 5px;
         width: 1280px;
 
@@ -50,7 +50,7 @@
                 #btns {
                     // delete-wishlist btns
                     cursor: pointer;
-                    border-radius: 5px;
+                    border-radius: 10px;
                     margin: 0 3px;
                 }
 
@@ -70,7 +70,7 @@
                 #btn-purchase {
                     font-weight: 700;
                     cursor: pointer;
-                    border-radius: 5px;
+                    border-radius: 10px;
                     width: 150px;
                     padding: 15px;
                 }
