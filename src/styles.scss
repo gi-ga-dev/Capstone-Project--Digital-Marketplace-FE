@@ -212,6 +212,24 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
     // [Subscription]
     #subscription-card {
         background-color: #4486d611;
+        border: 1px solid black;
+    }
+
+    .sub-dialog-container {
+        .mat-expansion-panel-header {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid black;
+        }
+
+        .mat-expansion-panel-header.mat-expanded:focus,
+        .mat-expansion-panel-header.mat-expanded:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .mat-expansion-panel-body {
+            background-color: #4486d611;
+            border: 1px solid black;
+        }
     }
 
 }
@@ -375,22 +393,28 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
     // [Subscription]
     #subscription-card {
         background-color: rgba(191, 152, 80, 0.38);
+        border: 1px solid black;
     }
 
     .sub-dialog-container {
-        .mat-dialog-container {
-            //width: 1300px;
-            padding: 0;
-            border-radius: 10px;
+        .mat-expansion-panel-header {
+            background-color: rgba(88, 88, 88, 0.5);
+            border: 1px solid black;
         }
 
-        // per eliminare scroll orizzontale
-        .mat-dialog-content {
-            display: contents;
+        .mat-expansion-panel-header.mat-expanded:focus,
+        .mat-expansion-panel-header.mat-expanded:hover {
+            background-color: rgba(88, 88, 88, 0.5);
         }
 
-
+        .mat-expansion-panel-body {
+            background-color: rgba(191, 152, 80, 0.38);
+            border: 1px solid black;
+        }
     }
+
+
+
 
 }
 
@@ -404,4 +428,45 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+// ----> Classe Dialog Subscription Modificata con panelClass
+
+.sub-dialog-container {
+
+    .mat-accordion {
+        margin: 3px 0;
+    }
+
+    .mat-dialog-container {
+        //width: 1300px;
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    // per eliminare scroll orizzontale
+    .mat-dialog-content {
+        display: contents;
+    }
+
+    .mat-expansion-panel-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5px 0;
+    }
+
+    .mat-expansion-panel-header-title,
+    .mat-expansion-panel-header-description {
+        margin: 0;
+    }
+
+    .mat-expansion-panel-body {
+        padding: 0 24px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
 }

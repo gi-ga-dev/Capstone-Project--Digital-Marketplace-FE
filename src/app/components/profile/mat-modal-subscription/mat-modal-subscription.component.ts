@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IUserDtoGetResponse } from 'src/app/interfaces/idto-user-response';
 import { AuthService } from 'src/app/services/auth.service';
+import { MatAccordion } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-mat-modal-subscription',
@@ -9,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class MatModalSubscriptionComponent implements OnInit {
 
+  @ViewChild(MatAccordion) accordion!: MatAccordion;
   error = undefined;
   getId: number | undefined = this.authService.getId();
   user!: IUserDtoGetResponse;
