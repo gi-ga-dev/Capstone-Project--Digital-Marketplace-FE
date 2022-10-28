@@ -21,35 +21,35 @@ export class MatModalAdminComponent implements OnInit {
   ngOnInit(): void { }
 
   openSignupAdminDialog() {
-    const dialogRef = this.dialog.open(MatModalSignupAdminComponent);
+    const dialogRef = this.dialog.open(MatModalSignupAdminComponent, { panelClass: 'signupadmin-dialog-cont' });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
 
   openEventDialog() {
-    const dialogRef = this.dialog.open(MatModalSalesEventComponent);
+    const dialogRef = this.dialog.open(MatModalSalesEventComponent, { panelClass: 'event-dialog-cont' });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
 
   openVideogameDialog() {
-    const dialogRef = this.dialog.open(MatModalVideogameComponent);
+    const dialogRef = this.dialog.open(MatModalVideogameComponent, { panelClass: 'create-vg-dialog-cont' });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
 
   openMusicDialog() {
-    const dialogRef = this.dialog.open(MatModalMusicComponent);
+    const dialogRef = this.dialog.open(MatModalMusicComponent, { panelClass: 'create-msc-dialog-cont' });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
 
   openBookDialog() {
-    const dialogRef = this.dialog.open(MatModalBookComponent);
+    const dialogRef = this.dialog.open(MatModalBookComponent, { panelClass: 'create-book-dialog-cont' });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });

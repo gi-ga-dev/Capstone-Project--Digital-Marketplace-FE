@@ -1,21 +1,80 @@
+#profilecard-cont {
+    padding: 15px 0;
+}
+
 .profile-card {
     margin: 0 auto;
-    width: 700px;
+    width: 650px;
+    padding: 36px;
 }
 
-.example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+.avatar-img {
+    background-image: url('../../../../assets/images/img-avatar-default.png');
     background-size: cover;
+    width: 125px;
+    height: 125px;
 }
 
-#profile-cont {
+// ------- Header Section ---------
+
+#profile-header-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// ------- Expandables Section ------
+
+.mat-expansion-panel-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 18px;
+    border-radius: 10px;
+}
+
+#images-cont {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#img-avatar {
+    border-radius: 50px;
+    width: 60px;
+    margin: 0;
+}
+
+#balance-cont,
+#subscr-cont {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#p-info {
-    font-size: 1.1em;
+#subscr-status {
+    display: flex;
+    align-items: center;
+}
+
+#btns {
+    width: 33%;
+}
+
+// ------------------- Danger Zone --------------------
+
+#btns-dangerzone {
+    border: 1px solid rgb(38, 38, 38);
+    background-color: rgba(253, 27, 125, 0.6);
+    width: 33%;
+}
+
+#btns-dangerzone:hover {
+    background-color: rgba(255, 0, 111, 1);
+}
+
+#profile-dangerzone-cont {
+    display: flex;
 }
 
 #divider-title {
@@ -27,15 +86,4 @@
 #divider {
     background-color: rgb(255, 0, 111);
     border: 1px solid rgb(255, 0, 111);
-}
-
-#btn-cont {
-    display: flex;
-    flex-direction: column;
-}
-
-#profile-modal {
-    width: 60%;
-    text-align: center;
-    margin: 5px auto;
 }

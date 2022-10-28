@@ -189,6 +189,35 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
         }
     }
 
+    // ------------------> Profile Page <-------------------
+
+    // [EXPANSION PANEL MODIFICATO] 
+
+    // MOD. COMPONENTI ANGULAR - METODO 1) se il selettore e' presente nell'html si puo' referenziare dal suo foglio css
+    // altrimenti referenziare a cascata tutti gli id/classi che compongono il compon. fino ad arrivare al selettore
+
+    #profile-expansions-cont {
+        .mat-accordion .mat-expansion-panel {
+            .mat-expansion-panel-header {
+                background-color: rgba(255, 255, 255, 0.8);
+                border: 1px solid black;
+                border-radius: 4px;
+            }
+
+            .mat-expansion-panel-header:focus,
+            .mat-expansion-panel-header:hover {
+                background-color: rgba(161, 194, 217, 0.8);
+            }
+
+            .mat-expansion-panel-body {
+                background-color: #4486d611;
+                border: 1px solid black;
+                padding: 18px 0;
+                border-radius: 4px;
+            }
+        }
+    }
+
     // -------------------> Modals <------------------------
 
     #modals-titles {
@@ -215,6 +244,7 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
         border: 1px solid black;
     }
 
+    // [MODIFICARE DIALOG]
     .sub-dialog-container {
         .mat-expansion-panel-header {
             background-color: rgba(255, 255, 255, 0.8);
@@ -370,6 +400,35 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
         }
     }
 
+    // ------------------> Profile Page <-------------------
+
+    // [EXPANSION PANEL MODIFICATO] 
+
+    // MOD. COMPONENTI ANGULAR - METODO 1) se il selettore e' presente nell'html si puo' referenziare dal suo foglio css
+    // altrimenti referenziare a cascata tutti gli id/classi che compongono il compon. fino ad arrivare al selettore
+
+    #profile-expansions-cont {
+        .mat-accordion .mat-expansion-panel {
+            .mat-expansion-panel-header {
+                background-color: rgba(88, 88, 88, 0.5);
+                border: 1px solid black;
+                border-radius: 4px;
+            }
+
+            .mat-expansion-panel-header:focus,
+            .mat-expansion-panel-header:hover {
+                background-color: rgba(232, 169, 52, 0.742);
+            }
+
+            .mat-expansion-panel-body {
+                background-color: rgba(191, 152, 80, 0.38);
+                border: 1px solid black;
+                padding: 18px 0;
+                border-radius: 4px;
+            }
+        }
+    }
+
     // -------------------> Modals <------------------------
 
     #modals-titles {
@@ -413,9 +472,6 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
         }
     }
 
-
-
-
 }
 
 // ----------------------------------------
@@ -431,9 +487,15 @@ body {
 }
 
 
-// ----> Componente Dialog Subscription Modificata con panelClass
+// [MAT DIALOG/MAT-DIALOG-CONTAINER MODIFICATO] 
 
-.sub-dialog-container {
+// MOD. COMPONENTI ANGULAR - METODO 3) Attribuire nome classe es. ad un dialog inserendo panelClass all'interno del metodo 
+// openDialog() { const dialogRef = this.dialog.open(MatModalComponent, { panelClass: 'sub-dialog-container' }); }
+// si possono effettuare le modifiche al componente necessariamente nello style principale, 
+// .sub-dialog-container { .mat-accordion {} .mat-dialog-container {} }
+
+// ----------> [Subscription]
+.sub-dialog-cont {
 
     .mat-accordion {
         margin: 3px 0;
@@ -468,4 +530,177 @@ body {
         align-items: center;
     }
 
+}
+
+// ----------> [Admin Actions]
+.admin-dialog-cont {
+
+    .mat-card {
+        padding: 36px;
+    }
+
+    .mat-dialog-container {
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    .mat-dialog-content {
+        display: contents;
+    }
+}
+
+// ----------> [Add Balance]
+.addbalance-dialog-cont {
+
+    .mat-card {
+        padding: 36px;
+    }
+
+    .mat-dialog-container {
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    .mat-dialog-content {
+        display: contents;
+    }
+}
+
+// ----------> [Update Profile Info]
+.profileinfo-dialog-cont {
+
+    .mat-card {
+        padding: 36px;
+    }
+
+    .mat-dialog-container {
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    .mat-dialog-content {
+        display: contents;
+    }
+}
+
+// ----------> [Update Credentials]
+.profilecred-dialog-cont {
+
+    .mat-card {
+        padding: 36px;
+    }
+
+    .mat-dialog-container {
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    .mat-dialog-content {
+        display: contents;
+    }
+}
+
+// ----------> [Delete Account]
+.delete-dialog-cont {
+
+    .mat-card {
+        padding: 36px;
+    }
+
+    .mat-dialog-container {
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    .mat-dialog-content {
+        display: contents;
+    }
+}
+
+// ----------> [Signup Admin]
+.signupadmin-dialog-cont {
+
+    .mat-dialog-container {
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    .mat-dialog-content {
+        display: contents;
+    }
+}
+
+// ----------> [Create Sales Event]
+.event-dialog-cont {
+    .mat-card {
+        padding: 36px;
+    }
+
+    .mat-dialog-container {
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    .mat-dialog-content {
+        display: contents;
+    }
+}
+
+// ----------> [Create Videogame]
+.create-vg-dialog-cont {
+    .mat-card {
+        padding: 36px;
+    }
+
+    .mat-dialog-container {
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    .mat-dialog-content {
+        display: contents;
+    }
+}
+
+// ----------> [Create Music]
+.create-msc-dialog-cont {
+    .mat-card {
+        padding: 36px;
+    }
+
+    .mat-dialog-container {
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    .mat-dialog-content {
+        display: contents;
+    }
+}
+
+// ----------> [Create Book]
+.create-book-dialog-cont {
+    .mat-card {
+        padding: 36px;
+    }
+
+    .mat-dialog-container {
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    .mat-dialog-content {
+        display: contents;
+    }
+}
+
+// Risolto problema disallineamento mat-button e mat-image 
+
+.btn-wrapper {
+    .mat-button-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }

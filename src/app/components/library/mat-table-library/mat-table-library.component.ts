@@ -14,13 +14,16 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   selector: 'app-mat-table-library',
   templateUrl: './mat-table-library.component.html',
   styleUrls: ['./mat-table-library.component.scss'],
+
+  // Risolto un bug (conflitto tra sort ed expandable) documentazione ufficiale errata
+  // Fonte: https://github.com/angular/components/issues/13431
   animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({ height: '0px', minHeight: '0' })),
-      state('expanded', style({ height: '*' })),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    trigger('detailExpand', [state('collapsed, void', style({ height: '0px' })),
+    state('expanded', style({ height: '*' })),
+    transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    transition('expanded <=> void', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
     ]),
-  ],
+  ]
 })
 export class MatTableLibraryComponent implements OnInit {
 
@@ -67,7 +70,7 @@ export class MatTableLibraryComponent implements OnInit {
       (resp) => {
         this.error = undefined;
         this.libraryProducts = resp;
-        // Far leggere correttamente Paginator e Sort
+        // Fai il get dei dati, dopodiche' costruisce Table con Paginator e Sort
         this.dataSource = new MatTableDataSource(this.libraryProducts);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;

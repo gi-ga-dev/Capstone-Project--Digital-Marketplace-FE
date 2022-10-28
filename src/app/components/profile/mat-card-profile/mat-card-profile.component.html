@@ -1,65 +1,163 @@
-<mat-card class="profile-card" *ngIf="user!=undefined">
-    <!-- funziona come un async await - dei dati di user -->
-    <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div> <!-- small img -->
-        <mat-card-title>Username: {{user.userName}}</mat-card-title>
-        <mat-card-subtitle>
-            <p>{{user.role}} #{{user.id}}</p>
+<div id="profilecard-cont">
+    <mat-card class="profile-card" *ngIf="user!=undefined">
 
-            <p>Articles Purchased: {{user.qntPurchased}}</p>
+        <mat-card-header id="profile-header-cont">
+            <div mat-card-avatar class="avatar-img"></div>
 
-            <p>Credit Balance: {{user.accountBalance.toFixed(2)}}$</p>
-            <button mat-button (click)="openAddBalanceDialog()">
-                <mat-icon>attach_money</mat-icon> Add Balance
-            </button>
+            <!-- <mat-card-title>Username: {{user.userName}}</mat-card-title> -->
+            <mat-card-subtitle>
+                <p>{{user.role}} #{{user.id}}</p>
+                <p><b>Username:</b> {{user.userName}}</p>
+                <p><b>First Name:</b> {{user.firstName}}</p>
+                <p><b>Last Name:</b> {{user.lastName}}</p>
+                <p><b>Email:</b> {{user.email}}</p>
+                <p><b>Articles Purchased:</b> {{user.qntPurchased}}</p>
+            </mat-card-subtitle>
+        </mat-card-header>
 
-            <mat-divider id="divider"></mat-divider>
+        <mat-card-content id="profile-expansions-cont">
 
-            <div *ngIf="user.isSubscribed">
-                <p>Subscription Details:</p>
-                <p>Status: SUBSCRIBED <mat-icon>local_play</mat-icon>
-                </p>
-                <p>Current Plan: {{user.subTotalTime}} Days</p>
-                <p>Expiration: {{user.subRemaining}} Days</p>
-                <p>Start: {{user.subStart}}</p>
-                <p>End: {{user.subEnd}}</p>
+            <!-- Avatar Selection -->
 
-            </div>
+            <mat-accordion>
+                <mat-expansion-panel>
 
-            <div *ngIf="!user.isSubscribed">
-                <p>Subscription Details:</p>
-                <p>Status: NOT SUBSCRIBED</p>
-                <button mat-button (click)="openSubscriptionDialog()">
-                    <mat-icon>subscriptions</mat-icon> Subscribe
-                </button>
-            </div>
+                    <mat-expansion-panel-header class="profile-exp-panel">
+                        <mat-panel-title>
+                            <p>Avatar Selection:</p>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
 
-        </mat-card-subtitle>
-    </mat-card-header>
+                    <div id="images-cont">
 
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                        <button mat-button id="img-avatar" class="btn-wrapper">
+                            <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-default.png"
+                                alt="Avatar Default">
+                        </button>
 
+                        <button mat-button id="img-avatar" class="btn-wrapper">
+                            <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-1.png"
+                                alt="Avatar 1">
+                        </button>
 
-    <mat-card-content id="profile-cont">
-        <p id="p-info"><b>First Name:</b> {{user.firstName}}</p>
-        <p id="p-info"><b>Last Name:</b> {{user.lastName}}</p>
-        <p id="p-info"><b>Email:</b> {{user.email}}</p>
-    </mat-card-content>
+                        <button mat-button id="img-avatar" class="btn-wrapper">
+                            <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-2.png"
+                                alt="Avatar 2">
+                        </button>
 
-    <mat-divider id="divider"></mat-divider>
-    <br>
-    <p id="divider-title">Danger Zone:</p>
+                        <button mat-button id="img-avatar" class="btn-wrapper">
+                            <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-3.png"
+                                alt="Avatar 3">
+                        </button>
 
-    <mat-card-actions id="btn-cont">
-        <button mat-button id="profile-modal" (click)="openAdminDialog()" *ngIf="getRole === 'ROLE_ADMIN'">ADMIN
-            ACTIONS</button>
-        <button mat-button id="profile-modal" (click)="openProfileDialog()">Update Information</button>
-        <button mat-button id="profile-modal" (click)="openCredentialDialog()">Update Credentials</button>
-        <button mat-button id="profile-modal" (click)="openDeleteDialog()">Delete Account</button>
-    </mat-card-actions>
+                        <button mat-button id="img-avatar" class="btn-wrapper">
+                            <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-4.png"
+                                alt="Avatar 4">
+                        </button>
 
-</mat-card>
+                        <button mat-button id="img-avatar" class="btn-wrapper">
+                            <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-5.png"
+                                alt="Avatar 5">
+                        </button>
 
-<div id="spinner-cont" *ngIf="showSpinner">
-    <mat-spinner></mat-spinner>
+                        <button mat-button id="img-avatar" class="btn-wrapper">
+                            <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-6.png"
+                                alt="Avatar 6">
+                        </button>
+
+                        <button mat-button id="img-avatar" class="btn-wrapper">
+                            <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-7.png"
+                                alt="Avatar 7">
+                        </button>
+
+                        <button mat-button id="img-avatar" class="btn-wrapper">
+                            <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-8.png"
+                                alt="Avatar 8">
+                        </button>
+
+                        <button mat-button id="img-avatar" class="btn-wrapper">
+                            <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-9.png"
+                                alt="Avatar 9">
+                        </button>
+
+                    </div>
+
+                </mat-expansion-panel>
+            </mat-accordion>
+
+            <!-- Account Balance -->
+
+            <mat-accordion>
+                <mat-expansion-panel>
+
+                    <mat-expansion-panel-header class="profile-exp-panel">
+                        <mat-panel-title>
+                            <p>Balance Details:</p>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    <div id="balance-cont">
+
+                        <p>Credit Balance: {{user.accountBalance.toFixed(2)}}$</p>
+                        <button id="btns" mat-button (click)="openAddBalanceDialog()">
+                            <mat-icon>attach_money</mat-icon> Add Balance
+                        </button>
+
+                    </div>
+
+                </mat-expansion-panel>
+            </mat-accordion>
+
+            <!-- Subscription Details -->
+
+            <mat-accordion>
+                <mat-expansion-panel>
+
+                    <mat-expansion-panel-header class="profile-exp-panel">
+                        <mat-panel-title>
+                            <p>Subscription Details:</p>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    <div id="subscr-cont" *ngIf="user.isSubscribed">
+                        <p id="subscr-status">Status: SUBSCRIBED <mat-icon>local_play</mat-icon>
+                        </p>
+                        <p>Current Plan: {{user.subTotalTime}} Days</p>
+                        <p>Expires in: {{user.subRemaining}} Days</p>
+                        <p>Start: {{user.subStart}}</p>
+                        <p>End: {{user.subEnd}}</p>
+
+                    </div>
+
+                    <div id="subscr-cont" *ngIf="!user.isSubscribed">
+
+                        <p id="subscr-status">Status: NOT SUBSCRIBED <mat-icon>highlight_off</mat-icon>
+                        </p>
+                        <button id="btns" mat-button (click)="openSubscriptionDialog()">
+                            <mat-icon>subscriptions</mat-icon> Subscribe
+                        </button>
+                    </div>
+
+                </mat-expansion-panel>
+            </mat-accordion>
+
+        </mat-card-content>
+
+        <mat-divider id="divider"></mat-divider>
+        <br>
+        <p id="divider-title">Danger Zone:</p>
+
+        <mat-card-actions id="profile-dangerzone-cont">
+            <button mat-button id="btns-dangerzone" (click)="openProfileDialog()">Update Information</button>
+            <button mat-button id="btns-dangerzone" (click)="openCredentialDialog()">Update Credentials</button>
+            <button mat-button id="btns-dangerzone" (click)="openAdminDialog()" *ngIf="getRole === 'ROLE_ADMIN'">Admin
+                Actions</button>
+            <button mat-button id="btns-dangerzone" (click)="openDeleteDialog()">Delete Account</button>
+        </mat-card-actions>
+
+    </mat-card>
+
+    <div id="spinner-cont" *ngIf="showSpinner">
+        <mat-spinner></mat-spinner>
+    </div>
 </div>

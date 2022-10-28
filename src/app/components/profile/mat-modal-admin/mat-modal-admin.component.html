@@ -9,7 +9,7 @@
 
         <mat-card-content>
 
-            <mat-dialog-actions align="end" *ngIf="getRole === 'ROLE_ADMIN'">
+            <mat-dialog-actions id="dialog-actions" align="end" *ngIf="getRole === 'ROLE_ADMIN'">
 
                 <button mat-button id="btns-create-modal" (click)="openSignupAdminDialog()">
                     <mat-icon>person_add</mat-icon> Create Admin

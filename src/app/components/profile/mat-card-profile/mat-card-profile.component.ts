@@ -35,7 +35,7 @@ export class MatCardProfileComponent implements OnInit {
   /* =========== Open Dialogues ============= */
 
   openAdminDialog() {
-    const dialogRef = this.dialog.open(MatModalAdminComponent);
+    const dialogRef = this.dialog.open(MatModalAdminComponent, { panelClass: 'admin-dialog-cont' });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
@@ -43,14 +43,14 @@ export class MatCardProfileComponent implements OnInit {
 
   openSubscriptionDialog() {
     // dare una classe al dialog per modificarla nello style principale
-    const dialogRef = this.dialog.open(MatModalSubscriptionComponent, { panelClass: 'sub-dialog-container' });
+    const dialogRef = this.dialog.open(MatModalSubscriptionComponent, { panelClass: 'sub-dialog-cont' });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
 
   openAddBalanceDialog() {
-    const dialogRef = this.dialog.open(MatModalAddbalanceComponent);
+    const dialogRef = this.dialog.open(MatModalAddbalanceComponent, { panelClass: 'addbalance-dialog-cont' });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
@@ -58,7 +58,7 @@ export class MatCardProfileComponent implements OnInit {
 
   /* Modal Modifica Informazioni base */
   openProfileDialog() {
-    const dialogRef = this.dialog.open(MatModalProfileComponent);
+    const dialogRef = this.dialog.open(MatModalProfileComponent, { panelClass: 'profileinfo-dialog-cont' });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
@@ -66,7 +66,7 @@ export class MatCardProfileComponent implements OnInit {
 
   /* Modal Modifica Credenziali di Accesso */
   openCredentialDialog() {
-    const dialogRef = this.dialog.open(MatModalCredentialsComponent);
+    const dialogRef = this.dialog.open(MatModalCredentialsComponent, { panelClass: 'profilecred-dialog-cont' });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
@@ -74,7 +74,7 @@ export class MatCardProfileComponent implements OnInit {
 
   /* Modal Delete Account */
   openDeleteDialog() {
-    const dialogRef = this.dialog.open(MatModalDeleteComponent);
+    const dialogRef = this.dialog.open(MatModalDeleteComponent, { panelClass: 'delete-dialog-cont' });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
