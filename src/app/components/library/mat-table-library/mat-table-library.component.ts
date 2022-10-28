@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, AfterViewInit, OnChanges, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IProdBook } from 'src/app/interfaces/iprod-book';
 import { IProdMusic } from 'src/app/interfaces/iprod-music';
 import { IProdVideogame } from 'src/app/interfaces/iprod-videogame';
@@ -22,7 +22,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     ]),
   ],
 })
-export class MatTableLibraryComponent implements OnInit, AfterViewInit, OnChanges {
+export class MatTableLibraryComponent implements OnInit {
 
   getId: number | undefined = this.authService.getId();
   libraryProducts: any[] = [];
@@ -48,25 +48,12 @@ export class MatTableLibraryComponent implements OnInit, AfterViewInit, OnChange
     private shopService: ShopsystemService) { }
 
   ngOnInit(): void {
-    // eseguire prima il get dei prodotti e poi new MatTableDataSource
-    this.getLibraryListByShopId(this.getId);
-    this.dataSource = new MatTableDataSource(this.libraryProducts);
     this.showSpinner = true;
 
     setTimeout(() => {
       this.showSpinner = false;
-      this.dataSource = new MatTableDataSource(this.libraryProducts);
+      this.getLibraryListByShopId(this.getId);
     }, 300);
-  }
-
-  ngOnChanges(): void {
-    this.dataSource = new MatTableDataSource(this.libraryProducts);
-    this.dataSource.paginator = this.paginator;
-  }
-
-  ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {
@@ -80,6 +67,10 @@ export class MatTableLibraryComponent implements OnInit, AfterViewInit, OnChange
       (resp) => {
         this.error = undefined;
         this.libraryProducts = resp;
+        // Far leggere correttamente Paginator e Sort
+        this.dataSource = new MatTableDataSource(this.libraryProducts);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       },
       (err) => {
         console.log("Il server e' ripartito, per eseguire il get faccio il reload della pagina");
