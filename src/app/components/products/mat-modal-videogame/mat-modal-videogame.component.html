@@ -1,101 +1,104 @@
 <mat-dialog-content class="mat-typography">
-    <mat-accordion class="example-headers-align" multi>
-        <form #f="ngForm" (ngSubmit)="onSubmit()">
+    <mat-card>
+        <mat-accordion class="example-headers-align" multi>
+            <form #f="ngForm" (ngSubmit)="onSubmit()">
 
-            <mat-form-field color="accent" appearance="fill">
-                <mat-label>Image URL</mat-label>
-                <input matInput ngModel type="text" name="imgLink">
-            </mat-form-field>
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Image URL</mat-label>
+                    <input matInput ngModel type="text" name="imgLink">
+                </mat-form-field>
 
-            <mat-form-field color="accent" appearance="fill">
-                <mat-label>Base Price</mat-label>
-                <input matInput ngModel type="number" name="price">
-                <span matPrefix>$&nbsp;</span>
-            </mat-form-field>
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Base Price</mat-label>
+                    <input matInput ngModel type="number" name="price">
+                    <span matPrefix>$&nbsp;</span>
+                </mat-form-field>
 
-            <mat-form-field color="accent" appearance="fill">
-                <mat-label>Title</mat-label>
-                <input matInput ngModel type="text" name="title">
-            </mat-form-field>
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Title</mat-label>
+                    <input matInput ngModel type="text" name="title">
+                </mat-form-field>
 
-            <mat-form-field color="accent" appearance="fill">
-                <mat-label>Description</mat-label>
-                <input matInput ngModel type="text" name="description">
-            </mat-form-field>
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Description</mat-label>
+                    <input matInput ngModel type="text" name="description">
+                </mat-form-field>
 
-            <mat-form-field color="accent" appearance="fill">
-                <mat-label>Platform</mat-label>
-                <input matInput ngModel type="text" name="platform">
-            </mat-form-field>
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Platform</mat-label>
+                    <input matInput ngModel type="text" name="platform">
+                </mat-form-field>
 
-            <mat-form-field color="accent" appearance="fill">
-                <mat-label>Publisher</mat-label>
-                <input matInput ngModel type="text" name="publisher">
-            </mat-form-field>
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Publisher</mat-label>
+                    <input matInput ngModel type="text" name="publisher">
+                </mat-form-field>
 
-            <mat-form-field color="accent" appearance="fill">
-                <mat-label>Release Date</mat-label>
-                <input matInput ngModel type="text" name="releaseDate">
-            </mat-form-field>
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Release Date</mat-label>
+                    <input matInput ngModel type="text" name="releaseDate">
+                </mat-form-field>
 
-            <mat-form-field color="accent" appearance="fill">
-                <mat-label>Language</mat-label>
-                <input matInput ngModel type="text" name="language">
-            </mat-form-field>
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Language</mat-label>
+                    <input matInput ngModel type="text" name="language">
+                </mat-form-field>
 
-            <mat-form-field color="accent" appearance="fill">
-                <mat-label>Genre</mat-label>
-                <input matInput ngModel type="text" name="genre">
-            </mat-form-field>
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Genre</mat-label>
+                    <input matInput ngModel type="text" name="genre">
+                </mat-form-field>
 
-            <!-- Proprieta' comuni videogames -->
+                <!-- Proprieta' comuni videogames -->
 
-            <mat-form-field color="accent" appearance="fill">
-                <mat-label>Videogame series</mat-label>
-                <input matInput ngModel type="text" name="vgSeries">
-            </mat-form-field>
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Videogame series</mat-label>
+                    <input matInput ngModel type="text" name="vgSeries">
+                </mat-form-field>
 
-            <mat-form-field color="accent" appearance="fill">
-                <mat-label>Developer</mat-label>
-                <input matInput ngModel type="text" name="developer">
-            </mat-form-field>
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Developer</mat-label>
+                    <input matInput ngModel type="text" name="developer">
+                </mat-form-field>
 
-            <mat-form-field color="accent" appearance="fill">
-                <mat-label>Age Recommendation</mat-label>
-                <input matInput ngModel type="number" name="ageRecommendation">
-            </mat-form-field>
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Age Recommendation</mat-label>
+                    <input matInput ngModel type="number" name="ageRecommendation">
+                </mat-form-field>
 
-            <mat-form-field color="accent" appearance="fill">
-                <mat-label>N. of Players</mat-label>
-                <input matInput ngModel type="number" name="players">
-            </mat-form-field>
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>N. of Players</mat-label>
+                    <input matInput ngModel type="number" name="players">
+                </mat-form-field>
 
-            <mat-form-field color="accent" appearance="fill">
-                <mat-label>Co-op Play</mat-label>
-                <input matInput ngModel type="text" name="coopPlay" placeholder="Type 'Yes' or 'Single Player only'">
-            </mat-form-field>
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Co-op Play</mat-label>
+                    <input matInput ngModel type="text" name="coopPlay"
+                        placeholder="Type 'Yes' or 'Single Player only'">
+                </mat-form-field>
 
-            <mat-form-field color="accent" appearance="fill">
-                <mat-label>Controller Support</mat-label>
-                <input matInput ngModel type="text" name="controllerSupport"
-                    placeholder="Type 'Full' or 'Partial Support'">
-            </mat-form-field>
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Controller Support</mat-label>
+                    <input matInput ngModel type="text" name="controllerSupport"
+                        placeholder="Type 'Full' or 'Partial Support'">
+                </mat-form-field>
 
-            <mat-form-field color="accent" appearance="fill">
-                <mat-label>Subtitles</mat-label>
-                <input matInput ngModel type="text" name="subtitles">
-            </mat-form-field>
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Subtitles</mat-label>
+                    <input matInput ngModel type="text" name="subtitles">
+                </mat-form-field>
 
-            <mat-form-field color="accent" appearance="fill">
-                <mat-label>Required Space</mat-label>
-                <input matInput ngModel type="number" name="requiredSpace">
-            </mat-form-field>
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Required Space</mat-label>
+                    <input matInput ngModel type="number" name="requiredSpace">
+                </mat-form-field>
 
-            <div>
-                <button mat-button id="action-btns" mat-dialog-close>Cancel</button>
-                <button mat-button id="action-btns" type="submit" [mat-dialog-close]="true"
-                    cdkFocusInitial>Create</button>
-            </div>
-        </form>
-    </mat-accordion>
+                <div id="action-btns-cont">
+                    <button mat-button id="action-btns" mat-dialog-close>Cancel</button>
+                    <button mat-button id="action-btns" type="submit" [mat-dialog-close]="true"
+                        cdkFocusInitial>Create</button>
+                </div>
+            </form>
+        </mat-accordion>
+    </mat-card>
 </mat-dialog-content>

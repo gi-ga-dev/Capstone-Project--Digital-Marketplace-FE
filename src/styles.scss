@@ -694,6 +694,54 @@ body {
     }
 }
 
+// ----------> [Purchase]
+.purchase-dialog-cont {
+    .mat-card {
+        padding: 36px;
+    }
+
+    .mat-dialog-container {
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    /*     .mat-dialog-content {
+        display: contents;
+    } */
+}
+
+// ----------> [Purchase w/ Balance]
+.purchase-balance-dialog-cont {
+    .mat-card {
+        padding: 36px;
+    }
+
+    .mat-dialog-container {
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    .mat-dialog-content {
+        display: contents;
+    }
+}
+
+// ----------> [Purchase w/ Subscription]
+.purchase-sub-dialog-cont {
+    .mat-card {
+        padding: 36px;
+    }
+
+    .mat-dialog-container {
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    .mat-dialog-content {
+        display: contents;
+    }
+}
+
 // Risolto problema disallineamento mat-button e mat-image 
 
 .btn-wrapper {

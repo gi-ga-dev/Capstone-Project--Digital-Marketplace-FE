@@ -44,6 +44,7 @@ export class MatModalPurchaseComponent implements OnInit {
     // aprire modal solo se e' utente iscritto
     if (this.isSubscribed == true) {
       const dialogRef = this.dialog.open(MatModalPurchaseWithsubComponent, {
+        panelClass: 'purchase-sub-dialog-cont',
         data: { id: this.data.id }
       });
       dialogRef.afterClosed().subscribe(result => {
@@ -55,6 +56,7 @@ export class MatModalPurchaseComponent implements OnInit {
   openPurchaseWithBalanceDialog() {
     // prendo id ricevuto da mat-card e lo inietto nel secondo modal
     const dialogRef = this.dialog.open(MatModalPurchaseWithbalanceComponent, {
+      panelClass: 'purchase-balance-dialog-cont',
       data: { id: this.data.id }
     });
     dialogRef.afterClosed().subscribe(result => {

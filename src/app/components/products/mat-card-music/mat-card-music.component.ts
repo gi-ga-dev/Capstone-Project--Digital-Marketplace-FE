@@ -40,6 +40,7 @@ export class MatCardMusicComponent implements OnInit {
   openPurchaseDialog(prodId: number | undefined) {
     // prendo id (dai prodotti ciclati in html passo id nel paramentro di questo metodo) e lo inietto nel modal purchase
     const dialogRef = this.dialog.open(MatModalPurchaseComponent, {
+      panelClass: 'purchase-dialog-cont',
       data: { id: prodId }
     });
     dialogRef.afterClosed().subscribe(result => {
