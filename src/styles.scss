@@ -237,7 +237,7 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
         border: 1px solid black;
     }
 
-    .sub-dialog-container {
+    .sub-dialog-cont {
         .mat-expansion-panel-header {
             background-color: rgba(255, 255, 255, 0.8);
             border: 1px solid black;
@@ -252,17 +252,6 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
             background-color: #4486d611;
             border: 1px solid black;
         }
-
-        /* 
-        @media (min-width: 390px) and (max-width: 900px) {
-            #subscription-card-content-mobile {
-                #sub-text-div {
-                    background-color: #4486d611;
-                    border: 1px solid black;
-                }
-            }
-        } */
-
     }
 
     // [MODAL PURCHASE] (CSS nested) ======================================================================================================
@@ -477,7 +466,7 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
         border: 1px solid black;
     }
 
-    .sub-dialog-container {
+    .sub-dialog-cont {
         .mat-expansion-panel-header {
             background-color: rgba(88, 88, 88, 0.5);
             border: 1px solid black;
@@ -659,7 +648,6 @@ body {
 }
 
 // Risolto problema disallineamento mat-button e mat-image 
-
 .btn-wrapper {
     .mat-button-wrapper {
         display: flex;
