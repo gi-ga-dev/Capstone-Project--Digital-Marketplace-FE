@@ -1,132 +1,127 @@
-// modificare proprieta' default
-:host ::ng-deep .mat-body p,
-.mat-body-1 p,
-.mat-typography .mat-body p,
-.mat-typography .mat-body-1 p,
-.mat-typography p {
-    margin: 10px 0;
-}
-
-// contenitore image
-.mat-card-image {
-    width: 100%;
-}
-
-// contenitore dialog
-:host ::ng-deep .mat-dialog-content {
+.purchase-card {
     padding: 0;
-    margin: 0;
-    text-align: -webkit-center;
-    width: 750px;
-}
-
-// contenuto dialog
-.example-card {
-    margin: 5px;
-    width: 700px;
-    font-size: 1em;
-    padding: 0;
-}
-
-// settare padding manuale
-::ng-deep {
-    .mat-dialog-container {
-        padding: 16px;
-    }
-}
-
-// title
-:host ::ng-deep .mat-card-header {
+    border: none;
+    padding: 24px;
     display: flex;
-    justify-content: center;
-    padding: 10px 0;
-}
-
-// (.mat-card-content) contenitore proprieta'
-#card-content {
-    display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
-    background-color: grey;
-    border-radius: 10px;
+    flex-wrap: nowrap;
+    align-items: center;
+    border: 1px solid black;
+
+    #modals-titles {}
+
+    .img-and-text-cont {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        width: 1100px;
+
+        #purchase-card-content {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            //height: 400px;
+            margin-left: 4px;
+            margin-right: 4px;
+            //padding: 26px 8px;
+            border-radius: 10px;
+
+            // contenitore image
+            #img-div {
+                margin: auto;
+                display: flex;
+                align-items: center;
+                height: 35%;
+
+                // dimensioni immagine
+                .mat-card-image {
+                    width: 75%;
+                    margin: auto;
+                }
+            }
+
+            #img-and-text-div {
+                height: 50%;
+            }
+
+            #btns-div {
+                height: 15%;
+
+                #btns {}
+
+                #sub-required {
+                    font-size: 0.9em;
+                    text-align: center;
+                }
+            }
+
+        }
+    }
 }
 
-// contenuto proprieta'
-#card-data {
-    line-height: 0.9em;
-    color: black;
-    text-align: center;
-}
-
-// contenitore buttons
-:host ::ng-deep .mat-dialog-actions {
-    justify-content: center;
-    padding-top: 0;
-}
-
-// styles buttons
-#btns {
-    color: black;
-    width: 95%;
-    margin: 2px;
-    background-color: rgba(220, 139, 33, 0.783);
-}
-
-#btns:hover {
-    background-color: orange;
-}
-
-// mat-card-footer p
-#required {
-    font-size: 0.7em;
-}
-
-// Media Queries
+/* 
 @media (max-width: 500px) {
-    :host ::ng-deep .mat-dialog-content {
-        width: 330px;
-    }
+    .img-and-card-content {
+        padding: 0;
+        display: block;
+        flex-wrap: unset;
 
-    .example-card {
-        width: 280px;
-        font-size: 0.7em;
-    }
+        .purchase-card {
+            .mat-card-content {
+                font-size: 1em;
+            }
 
-    // mat-card-footer p
-    #required {
-        font-size: 0.4em;
+            .mat-card-content>p {
+                line-height: 0.9em;
+            }
+        }
+    }
+}
+
+@media (min-width: 501px) and (max-width: 750px) {
+
+    .img-and-card-content {
+        padding: 0;
+        display: block;
+        flex-wrap: unset;
     }
 }
 
 @media (min-width: 501px) and (max-width: 960px) {
-    :host ::ng-deep .mat-dialog-content {
-        width: 400px;
-    }
+    .img-and-card-content {
+        padding: 0;
+        display: block;
+        flex-wrap: unset;
 
-    .example-card {
-        width: 350px;
-        font-size: 0.8em;
-    }
+        .purchase-card {
+            .mat-card-content {
+                font-size: 1em;
+            }
 
-    // mat-card-footer p
-    #required {
-        font-size: 0.5em;
+            .mat-card-content>p {
+                line-height: 1em;
+            }
+        }
     }
-
 }
 
 @media (min-width: 961px) and (max-width: 1280px) {
-    :host ::ng-deep .mat-dialog-content {
-        width: 550px;
-    }
+    .img-and-card-content {
+        padding: 0;
+        display: block;
+        flex-wrap: unset;
 
-    .example-card {
-        width: 500px;
-        font-size: 0.9em;
-    }
+        .purchase-card {
+            .mat-card-content {
+                font-size: 1.1em;
+            }
 
-    // mat-card-footer p
-    #required {
-        font-size: 0.6em;
+            .mat-card-content>p {
+                line-height: 1.2em;
+            }
+        }
     }
-}
+} */

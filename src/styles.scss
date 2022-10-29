@@ -705,9 +705,10 @@ body {
         border-radius: 10px;
     }
 
-    /*     .mat-dialog-content {
+    .mat-dialog-content {
+        // disabilitare dopo 900px circa di width
         display: contents;
-    } */
+    }
 }
 
 // ----------> [Purchase w/ Balance]
