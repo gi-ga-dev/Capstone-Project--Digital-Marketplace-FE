@@ -1,6 +1,4 @@
 .purchase-card {
-    padding: 0;
-    border: none;
     padding: 24px;
     display: flex;
     flex-direction: column;
@@ -8,9 +6,18 @@
     align-items: center;
     border: 1px solid black;
 
-    #modals-titles {}
+    // dimensioni testo nella card prodotto
+    #img-and-text-div>p,
+    #img-and-text-div>span p {
+        font-size: 1em;
+        margin: 0 0 12px;
+    }
 
-    .img-and-text-cont {
+    #modals-titles {
+        font-size: 1.5em;
+    }
+
+    #img-and-text-cont {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
@@ -23,10 +30,8 @@
             flex-direction: row;
             flex-wrap: nowrap;
             justify-content: center;
-            //height: 400px;
             margin-left: 4px;
             margin-right: 4px;
-            //padding: 26px 8px;
             border-radius: 10px;
 
             // contenitore image
@@ -34,94 +39,223 @@
                 margin: auto;
                 display: flex;
                 align-items: center;
-                height: 35%;
+                width: 50%;
 
                 // dimensioni immagine
                 .mat-card-image {
-                    width: 75%;
+                    width: 85%;
                     margin: auto;
                 }
             }
 
             #img-and-text-div {
-                height: 50%;
+                width: 50%;
             }
+        }
+    }
 
-            #btns-div {
-                height: 15%;
+    #btns-div {
 
-                #btns {}
+        #btns {
+            width: 250px;
+            text-align: center;
+            font-size: 1.1em;
+            margin: 0 3px;
+        }
 
-                #sub-required {
-                    font-size: 0.9em;
-                    text-align: center;
+        #sub-required {
+            font-size: 0.9em;
+            text-align: center;
+        }
+    }
+}
+
+// non mostrare cards con expandable da 900px in su
+.purchase-card-mobile {
+    display: none;
+}
+
+// --------> Media Queries
+
+// @@@ Mobile-Tablet
+
+@media (min-width: 390px) and (max-width: 550px) {
+
+    .purchase-card {
+        display: none;
+    }
+
+    .purchase-card-mobile {
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid black;
+
+        #modals-titles {
+            font-size: 1.2em;
+        }
+
+        #img-and-text-cont {
+            width: 290px;
+
+            #purchase-card-content {
+                mat-accordion {
+                    mat-expansion-panel.purchase-exp-panel {
+
+                        // dimensioni testo nella card prodotto
+                        #img-and-text-div>p,
+                        #img-and-text-div>span p {
+                            font-size: 0.7em;
+                            margin: 0 0 6px;
+                        }
+                    }
                 }
             }
+        }
 
+        #btns-div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            #btns {
+                width: 95%;
+                margin: 3px auto;
+                font-size: 0.8em;
+            }
+
+            #sub-required {
+                font-size: 0.6em;
+            }
         }
     }
 }
 
-/* 
-@media (max-width: 500px) {
-    .img-and-card-content {
-        padding: 0;
-        display: block;
-        flex-wrap: unset;
+@media (min-width: 551px) and (max-width: 900px) {
 
-        .purchase-card {
-            .mat-card-content {
+    .purchase-card {
+        display: none;
+    }
+
+    .purchase-card-mobile {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid black;
+
+        #modals-titles {
+            font-size: 1.3em;
+        }
+
+        #img-and-text-cont {
+            width: 400px;
+
+            #purchase-card-content {
+                mat-accordion {
+                    mat-expansion-panel.purchase-exp-panel {
+
+                        // dimensioni testo nella card prodotto
+                        #img-and-text-div>p,
+                        #img-and-text-div>span p {
+                            font-size: 0.8em;
+                            margin: 0 0 8px;
+                        }
+                    }
+                }
+            }
+        }
+
+        #btns-div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            #btns {
+                width: 95%;
+                margin: 3px auto;
+                font-size: 0.9em;
+            }
+
+            #sub-required {
+                font-size: 0.7em;
+            }
+        }
+    }
+}
+
+// @@@ Desktop small/big
+
+@media (min-width: 901px) and (max-width: 1400px) {
+
+    // se si lavora con dati nested, anche le media queries vanno scritte nested
+    .purchase-card {
+        padding: 12px;
+
+        // dimensioni testo nella card prodotto
+        #img-and-text-div>p,
+        #img-and-text-div>span p {
+            font-size: 0.8em;
+            margin: 0 0 8px;
+        }
+
+        #modals-titles {
+            font-size: 1.3em;
+        }
+
+        #img-and-text-cont {
+            width: 700px;
+        }
+
+        #btns-div {
+
+            #btns {
+                width: 200px;
+                font-size: 0.9em;
+            }
+
+            #sub-required {
+                font-size: 0.7em;
+            }
+        }
+    }
+
+}
+
+@media (min-width: 1101px) and (max-width: 1400px) {
+
+    // se si lavora con dati nested, anche le media queries vanno scritte nested
+    .purchase-card {
+        padding: 18px;
+
+        // dimensioni testo nella card prodotto
+        #img-and-text-div>p,
+        #img-and-text-div>span p {
+            font-size: 0.9em;
+            margin: 0 0 10px;
+        }
+
+        #modals-titles {
+            font-size: 1.4em;
+        }
+
+        #img-and-text-cont {
+            width: 900px;
+
+        }
+
+        #btns-div {
+
+            #btns {
+                width: 225px;
                 font-size: 1em;
             }
 
-            .mat-card-content>p {
-                line-height: 0.9em;
+            #sub-required {
+                font-size: 0.8em;
             }
         }
     }
+
 }
-
-@media (min-width: 501px) and (max-width: 750px) {
-
-    .img-and-card-content {
-        padding: 0;
-        display: block;
-        flex-wrap: unset;
-    }
-}
-
-@media (min-width: 501px) and (max-width: 960px) {
-    .img-and-card-content {
-        padding: 0;
-        display: block;
-        flex-wrap: unset;
-
-        .purchase-card {
-            .mat-card-content {
-                font-size: 1em;
-            }
-
-            .mat-card-content>p {
-                line-height: 1em;
-            }
-        }
-    }
-}
-
-@media (min-width: 961px) and (max-width: 1280px) {
-    .img-and-card-content {
-        padding: 0;
-        display: block;
-        flex-wrap: unset;
-
-        .purchase-card {
-            .mat-card-content {
-                font-size: 1.1em;
-            }
-
-            .mat-card-content>p {
-                line-height: 1.2em;
-            }
-        }
-    }
-} */

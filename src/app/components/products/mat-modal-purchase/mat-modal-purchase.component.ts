@@ -65,7 +65,7 @@ export class MatModalPurchaseComponent implements OnInit {
   }
 
   openSubscriptionDialog() {
-    const dialogRef = this.dialog.open(MatModalSubscriptionComponent);
+    const dialogRef = this.dialog.open(MatModalSubscriptionComponent, { panelClass: 'sub-dialog-cont' });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
