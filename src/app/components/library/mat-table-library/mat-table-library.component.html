@@ -1,4 +1,4 @@
-<div id="library-cont">
+<div class="library-cont">
 
     <mat-form-field id="filter-cont" color="accent" appearance="standard">
         <mat-label>Search Product</mat-label>
@@ -7,124 +7,188 @@
 
     <div class="mat-elevation-z8">
 
-        <div class="mat-elevation-z8">
+        <table id="table-cont" mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
+            <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
 
-            <table id="table-cont" mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
-                <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <p *ngIf="column === displayedColumns[0]">Type: </p>
+                    <p *ngIf="column === displayedColumns[1]">Title: </p>
+                    <p *ngIf="column === displayedColumns[2]">Method: </p>
+                    <p *ngIf="column === displayedColumns[3]">Download: </p>
+                </th>
 
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                        <p *ngIf="column === displayedColumns[0]">Type: </p>
-                        <p *ngIf="column === displayedColumns[1]">Title: </p>
-                        <p *ngIf="column === displayedColumns[2]">Method: </p>
-                        <p *ngIf="column === displayedColumns[3]">Download: </p>
-                    </th>
+                <!-- Riporta tutti i dati contenuti nelle colonne definite nel .ts -->
+                <!-- <td mat-cell *matCellDef="let element"> {{element[column]}} </td> -->
 
-                    <!-- Riporta tutti i dati contenuti nelle colonne definite nel .ts -->
-                    <!-- <td mat-cell *matCellDef="let element"> {{element[column]}} </td> -->
-
-                    <!-- Per riportare dettagli custom nelle colonne -->
-                    <td mat-cell *matCellDef="let prod">
-                        <p *ngIf="column === displayedColumns[0]">{{prod.productType}}</p>
-                        <p *ngIf="column === displayedColumns[1]">{{prod.title}}</p>
-                        <p *ngIf="column === displayedColumns[2]">{{prod.paymentMethod}}</p>
-                        <p *ngIf="column === displayedColumns[3]">
-                            <button mat-button>
-                                <mat-icon>get_app</mat-icon>
-                            </button>
-                        </p>
-                    </td>
-
-                </ng-container>
-
-                <ng-container matColumnDef="expand">
-                    <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
-                    <td mat-cell *matCellDef="let element">
-                        <button mat-icon-button aria-label="expand row"
-                            (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
-                            <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
-                            <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
+                <!-- Per riportare dettagli custom nelle colonne -->
+                <td mat-cell *matCellDef="let prod">
+                    <p *ngIf="column === displayedColumns[0]">{{prod.productType}}</p>
+                    <p *ngIf="column === displayedColumns[1]">{{prod.title}}</p>
+                    <p *ngIf="column === displayedColumns[2]">{{prod.paymentMethod}}</p>
+                    <p *ngIf="column === displayedColumns[3]">
+                        <button mat-button>
+                            <mat-icon>get_app</mat-icon>
                         </button>
-                    </td>
-                </ng-container>
+                    </p>
+                </td>
 
-                <!-- Dati da inserire nell'expandable -->
-                <ng-container matColumnDef="expandedDetail">
-                    <td mat-cell *matCellDef="let product" [attr.colspan]="columnsToDisplayWithExpand.length">
-                        <div class="table-details"
-                            [@detailExpand]="product == expandedElement ? 'expanded' : 'collapsed'">
-                            <div class="img-and-card-content">
+            </ng-container>
 
-                                <div id="img-cont">
-                                    <img mat-card-image [src]=product.imgLink>
-                                </div>
+            <ng-container matColumnDef="expand">
+                <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button aria-label="expand row"
+                        (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
+                        <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
+                        <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
 
-                                <!-- Card con dati prodotto -->
-                                <mat-card class="library-card">
+            <!-- Dati da inserire nell'expandable -->
+            <ng-container matColumnDef="expandedDetail">
+                <td mat-cell *matCellDef="let product" [attr.colspan]="columnsToDisplayWithExpand.length">
+                    <div class="table-details" [@detailExpand]="product == expandedElement ? 'expanded' : 'collapsed'">
 
-                                    <mat-card-title-group>
-                                        <mat-card-title id="title">Product Details:</mat-card-title>
-                                    </mat-card-title-group>
+                        <mat-card class="library-card">
 
-                                    <mat-card-content>
+                            <mat-card-title id="modals-titles">Product Details:</mat-card-title>
+
+                            <div id="img-and-text-cont">
+
+                                <mat-card-content id="library-card-content">
+
+                                    <div id="img-div">
+                                        <img mat-card-image [src]=product.imgLink>
+                                    </div>
+
+                                    <div id="img-and-text-div">
+
                                         <p><b>Product Type:</b> {{product.productType}}</p>
                                         <p><b>Title:</b> {{product.title}}</p>
                                         <p><b>Price:</b> {{product.price.toFixed(2)}}$</p>
-                                        <p><b>Payment Method:</b> {{product.paymentMethod}}</p>
                                         <p><b>Description:</b> {{product.description}}</p>
-
                                         <p><b>Platform:</b> {{product.platform}}</p>
                                         <p><b>Publisher:</b> {{product.publisher}}</p>
                                         <p><b>Release Date:</b> {{product.releaseDate}}</p>
                                         <p><b>Language:</b> {{product.language}}</p>
                                         <p><b>Genre:</b> {{product.genre}}</p>
-                                    </mat-card-content>
 
-                                    <mat-card-content *ngIf="product.productType === 'Videogame'">
-                                        <p><b>Series:</b> {{product.vgSeries}}</p>
-                                        <p><b>Developer:</b> {{product.developer}}</p>
-                                        <p><b>Age Recommendation</b> {{product.ageRecommendation}}+</p>
-                                        <p><b>Players:</b> {{product.players}}</p>
-                                        <p><b>Co-op Play:</b> {{product.coopPlay}}</p>
-                                        <p><b>Controller Support:</b> {{product.controllerSupport}}</p>
-                                        <p><b>Subtitles:</b> {{product.subtitles}}</p>
-                                        <p><b>Required Space:</b> {{product.requiredSpace}}GB</p>
-                                    </mat-card-content>
+                                        <span *ngIf="product.productType === 'Videogame'">
+                                            <p><b>Series:</b> {{product.vgSeries}}</p>
+                                            <p><b>Developer:</b> {{product.developer}}</p>
+                                            <p><b>Age Recommendation</b> {{product.ageRecommendation}}+</p>
+                                            <p><b>Players:</b> {{product.players}}</p>
+                                            <p><b>Co-op Play:</b> {{product.coopPlay}}</p>
+                                            <p><b>Controller Support:</b> {{product.controllerSupport}}</p>
+                                            <p><b>Subtitles:</b> {{product.subtitles}}</p>
+                                            <p><b>Required Space:</b> {{product.requiredSpace}}GB</p>
+                                        </span>
 
-                                    <mat-card-content *ngIf="product.productType === 'Music'">
-                                        <p><b>Artist:</b> {{product.artist}}</p>
-                                        <p><b>Album:</b> {{product.album}}</p>
-                                        <p><b>Duration:</b> {{product.duration}}</p>
-                                    </mat-card-content>
+                                        <span *ngIf="product.productType === 'Music'">
+                                            <p><b>Artist:</b> {{product.artist}}</p>
+                                            <p><b>Album:</b> {{product.album}}</p>
+                                            <p><b>Duration:</b> {{product.duration}}</p>
+                                        </span>
 
-                                    <mat-card-content *ngIf="product.productType === 'Book'">
-                                        <p><b>Pages:</b> {{product.pages}}</p>
-                                        <p><b>ISBN Code:</b> {{product.isbnCode}}</p>
-                                        <p><b>Series:</b> {{product.bookSeries}}</p>
-                                        <p><b>Author:</b> {{product.author}}</p>
-                                    </mat-card-content>
-
-                                </mat-card>
-
-                                <!-- <ng-template #elseBlock></ng-template> -->
-
+                                        <span *ngIf="product.productType === 'Book'">
+                                            <p><b>Pages:</b> {{product.pages}}</p>
+                                            <p><b>ISBN Code:</b> {{product.isbnCode}}</p>
+                                            <p><b>Series:</b> {{product.bookSeries}}</p>
+                                            <p><b>Author:</b> {{product.author}}</p>
+                                        </span>
+                                    </div>
+                                </mat-card-content>
                             </div>
-                        </div>
-                    </td>
-                </ng-container>
+                        </mat-card>
 
-                <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
-                <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;" class="example-element-row"
-                    [class.example-expanded-row]="expandedElement === element"
-                    (click)="expandedElement = expandedElement === element ? null : element">
-                </tr>
-                <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+                        <!-- --------------------- Mobile/Tablet (under 900px) --------------------- -->
 
-                <tr class="mat-row" *matNoDataRow>
-                    <td class="mat-cell" colspan="4">No products to show yet...</td>
-                </tr>
-            </table>
+                        <mat-card class="library-card-mobile">
 
-        </div>
+                            <!-- Titolo Card -->
+                            <mat-card-title id="modals-titles">Product Details:</mat-card-title>
+
+                            <div id="img-and-text-cont">
+
+                                <!-- Contenuto Card -->
+                                <mat-card-content id="library-card-content">
+
+                                    <div id="img-div">
+                                        <img mat-card-image [src]=product.imgLink>
+                                    </div>
+
+                                    <!-- Inizio Expandable -->
+                                    <mat-accordion>
+                                        <mat-expansion-panel class="library-exp-panel">
+
+                                            <mat-expansion-panel-header id="expansion-header">
+
+                                                <!-- Contenuto Titolo Expandable -->
+                                                <mat-panel-title id="subscription-title">Show Product Details
+                                                </mat-panel-title>
+
+                                            </mat-expansion-panel-header>
+
+                                            <div id="img-and-text-div">
+
+                                                <p><b>Product Type:</b> {{product.productType}}</p>
+                                                <p><b>Title:</b> {{product.title}}</p>
+                                                <p><b>Price:</b> {{product.price.toFixed(2)}}$</p>
+                                                <p><b>Description:</b> {{product.description}}</p>
+                                                <p><b>Platform:</b> {{product.platform}}</p>
+                                                <p><b>Publisher:</b> {{product.publisher}}</p>
+                                                <p><b>Release Date:</b> {{product.releaseDate}}</p>
+                                                <p><b>Language:</b> {{product.language}}</p>
+                                                <p><b>Genre:</b> {{product.genre}}</p>
+
+                                                <span *ngIf="product.productType === 'Videogame'">
+                                                    <p><b>Series:</b> {{product.vgSeries}}</p>
+                                                    <p><b>Developer:</b> {{product.developer}}</p>
+                                                    <p><b>Age Recommendation</b> {{product.ageRecommendation}}+</p>
+                                                    <p><b>Players:</b> {{product.players}}</p>
+                                                    <p><b>Co-op Play:</b> {{product.coopPlay}}</p>
+                                                    <p><b>Controller Support:</b> {{product.controllerSupport}}</p>
+                                                    <p><b>Subtitles:</b> {{product.subtitles}}</p>
+                                                    <p><b>Required Space:</b> {{product.requiredSpace}}GB</p>
+                                                </span>
+
+                                                <span *ngIf="product.productType === 'Music'">
+                                                    <p><b>Artist:</b> {{product.artist}}</p>
+                                                    <p><b>Album:</b> {{product.album}}</p>
+                                                    <p><b>Duration:</b> {{product.duration}}</p>
+                                                </span>
+
+                                                <span *ngIf="product.productType === 'Book'">
+                                                    <p><b>Pages:</b> {{product.pages}}</p>
+                                                    <p><b>ISBN Code:</b> {{product.isbnCode}}</p>
+                                                    <p><b>Series:</b> {{product.bookSeries}}</p>
+                                                    <p><b>Author:</b> {{product.author}}</p>
+                                                </span>
+                                            </div>
+
+                                        </mat-expansion-panel>
+                                    </mat-accordion>
+
+                                </mat-card-content>
+                            </div>
+                        </mat-card>
+
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+            <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;" class="example-element-row"
+                [class.example-expanded-row]="expandedElement === element"
+                (click)="expandedElement = expandedElement === element ? null : element">
+            </tr>
+            <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No products to show yet...</td>
+            </tr>
+        </table>
     </div>
 
     <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of products">

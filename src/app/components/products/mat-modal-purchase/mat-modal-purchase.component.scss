@@ -6,13 +6,6 @@
     align-items: center;
     border: 1px solid black;
 
-    // dimensioni testo nella card prodotto
-    #img-and-text-div>p,
-    #img-and-text-div>span p {
-        font-size: 1em;
-        margin: 0 0 12px;
-    }
-
     #modals-titles {
         font-size: 1.5em;
     }
@@ -50,6 +43,16 @@
 
             #img-and-text-div {
                 width: 50%;
+                border-radius: 10px;
+                border: 1px solid black;
+                padding: 12px;
+            }
+
+            // dimensioni testo nella card prodotto
+            #img-and-text-div>p,
+            #img-and-text-div>span p {
+                font-size: 1.1em;
+                margin: 0 0 12px;
             }
         }
     }
@@ -106,7 +109,7 @@
                         // dimensioni testo nella card prodotto
                         #img-and-text-div>p,
                         #img-and-text-div>span p {
-                            font-size: 0.7em;
+                            font-size: 0.8em;
                             margin: 0 0 6px;
                         }
                     }
@@ -159,7 +162,7 @@
                         // dimensioni testo nella card prodotto
                         #img-and-text-div>p,
                         #img-and-text-div>span p {
-                            font-size: 0.8em;
+                            font-size: 0.9em;
                             margin: 0 0 8px;
                         }
                     }
@@ -187,18 +190,11 @@
 
 // @@@ Desktop small/big
 
-@media (min-width: 901px) and (max-width: 1400px) {
+@media (min-width: 901px) and (max-width: 1100px) {
 
     // se si lavora con dati nested, anche le media queries vanno scritte nested
     .purchase-card {
         padding: 12px;
-
-        // dimensioni testo nella card prodotto
-        #img-and-text-div>p,
-        #img-and-text-div>span p {
-            font-size: 0.8em;
-            margin: 0 0 8px;
-        }
 
         #modals-titles {
             font-size: 1.3em;
@@ -206,6 +202,16 @@
 
         #img-and-text-cont {
             width: 700px;
+
+            #purchase-card-content {
+
+                // dimensioni testo nella card prodotto
+                #img-and-text-div>p,
+                #img-and-text-div>span p {
+                    font-size: 0.9em;
+                    margin: 0 0 8px;
+                }
+            }
         }
 
         #btns-div {
@@ -229,19 +235,22 @@
     .purchase-card {
         padding: 18px;
 
-        // dimensioni testo nella card prodotto
-        #img-and-text-div>p,
-        #img-and-text-div>span p {
-            font-size: 0.9em;
-            margin: 0 0 10px;
-        }
-
         #modals-titles {
             font-size: 1.4em;
         }
 
         #img-and-text-cont {
             width: 900px;
+
+            #purchase-card-content {
+
+                // dimensioni testo nella card prodotto
+                #img-and-text-div>p,
+                #img-and-text-div>span p {
+                    font-size: 1em;
+                    margin: 0 0 10px;
+                }
+            }
 
         }
 

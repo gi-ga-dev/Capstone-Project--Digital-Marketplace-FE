@@ -34,7 +34,7 @@ tr.example-detail-row {
 
 // --------------------------------------------
 
-#library-cont {
+.library-cont {
     height: 100%;
     padding: 15px 0;
 
@@ -65,51 +65,66 @@ tr.example-detail-row {
             .table-details {
                 overflow: hidden;
 
-                // contenitore image e card
-                .img-and-card-content {
-                    padding: 0;
+                .library-card {
+                    padding: 24px;
                     display: flex;
+                    flex-direction: column;
                     flex-wrap: nowrap;
+                    align-items: center;
+                    border: 1px solid black;
 
-                    // contenitore image
-                    #img-cont {
-                        margin: auto;
-                        display: flex;
-
-                        // dimensioni immagine
-                        .mat-card-image {
-                            width: 75%;
-                            margin: auto;
-                        }
+                    #modals-titles {
+                        font-size: 1.5em;
                     }
 
-                    // card prodotto
-                    .library-card {
-                        width: 75%;
-                        margin: auto;
-                        border: none;
-                        border-radius: unset;
-                        margin-bottom: 20px;
+                    #img-and-text-cont {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        justify-content: center;
+                        align-items: center;
+                        width: 1100px;
 
-                        // titolo prodotto
-                        #title {
-                            font-size: 1.5em;
-                            font-weight: bold;
-                            margin-bottom: 15px;
-                        }
+                        #library-card-content {
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: nowrap;
+                            justify-content: center;
+                            margin-left: 4px;
+                            margin-right: 4px;
+                            border-radius: 10px;
 
-                        // contenuto card
-                        .mat-card-content {
-                            font-size: 1.1em;
-                        }
+                            // contenitore image
+                            #img-div {
+                                margin: auto;
+                                display: flex;
+                                align-items: center;
+                                width: 50%;
 
-                        .mat-card-content>p {
-                            line-height: 1.4em;
+                                // dimensioni immagine
+                                .mat-card-image {
+                                    width: 85%;
+                                    margin: auto;
+                                }
+                            }
+
+                            #img-and-text-div {
+                                width: 50%;
+                                border-radius: 10px;
+                                border: 1px solid black;
+                                padding: 24px;
+                            }
+
+                            // dimensioni testo nella card prodotto
+                            #img-and-text-div>p,
+                            #img-and-text-div>span p {
+                                font-size: 1.1em;
+                                margin: 0 0 12px;
+                            }
                         }
                     }
                 }
             }
-
         }
 
         /* ======= Table-Paginator ======= */
@@ -123,12 +138,23 @@ tr.example-detail-row {
                 flex-wrap: unset;
             }
         }
-
     }
 
-    // -------> Media Queries
+    .mat-paginator {
+        font-size: 1em;
+    }
 
-    @media (max-width: 500px) {
+    // non mostrare cards con expandable da 900px in su
+    .library-card-mobile {
+        display: none;
+    }
+
+    // --------> Media Queries
+
+    // @@@ Mobile-Tablet
+
+    @media (min-width: 390px) and (max-width: 550px) {
+
         .mat-elevation-z8 {
             #table-cont {
                 .mat-header-cell {
@@ -140,49 +166,51 @@ tr.example-detail-row {
                 }
 
                 .table-details {
-                    .img-and-card-content {
-                        padding: 0;
-                        display: block;
-                        flex-wrap: unset;
+                    .library-card {
+                        display: none;
+                    }
 
-                        .library-card {
-                            .mat-card-content {
-                                font-size: 1em;
-                            }
+                    .library-card-mobile {
+                        padding: 12px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        border: 1px solid black;
 
-                            .mat-card-content>p {
-                                line-height: 0.9em;
+                        #modals-titles {
+                            font-size: 1.2em;
+                        }
+
+                        #img-and-text-cont {
+                            width: 290px;
+
+                            #library-card-content {
+                                mat-accordion {
+                                    mat-expansion-panel.library-exp-panel {
+
+                                        // dimensioni testo nella card prodotto
+                                        #img-and-text-div>p,
+                                        #img-and-text-div>span p {
+                                            font-size: 0.8em;
+                                            margin: 0 0 6px;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
                 }
             }
+        }
 
-            .mat-paginator {
-                font-size: 0.7em;
-            }
+        .mat-paginator {
+            font-size: 0.7em;
         }
     }
 
     //-----------------------------------
 
-    @media (min-width: 501px) and (max-width: 750px) {
-        .mat-elevation-z8 {
-            #table-cont {
-                .table-details {
-                    .img-and-card-content {
-                        padding: 0;
-                        display: block;
-                        flex-wrap: unset;
-                    }
-                }
-            }
-        }
-    }
-
-    //-----------------------------------
-
-    @media (min-width: 501px) and (max-width: 960px) {
+    @media (min-width: 551px) and (max-width: 900px) {
         .mat-elevation-z8 {
             #table-cont {
                 .mat-header-cell {
@@ -194,33 +222,52 @@ tr.example-detail-row {
                 }
 
                 .table-details {
-                    .img-and-card-content {
-                        padding: 0;
-                        display: block;
-                        flex-wrap: unset;
+                    .library-card {
+                        display: none;
+                    }
 
-                        .library-card {
-                            .mat-card-content {
-                                font-size: 1em;
-                            }
+                    .library-card-mobile {
+                        padding: 24px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        border: 1px solid black;
 
-                            .mat-card-content>p {
-                                line-height: 1em;
+                        #modals-titles {
+                            font-size: 1.3em;
+                        }
+
+                        #img-and-text-cont {
+                            width: 400px;
+
+                            #library-card-content {
+                                mat-accordion {
+                                    mat-expansion-panel.library-exp-panel {
+
+                                        // dimensioni testo nella card prodotto
+                                        #img-and-text-div>p,
+                                        #img-and-text-div>span p {
+                                            font-size: 0.9em;
+                                            margin: 0 0 8px;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
                 }
             }
+        }
 
-            .mat-paginator {
-                font-size: 0.8em;
-            }
+        .mat-paginator {
+            font-size: 0.8em;
         }
     }
 
-    //-----------------------------------
+    // @@@ Desktop small/big
 
-    @media (min-width: 961px) and (max-width: 1280px) {
+    @media (min-width: 901px) and (max-width: 1100px) {
+
         .mat-elevation-z8 {
             #table-cont {
                 .mat-header-cell {
@@ -232,30 +279,76 @@ tr.example-detail-row {
                 }
 
                 .table-details {
-                    .img-and-card-content {
-                        padding: 0;
-                        display: block;
-                        flex-wrap: unset;
 
-                        .library-card {
-                            .mat-card-content {
-                                font-size: 1.1em;
-                            }
+                    .library-card {
+                        padding: 12px;
 
-                            .mat-card-content>p {
-                                line-height: 1.2em;
+                        #modals-titles {
+                            font-size: 1.3em;
+                        }
+
+                        #img-and-text-cont {
+                            width: 700px;
+
+                            #library-card-content {
+
+                                // dimensioni testo nella card prodotto
+                                #img-and-text-div>p,
+                                #img-and-text-div>span p {
+                                    font-size: 0.9em;
+                                    margin: 0 0 8px;
+                                }
                             }
                         }
                     }
                 }
             }
+        }
 
-            .mat-paginator {
-                font-size: 0.9em;
-            }
+        .mat-paginator {
+            font-size: 0.9em;
         }
     }
 
+    @media (min-width: 1101px) and (max-width: 1400px) {
+
+        .mat-elevation-z8 {
+            #table-cont {
+                .mat-header-cell {
+                    font-size: 0.9em;
+                }
+
+                .mat-cell {
+                    font-size: 0.8em;
+                }
+
+                .table-details {
+
+                    .library-card {
+                        padding: 18px;
+
+                        #modals-titles {
+                            font-size: 1.4em;
+                        }
+
+                        #img-and-text-cont {
+                            width: 900px;
+
+                            #library-card-content {
+
+                                // dimensioni testo nella card prodotto
+                                #img-and-text-div>p,
+                                #img-and-text-div>span p {
+                                    font-size: 1em;
+                                    margin: 0 0 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 /* Table Completo (Form Filter, Table e Paginator) */

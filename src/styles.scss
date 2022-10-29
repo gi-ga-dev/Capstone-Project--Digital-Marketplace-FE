@@ -43,7 +43,7 @@ $warn-light-pal: mat-palette($warn-light-scheme);
 
 $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-light-pal);
 
-// -------------------------> LIGHT THEME <------------------------
+// ============================ LIGHT THEME ============================================================================================
 
 .light-mode {
     @include angular-material-theme($app-light-theme);
@@ -105,9 +105,7 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
         font-size: 1.1em;
     }
 
-    // -----------> Sidenav Content & Auth Page <-----------
-
-    // inserire height fisse solo nelle pagine che hanno contenuto fisso (Home, Auth, Profile)
+    // =================== Sidenav Content & Auth Page ===================
 
     .example-sidenav-content {
         background: rgba(211, 211, 211, 0.249);
@@ -134,7 +132,6 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
                     margin: 10px 0;
                 }
             }
-
         }
 
         @media (max-width: 1280px) {
@@ -145,7 +142,33 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
         }
     }
 
-    // -----------> Library Page <-----------
+    // =================== Library Page ===================
+    // [TABLE LIBRARY] (CSS nested)
+
+    @media (min-width: 390px) and (max-width: 900px) {
+
+        // Table Product Expandable
+        mat-expansion-panel.library-exp-panel {
+            .mat-expansion-panel-header {
+                background-color: rgba(255, 255, 255, 0.8);
+            }
+
+            .mat-expansion-panel-header.mat-expanded:focus,
+            .mat-expansion-panel-header.mat-expanded:hover {
+                background-color: rgba(255, 255, 255, 0.8);
+            }
+
+            .mat-expansion-panel-body {
+                background-color: #4486d611;
+            }
+        }
+    }
+
+    @media (min-width: 901px) {
+        #img-and-text-div {
+            background-color: #4486d611;
+        }
+    }
 
     tr.example-element-row:not(.example-expanded-row):hover {
         background: whitesmoke;
@@ -169,13 +192,14 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
         background-color: rgb(194, 194, 194);
     }
 
-    // -----------> Shopping Cart & Wishlist Pages <-----------
+    // ============== Shopping Cart & Wishlist Pages =============
 
     .cart-and-wishlist-card {
         background-color: #4486d611;
     }
 
-    // -----------> Products Page <-----------
+    // =================== Products Page ===================
+
     #product-card-content {
         background-color: #4486d611;
 
@@ -186,7 +210,7 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
         }
     }
 
-    // ------------------> Profile Page <-------------------
+    // =================== Profile Page ===================
 
     #profile-expansions-cont {
         .mat-accordion .mat-expansion-panel {
@@ -210,14 +234,15 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
         }
     }
 
-    // -------------------> Modals <------------------------
+    // =================== Modals ===================
+
+    // [MODALS PROFILE]
 
     #modals-titles {
         text-align: center;
         margin-bottom: 26px;
     }
 
-    // [Profile Page]
     #profile-card-modals {
         display: flex;
         flex-direction: column;
@@ -230,7 +255,7 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
         margin: 0 auto;
     }
 
-    // [MODAL SUBSCRIPTION] (CSS not-nested) ===================================================================================================
+    // [MODAL SUBSCRIPTION] (CSS not-nested)
 
     #subscription-card-content {
         background-color: #4486d611;
@@ -254,7 +279,7 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
         }
     }
 
-    // [MODAL PURCHASE] (CSS nested) ======================================================================================================
+    // [MODAL PURCHASE] (CSS nested)
 
     .purchase-dialog-cont {
 
@@ -275,11 +300,17 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
                 }
             }
         }
+
+        @media (min-width: 901px) {
+            #img-and-text-div {
+                background-color: #4486d611;
+            }
+        }
     }
 
 }
 
-// -------------------------> DARK THEME <------------------------
+// ============================ DARK THEME ============================================================================================
 
 $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-pal);
 
@@ -342,7 +373,7 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
         font-size: 1.1em;
     }
 
-    // -----------> Sidenav Content & Auth Page <-----------
+    // =============== Sidenav Content & Auth Page ===================
 
     .example-sidenav-content {
         background: rgba(211, 211, 211, 0.249);
@@ -378,7 +409,33 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
         }
     }
 
-    // -----------> Library Page <-----------
+    // =================== Library Page ===================
+    // [TABLE LIBRARY] (CSS nested) 
+
+    @media (min-width: 390px) and (max-width: 900px) {
+
+        // Table Product Expandable
+        mat-expansion-panel.library-exp-panel {
+            .mat-expansion-panel-header {
+                background-color: rgba(88, 88, 88, 0.5);
+            }
+
+            .mat-expansion-panel-header.mat-expanded:focus,
+            .mat-expansion-panel-header.mat-expanded:hover {
+                background-color: rgba(88, 88, 88, 0.5);
+            }
+
+            .mat-expansion-panel-body {
+                background-color: rgba(191, 152, 80, 0.38);
+            }
+        }
+    }
+
+    @media (min-width: 901px) {
+        #img-and-text-div {
+            background-color: rgba(191, 152, 80, 0.38);
+        }
+    }
 
     tr.example-element-row:not(.example-expanded-row):hover {
         background: rgba(109, 110, 111, 0.5);
@@ -397,14 +454,8 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
         background-color: rgb(109, 110, 111);
     }
 
-    .library-card {
-        background-color: rgb(84, 84, 84);
-    }
+    // =================== Products Page ===================
 
-    // -----------> Shopping Cart & Wishlist Pages <-----------
-
-
-    // -----------> Products Page <-----------
     #product-card-content {
         background-color: rgba(191, 152, 80, 0.38);
 
@@ -415,7 +466,7 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
         }
     }
 
-    // ------------------> Profile Page <-------------------
+    // =================== Profile Page ===================
 
     #profile-expansions-cont {
         .mat-accordion .mat-expansion-panel {
@@ -439,14 +490,15 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
         }
     }
 
-    // -------------------> Modals <------------------------
+    // =================== Modals ===================
+
+    // [MODALS PROFILE]
 
     #modals-titles {
         text-align: center;
         margin-bottom: 26px;
     }
 
-    // [Profile Page]
     #profile-card-modals {
         display: flex;
         flex-direction: column;
@@ -459,7 +511,7 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
         margin: 0 auto;
     }
 
-    // [MODAL SUBSCRIPTION] (CSS not-nested) ===================================================================================================
+    // [MODAL SUBSCRIPTION] (CSS not-nested)
 
     #subscription-card-content {
         background-color: rgba(191, 152, 80, 0.38);
@@ -483,12 +535,13 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
         }
     }
 
-    // [MODAL PURCHASE] (CSS nested) ======================================================================================================
+    // [MODAL PURCHASE] (CSS nested)
 
     .purchase-dialog-cont {
 
         @media (min-width: 390px) and (max-width: 900px) {
 
+            // Purchase Product Expandable
             mat-expansion-panel.purchase-exp-panel {
                 .mat-expansion-panel-header {
                     background-color: rgba(88, 88, 88, 0.5);
@@ -504,11 +557,36 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
                 }
             }
         }
-    }
 
+        @media (min-width: 901px) {
+            #img-and-text-div {
+                background-color: rgba(191, 152, 80, 0.38);
+            }
+        }
+    }
 }
 
-// [MODALS CREATE VG, MSC, BOOK, EVENT | DELETE ACCOUNT | UPDATE INFO/CREDENTIALS | ADD-BALANCE | SIGNUP USER/ADMIN | PURCHASE w/ BALANCE/SUB] =====================
+// =================== CLASSI MODIFICATE ===================
+
+// [TABLE LIBRARY] (CSS nested) 
+mat-expansion-panel.library-exp-panel {
+    .mat-expansion-panel-header {
+        border-radius: 4px;
+        border: 1px solid black;
+    }
+
+    .mat-expansion-panel-body {
+        padding: 12px;
+        border-radius: 4px;
+        border: 1px solid black;
+        width: 65%;
+        padding: 15px 75px;
+        align-self: center;
+    }
+}
+
+// [MODALS CREATE VG, MSC, BOOK, EVENT | DELETE ACCOUNT | UPDATE INFO/CREDENTIALS | ADD-BALANCE | SIGNUP USER/ADMIN | PURCHASE w/ BALANCE/SUB]
+
 .create-vg-dialog-cont,
 .create-msc-dialog-cont,
 .create-book-dialog-cont,
@@ -535,7 +613,8 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
     }
 }
 
-// [MODAL SUBSCRIPTION] (CSS not-nested) ===================================================================================================
+// [MODAL SUBSCRIPTION] (CSS not-nested)
+
 .sub-dialog-cont {
 
     .mat-accordion {
@@ -578,7 +657,8 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
 
 }
 
-// [MODAL PURCHASE] (CSS nested) ======================================================================================================
+// [MODAL PURCHASE] (CSS nested)
+
 .purchase-dialog-cont {
 
     .mat-card {
@@ -591,7 +671,7 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
     }
 
     // @@@ Mobile-Tablet
-    @media (min-width: 380px) and (max-width: 900px) {
+    @media (min-width: 390px) and (max-width: 900px) {
 
         // dialog a schermo pieno senza scroll verticale/orizzontale
         .mat-dialog-content {
