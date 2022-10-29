@@ -244,11 +244,33 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
         border: 1px solid black;
     }
 
+    // [Purchase]
+
+    .purchase-dialog-cont {
+
+        @media (min-width: 390px) and (max-width: 900px) {
+
+            mat-expansion-panel.purchase-exp-panel {
+                .mat-expansion-panel-header {
+                    background-color: rgba(255, 255, 255, 0.8);
+                }
+
+                .mat-expansion-panel-header.mat-expanded:focus,
+                .mat-expansion-panel-header.mat-expanded:hover {
+                    background-color: rgba(255, 255, 255, 0.8);
+                }
+
+                .mat-expansion-panel-body {
+                    background-color: #4486d611;
+                }
+            }
+        }
+    }
+
     // [MODIFICARE DIALOG]
     .sub-dialog-container {
         .mat-expansion-panel-header {
             background-color: rgba(255, 255, 255, 0.8);
-            border: 1px solid black;
         }
 
         .mat-expansion-panel-header.mat-expanded:focus,
@@ -258,9 +280,9 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
 
         .mat-expansion-panel-body {
             background-color: #4486d611;
-            border: 1px solid black;
         }
     }
+
 
 }
 
@@ -476,7 +498,7 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
 
     .purchase-dialog-cont {
 
-        @media (min-width: 380px) and (max-width: 900px) {
+        @media (min-width: 390px) and (max-width: 900px) {
 
             mat-expansion-panel.purchase-exp-panel {
                 .mat-expansion-panel-header {
@@ -491,35 +513,13 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
                 .mat-expansion-panel-body {
                     background-color: rgba(191, 152, 80, 0.38);
                 }
-
-
             }
         }
     }
 
 }
 
-// ----------------------------------------
-
-html,
-body {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-
-// [MAT DIALOG/MAT-DIALOG-CONTAINER MODIFICATO] 
-
-// MOD. COMPONENTI ANGULAR - METODO 3) Attribuire nome classe es. ad un dialog inserendo panelClass all'interno del metodo 
-// openDialog() { const dialogRef = this.dialog.open(MatModalComponent, { panelClass: 'sub-dialog-container' }); }
-// si possono effettuare le modifiche al componente necessariamente nello style principale, 
-// .sub-dialog-container { .mat-accordion {} .mat-dialog-container {} }
-
-// ----------> [Subscription]
+// [MODAL SUBSCRIPTION] ================================================================================
 .sub-dialog-cont {
 
     .mat-accordion {
@@ -557,9 +557,19 @@ body {
 
 }
 
-// ----------> [Admin Actions]
-.admin-dialog-cont {
-
+// [MODALS CREATE VG, MSC, BOOK, EVENT | DELETE ACCOUNT | UPDATE INFO/CREDENTIALS | ADD-BALANCE | SIGNUP USER/ADMIN | PURCHASE w/ BALANCE/SUB] ====================================================
+.create-vg-dialog-cont,
+.create-msc-dialog-cont,
+.create-book-dialog-cont,
+.event-dialog-cont,
+.delete-dialog-cont,
+.profilecred-dialog-cont,
+.profileinfo-dialog-cont,
+.addbalance-dialog-cont,
+.admin-dialog-cont,
+.signupadmin-dialog-cont,
+.purchase-balance-dialog-cont,
+.purchase-sub-dialog-cont {
     .mat-card {
         padding: 36px;
     }
@@ -574,152 +584,7 @@ body {
     }
 }
 
-// ----------> [Add Balance]
-.addbalance-dialog-cont {
-
-    .mat-card {
-        padding: 36px;
-    }
-
-    .mat-dialog-container {
-        padding: 0;
-        border-radius: 10px;
-    }
-
-    .mat-dialog-content {
-        display: contents;
-    }
-}
-
-// ----------> [Update Profile Info]
-.profileinfo-dialog-cont {
-
-    .mat-card {
-        padding: 36px;
-    }
-
-    .mat-dialog-container {
-        padding: 0;
-        border-radius: 10px;
-    }
-
-    .mat-dialog-content {
-        display: contents;
-    }
-}
-
-// ----------> [Update Credentials]
-.profilecred-dialog-cont {
-
-    .mat-card {
-        padding: 36px;
-    }
-
-    .mat-dialog-container {
-        padding: 0;
-        border-radius: 10px;
-    }
-
-    .mat-dialog-content {
-        display: contents;
-    }
-}
-
-// ----------> [Delete Account]
-.delete-dialog-cont {
-
-    .mat-card {
-        padding: 36px;
-    }
-
-    .mat-dialog-container {
-        padding: 0;
-        border-radius: 10px;
-    }
-
-    .mat-dialog-content {
-        display: contents;
-    }
-}
-
-// ----------> [Signup Admin]
-.signupadmin-dialog-cont {
-
-    .mat-dialog-container {
-        padding: 0;
-        border-radius: 10px;
-    }
-
-    .mat-dialog-content {
-        display: contents;
-    }
-}
-
-// ----------> [Create Sales Event]
-.event-dialog-cont {
-    .mat-card {
-        padding: 36px;
-    }
-
-    .mat-dialog-container {
-        padding: 0;
-        border-radius: 10px;
-    }
-
-    .mat-dialog-content {
-        display: contents;
-    }
-}
-
-// ----------> [Create Videogame]
-.create-vg-dialog-cont {
-    .mat-card {
-        padding: 36px;
-    }
-
-    .mat-dialog-container {
-        padding: 0;
-        border-radius: 10px;
-    }
-
-    .mat-dialog-content {
-        display: contents;
-    }
-}
-
-// ----------> [Create Music]
-.create-msc-dialog-cont {
-    .mat-card {
-        padding: 36px;
-    }
-
-    .mat-dialog-container {
-        padding: 0;
-        border-radius: 10px;
-    }
-
-    .mat-dialog-content {
-        display: contents;
-    }
-}
-
-// ----------> [Create Book]
-.create-book-dialog-cont {
-    .mat-card {
-        padding: 36px;
-    }
-
-    .mat-dialog-container {
-        padding: 0;
-        border-radius: 10px;
-    }
-
-    .mat-dialog-content {
-        display: contents;
-    }
-}
-
-// ------------------------------------> [Modal Purchase]
+// [MODAL PURCHASE] ================================================================================
 .purchase-dialog-cont {
     .mat-card {
         padding: 36px;
@@ -731,7 +596,6 @@ body {
     }
 
     // @@@ Mobile-Tablet
-
     @media (min-width: 380px) and (max-width: 900px) {
 
         // dialog a schermo pieno senza scroll verticale/orizzontale
@@ -747,12 +611,14 @@ body {
             }
         }
 
+        // modifica expansion panel
         mat-expansion-panel.purchase-exp-panel {
             .mat-expansion-panel-header {
                 border-radius: 4px;
                 border: 1px solid black;
             }
 
+            // mettere al centro contenuto aligned left
             .mat-expansion-panel-body {
                 padding: 12px;
                 border-radius: 4px;
@@ -765,7 +631,6 @@ body {
     }
 
     // @@@ Desktop small/big
-
     @media (min-width: 901px) {
 
         // dialog a schermo pieno senza scroll verticale/orizzontale
@@ -775,36 +640,16 @@ body {
     }
 }
 
-// ----------> [Purchase w/ Balance]
-.purchase-balance-dialog-cont {
-    .mat-card {
-        padding: 36px;
-    }
+// ---------------------------------------------------------
 
-    .mat-dialog-container {
-        padding: 0;
-        border-radius: 10px;
-    }
-
-    .mat-dialog-content {
-        display: contents;
-    }
+html,
+body {
+    height: 100%;
 }
 
-// ----------> [Purchase w/ Subscription]
-.purchase-sub-dialog-cont {
-    .mat-card {
-        padding: 36px;
-    }
-
-    .mat-dialog-container {
-        padding: 0;
-        border-radius: 10px;
-    }
-
-    .mat-dialog-content {
-        display: contents;
-    }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 // Risolto problema disallineamento mat-button e mat-image 
