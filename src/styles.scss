@@ -519,45 +519,7 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
 
 }
 
-// [MODAL SUBSCRIPTION] ================================================================================
-.sub-dialog-cont {
-
-    .mat-accordion {
-        margin: 3px 0;
-    }
-
-    .mat-dialog-container {
-        padding: 0;
-        border-radius: 10px;
-    }
-
-    // per eliminare scroll orizzontale
-    .mat-dialog-content {
-        display: contents;
-    }
-
-    .mat-expansion-panel-header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 5px 0;
-    }
-
-    .mat-expansion-panel-header-title,
-    .mat-expansion-panel-header-description {
-        margin: 0;
-    }
-
-    .mat-expansion-panel-body {
-        padding: 0 24px 16px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-}
-
-// [MODALS CREATE VG, MSC, BOOK, EVENT | DELETE ACCOUNT | UPDATE INFO/CREDENTIALS | ADD-BALANCE | SIGNUP USER/ADMIN | PURCHASE w/ BALANCE/SUB] ====================================================
+// [MODALS CREATE VG, MSC, BOOK, EVENT | DELETE ACCOUNT | UPDATE INFO/CREDENTIALS | ADD-BALANCE | SIGNUP USER/ADMIN | PURCHASE w/ BALANCE/SUB] =====================
 .create-vg-dialog-cont,
 .create-msc-dialog-cont,
 .create-book-dialog-cont,
@@ -584,8 +546,52 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
     }
 }
 
-// [MODAL PURCHASE] ================================================================================
+// [MODAL SUBSCRIPTION] ===================================================================================================
+.sub-dialog-cont {
+
+    .mat-accordion {
+        margin: 3px 0;
+    }
+
+    .mat-dialog-container {
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    // modifica expansion panel
+    .mat-expansion-panel-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5px 0;
+    }
+
+    .mat-expansion-panel-header-title,
+    .mat-expansion-panel-header-description {
+        margin: 0;
+    }
+
+    .mat-expansion-panel-body {
+        padding: 0 24px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    // @@@ Desktop small/big
+    @media (min-width: 901px) {
+
+        // dialog a schermo pieno senza scroll verticale/orizzontale
+        .mat-dialog-content {
+            display: contents;
+        }
+    }
+
+}
+
+// [MODAL PURCHASE] ======================================================================================================
 .purchase-dialog-cont {
+
     .mat-card {
         padding: 36px;
     }
@@ -640,7 +646,7 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
     }
 }
 
-// ---------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
 
 html,
 body {
