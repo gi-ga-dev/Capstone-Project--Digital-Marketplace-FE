@@ -239,7 +239,7 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
     }
 
     // [Subscription]
-    #subscription-card {
+    #subscription-card-content {
         background-color: #4486d611;
         border: 1px solid black;
     }
@@ -472,7 +472,7 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
     }
 
     // [Subscription]
-    #subscription-card {
+    #subscription-card-content {
         background-color: rgba(191, 152, 80, 0.38);
         border: 1px solid black;
     }

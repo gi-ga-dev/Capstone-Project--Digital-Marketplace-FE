@@ -13,7 +13,7 @@
     margin-left: 8px;
 }
 
-#sub-card-outer {
+.subscription-card {
     padding: 0;
     border: none;
     padding: 24px;
@@ -24,7 +24,7 @@
 }
 
 // Contenitore delle 3 Card
-#subcription-cont {
+#subscription-card-cont {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -33,7 +33,7 @@
 }
 
 // Contenitore Card Singola
-#subscription-card {
+#subscription-card-content {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -46,7 +46,7 @@
 }
 
 // non mostrare cards con expandable da 900px in su
-#sub-accordion-outer {
+.subscription-card-mobile {
     display: none;
 }
 
@@ -107,15 +107,15 @@
 // --------> Media Queries
 
 @media (min-width: 400px) and (max-width: 550px) {
-    #subcription-cont {
+    #subscription-card-cont {
         width: 280px;
     }
 
-    #sub-card-outer {
+    .subscription-card {
         display: none;
     }
 
-    #sub-accordion-outer {
+    .subscription-card-mobile {
         padding: 0;
         border: none;
         padding: 24px;
@@ -125,7 +125,7 @@
         border: 1px solid black;
     }
 
-    #subscription-accordions {
+    #subscription-card-content-mobile {
         height: 100%;
         display: flex;
         flex-direction: row;
@@ -161,15 +161,15 @@
 
 @media (min-width: 551px) and (max-width: 900px) {
 
-    #subcription-cont {
+    #subscription-card-cont {
         width: 400px;
     }
 
-    #sub-card-outer {
+    .subscription-card {
         display: none;
     }
 
-    #sub-accordion-outer {
+    .subscription-card-mobile {
         padding: 0;
         border: none;
         padding: 24px;
@@ -179,7 +179,7 @@
         border: 1px solid black;
     }
 
-    #subscription-accordions {
+    #subscription-card-content-mobile {
         height: 100%;
         display: flex;
         flex-direction: row;
@@ -216,11 +216,11 @@
 
 @media (min-width: 901px) and (max-width: 1150px) {
 
-    #subcription-cont {
+    #subscription-card-cont {
         width: 700px;
     }
 
-    #subscription-card {
+    #subscription-card-content {
         padding: 18px 4px;
         height: 330px;
     }
@@ -252,11 +252,11 @@
 
 @media (min-width: 1151px) and (max-width: 1400px) {
 
-    #subcription-cont {
+    #subscription-card-cont {
         width: 900px;
     }
 
-    #subscription-card {
+    #subscription-card-content {
         padding: 22px 6px;
         height: 350px;
     }
