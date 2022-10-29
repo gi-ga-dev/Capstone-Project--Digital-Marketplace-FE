@@ -145,9 +145,6 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
         }
     }
 
-    // -----------> Sidenav <-----------
-
-
     // -----------> Library Page <-----------
 
     tr.example-element-row:not(.example-expanded-row):hover {
@@ -191,11 +188,6 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
 
     // ------------------> Profile Page <-------------------
 
-    // [EXPANSION PANEL MODIFICATO] 
-
-    // MOD. COMPONENTI ANGULAR - METODO 1) se il selettore e' presente nell'html si puo' referenziare dal suo foglio css
-    // altrimenti referenziare a cascata tutti gli id/classi che compongono il compon. fino ad arrivare al selettore
-
     #profile-expansions-cont {
         .mat-accordion .mat-expansion-panel {
             .mat-expansion-panel-header {
@@ -238,13 +230,42 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
         margin: 0 auto;
     }
 
-    // [Subscription]
+    // [MODAL SUBSCRIPTION] (CSS not-nested) ===================================================================================================
+
     #subscription-card-content {
         background-color: #4486d611;
         border: 1px solid black;
     }
 
-    // [Purchase]
+    .sub-dialog-container {
+        .mat-expansion-panel-header {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid black;
+        }
+
+        .mat-expansion-panel-header.mat-expanded:focus,
+        .mat-expansion-panel-header.mat-expanded:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .mat-expansion-panel-body {
+            background-color: #4486d611;
+            border: 1px solid black;
+        }
+
+        /* 
+        @media (min-width: 390px) and (max-width: 900px) {
+            #subscription-card-content-mobile {
+                #sub-text-div {
+                    background-color: #4486d611;
+                    border: 1px solid black;
+                }
+            }
+        } */
+
+    }
+
+    // [MODAL PURCHASE] (CSS nested) ======================================================================================================
 
     .purchase-dialog-cont {
 
@@ -266,23 +287,6 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
             }
         }
     }
-
-    // [MODIFICARE DIALOG]
-    .sub-dialog-container {
-        .mat-expansion-panel-header {
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-
-        .mat-expansion-panel-header.mat-expanded:focus,
-        .mat-expansion-panel-header.mat-expanded:hover {
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-
-        .mat-expansion-panel-body {
-            background-color: #4486d611;
-        }
-    }
-
 
 }
 
@@ -424,11 +428,6 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
 
     // ------------------> Profile Page <-------------------
 
-    // [EXPANSION PANEL MODIFICATO] 
-
-    // MOD. COMPONENTI ANGULAR - METODO 1) se il selettore e' presente nell'html si puo' referenziare dal suo foglio css
-    // altrimenti referenziare a cascata tutti gli id/classi che compongono il compon. fino ad arrivare al selettore
-
     #profile-expansions-cont {
         .mat-accordion .mat-expansion-panel {
             .mat-expansion-panel-header {
@@ -471,7 +470,8 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
         margin: 0 auto;
     }
 
-    // [Subscription]
+    // [MODAL SUBSCRIPTION] (CSS not-nested) ===================================================================================================
+
     #subscription-card-content {
         background-color: rgba(191, 152, 80, 0.38);
         border: 1px solid black;
@@ -494,7 +494,7 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
         }
     }
 
-    // [Purchase]
+    // [MODAL PURCHASE] (CSS nested) ======================================================================================================
 
     .purchase-dialog-cont {
 
@@ -546,7 +546,7 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
     }
 }
 
-// [MODAL SUBSCRIPTION] ===================================================================================================
+// [MODAL SUBSCRIPTION] (CSS not-nested) ===================================================================================================
 .sub-dialog-cont {
 
     .mat-accordion {
@@ -589,7 +589,7 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
 
 }
 
-// [MODAL PURCHASE] ======================================================================================================
+// [MODAL PURCHASE] (CSS nested) ======================================================================================================
 .purchase-dialog-cont {
 
     .mat-card {
