@@ -7,8 +7,6 @@ import { environment } from "src/environments/environment";
 import { IAuthJwtResponse } from "../interfaces/iauth-jwt-response";
 import { IAuthCredentialsRequest } from "../interfaces/iauth-credentials-request";
 import { IUserDtoGetResponse } from "../interfaces/idto-user-response";
-import { IDtoProfile } from "../interfaces/idto-profile";
-import { IDtoCredentials } from "../interfaces/idto-credentials";
 import { ShopsystemService } from "./shopsystem.service";
 import { IProdVideogame } from "../interfaces/iprod-videogame";
 import { IProdMusic } from "../interfaces/iprod-music";
@@ -126,11 +124,11 @@ export class AuthService {
     return this.http.patch(environment.APIEndpoint + '/users/' + id + '/updateAvatarViaUrl', obj, this.options);
   }
 
-  updateUserInfo(obj: IDtoProfile, id: number | undefined): Observable<Object> {
+  updateUserInfo(obj: IUserDtoGetResponse, id: number | undefined): Observable<Object> {
     return this.http.patch(environment.APIEndpoint + '/users/' + id + '/updateProfileInfo', obj, this.options);
   }
 
-  updateCredentials(obj: IDtoCredentials, id: number | undefined): Observable<Object> {
+  updateCredentials(obj: IAuthCredentialsRequest, id: number | undefined): Observable<Object> {
     return this.http.patch(environment.APIEndpoint + '/users/' + id + '/updateCredentials', obj, this.options);
   }
 

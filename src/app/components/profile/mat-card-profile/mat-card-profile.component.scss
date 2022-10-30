@@ -14,8 +14,15 @@
             justify-content: center;
             align-items: center;
 
-            .avatar-img {
-                //background-image: url('../../../../assets/images/img-avatar-default.png');
+            .avatar-pre-set-img {
+                background-image: url('../../../../assets/images/img-avatar-default.png');
+                background-size: cover;
+                border-radius: 100%;
+                width: 125px;
+                height: 125px;
+            }
+
+            .avatar-url-img {
                 background-size: cover;
                 border-radius: 100%;
                 width: 125px;

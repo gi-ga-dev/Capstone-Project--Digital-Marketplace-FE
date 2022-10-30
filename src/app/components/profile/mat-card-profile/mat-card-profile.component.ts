@@ -23,12 +23,18 @@ export class MatCardProfileComponent implements OnInit {
   getId: number | undefined = this.authService.getId();
   getRole: string | undefined = this.authService.getRole()?.toString();
   showSpinner: boolean = false;
-
-  // Creare array di avatar
-  avatar0: string = "../../../../assets/images/img-avatar-default.png";
-  avatar1: string = "../../../../assets/images/img-avatar-1.png";
-
-  // creare campo input con post img url al db, come proprieta' dell'utente, poi recuperarlo nel get
+  avatarArray: String[] = [
+    "../../../../assets/images/img-avatar-default.png",
+    "../../../../assets/images/img-avatar-1.png",
+    "../../../../assets/images/img-avatar-2.png",
+    "../../../../assets/images/img-avatar-3.png",
+    "../../../../assets/images/img-avatar-4.png",
+    "../../../../assets/images/img-avatar-5.png",
+    "../../../../assets/images/img-avatar-6.png",
+    "../../../../assets/images/img-avatar-7.png",
+    "../../../../assets/images/img-avatar-8.png",
+    "../../../../assets/images/img-avatar-9.png"
+  ];
 
   constructor(private authService: AuthService, public dialog: MatDialog) { }
 
@@ -119,6 +125,7 @@ export class MatCardProfileComponent implements OnInit {
       (err) => {
         this.error = err.error;
         console.log(err.error);
+        this.authService.openSnackBar(err.message, 'primary-snackbar', 3);
       }
     )
   }

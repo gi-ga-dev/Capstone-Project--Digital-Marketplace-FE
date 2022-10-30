@@ -23,8 +23,6 @@ export class MatModalCredentialsComponent implements OnInit {
 
   onSubmit() {
     this.updateCredentials();
-    this.authService.openSnackBar("Credentials changed, You will be re-directed to the Login page...", 'primary-snackbar', 3);
-    this.authService.logout();
   }
 
   getUserInfo(id: number | undefined) {
@@ -45,9 +43,12 @@ export class MatModalCredentialsComponent implements OnInit {
     return this.authService.updateCredentials(this.form.value, this.getId).subscribe(
       (resp) => {
         this.error = undefined;
+        this.authService.openSnackBar("Credentials changed, You will be re-directed to the Login page...", 'primary-snackbar', 3);
+        this.authService.logout();
       },
       (err) => {
-        this.error = err.error;
+        //this.error = err.error;
+        this.authService.openSnackBar(err.message, 'primary-snackbar', 3);
         console.log(err.error);
       }
     )
