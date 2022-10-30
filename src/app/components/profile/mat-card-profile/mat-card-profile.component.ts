@@ -23,7 +23,7 @@ export class MatCardProfileComponent implements OnInit {
   getId: number | undefined = this.authService.getId();
   getRole: string | undefined = this.authService.getRole()?.toString();
   showSpinner: boolean = false;
-  avatarArray: String[] = [
+  avatarArray: string[] = [
     "../../../../assets/images/img-avatar-default.png",
     "../../../../assets/images/img-avatar-1.png",
     "../../../../assets/images/img-avatar-2.png",
@@ -121,6 +121,21 @@ export class MatCardProfileComponent implements OnInit {
         this.error = undefined;
         this.authService.reloadRoute();
         this.authService.openSnackBar("Avatar changed successfully...", 'primary-snackbar', 3);
+      },
+      (err) => {
+        this.error = err.error;
+        console.log(err.error);
+        this.authService.openSnackBar(err.message, 'primary-snackbar', 3);
+      }
+    )
+  }
+
+  updateAvatarPreSet(avatar: string) {
+    this.authService.updateAvatarPreSet(avatar, this.getId).subscribe(
+      (resp) => {
+        this.error = undefined;
+        this.authService.reloadRoute();
+        //this.authService.openSnackBar("Avatar changed successfully...", 'primary-snackbar', 3);
       },
       (err) => {
         this.error = err.error;
