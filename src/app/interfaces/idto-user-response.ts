@@ -9,6 +9,7 @@ export interface IUserDtoGetResponse {
     "role": string;
     "qntPurchased": number;
     "accountBalance": number;
+    "avatar": string;
     "isSubscribed": boolean;
     "subStart": string;
     "subEnd": string;

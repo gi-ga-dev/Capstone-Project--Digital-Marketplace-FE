@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { IUserDtoGetResponse } from 'src/app/interfaces/idto-user-response';
 import { AuthService } from 'src/app/services/auth.service';
@@ -16,11 +17,18 @@ import { MatModalSubscriptionComponent } from '../mat-modal-subscription/mat-mod
 })
 export class MatCardProfileComponent implements OnInit {
 
+  @ViewChild('f') form!: NgForm;
   error = undefined;
   user!: IUserDtoGetResponse;
   getId: number | undefined = this.authService.getId();
   getRole: string | undefined = this.authService.getRole()?.toString();
   showSpinner: boolean = false;
+
+  // Creare array di avatar
+  avatar0: string = "../../../../assets/images/img-avatar-default.png";
+  avatar1: string = "../../../../assets/images/img-avatar-1.png";
+
+  // creare campo input con post img url al db, come proprieta' dell'utente, poi recuperarlo nel get
 
   constructor(private authService: AuthService, public dialog: MatDialog) { }
 
@@ -96,5 +104,24 @@ export class MatCardProfileComponent implements OnInit {
       }
     )
   }
+
+  onSubmit() {
+    this.updateAvatarViaUrl();
+  }
+
+  updateAvatarViaUrl() {
+    this.authService.updateAvatarViaUrl(this.form.value, this.getId).subscribe(
+      (resp) => {
+        this.error = undefined;
+        this.authService.reloadRoute();
+        this.authService.openSnackBar("Avatar changed successfully...", 'primary-snackbar', 3);
+      },
+      (err) => {
+        this.error = err.error;
+        console.log(err.error);
+      }
+    )
+  }
+
 
 }

@@ -122,6 +122,10 @@ export class AuthService {
 
   // ============== PUT/PATCH ==============
 
+  updateAvatarViaUrl(obj: IUserDtoGetResponse, id: number | undefined): Observable<Object> {
+    return this.http.patch(environment.APIEndpoint + '/users/' + id + '/updateAvatarViaUrl', obj, this.options);
+  }
+
   updateUserInfo(obj: IDtoProfile, id: number | undefined): Observable<Object> {
     return this.http.patch(environment.APIEndpoint + '/users/' + id + '/updateProfileInfo', obj, this.options);
   }

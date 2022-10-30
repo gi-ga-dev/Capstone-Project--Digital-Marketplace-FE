@@ -1,8 +1,10 @@
-<div id="profilecard-cont">
+<div class="profilecard-cont">
     <mat-card class="profile-card" *ngIf="user!=undefined">
 
         <mat-card-header id="profile-header-cont">
-            <div mat-card-avatar class="avatar-img"></div>
+            <div mat-card-avatar class="avatar-img">
+                <img class="avatar-img" [src]="user.avatar">
+            </div>
 
             <!-- <mat-card-title>Username: {{user.userName}}</mat-card-title> -->
             <mat-card-subtitle>
@@ -30,55 +32,70 @@
 
                     <div id="images-cont">
 
-                        <button mat-button id="img-avatar" class="btn-wrapper">
-                            <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-default.png"
-                                alt="Avatar Default">
-                        </button>
+                        <!-- Patch avatar property con immagine salvata nel db (DTO) -->
 
-                        <button mat-button id="img-avatar" class="btn-wrapper">
-                            <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-1.png"
-                                alt="Avatar 1">
-                        </button>
+                        <form #f="ngForm" (ngSubmit)="onSubmit()" id="save-avatar-cont">
 
-                        <button mat-button id="img-avatar" class="btn-wrapper">
-                            <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-2.png"
-                                alt="Avatar 2">
-                        </button>
+                            <input mat-input type="text" name="avatar" id="avatar-input" ngModel
+                                placeholder="Insert your Avatar via URL">
 
-                        <button mat-button id="img-avatar" class="btn-wrapper">
-                            <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-3.png"
-                                alt="Avatar 3">
-                        </button>
+                            <button mat-button id="btns" type="submit">Modify</button>
 
-                        <button mat-button id="img-avatar" class="btn-wrapper">
-                            <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-4.png"
-                                alt="Avatar 4">
-                        </button>
+                        </form>
 
-                        <button mat-button id="img-avatar" class="btn-wrapper">
-                            <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-5.png"
-                                alt="Avatar 5">
-                        </button>
+                        <!-- Patch avatar property con immagini predefinite (no DTO) -->
 
-                        <button mat-button id="img-avatar" class="btn-wrapper">
-                            <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-6.png"
-                                alt="Avatar 6">
-                        </button>
+                        <div id="pre-set-avatar-cont">
 
-                        <button mat-button id="img-avatar" class="btn-wrapper">
-                            <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-7.png"
-                                alt="Avatar 7">
-                        </button>
+                            <button mat-button id="img-avatar" class="btn-wrapper">
+                                <img id="img-avatar" mat-card-image [src]="avatar0" alt="Avatar Default">
+                            </button>
 
-                        <button mat-button id="img-avatar" class="btn-wrapper">
-                            <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-8.png"
-                                alt="Avatar 8">
-                        </button>
+                            <button mat-button id="img-avatar" class="btn-wrapper">
+                                <img id="img-avatar" mat-card-image [src]="avatar1" alt="Avatar 1">
+                            </button>
 
-                        <button mat-button id="img-avatar" class="btn-wrapper">
-                            <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-9.png"
-                                alt="Avatar 9">
-                        </button>
+                            <button mat-button id="img-avatar" class="btn-wrapper">
+                                <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-2.png"
+                                    alt="Avatar 2">
+                            </button>
+
+                            <button mat-button id="img-avatar" class="btn-wrapper">
+                                <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-3.png"
+                                    alt="Avatar 3">
+                            </button>
+
+                            <button mat-button id="img-avatar" class="btn-wrapper">
+                                <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-4.png"
+                                    alt="Avatar 4">
+                            </button>
+
+                            <button mat-button id="img-avatar" class="btn-wrapper">
+                                <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-5.png"
+                                    alt="Avatar 5">
+                            </button>
+
+                            <button mat-button id="img-avatar" class="btn-wrapper">
+                                <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-6.png"
+                                    alt="Avatar 6">
+                            </button>
+
+                            <button mat-button id="img-avatar" class="btn-wrapper">
+                                <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-7.png"
+                                    alt="Avatar 7">
+                            </button>
+
+                            <button mat-button id="img-avatar" class="btn-wrapper">
+                                <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-8.png"
+                                    alt="Avatar 8">
+                            </button>
+
+                            <button mat-button id="img-avatar" class="btn-wrapper">
+                                <img id="img-avatar" mat-card-image src="../../../../assets/images/img-avatar-9.png"
+                                    alt="Avatar 9">
+                            </button>
+
+                        </div>
 
                     </div>
 

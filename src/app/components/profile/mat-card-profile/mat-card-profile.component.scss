@@ -1,80 +1,238 @@
-#profilecard-cont {
+.profilecard-cont {
     padding: 15px 0;
-}
 
-.profile-card {
-    margin: 0 auto;
-    width: 650px;
-    padding: 36px;
-}
+    .profile-card {
+        margin: 0 auto;
+        width: 800px;
+        padding: 36px;
+        border: 1px solid black;
 
-.avatar-img {
-    background-image: url('../../../../assets/images/img-avatar-default.png');
-    background-size: cover;
-    width: 125px;
-    height: 125px;
-}
+        // ------- Header Section ---------
 
-// ------- Header Section ---------
+        #profile-header-cont {
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-#profile-header-cont {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+            .avatar-img {
+                //background-image: url('../../../../assets/images/img-avatar-default.png');
+                background-size: cover;
+                border-radius: 100%;
+                width: 125px;
+                height: 125px;
+            }
+        }
 
-// ------- Expandables Section ------
+        // ------- Expandables Section ------
 
-.mat-expansion-panel-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 18px;
-    border-radius: 10px;
-}
+        #profile-expansions-cont {
+            mat-accordion mat-expansion-panel {
+                mat-expansion-panel-header.profile-exp-panel {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 18px;
+                    border-radius: 10px;
+                    font-size: 1.1em;
+                }
 
-#images-cont {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+                #images-cont {
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
 
-#img-avatar {
-    border-radius: 50px;
-    width: 60px;
-    margin: 0;
-}
+                    #save-avatar-cont {
+                        display: flex;
+                        margin-bottom: 12px;
 
-#balance-cont,
-#subscr-cont {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+                        #avatar-input {
+                            width: 400px;
+                        }
 
-#subscr-status {
-    display: flex;
-    align-items: center;
+                        #btns {
+                            width: 150px;
+                        }
+                    }
+
+                    #pre-set-avatar-cont {
+                        text-align: center;
+
+                        #img-avatar {
+                            border-radius: 50px;
+                            width: 60px;
+                            margin: 0;
+                        }
+                    }
+                }
+
+                #balance-cont,
+                #subscr-cont {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    #btns {
+                        width: 33%;
+                    }
+
+                    #subscr-status {
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+
+        // ------------------- Danger Zone --------------------
+
+        #profile-dangerzone-cont {
+            display: flex;
+
+            #btns-dangerzone {
+                border: 1px solid rgb(38, 38, 38);
+                background-color: rgba(253, 27, 125, 0.8);
+                width: 33%;
+                font-size: 1.1em;
+                font-weight: 400;
+                margin: 0 3px;
+                padding: 0;
+            }
+
+            #btns-dangerzone:hover {
+                background-color: rgba(255, 0, 111, 1);
+                color: white;
+            }
+        }
+    }
+
+    // @@@ Mobile-Tablet
+
+    @media (min-width: 390px) and (max-width: 550px) {
+        .profile-card {
+            width: 300px;
+
+            #profile-expansions-cont {
+                mat-accordion mat-expansion-panel {
+                    mat-expansion-panel-header.profile-exp-panel {
+                        // titolo expandable
+                        font-size: 0.9em;
+                    }
+
+                    #images-cont {
+                        #save-avatar-cont {
+                            #avatar-input {
+                                width: 175px;
+                            }
+
+                            #btns {
+                                width: 75px;
+                            }
+                        }
+                    }
+
+                    #balance-cont,
+                    #subscr-cont {
+                        // testo subscription/balance 
+                        font-size: 0.9em;
+
+                        #btns {
+                            width: 49%;
+                            margin: auto;
+                            font-size: 1em;
+                        }
+                    }
+                }
+            }
+
+            #profile-dangerzone-cont {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                #btns-dangerzone {
+                    font-size: 0.9em;
+                    width: 75%;
+                    margin: 3px auto;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 551px) and (max-width: 750px) {
+        .profile-card {
+            width: 450px;
+
+            #profile-expansions-cont {
+                mat-accordion mat-expansion-panel {
+                    mat-expansion-panel-header.profile-exp-panel {
+                        // titolo expandable
+                        font-size: 1em;
+                    }
+
+                    #images-cont {
+                        #save-avatar-cont {
+                            #avatar-input {
+                                width: 280px;
+                            }
+
+                            #btns {
+                                width: 100px;
+                            }
+                        }
+                    }
+
+                    #balance-cont,
+                    #subscr-cont {
+                        // testo subscription/balance
+                        font-size: 1em;
+
+                        #btns {
+                            width: 49%;
+                            margin: auto;
+                            font-size: 1em;
+                        }
+                    }
+                }
+            }
+
+            #profile-dangerzone-cont {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                #btns-dangerzone {
+                    font-size: 1em;
+                    width: 75%;
+                    margin: 3px auto;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 751px) and (max-width: 960px) {
+        .profile-card {
+            width: 650px;
+
+            #profile-expansions-cont {
+                mat-accordion mat-expansion-panel {
+                    mat-expansion-panel-header.profile-exp-panel {
+                        font-size: 1.1em;
+                    }
+                }
+            }
+
+            #profile-dangerzone-cont {
+                #btns-dangerzone {
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+
 }
 
 #btns {
     width: 33%;
-}
-
-// ------------------- Danger Zone --------------------
-
-#btns-dangerzone {
-    border: 1px solid rgb(38, 38, 38);
-    background-color: rgba(253, 27, 125, 0.6);
-    width: 33%;
-}
-
-#btns-dangerzone:hover {
-    background-color: rgba(255, 0, 111, 1);
-}
-
-#profile-dangerzone-cont {
-    display: flex;
 }
 
 #divider-title {
