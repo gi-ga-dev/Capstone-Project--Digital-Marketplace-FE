@@ -9,6 +9,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { ProductsService } from 'src/app/services/products.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MatModalCodeComponent } from '../mat-modal-code/mat-modal-code.component';
 
 @Component({
   selector: 'app-mat-table-library',
@@ -28,13 +31,14 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 export class MatTableLibraryComponent implements OnInit {
 
   getId: number | undefined = this.authService.getId();
+  isSubscribed: boolean | undefined = this.authService.getIsSubscribed();
   libraryProducts: any[] = [];
   showSpinner: boolean = false;
   error = undefined;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  displayedColumns: string[] = ['productType', 'title', 'paymentMethod', 'download'];
+  displayedColumns: string[] = ['productType', 'title', 'paymentMethod', 'releaseDate', 'genre'];
   dataSource: MatTableDataSource<IProdVideogame | IProdMusic | IProdBook> = new MatTableDataSource(this.libraryProducts);
   columnsToDisplayWithExpand = [...this.displayedColumns, 'expand'];
   expandedElement!: IProdVideogame | IProdMusic | IProdBook | null;
@@ -46,9 +50,11 @@ export class MatTableLibraryComponent implements OnInit {
   options = { headers: this.headers }
 
   constructor(
+    public dialog: MatDialog,
     private http: HttpClient,
     private authService: AuthService,
-    private shopService: ShopsystemService) { }
+    private shopService: ShopsystemService,
+    private prodService: ProductsService) { }
 
   ngOnInit(): void {
     this.showSpinner = true;
@@ -57,6 +63,17 @@ export class MatTableLibraryComponent implements OnInit {
       this.showSpinner = false;
       this.getLibraryListByShopId(this.getId);
     }, 300);
+  }
+
+  openCodeDialog(prodId: number | undefined) {
+    // prendo id (dai prodotti ciclati in html passo id nel paramentro di questo metodo) e lo inietto nel modal purchase
+    const dialogRef = this.dialog.open(MatModalCodeComponent, {
+      panelClass: 'code-dialog-cont',
+      data: { id: prodId }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   applyFilter(event: Event) {
@@ -83,6 +100,10 @@ export class MatTableLibraryComponent implements OnInit {
       }
     )
   }
+
+  /*   saveCode() {
+      return this.prodService.saveCode(product.)
+    } */
 
 
 

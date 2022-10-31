@@ -18,14 +18,24 @@ export class MatNavbarComponent implements OnInit, DoCheck {
   badgeCount: number | undefined;
   isSubscribed!: boolean | undefined;
 
-  isDarkMode!: boolean;
+  isDarkMode: boolean = this.themeStatus();
   showFiller = false;
   toggleControl = new FormControl(false);
   @HostBinding('class') className = ''
 
+  showDarkToolbar!: boolean;
+  showLightToolbar!: boolean;
+
   constructor(
     private themeService: ThemeService,
     private authService: AuthService) { }
+
+  themeStatus(): boolean {
+    if (this.themeService.isDarkMode()) {
+      this.isDarkMode = true;
+    } else this.isDarkMode = false;
+    return this.isDarkMode;
+  }
 
   ngOnInit(): void { }
 

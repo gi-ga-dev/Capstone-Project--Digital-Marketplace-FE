@@ -9,13 +9,14 @@ export interface IProdBook {
     "discount"?: number;
     "title": string;
     "description": string;
-    "platform": string; // dove e' possibile installarlo
+    "platform": string;
     "publisher": string;
     "releaseDate": string;
     "language": string;
     "genre": string;
     "ratings"?: number; // 1-5 stars (average)
     "reviews"?: number;  // 1000 reviews 
+
     // [prop. books] --> downloaded pdf
     "read"?: number; // quante volte e' stato letto
     "pages": number;

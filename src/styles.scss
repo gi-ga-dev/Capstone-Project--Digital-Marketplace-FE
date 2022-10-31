@@ -1,6 +1,7 @@
 @import "@angular/material/theming";
 @include mat-core();
 
+/* primary */
 $blue-light-scheme: (
     100: #8bb6db,
     500: #617e9a,
@@ -10,7 +11,7 @@ $blue-light-scheme: (
         700: #ffffff,
     ),
 );
-
+/* accent */
 $orange-light-scheme: (
     100: #e3c38c,
     500: #d7a54f,
@@ -20,7 +21,7 @@ $orange-light-scheme: (
         700: #ffffff,
     ),
 );
-
+/* warn */
 $warn-light-scheme: (
     100: #ff80ab,
     500: #ff4081,

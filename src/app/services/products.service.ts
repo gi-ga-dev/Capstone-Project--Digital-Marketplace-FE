@@ -37,6 +37,10 @@ export class ProductsService {
 
   // ============== POST ==============
 
+  saveCode(prodId: number | undefined): Observable<Object> {
+    return this.http.post(environment.APIEndpoint + '/downloadcodes/' + prodId + '/saveCode', this.options);
+  }
+
   // Prodotti da acquistare (inseriti nel db (no lista) tramite input) 
 
   saveVideogame(obj: IProdVideogame): Observable<Object> {

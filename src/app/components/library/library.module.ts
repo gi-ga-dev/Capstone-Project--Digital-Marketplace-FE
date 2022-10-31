@@ -22,11 +22,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatModalCodeComponent } from './mat-modal-code/mat-modal-code.component';
 
 @NgModule({
   declarations: [
     LibraryComponent,
-    MatTableLibraryComponent
+    MatTableLibraryComponent,
+    MatModalCodeComponent
   ],
   imports: [
     CommonModule,

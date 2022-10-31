@@ -9,7 +9,7 @@ export interface IProdVideogame {
     "discount"?: number;
     "title": string;
     "description": string;
-    "platform": string; // dove e' possibile installarlo
+    "platform": string;
     "publisher": string;
     "releaseDate": string;
     "language": string;
@@ -17,7 +17,8 @@ export interface IProdVideogame {
     "ratings"?: number; // 1-5 stars (average)
     "reviews"?: number;  // 1000 reviews 
 
-    // [prop. videogames] --> solo schede tecniche (scrivero available for download at:)    
+    // [prop. videogames]
+    downloadCode: any; // obj
     "downloads"?: number;
     "vgSeries": string;
     "dlc"?: string;

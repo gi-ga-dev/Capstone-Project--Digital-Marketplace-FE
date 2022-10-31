@@ -15,6 +15,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatDividerModule,
     MatSlideToggleModule,
     FormsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatExpansionModule
   ],
   exports: [
     HeaderComponent,
