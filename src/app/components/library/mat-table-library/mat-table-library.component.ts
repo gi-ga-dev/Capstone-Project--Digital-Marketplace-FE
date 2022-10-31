@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IProdBook } from 'src/app/interfaces/iprod-book';
 import { IProdMusic } from 'src/app/interfaces/iprod-music';
@@ -9,9 +8,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { ProductsService } from 'src/app/services/products.service';
-import { MatDialog } from '@angular/material/dialog';
-import { MatModalCodeComponent } from '../mat-modal-code/mat-modal-code.component';
 
 @Component({
   selector: 'app-mat-table-library',
@@ -50,11 +46,8 @@ export class MatTableLibraryComponent implements OnInit {
   options = { headers: this.headers }
 
   constructor(
-    public dialog: MatDialog,
-    private http: HttpClient,
     private authService: AuthService,
-    private shopService: ShopsystemService,
-    private prodService: ProductsService) { }
+    private shopService: ShopsystemService) { }
 
   ngOnInit(): void {
     this.showSpinner = true;
@@ -63,17 +56,6 @@ export class MatTableLibraryComponent implements OnInit {
       this.showSpinner = false;
       this.getLibraryListByShopId(this.getId);
     }, 300);
-  }
-
-  openCodeDialog(prodId: number | undefined) {
-    // prendo id (dai prodotti ciclati in html passo id nel paramentro di questo metodo) e lo inietto nel modal purchase
-    const dialogRef = this.dialog.open(MatModalCodeComponent, {
-      panelClass: 'code-dialog-cont',
-      data: { id: prodId }
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
   }
 
   applyFilter(event: Event) {
@@ -100,11 +82,5 @@ export class MatTableLibraryComponent implements OnInit {
       }
     )
   }
-
-  /*   saveCode() {
-      return this.prodService.saveCode(product.)
-    } */
-
-
 
 }

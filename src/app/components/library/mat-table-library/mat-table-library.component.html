@@ -23,7 +23,7 @@
 
                 <!-- Per riportare dettagli custom nelle colonne -->
                 <!-- se non sono piu' subscribed, mi nascondi gli elementi presi tramite SUBSCRIPTION -->
-                <td mat-cell *matCellDef="let prod" [hidden]="prod.paymentMethod == 'SUBSCRIPTION' && !isSubscribed">
+                <td mat-cell *matCellDef="let prod">
                     <p *ngIf="column === displayedColumns[0]">{{prod.productType}}</p>
                     <p *ngIf="column === displayedColumns[1]">{{prod.title}}</p>
                     <p *ngIf="column === displayedColumns[2]">{{prod.paymentMethod}}</p>
@@ -50,8 +50,7 @@
 
             <!-- Dati da inserire nell'expandable -->
             <ng-container matColumnDef="expandedDetail">
-                <td mat-cell *matCellDef="let product" [attr.colspan]="columnsToDisplayWithExpand.length"
-                    [hidden]="product.paymentMethod == 'SUBSCRIPTION' && !isSubscribed">
+                <td mat-cell *matCellDef="let product" [attr.colspan]="columnsToDisplayWithExpand.length">
                     <div class="table-details" [@detailExpand]="product == expandedElement ? 'expanded' : 'collapsed'">
 
                         <mat-card class="library-card">

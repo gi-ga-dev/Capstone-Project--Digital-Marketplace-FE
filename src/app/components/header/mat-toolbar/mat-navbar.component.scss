@@ -5,18 +5,18 @@
     justify-content: center;
 }
 
-.dark-prod-toolbar {
+.prod-toolbar {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white !important;
 }
 
-.light-prod-toolbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black !important;
+#img-logo {
+    width: 100%;
+}
+
+.logo-cont {
+    width: 250px;
 }
 
 // ============ Sidenav ============

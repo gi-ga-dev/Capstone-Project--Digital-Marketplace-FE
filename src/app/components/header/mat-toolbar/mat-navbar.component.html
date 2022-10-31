@@ -3,7 +3,8 @@
     <div id="logo-home-cont">
         <a mat-button (click)="drawer.close()" [routerLink]="['/home']" routerLinkActive="router-link-active"
             class="logo-cont">
-            <!-- <img src="../../../assets/img-logo.png" id="img-logo"> --> LOGO CONTAINER
+            <!-- aggiungere tema dark-light mode -->
+            <img src="../../../../assets/images/img-logo.png" id="img-logo">
         </a>
         <a mat-button (click)="drawer.close()" href="#" [routerLink]="['/home']" routerLinkActive="router-link-active">
             <mat-icon>home</mat-icon> Home
@@ -28,7 +29,8 @@
 
 <!-- ================== Product Toolbar ================== -->
 
-<mat-toolbar color="accent" class="dark-prod-toolbar" *ngIf="showProdTab && isDarkMode; else emptyBlock">
+<mat-toolbar [color]="setColor()" class="prod-toolbar" *ngIf="showProdTab; else emptyBlock">
+
     <a mat-button (click)="drawer.close()" href="#" [routerLink]="['/products/videogames']"
         routerLinkActive="router-link-active">
         <mat-icon>videogame_asset</mat-icon> Videogames
@@ -43,23 +45,7 @@
         routerLinkActive="router-link-active">
         <mat-icon>book</mat-icon> Books
     </a>
-</mat-toolbar>
 
-<mat-toolbar color="primary" class="light-prod-toolbar" *ngIf="showProdTab && !isDarkMode; else emptyBlock">
-    <a mat-button (click)="drawer.close()" href="#" [routerLink]="['/products/videogames']"
-        routerLinkActive="router-link-active">
-        <mat-icon>videogame_asset</mat-icon> Videogames
-    </a>
-
-    <a mat-button (click)="drawer.close()" href="#" [routerLink]="['/products/music']"
-        routerLinkActive="router-link-active">
-        <mat-icon>music_note</mat-icon> Music
-    </a>
-
-    <a mat-button (click)="drawer.close()" href="#" [routerLink]="['/products/books']"
-        routerLinkActive="router-link-active">
-        <mat-icon>book</mat-icon> Books
-    </a>
 </mat-toolbar>
 
 <ng-template #emptyBlock>

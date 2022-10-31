@@ -15,7 +15,7 @@ input.example-right-align {
     -moz-appearance: textfield;
 }
 
-/* ========= Card ========= */
+// ========= Card =========
 
 .login-card {
     border: 1px solid black;
@@ -47,7 +47,7 @@ input.example-right-align {
     margin: auto;
 }
 
-/* ========= Form ========= */
+// ========= Form =========
 
 :host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
     // dimensioni campi input
@@ -59,7 +59,7 @@ input.example-right-align {
     margin-bottom: -12px !important;
 }
 
-/* ======== button ======== */
+// ======== button ========
 
 :host ::ng-deep .mat-button {
     width: 275px;

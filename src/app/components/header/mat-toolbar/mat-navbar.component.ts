@@ -19,6 +19,8 @@ export class MatNavbarComponent implements OnInit, DoCheck {
   isSubscribed!: boolean | undefined;
 
   isDarkMode: boolean = this.themeStatus();
+  themeColor!: string;
+
   showFiller = false;
   toggleControl = new FormControl(false);
   @HostBinding('class') className = ''
@@ -35,6 +37,13 @@ export class MatNavbarComponent implements OnInit, DoCheck {
       this.isDarkMode = true;
     } else this.isDarkMode = false;
     return this.isDarkMode;
+  }
+
+  setColor(): string {
+    if (this.isDarkMode) {
+      this.themeColor = "accent";
+    } else this.themeColor = "primary";
+    return this.themeColor;
   }
 
   ngOnInit(): void { }
