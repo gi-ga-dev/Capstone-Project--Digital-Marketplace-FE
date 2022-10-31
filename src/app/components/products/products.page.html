@@ -1,5 +1,6 @@
-<!-- ===== NOTA: La pagina Products deve essere lasciata vuota ===== -->
-
-<!-- per far leggere i children (products/videogames ecc...) -->
-
-<router-outlet></router-outlet>
+<!-- ===== NOTA: La pagina Products e' stata volutamente lasciata vuota, uso router-outlet per leggere rotte children ===== -->
+<!-- Inserito Media Queries per min-height (class="router-outlet-cont") dallo style principale  -->
+<!-- e id="products-cont" come container per inserire sfondo immagine ed avere height uguale al router-outlet-cont -->
+<div class="router-outlet-cont" id="products-cont">
+    <router-outlet></router-outlet>
+</div>

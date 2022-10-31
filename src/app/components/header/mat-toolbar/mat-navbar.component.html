@@ -1,26 +1,30 @@
 <mat-toolbar class="toolbar">
 
     <div id="logo-home-cont">
-        <a mat-button (click)="drawer.close()" [routerLink]="['/home']" routerLinkActive="router-link-active"
-            class="logo-cont">
+        <button mat-button id="btns-toolbar" (click)="drawer.close()" [routerLink]="['/home']"
+            routerLinkActive="router-link-active" class="logo-cont">
             <!-- aggiungere tema dark-light mode -->
             <img src="../../../../assets/images/img-logo.png" id="img-logo">
-        </a>
-        <a mat-button (click)="drawer.close()" href="#" [routerLink]="['/home']" routerLinkActive="router-link-active">
+        </button>
+    </div>
+
+    <div id="home-cont">
+        <button mat-button id="btns-toolbar" (click)="drawer.close()" href="#" [routerLink]="['/home']"
+            routerLinkActive="router-link-active">
             <mat-icon>home</mat-icon> Home
-        </a>
+        </button>
     </div>
 
     <div id="prod-cont">
-        <a mat-button (click)="drawer.close()" (click)="toggleProdTab()">
+        <button mat-button id="btns-toolbar" (click)="drawer.close()" (click)="toggleProdTab()">
             <mat-icon>camera</mat-icon> Products
             <mat-icon *ngIf="!showProdTab">expand_more</mat-icon>
             <mat-icon *ngIf="showProdTab">expand_less</mat-icon>
-        </a>
+        </button>
     </div>
 
     <div id="profile-cont">
-        <button type="button" mat-button (click)="drawer.toggle()">
+        <button mat-button id="btns-toolbar" type="button" (click)="drawer.toggle()">
             <mat-icon>reorder</mat-icon>
         </button>
     </div>
@@ -31,20 +35,26 @@
 
 <mat-toolbar [color]="setColor()" class="prod-toolbar" *ngIf="showProdTab; else emptyBlock">
 
-    <a mat-button (click)="drawer.close()" href="#" [routerLink]="['/products/videogames']"
-        routerLinkActive="router-link-active">
-        <mat-icon>videogame_asset</mat-icon> Videogames
-    </a>
+    <div id="btn-videogame">
+        <button mat-button id="btns-toolbar-prod" (click)="drawer.close()" href="#"
+            [routerLink]="['/products/videogames']" routerLinkActive="router-link-active">
+            <mat-icon>videogame_asset</mat-icon> Videogames
+        </button>
+    </div>
 
-    <a mat-button (click)="drawer.close()" href="#" [routerLink]="['/products/music']"
-        routerLinkActive="router-link-active">
-        <mat-icon>music_note</mat-icon> Music
-    </a>
+    <div id="btn-music">
+        <button mat-button id="btns-toolbar-prod" (click)="drawer.close()" href="#" [routerLink]="['/products/music']"
+            routerLinkActive="router-link-active">
+            <mat-icon>music_note</mat-icon> Music
+        </button>
+    </div>
 
-    <a mat-button (click)="drawer.close()" href="#" [routerLink]="['/products/books']"
-        routerLinkActive="router-link-active">
-        <mat-icon>book</mat-icon> Books
-    </a>
+    <div id="btn-book">
+        <button mat-button id="btns-toolbar-prod" (click)="drawer.close()" href="#" [routerLink]="['/products/books']"
+            routerLinkActive="router-link-active">
+            <mat-icon>book</mat-icon> Books
+        </button>
+    </div>
 
 </mat-toolbar>
 
@@ -110,8 +120,8 @@
 
     </mat-drawer>
 
+    <!-- Qui ho settato le min-height del contenuto interno sidenav, necessario router-outlet per far leggere cont. pagine children -->
     <div class="router-outlet-cont">
-        <!-- Contenuto interno sidenav, serve per far leggere il contenuto delle pagine children -->
         <router-outlet></router-outlet>
     </div>
 

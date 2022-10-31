@@ -1,22 +1,75 @@
 // ============ Navbar ============
 
+// ------ Toolbar ------
+
 .toolbar {
     display: flex;
-    justify-content: center;
+    text-align: center;
+    height: 60px;
+    align-items: center;
 }
+
+#logo-home-cont {
+    width: 30%;
+    text-align: right;
+}
+
+#home-cont {
+    width: 15%;
+    text-align: center;
+}
+
+#prod-cont {
+    width: 30%;
+    text-align: left;
+}
+
+#profile-cont {
+    width: 25%;
+    text-align: center;
+}
+
+// dimensioni immagine
+#img-logo {
+    width: 100%;
+}
+
+// dimensioni tag a, l'immagine ingrandisce di conseguenza 
+.logo-cont {
+    width: 250px;
+}
+
+#btns-toolbar {
+    height: 60px;
+}
+
+// ------ Products Toolbar ------  
 
 .prod-toolbar {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 60px;
 }
 
-#img-logo {
+#btn-videogame {
+    width: 23%;
+    text-align: right;
+}
+
+#btn-music {
+    width: 23%;
+    text-align: center;
+}
+
+#btn-book {
+    width: 23%;
+    text-align: left;
+}
+
+#btns-toolbar-prod {
+    height: 60px;
     width: 100%;
-}
-
-.logo-cont {
-    width: 250px;
 }
 
 // ============ Sidenav ============
@@ -79,28 +132,49 @@
     margin: 5px 0;
 }
 
-// contenuto pagine
-.router-outlet-cont {
-    min-height: 900px;
-}
+@media (min-width: 390px) and (max-width: 571px) {
 
-// @@@ Mobile
-@media (min-width: 390px) and (max-width: 768px) {
-    .router-outlet-cont {
-        min-height: 850px;
+    // ---- Toolbar ----
+
+    #logo-home-cont {
+        display: none;
+    }
+
+    #home-cont {
+        width: 33%;
+        text-align: center;
+    }
+
+    #prod-cont {
+        width: 33%;
+        text-align: center;
+    }
+
+    #profile-cont {
+        width: 33%;
+        text-align: center;
+    }
+
+    // ---- Products Toolbar ----
+
+    #btn-videogame {
+        width: 33%;
+        text-align: right;
+    }
+
+    #btn-music {
+        width: 33%;
+        text-align: center;
+    }
+
+    #btn-book {
+        width: 33%;
+        text-align: left;
     }
 }
 
-// @@@ Tablet
-@media (min-width: 769px) and (max-width: 960px) {
-    .router-outlet-cont {
-        min-height: 1000px;
-    }
-}
-
-// @@@ Desktop Small
-@media (min-width: 961px) and (max-width: 1920px) {
-    .router-outlet-cont {
-        min-height: 800px;
+@media (min-width: 570px) and (max-width: 768px) {
+    #btns-toolbar {
+        width: fit-content;
     }
 }

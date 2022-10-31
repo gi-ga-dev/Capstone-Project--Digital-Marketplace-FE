@@ -1,46 +1,25 @@
-#footer {
+#footer-cont {
     bottom: 0;
     width: 100%;
-    padding-bottom: 20px;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-#footer-details {
-    margin: auto;
-    font-size: 0.75em;
-    //color: #343434;
-    letter-spacing: 0.1em;
-}
-
-#footer-icons {
-    margin: auto;
-    padding: 5px 0;
-}
-
-#footer-details span {
-    line-height: 2em;
-    font-size: 1.3em;
-    color: purple;
-}
-
-:host ::ng-deep .mat-toolbar-row,
-.mat-toolbar-single-row {
-    height: 35px;
+#footer-content>p {
+    font-size: 0.7em;
 }
 
 // ====== Icons =======
 
-#icons i {
+#icons {
+    width: 30px;
     margin: 0 5px;
-    background-color: #b0b0b0;
-    color: white;
-    font-size: 25px;
-    transition: color 0.2s ease-in;
-    border-radius: 50%;
-    border: 7px solid #b0b0b0;
 }
 
-#icons i:hover {
-    border: 7px solid purple;
-    background-color: purple;
-    cursor: pointer;
+#fa-icons {
+    font-size: 30px;
+    margin: 0 5px;
 }
