@@ -47,8 +47,8 @@ export class MatModalCredentialsComponent implements OnInit {
         this.authService.logout();
       },
       (err) => {
-        //this.error = err.error;
-        this.authService.openSnackBar(err.message, 'primary-snackbar', 3);
+        this.error = err.error;
+        //this.authService.openSnackBar(err.message, 'primary-snackbar', 3);
         console.log(err.error);
       }
     )

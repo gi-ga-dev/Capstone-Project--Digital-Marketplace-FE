@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-mat-footer',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MatFooterComponent implements OnInit {
 
-  constructor() { }
+  isDarkMode: boolean = this.themeService.themeStatus();
+  themeColor!: string;
 
-  ngOnInit(): void {
+  constructor(private themeService: ThemeService) { }
+
+  ngOnInit(): void { }
+
+  setColor(): string {
+    this.toggleDarkMode();
+    if (this.isDarkMode) {
+      this.themeColor = "accent";
+    } else this.themeColor = "primary";
+    return this.themeColor;
+  }
+
+  // metodo necessario per aggiornare tema del footer
+  toggleDarkMode() {
+    this.isDarkMode = this.themeService.isDarkMode();
+
+    this.isDarkMode
+      ? this.themeService.update('light-mode')
+      : this.themeService.update('dark-mode');
   }
 
 }

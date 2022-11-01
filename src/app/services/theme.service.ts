@@ -7,6 +7,7 @@ export class ThemeService {
 
   private renderer: Renderer2;
   private colorTheme: any;
+  isDarkModee!: boolean;
 
   constructor(rendererFactory: RendererFactory2) {
     this.renderer = rendererFactory.createRenderer(null, null);
@@ -40,6 +41,14 @@ export class ThemeService {
     } else {
       this.colorTheme = 'light-mode';
     }
+  }
+
+  themeStatus(): boolean {
+    // ritorna un booleano che al lancio indica se e' dark mode
+    if (this.isDarkMode()) {
+      this.isDarkModee = true;
+    } else this.isDarkModee = false;
+    return this.isDarkModee;
   }
 
 }

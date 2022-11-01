@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { tap } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { ShopsystemService } from 'src/app/services/shopsystem.service';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-mat-login-form',
@@ -17,9 +18,11 @@ export class LoginMatCardComponent implements OnInit {
   hide = true;
   show = false;
 
+  isDarkMode: boolean = this.themeService.themeStatus();
+
   constructor(
+    private themeService: ThemeService,
     private authService: AuthService,
-    private shopService: ShopsystemService,
     private router: Router) { }
 
   ngOnInit(): void { }

@@ -51,6 +51,15 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
 
     // ---> Selettori utilizzabili in ogni componente chiamandolo nell'html
 
+    .mat-form-field-label {
+        color: #4486d6dd !important;
+    }
+
+    .mat-form-field-underline,
+    .mat-form-field-ripple {
+        background-color: #4486d6dd !important;
+    }
+
     #btns,
     #btn-purchase,
     #action-btns,
@@ -95,6 +104,11 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
         align-items: center;
         justify-content: center;
         height: 300px;
+    }
+
+    .mat-progress-spinner circle,
+    .mat-spinner circle {
+        stroke: #4486d6dd !important;
     }
 
     #divider {
@@ -299,6 +313,15 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
 
     // ---> Selettori utilizzabili in ogni componente chiamandolo nell'html
 
+    .mat-form-field-label {
+        color: rgba(232, 169, 52, 0.742) !important;
+    }
+
+    .mat-form-field-underline,
+    .mat-form-field-ripple {
+        background-color: rgba(232, 169, 52, 0.742) !important;
+    }
+
     #btns,
     #btn-purchase,
     #action-btns,
@@ -343,6 +366,11 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
         align-items: center;
         justify-content: center;
         height: 300px;
+    }
+
+    .mat-progress-spinner circle,
+    .mat-spinner circle {
+        stroke: rgba(232, 169, 52, 0.89) !important;
     }
 
     #error {

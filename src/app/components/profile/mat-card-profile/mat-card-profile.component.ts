@@ -125,7 +125,7 @@ export class MatCardProfileComponent implements OnInit {
       (err) => {
         this.error = err.error;
         console.log(err.error);
-        this.authService.openSnackBar(err.message, 'primary-snackbar', 3);
+        //this.authService.openSnackBar(err.message, 'primary-snackbar', 3);
       }
     )
   }
@@ -140,7 +140,7 @@ export class MatCardProfileComponent implements OnInit {
       (err) => {
         this.error = err.error;
         console.log(err.error);
-        this.authService.openSnackBar(err.message, 'primary-snackbar', 3);
+        //this.authService.openSnackBar(err.message, 'primary-snackbar', 3);
       }
     )
   }
