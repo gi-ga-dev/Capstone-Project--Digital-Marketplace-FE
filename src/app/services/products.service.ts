@@ -62,19 +62,19 @@ export class ProductsService {
   // ============== GET ==============
 
   getAllProducts(): Observable<IProdVideogame[] | IProdMusic[] | IProdBook[]> {
-    return this.http.get<IProdVideogame[] | IProdMusic[] | IProdBook[]>(environment.APIEndpoint + '/products/getAllProducts', this.options);
+    return this.http.get<IProdVideogame[] | IProdMusic[] | IProdBook[]>(environment.APIEndpoint + '/products/getAllProducts');
   }
 
   getAllVideogames(): Observable<IProdVideogame[]> {
-    return this.http.get<IProdVideogame[]>(environment.APIEndpoint + '/products/getAllVideogames', this.options);
+    return this.http.get<IProdVideogame[]>(environment.APIEndpoint + '/products/getAllVideogames');
   }
 
   getAllMusic(): Observable<IProdMusic[]> {
-    return this.http.get<IProdMusic[]>(environment.APIEndpoint + '/products/getAllMusic', this.options);
+    return this.http.get<IProdMusic[]>(environment.APIEndpoint + '/products/getAllMusic');
   }
 
   getAllBooks(): Observable<IProdBook[]> {
-    return this.http.get<IProdBook[]>(environment.APIEndpoint + '/products/getAllBooks', this.options);
+    return this.http.get<IProdBook[]>(environment.APIEndpoint + '/products/getAllBooks');
   }
 
   getProductById(prodId: number | undefined) {

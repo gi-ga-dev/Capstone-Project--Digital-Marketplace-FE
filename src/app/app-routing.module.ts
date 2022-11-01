@@ -6,7 +6,7 @@ import { AuthPage } from './components/auth/auth.page';
 const routes: Routes = [
   { path: 'home', loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule) },
   { path: 'auth', component: AuthPage },
-  { path: 'products', canActivate: [AuthGuard], loadChildren: () => import('./components/products/products.module').then(m => m.ProductsModule) },
+  { path: 'products', loadChildren: () => import('./components/products/products.module').then(m => m.ProductsModule) },
   { path: 'profile', canActivate: [AuthGuard], loadChildren: () => import('./components/profile/profile.module').then(m => m.ProfileModule) },
   { path: 'library', canActivate: [AuthGuard], loadChildren: () => import('./components/library/library.module').then(m => m.LibraryModule) },
   { path: 'shopping-cart', canActivate: [AuthGuard], loadChildren: () => import('./components/shopping-cart/shopping-cart.module').then(m => m.ShoppingCartModule) },

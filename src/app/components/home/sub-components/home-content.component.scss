@@ -3,16 +3,32 @@
 }
 
 .btns-container {
-    color: black;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: 10px;
 }
 
-#btn-product {
+.btn-product {
     margin: 10px;
     width: 350px;
+    /* padding: 100px; */
     /* height: 350px; */
     white-space: normal; // allarga il contenuto in base alla quantita' di testo
+}
+
+#img-home-videogame {
+    background: url("../../../../assets/images/img-home-vg.jpg");
+    border-radius: 10px;
+
+}
+
+#img-home-music {
+    background: url("../../../../assets/images/img-home-music.jpg");
+    border-radius: 10px;
+}
+
+#img-home-book {
+    background: url("../../../../assets/images/img-home-book.jpg");
+    border-radius: 10px;
 }

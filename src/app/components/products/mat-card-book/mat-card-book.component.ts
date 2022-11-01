@@ -19,8 +19,9 @@ export class MatCardBookComponent implements OnInit {
   isDiscounted!: boolean;
   book!: IProdVideogame | IProdMusic | IProdBook;
   books: IProdBook[] = [];
-  getId: number | undefined = this.authService.getId();
+  getId!: number | undefined;
   showSpinner: boolean = false;
+  showButtons!: boolean;
 
   constructor(
     public dialog: MatDialog,
@@ -31,9 +32,15 @@ export class MatCardBookComponent implements OnInit {
   ngOnInit(): void {
     // lo spinner e' visibile per 0.3 sec prima del get all
     this.showSpinner = true;
+
     setTimeout(() => {
       this.showSpinner = false;
       this.getAllBooks();
+      // solo se autenticato carica le schede con i buttons, altrimenti solo schede
+      if (localStorage.getItem("isAuthenticated")) {
+        this.getId = this.authService.getId();
+        this.showButtons = true;
+      } else this.showButtons = false;
     }, 300);
   }
 

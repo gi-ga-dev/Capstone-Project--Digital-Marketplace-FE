@@ -122,8 +122,10 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
 
     // =================== Sidenav Content & Auth Page ===================
 
-    .prod-toolbar {
+    .prod-toolbar,
+    #footer-cont {
         color: black !important;
+        background-color: #abd4f7 !important;
     }
 
     // =================== Library Page ===================
@@ -380,8 +382,10 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
 
     // =============== Sidenav Content & Auth Page ===================
 
-    .prod-toolbar {
+    .prod-toolbar,
+    #footer-cont {
         color: white !important;
+        background-color: rgba(232, 169, 52, 0.89) !important;
     }
 
     // =================== Library Page ===================

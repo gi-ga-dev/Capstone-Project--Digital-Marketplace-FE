@@ -13,7 +13,7 @@
         </div>
 
         <div id="card-btns">
-            <mat-card-actions>
+            <mat-card-actions *ngIf="showButtons; else noButtonsBlock">
 
                 <button id="btns" mat-button (click)="openPurchaseDialog(msc.id)" matTooltip="Purchase Product"
                     matTooltipPosition="below">
@@ -26,6 +26,8 @@
                 </button>
 
             </mat-card-actions>
+
+            <ng-template #noButtonsBlock></ng-template>
         </div>
 
     </mat-card>
