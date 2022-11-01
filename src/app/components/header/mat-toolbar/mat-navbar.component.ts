@@ -70,11 +70,11 @@ export class MatNavbarComponent implements OnInit, DoCheck {
     this.showProdTab = false;
   }
 
-  setColor(): string {
-    if (this.isDarkMode) {
-      this.themeColor = "accent";
-    } else this.themeColor = "primary";
-    return this.themeColor;
-  }
+  /*   setColor(): string {
+      if (this.isDarkMode) {
+        this.themeColor = "accent";
+      } else this.themeColor = "primary";
+      return this.themeColor;
+    } */
 
 }

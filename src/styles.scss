@@ -120,12 +120,34 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
         font-size: 1.1em;
     }
 
-    // =================== Sidenav Content & Auth Page ===================
+    // =============== Navbar, Product Toolbar, Footer ===================
+
+    .toolbar {
+        background-color: #ebebeb;
+        color: black;
+    }
 
     .prod-toolbar,
     #footer-cont {
         color: black !important;
         background-color: #abd4f7 !important;
+    }
+
+    // =============== Home page ================
+
+    #home-cont {
+        .home-prod-btns-card {
+
+            .vg-img-wrap,
+            .msc-img-wrap,
+            .book-img-wrap {
+                background-color: rgb(186, 186, 186) !important;
+            }
+        }
+    }
+
+    #home-card {
+        background-color: rgba(238, 239, 242, 0.8);
     }
 
     // =================== Library Page ===================
@@ -380,12 +402,34 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
         font-size: 1.1em;
     }
 
-    // =============== Sidenav Content & Auth Page ===================
+    // =============== Navbar, Product Toolbar, Footer ===================
+
+    .toolbar {
+        background-color: #2e2e2e;
+        color: white;
+    }
 
     .prod-toolbar,
     #footer-cont {
         color: white !important;
         background-color: rgba(232, 169, 52, 0.89) !important;
+    }
+
+    // =============== Home page ================
+
+    #home-cont {
+        .home-prod-btns-card {
+
+            .vg-img-wrap,
+            .msc-img-wrap,
+            .book-img-wrap {
+                background-color: rgb(88, 88, 88) !important;
+            }
+        }
+    }
+
+    #home-card {
+        background-color: rgba(88, 88, 88, 0.8);
     }
 
     // =================== Library Page ===================
@@ -436,7 +480,7 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
     // ============== Shopping Cart & Wishlist Pages =============
 
     .cart-and-wishlist-card {
-        background-color: rgba(61, 58, 50, 0.8);
+        background-color: rgba(88, 88, 88, 0.8);
     }
 
     // =================== Products Page ===================
@@ -482,7 +526,7 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
     }
 
     .profile-card {
-        background-color: rgba(61, 58, 50, 0.5);
+        background-color: rgba(88, 88, 88, 0.8);
     }
 
     // =================== Modals ===================
@@ -731,6 +775,31 @@ mat-expansion-panel.library-exp-panel {
         .login-card {
             height: unset;
             margin: 10px 0;
+        }
+    }
+}
+
+// ============= Home Page Image with Opacity ===============
+
+#home-cont {
+    .home-prod-btns-card {
+
+        .vg-img-wrap,
+        .msc-img-wrap,
+        .book-img-wrap {
+            border-radius: 10px !important;
+        }
+
+        .vg-img-wrap::before {
+            background: url("../src/assets/images/img-home-vg.jpg");
+        }
+
+        .msc-img-wrap::before {
+            background: url("../src/assets/images/img-home-music.jpg");
+        }
+
+        .book-img-wrap::before {
+            background: url("../src/assets/images/img-home-book.jpg");
         }
     }
 }

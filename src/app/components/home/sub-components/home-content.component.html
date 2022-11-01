@@ -1,80 +1,91 @@
 <div id="home-cont">
 
-    <div class="btns-container">
+    <mat-card class="home-prod-btns-card">
 
-        <!-- <p>Shop by Product type</p> -->
+        <!--         <mat-card-title id="modals-titles">Shop By Product Category</mat-card-title>
+        <mat-card-subtitle id="modals-titles">Explore thousands of articles with no limits!</mat-card-subtitle>
+ -->
+        <div class="vg-img-wrap">
+            <div class="img-content">
+                <a class="btn-product" id="img-home-videogame" mat-button href="#"
+                    [routerLink]="['/products/videogames']" routerLinkActive="router-link-active">
+                    Explore Videogame Catalogue:
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, ut quasi consectetur earum nam eos
+                    illo
+                    tenetur
+                    omnis corporis alias molestiae nostrum exercitationem quis, at sequi magnam qui laudantium ad!
+                </a>
+            </div>
+        </div>
 
-        <a class="btn-product" id="img-home-videogame" mat-button href="#" [routerLink]="['/products/videogames']"
-            routerLinkActive="router-link-active">
-            Explore Videogame Catalogue:
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, ut quasi consectetur earum nam eos illo
-            tenetur
-            omnis corporis alias molestiae nostrum exercitationem quis, at sequi magnam qui laudantium ad!
-        </a>
+        <div class="msc-img-wrap">
+            <div class="img-content">
+                <a class="btn-product" id="img-home-music" mat-button href="#" [routerLink]="['/products/music']"
+                    routerLinkActive="router-link-active">
+                    Explore Music Catalogue
+                    <mat-divider></mat-divider>
+                    Your Favorite Playlists
+                    <mat-divider></mat-divider>
+                    Top Songs - Weekly Music Charts
+                    <mat-divider></mat-divider>
+                    Top 50 Global
+                    <mat-divider></mat-divider>
 
-        <a class="btn-product" id="img-home-music" mat-button href="#" [routerLink]="['/products/music']"
-            routerLinkActive="router-link-active">
-            Explore Music Catalogue:
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, ut quasi consectetur earum nam eos illo
-            tenetur
-            omnis corporis alias molestiae nostrum exercitationem quis, at sequi magnam qui laudantium ad!
-        </a>
+                </a>
+            </div>
+        </div>
 
-        <a class="btn-product" id="img-home-book" mat-button href="#" [routerLink]="['/products/books']"
-            routerLinkActive="router-link-active">
-            Explore Audiobook Catalogue:
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, ut quasi consectetur earum nam eos illo
-            tenetur
-            omnis corporis alias molestiae nostrum exercitationem quis, at sequi magnam qui laudantium ad!
-        </a>
-    </div>
+        <div class="book-img-wrap">
+            <div class="img-content">
+                <a class="btn-product" id="img-home-book" mat-button href="#" [routerLink]="['/products/books']"
+                    routerLinkActive="router-link-active">
+                    Explore Audiobook Catalogue:
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, ut quasi consectetur earum nam eos
+                    illo
+                    tenetur
+                    omnis corporis alias molestiae nostrum exercitationem quis, at sequi magnam qui laudantium ad!
+                </a>
+            </div>
+        </div>
+
+    </mat-card>
 
     <!-- ////////////////////////////////////////////////////////////////////////////////// -->
 
-    <div>
+    <div id="about-cont">
 
-        <div>
+        <mat-card id="home-card">
 
-            <h1>Gecko2Code</h1>
+            <div id="home-logo-cont">
+                <img src="../../../../assets/images/img-logo.png" id="home-logo">
+            </div>
 
-            <mat-card>
+            <!-- <mat-card-subtitle></mat-card-subtitle> -->
+            <mat-card-content>
+                <p><b>Gecko2Code</b> is a digital marketplace where you can find many digital products in one place!
 
-                <div>
+                    Explore our catalogue and choose between thousands of digital Videogames, Music Songs and Books.
 
-                    <mat-icon>mouse</mat-icon>
-                </div>
-                <mat-card-header>Lorem Ipsum!</mat-card-header>
-                <mat-card-subtitle>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea id debitis sequi minus
-                    aliquam aut exercitationem harum eligendi ad omnis optio tempora hic aperiam accusantium,
-                    blanditiis,
-                    odio dolor cupiditate ratione?
-                </mat-card-subtitle>
-            </mat-card>
+                    Manage your profile information all in one place, create your Wishlist or add products to your
+                    Shopping Cart.
+                </p>
+            </mat-card-content>
+        </mat-card>
 
-            <mat-card>
-                <div>
-                    <mat-icon>person_pin</mat-icon>
-                </div>
-                <mat-card-header>Lorem Ipsum!</mat-card-header>
-                <mat-card-subtitle>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea id debitis sequi minus
-                    aliquam aut exercitationem harum eligendi ad omnis optio tempora hic aperiam accusantium,
-                    blanditiis,
-                    odio dolor cupiditate ratione?
-                </mat-card-subtitle>
-            </mat-card>
-
-            <mat-card>
-                <div>
-                    <mat-icon>loyalty</mat-icon>
-                </div>
-                <mat-card-header>Lorem Ipsum!</mat-card-header>
-                <mat-card-subtitle>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea id debitis sequi minus
-                    aliquam aut exercitationem harum eligendi ad omnis optio tempora hic aperiam accusantium,
-                    blanditiis,
-                    odio dolor cupiditate ratione?
-                </mat-card-subtitle>
-            </mat-card>
-
-        </div>
+        <mat-card id="home-card">
+            <mat-card-header>
+                <p id="home-card-header">
+                    <mat-icon>star_border</mat-icon> <b> Key Points:</b>
+                </p>
+            </mat-card-header>
+            <!-- <mat-card-subtitle></mat-card-subtitle> -->
+            <mat-card-content>
+                <p>Choose between two purchase methods, recharge your account balance to get a product with no
+                    expiration, or switch to Premium Subscription, to get products for free*, choose between 30, 180
+                    and 365 days, cancel anytime.</p>
+            </mat-card-content>
+            <mat-card-footer id="home-card-footer">*Products purchased with subscription will be available to use
+                for the duration of the subscription.</mat-card-footer>
+        </mat-card>
     </div>
 </div>
