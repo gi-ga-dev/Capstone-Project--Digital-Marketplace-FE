@@ -4,8 +4,8 @@
 
 export const environment = {
   production: true,
-  // porta utilizzata da Java
-  APIEndpoint: "http://localhost:8080"
+  // porta utilizzata da Heroku come hosting per Postgres
+  APIEndpoint: "https://git.heroku.com/gecko2code.git"
 };
 
 /*
