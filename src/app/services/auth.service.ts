@@ -20,18 +20,14 @@ export class AuthService {
 
   authSubject = new BehaviorSubject<IAuthJwtResponse | null>(null);
   helper = new JwtHelperService();
-
   authData!: any;
   parsedData!: any;
   parsedRole!: string | null;
   parsedId!: number | undefined;
-
   badgeCount!: any;
   parsedBadge!: number | undefined;
-
   subData!: any;
   isSubscribed!: boolean | undefined;
-
   balanceData!: any;
   accountBalance!: number;
 
@@ -54,25 +50,17 @@ export class AuthService {
       let token = JSON.parse(tokenJson);
       this.headers.Authorization = `Bearer ${token.token}`;
       this.options = { headers: this.headers };
-    }
 
-    this.restoreUserLogin();
-  }
-
-  /* ============ Login/Register ============ */
-
-  restoreUserLogin() {
-    const json = localStorage.getItem('isAuthenticated');
-    if (json) {
-      const user = JSON.parse(json);
-      if (this.helper.isTokenExpired(user.token)) {
+      if (this.helper.isTokenExpired(token.token)) {
         localStorage.removeItem('isAuthenticated');
         return
       } else {
-        this.authSubject.next(user);
+        this.authSubject.next(token);
       }
     }
   }
+
+  /* ============ Login/Register ============ */
 
   logout() {
     this.authSubject.next(null);
