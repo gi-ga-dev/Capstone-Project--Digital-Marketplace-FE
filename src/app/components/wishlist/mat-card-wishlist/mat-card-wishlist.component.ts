@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ShopsystemService } from 'src/app/services/shopsystem.service';
 import { MatModalPurchaseComponent } from '../../products/mat-modal-purchase/mat-modal-purchase.component';
@@ -20,7 +19,6 @@ export class MatCardWishlistComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private router: Router,
     private authService: AuthService,
     private shopService: ShopsystemService) { }
 

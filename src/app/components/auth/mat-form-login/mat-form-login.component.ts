@@ -1,9 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { tap } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
-import { ShopsystemService } from 'src/app/services/shopsystem.service';
 import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({

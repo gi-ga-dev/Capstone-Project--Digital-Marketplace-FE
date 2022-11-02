@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -13,9 +12,7 @@ export class MatModalMusicComponent implements OnInit {
   @ViewChild('f') form!: NgForm;
   error = undefined;
 
-  constructor(
-    private authService: AuthService,
-    private prodService: ProductsService) { }
+  constructor(private prodService: ProductsService) { }
 
   ngOnInit(): void { }
 

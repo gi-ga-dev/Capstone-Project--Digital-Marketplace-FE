@@ -1,8 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
-import { JwtHelperService } from "@auth0/angular-jwt";
-import { BehaviorSubject, Observable, tap } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { IAuthJwtResponse } from "../interfaces/iauth-jwt-response";
 import { IProdBook } from "../interfaces/iprod-book";
@@ -16,7 +14,6 @@ import { ISalesEvent } from "../interfaces/isales-event";
 export class ProductsService {
 
   authSubject = new BehaviorSubject<IAuthJwtResponse | null>(null);
-  helper = new JwtHelperService();
 
   // inviare headers al back-end per funzionamento dei preauthorize
   headers: {
@@ -25,7 +22,7 @@ export class ProductsService {
   } = { "Content-Type": "application/json" };
   options = { headers: this.headers }
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient) {
     let tokenJson = localStorage.getItem('isAuthenticated');
     // Iniettare nei constructor services per autorizzare chiamate REST
     if (tokenJson) {
