@@ -1,81 +1,93 @@
 <mat-dialog-content class="mat-typography">
-    <mat-card>
+    <mat-card class="modal-book-card">
         <mat-accordion class="example-headers-align" multi>
-            <form #f="ngForm" (ngSubmit)="onSubmit()">
+            <form id="modal-form" #f="ngForm" (ngSubmit)="onSubmit()">
 
-                <mat-form-field color="accent" appearance="fill">
+                <mat-form-field appearance="fill">
                     <mat-label>Image URL</mat-label>
-                    <input matInput ngModel type="text" name="imgLink">
+                    <input matInput ngModel type="text" name="imgLink" required>
                 </mat-form-field>
 
-                <mat-form-field color="accent" appearance="fill">
+                <mat-form-field appearance="fill">
                     <mat-label>Base Price</mat-label>
-                    <input matInput ngModel type="number" name="price">
+                    <input matInput ngModel type="number" name="price" required>
                     <span matPrefix>$&nbsp;</span>
                 </mat-form-field>
 
-                <mat-form-field color="accent" appearance="fill">
+                <mat-form-field appearance="fill">
                     <mat-label>Title</mat-label>
-                    <input matInput ngModel type="text" name="title">
+                    <input matInput ngModel type="text" name="title" required>
                 </mat-form-field>
 
-                <mat-form-field color="accent" appearance="fill">
+                <mat-form-field appearance="fill">
                     <mat-label>Description</mat-label>
-                    <input matInput ngModel type="text" name="description">
+                    <input matInput ngModel type="text" name="description" required>
                 </mat-form-field>
 
-                <mat-form-field color="accent" appearance="fill">
+                <mat-form-field appearance="fill">
                     <mat-label>Platform</mat-label>
-                    <input matInput ngModel type="text" name="platform">
+                    <input matInput ngModel type="text" name="platform" required>
                 </mat-form-field>
 
-                <mat-form-field color="accent" appearance="fill">
+                <mat-form-field appearance="fill">
                     <mat-label>Publisher</mat-label>
-                    <input matInput ngModel type="text" name="publisher">
+                    <input matInput ngModel type="text" name="publisher" required>
                 </mat-form-field>
 
-                <mat-form-field color="accent" appearance="fill">
+                <mat-form-field appearance="fill">
                     <mat-label>Release Date</mat-label>
-                    <input matInput ngModel type="text" name="releaseDate">
+                    <input matInput ngModel [matDatepicker]="datepicker" name="releaseDate" required>
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+
+                    <mat-datepicker #datepicker>
+                        <mat-datepicker-actions>
+                            <button mat-button id="btn-cancel" matDatepickerCancel>Cancel</button>
+                            <button mat-raised-button id="btns" matDatepickerApply>Apply</button>
+                        </mat-datepicker-actions>
+                    </mat-datepicker>
+
                 </mat-form-field>
 
-                <mat-form-field color="accent" appearance="fill">
+                <mat-form-field appearance="fill">
                     <mat-label>Language</mat-label>
-                    <input matInput ngModel type="text" name="language">
+                    <input matInput ngModel type="text" name="language" required>
                 </mat-form-field>
 
-                <mat-form-field color="accent" appearance="fill">
+                <mat-form-field appearance="fill">
                     <mat-label>Genre</mat-label>
-                    <input matInput ngModel type="text" name="genre">
+                    <input matInput ngModel type="text" name="genre" required>
                 </mat-form-field>
 
                 <!-- Proprieta' comuni books -->
 
-                <mat-form-field color="accent" appearance="fill">
+                <mat-form-field appearance="fill">
                     <mat-label>N. of Pages</mat-label>
-                    <input matInput ngModel type="number" name="pages">
+                    <input matInput ngModel type="number" name="pages" required>
                 </mat-form-field>
 
-                <mat-form-field color="accent" appearance="fill">
+                <mat-form-field appearance="fill">
                     <mat-label>Isbn Code</mat-label>
-                    <input matInput ngModel type="text" name="isbnCode">
+                    <input matInput ngModel type="text" name="isbnCode" required>
                 </mat-form-field>
 
-                <mat-form-field color="accent" appearance="fill">
+                <mat-form-field appearance="fill">
                     <mat-label>Book series</mat-label>
-                    <input matInput ngModel type="text" name="bookSeries">
+                    <input matInput ngModel type="text" name="bookSeries" required>
                 </mat-form-field>
 
-                <mat-form-field color="accent" appearance="fill">
+                <mat-form-field appearance="fill">
                     <mat-label>Author</mat-label>
-                    <input matInput ngModel type="text" name="author">
+                    <input matInput ngModel type="text" name="author" required>
                 </mat-form-field>
 
                 <div id="action-btns-cont">
                     <button mat-button id="action-btns" mat-dialog-close>Cancel</button>
-                    <button mat-button id="action-btns" type="submit" [mat-dialog-close]="true"
-                        cdkFocusInitial>Create</button>
+                    <button mat-button id="action-btns" type="submit">Create</button>
                 </div>
+
+                <mat-error *ngIf="error != undefined">{{error}}</mat-error>
+
             </form>
         </mat-accordion>
     </mat-card>

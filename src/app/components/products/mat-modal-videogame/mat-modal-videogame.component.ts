@@ -27,8 +27,8 @@ export class MatModalVideogameComponent implements OnInit {
         this.error = undefined;
       },
       (err) => {
-        this.error = err.error;
-        console.log(err.error);
+        this.error = err.error.message;
+        console.log(err.error.message);
       }
     )
   }

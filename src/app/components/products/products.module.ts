@@ -17,6 +17,8 @@ import { MatModalMusicComponent } from './mat-modal-music/mat-modal-music.compon
 import { MatModalBookComponent } from './mat-modal-book/mat-modal-book.component';
 import { MatModalPurchaseComponent } from './mat-modal-purchase/mat-modal-purchase.component';
 import { MatModalSalesEventComponent } from './mat-modal-sales-event/mat-modal-sales-event.component';
+import { MatModalPurchaseWithbalanceComponent } from './mat-modal-purchase-withbalance/mat-modal-purchase-withbalance.component';
+import { MatModalPurchaseWithsubComponent } from './mat-modal-purchase-withsub/mat-modal-purchase-withsub.component';
 
 /* ------------- Material ----------------- */
 import { MatInputModule } from '@angular/material/input';
@@ -28,10 +30,11 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatModalPurchaseWithbalanceComponent } from './mat-modal-purchase-withbalance/mat-modal-purchase-withbalance.component';
-import { MatModalPurchaseWithsubComponent } from './mat-modal-purchase-withsub/mat-modal-purchase-withsub.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -66,7 +69,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatTooltipModule,
     MatProgressSpinnerModule,
     MatDividerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
   ]
 })
 export class ProductsModule { }

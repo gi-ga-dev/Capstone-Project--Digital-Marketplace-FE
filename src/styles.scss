@@ -51,6 +51,7 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
 
     // ---> Selettori utilizzabili in ogni componente chiamandolo nell'html
 
+    // Input Field + Underline Color
     .mat-form-field-label {
         color: #4486d6dd !important;
     }
@@ -351,6 +352,7 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
 
     // ---> Selettori utilizzabili in ogni componente chiamandolo nell'html
 
+    // Input Field + underline color
     .mat-form-field-label {
         color: rgba(232, 169, 52, 0.742) !important;
     }
@@ -813,6 +815,31 @@ mat-expansion-panel.library-exp-panel {
         .mat-dialog-content {
             display: contents;
         }
+    }
+}
+
+// [MODAL CREATE PRODUCTS] (CSS not nested)
+@media (min-width: 390px) and (max-width: 730px) {
+
+    mat-card.modal-vg-card,
+    mat-card.modal-music-card,
+    mat-card.modal-book-card {
+        display: unset;
+    }
+}
+
+mat-card.modal-vg-card .example-headers-align form#modal-form,
+mat-card.modal-music-card .example-headers-align form#modal-form,
+mat-card.modal-book-card .example-headers-align form#modal-form {
+
+    // Input Field + Underline Color
+    .mat-form-field-label {
+        color: rgb(245, 77, 121) !important;
+    }
+
+    .mat-form-field-underline,
+    .mat-form-field-ripple {
+        background-color: rgb(245, 77, 121) !important;
     }
 }
 

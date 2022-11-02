@@ -8,6 +8,8 @@ import { HeaderModule } from './components/header/header.module';
 import { AuthModule } from './components/auth/auth.module';
 import { FooterModule } from './components/footer/footer.module';
 import { HomeModule } from './components/home/home.module';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { HomeModule } from './components/home/home.module';
     HeaderModule,
     HomeModule,
     FooterModule,
-    AuthModule
+    AuthModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
