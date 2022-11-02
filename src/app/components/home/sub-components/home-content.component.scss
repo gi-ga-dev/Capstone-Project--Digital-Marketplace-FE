@@ -1,22 +1,98 @@
 #home-cont {
-    padding-top: 20px;
+    padding: 20px 0;
 
-    .home-prod-btns-card {
+    .home-btns-card {
+        padding: 0;
+        border: none;
+        padding: 24px;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 10px;
+        flex-direction: column;
+        align-items: center;
 
-        .vg-img-wrap,
-        .msc-img-wrap,
-        .book-img-wrap {
-            position: relative;
+        // Contenitore delle 3 Card
+        #home-btns-card-cont {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
 
-            .img-content {
+            // Contenitori Card Singole            
+            .vg-img-wrap,
+            .msc-img-wrap,
+            .book-img-wrap {
                 position: relative;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-left: 4px;
+                margin-right: 4px;
+                border-radius: 10px;
+                border: 1px solid black;
+
+                .img-content {
+                    position: relative;
+
+                    .btn-product {
+                        width: 350px;
+                        height: 500px;
+                        justify-content: center;
+                        align-items: center;
+                        white-space: normal; // allarga il contenuto in base alla quantita' di testo
+                        display: flex;
+                        justify-content: center;
+                        text-align: left;
+                        font-size: 1.1em;
+                        line-height: 4em;
+
+                        #text-cont {
+                            border-radius: 10px;
+                            padding: 15px;
+
+                            #home-btn-title {
+                                font-size: 1.3em;
+                            }
+                        }
+                    }
+
+                    @media (min-width: 390px) and (max-width: 900px) {
+                        .btn-product {
+                            width: 250px;
+                            height: 400px;
+                            font-size: 0.9em;
+                            line-height: 2em;
+
+                            #text-cont {
+                                #home-btn-title {
+                                    font-size: 1.1em;
+                                }
+                            }
+                        }
+                    }
+
+                    @media (min-width: 901px) and (max-width: 1150px) {
+                        .btn-product {
+                            width: 300px;
+                            height: 450px;
+                            font-size: 1em;
+                            line-height: 3em;
+
+                            #text-cont {
+                                #home-btn-title {
+                                    font-size: 1.2em;
+                                }
+                            }
+                        }
+                    }
+
+                    .btn-product:hover {
+                        background-color: rgba(225, 225, 225, 0.235);
+                    }
+                }
             }
         }
 
+        // inserimento immagine con opacita' in un layer sottostante 
         .vg-img-wrap::before,
         .msc-img-wrap::before,
         .book-img-wrap::before {
@@ -33,14 +109,6 @@
             background-position: 50% 0;
             background-size: cover;
         }
-
-        .btn-product {
-            margin: 10px;
-            width: 400px;
-            padding: 100px 25px;
-            //height: 350px;
-            white-space: normal; // allarga il contenuto in base alla quantita' di testo
-        }
     }
 
     #about-cont {
@@ -54,14 +122,12 @@
             margin-bottom: 25px;
 
             #home-logo {
-                //width: -webkit-fill-available;
                 width: 60%;
             }
         }
 
         #home-card {
-            width: 75%;
-            line-height: 1.3em;
+            line-height: 2.5em;
             padding: 40px 80px;
             margin-bottom: 25px;
 
@@ -81,4 +147,224 @@
             }
         }
     }
+
+    // ========================== Subscription ======================================================
+
+    .mat-typography {
+        .subscription-card {
+            padding: 0;
+            margin-top: 25px;
+            border: none;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid black;
+
+            // Contenitore delle 3 Card
+            #subscription-card-cont {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: center;
+                width: 1100px;
+
+                // Contenitore Card Singola
+                #subscription-card-content {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    height: 400px;
+                    margin-left: 4px;
+                    margin-right: 4px;
+                    padding: 26px 8px;
+                    border-radius: 10px;
+
+                    #sub-title-div {
+                        height: 10%;
+
+                        #subscription-title {
+                            text-align: center;
+                            margin-bottom: 18px;
+                            font-size: 1.5em;
+                        }
+                    }
+
+                    #sub-subtitle-div {
+                        height: 20%;
+
+                        #subscription-subtitle {
+                            text-align: center;
+                            margin-bottom: 18px;
+                            font-size: 1em;
+                        }
+                    }
+
+                    #sub-text-div {
+                        height: 45%;
+                        font-size: 1.1em;
+
+                    }
+
+                    #sub-btn-div {
+                        height: 20%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+
+                        #sub-footer {
+                            font-size: 0.9em;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+
+            // --------> Media Queries
+
+
+            // -------------------------
+
+            @media (min-width: 551px) and (max-width: 900px) {
+
+                #subscription-card-cont {
+                    width: 400px;
+
+                    #subscription-card-content {
+                        padding: 18px 4px;
+                        height: 330px;
+
+                        #sub-title-div {
+                            #subscription-title {
+                                margin-bottom: 4px;
+                                font-size: 1.3em;
+                            }
+                        }
+
+                        #sub-subtitle-div {
+                            #subscription-subtitle {
+                                margin-bottom: 4px;
+                                font-size: 0.8em;
+                            }
+                        }
+
+                        #sub-text-div {
+                            font-size: 0.9em;
+                        }
+
+                        #sub-btn-div {
+                            #sub-footer {
+                                font-size: 0.7em;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @media (min-width: 901px) and (max-width: 1150px) {
+
+                #subscription-card-cont {
+                    width: 700px;
+
+                    #subscription-card-content {
+                        padding: 18px 4px;
+                        height: 330px;
+
+                        #sub-title-div {
+                            #subscription-title {
+                                margin-bottom: 4px;
+                                font-size: 1.3em;
+                            }
+                        }
+
+                        #sub-subtitle-div {
+                            #subscription-subtitle {
+                                margin-bottom: 4px;
+                                font-size: 0.8em;
+                            }
+                        }
+
+                        #sub-text-div {
+                            font-size: 0.9em;
+                        }
+
+                        #sub-btn-div {
+                            #sub-footer {
+                                font-size: 0.7em;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @media (min-width: 1151px) and (max-width: 1400px) {
+
+                #subscription-card-cont {
+                    width: 900px;
+
+                    #subscription-card-content {
+                        padding: 22px 6px;
+                        height: 350px;
+
+                        #sub-title-div {
+                            #subscription-title {
+                                margin-bottom: 10px;
+                                font-size: 1.4em;
+                            }
+                        }
+
+                        #sub-subtitle-div {
+                            #subscription-subtitle {
+                                margin-bottom: 10px;
+                                font-size: 0.9em;
+                            }
+                        }
+
+                        #sub-text-div {
+                            font-size: 1em;
+                        }
+
+                        #sub-btn-div {
+                            #sub-footer {
+                                font-size: 0.8em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (min-width: 390px) and (max-width: 900px) {
+            .subscription-card {
+                display: none;
+            }
+        }
+    }
+
+    // ================== Subscription Card Mobile =========================================
+
+    // non mostrare cards con expandable da 900px in su
+    .subscription-card-mobile {
+        display: none;
+    }
+
+    // ---- Media Queries Subscription Card Mobile ----
+
+    @media (min-width: 390px) and (max-width: 900px) {
+        .subscription-card-mobile {
+            padding: 0;
+            border: none;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid black;
+        }
+    }
+
+}
+
+.mat-card-content>p {
+    font-size: 1.1em;
 }

@@ -7,16 +7,9 @@
         </button>
     </div>
 
-    <div id="home-cont">
-        <button mat-button id="btns-toolbar" (click)="drawer.close()" href="#" [routerLink]="['/home']"
-            routerLinkActive="router-link-active">
-            <mat-icon>home</mat-icon> Home
-        </button>
-    </div>
-
     <div id="prod-cont">
         <button mat-button id="btns-toolbar" (click)="drawer.close()" (click)="toggleProdTab()">
-            <mat-icon>camera</mat-icon> Products
+            <mat-icon>camera</mat-icon> Shop By Product
             <mat-icon *ngIf="!showProdTab">expand_more</mat-icon>
             <mat-icon *ngIf="showProdTab">expand_less</mat-icon>
         </button>
@@ -78,6 +71,11 @@
         <div id="sidenav-group" *ngIf="isAuthenticated">
 
             <p mat-card-avatar class="example-header-image"></p>
+
+            <button mat-button (click)="drawer.close()" href="#" [routerLink]="['/home']"
+                routerLinkActive="router-link-active">
+                <mat-icon>home</mat-icon> Home
+            </button>
 
             <a mat-button (click)="drawer.close()" (click)="hideProdTab()" href="#" [routerLink]="['/profile']"
                 routerLinkActive="router-link-active">

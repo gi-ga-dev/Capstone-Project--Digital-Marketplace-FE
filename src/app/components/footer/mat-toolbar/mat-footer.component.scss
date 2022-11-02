@@ -23,3 +23,22 @@
     font-size: 30px;
     margin: 0 5px;
 }
+
+@media (min-width: 390px) and (max-width: 521px) {
+
+    #footer-cont {
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 100px;
+    }
+}
+
+@media (min-width: 520px) and (max-width: 900px) {
+
+    #footer-cont {
+        flex-direction: row;
+        align-items: center;
+    }
+}

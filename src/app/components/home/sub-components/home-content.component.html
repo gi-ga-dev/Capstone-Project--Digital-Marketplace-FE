@@ -1,57 +1,5 @@
 <div id="home-cont">
 
-    <mat-card class="home-prod-btns-card">
-
-        <!--         <mat-card-title id="modals-titles">Shop By Product Category</mat-card-title>
-        <mat-card-subtitle id="modals-titles">Explore thousands of articles with no limits!</mat-card-subtitle>
- -->
-        <div class="vg-img-wrap">
-            <div class="img-content">
-                <a class="btn-product" id="img-home-videogame" mat-button href="#"
-                    [routerLink]="['/products/videogames']" routerLinkActive="router-link-active">
-                    Explore Videogame Catalogue:
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, ut quasi consectetur earum nam eos
-                    illo
-                    tenetur
-                    omnis corporis alias molestiae nostrum exercitationem quis, at sequi magnam qui laudantium ad!
-                </a>
-            </div>
-        </div>
-
-        <div class="msc-img-wrap">
-            <div class="img-content">
-                <a class="btn-product" id="img-home-music" mat-button href="#" [routerLink]="['/products/music']"
-                    routerLinkActive="router-link-active">
-                    Explore Music Catalogue
-                    <mat-divider></mat-divider>
-                    Your Favorite Playlists
-                    <mat-divider></mat-divider>
-                    Top Songs - Weekly Music Charts
-                    <mat-divider></mat-divider>
-                    Top 50 Global
-                    <mat-divider></mat-divider>
-
-                </a>
-            </div>
-        </div>
-
-        <div class="book-img-wrap">
-            <div class="img-content">
-                <a class="btn-product" id="img-home-book" mat-button href="#" [routerLink]="['/products/books']"
-                    routerLinkActive="router-link-active">
-                    Explore Audiobook Catalogue:
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, ut quasi consectetur earum nam eos
-                    illo
-                    tenetur
-                    omnis corporis alias molestiae nostrum exercitationem quis, at sequi magnam qui laudantium ad!
-                </a>
-            </div>
-        </div>
-
-    </mat-card>
-
-    <!-- ////////////////////////////////////////////////////////////////////////////////// -->
-
     <div id="about-cont">
 
         <mat-card id="home-card">
@@ -62,30 +10,332 @@
 
             <!-- <mat-card-subtitle></mat-card-subtitle> -->
             <mat-card-content>
-                <p><b>Gecko2Code</b> is a digital marketplace where you can find many digital products in one place!
-
-                    Explore our catalogue and choose between thousands of digital Videogames, Music Songs and Books.
-
-                    Manage your profile information all in one place, create your Wishlist or add products to your
-                    Shopping Cart.
+                <p style="text-align: center;"><b>Gecko2Code</b> is a new all-in-one Digital Marketplace where you can
+                    find many digital products in
+                    one place!
+                </p>
+                <p style="text-align: center;">
+                    Explore our catalogue, choose between thousands of digital Videogames, Music Songs and Books from
+                    any device!
+                </p>
+                <p>
+                    As a Registered User in the Profile Page you can manage and update all your personal information,
+                    such as uploading or selecting a pre-set Avatar, changing Account credentials, adding Account
+                    Balance to purchase products and/or upgrade your Subscription Status in order to get products for
+                    free*.
+                </p>
+                <p>
+                    You can also add products to the Shopping Cart or Wishlist, and view your purchases in the
+                    Library Page, where you can filter based on Title, Payment Method and more...
+                </p>
+                <p>
+                    As an Administrator you have privileges to create new Administrators Account, create products data
+                    sheets
+                    to send them to your personal database, and with a few tweaks on it, you could even use it to create
+                    your
+                    own personal e-commerce!
                 </p>
             </mat-card-content>
-        </mat-card>
 
-        <mat-card id="home-card">
-            <mat-card-header>
-                <p id="home-card-header">
-                    <mat-icon>star_border</mat-icon> <b> Key Points:</b>
-                </p>
-            </mat-card-header>
-            <!-- <mat-card-subtitle></mat-card-subtitle> -->
-            <mat-card-content>
-                <p>Choose between two purchase methods, recharge your account balance to get a product with no
-                    expiration, or switch to Premium Subscription, to get products for free*, choose between 30, 180
-                    and 365 days, cancel anytime.</p>
-            </mat-card-content>
             <mat-card-footer id="home-card-footer">*Products purchased with subscription will be available to use
                 for the duration of the subscription.</mat-card-footer>
+
         </mat-card>
     </div>
+
+    <!-- ////////////////////////////////////////////////////////////////////////////////// -->
+
+    <mat-card class="home-btns-card">
+
+        <mat-card-title id="modals-titles">Shop By Product Category</mat-card-title>
+        <mat-card-subtitle id="modals-titles">Explore thousands of articles with no limits!</mat-card-subtitle>
+
+        <div id="home-btns-card-cont">
+
+            <mat-card-content class="vg-img-wrap">
+                <div class="img-content">
+                    <a class="btn-product" mat-button href="#" [routerLink]="['/products/videogames']"
+                        routerLinkActive="router-link-active">
+                        <p id="text-cont">
+                            <span id="home-btn-title">Explore Videogames Catalogue</span>
+                            <mat-divider></mat-divider>
+                            Top Upcoming Wishlisted
+                            <mat-divider></mat-divider>
+                            Top Player Rated
+                            <mat-divider></mat-divider>
+                            Coming Soon
+                            <mat-divider></mat-divider>
+                        </p>
+                    </a>
+                </div>
+            </mat-card-content>
+
+            <mat-card-content class="msc-img-wrap">
+                <div class="img-content">
+                    <a class="btn-product" mat-button href="#" [routerLink]="['/products/music']"
+                        routerLinkActive="router-link-active">
+                        <p id="text-cont">
+                            <span id="home-btn-title">Explore Music Catalogue</span>
+                            <mat-divider></mat-divider>
+                            Your Favorite Playlists
+                            <mat-divider></mat-divider>
+                            Top Songs - Weekly Music Charts
+                            <mat-divider></mat-divider>
+                            Top 50 Global
+                            <mat-divider></mat-divider>
+                        </p>
+                    </a>
+                </div>
+            </mat-card-content>
+
+            <mat-card-content class="book-img-wrap">
+                <div class="img-content">
+                    <a class="btn-product" mat-button href="#" [routerLink]="['/products/books']"
+                        routerLinkActive="router-link-active">
+                        <p id="text-cont">
+                            <span id="home-btn-title">Explore Books Catalogue</span>
+                            <mat-divider></mat-divider>
+                            Old Fashioned Books
+                            <mat-divider></mat-divider>
+                            New Releases
+                            <mat-divider></mat-divider>
+                            Best Sellers
+                            <mat-divider></mat-divider>
+                        </p>
+                    </a>
+                </div>
+            </mat-card-content>
+
+        </div>
+
+    </mat-card>
+
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////// -->
+
+    <div class="mat-typography">
+        <mat-card class="subscription-card">
+
+            <mat-card-title id="modals-titles">Enjoy our Premium Subscription!</mat-card-title>
+            <mat-card-subtitle id="modals-titles">Start getting popular products for FREE!</mat-card-subtitle>
+
+            <!-- Contenitore delle 3 Card -->
+            <div id="subscription-card-cont">
+
+                <!-- Contenitore Card Singola -->
+                <mat-card-content id="subscription-card-content">
+
+                    <div id="sub-title-div">
+
+                        <mat-card-title id="subscription-title">30-days Subscription!</mat-card-title>
+                    </div>
+
+                    <div id="sub-subtitle-div">
+
+                        <mat-card-subtitle id="subscription-subtitle">The price for 30 days then auto-renews to $4.90
+                            billed
+                            monthly. Cancel any time.
+                        </mat-card-subtitle>
+                    </div>
+
+                    <div id="sub-text-div">
+
+                        <p>Subscription Benefits include:</p>
+                        <p>- Full Access to our Catalogue</p>
+                        <p>- Get Products for Free*</p>
+                        <p>- Play, Listen, Read anywhere</p>
+                        <p>- 7-Day Money Back Guarantee</p>
+                    </div>
+
+                    <div id="sub-btn-div">
+
+                        <mat-card-footer>
+                            <p id="sub-footer">*Requires Continuous Subscription Status</p>
+                        </mat-card-footer>
+                    </div>
+
+                </mat-card-content>
+
+                <!-- ------------------------------------------- -->
+
+                <mat-card-content id="subscription-card-content">
+
+                    <div id="sub-title-div">
+
+                        <mat-card-title id="subscription-title">180-days Subscription!</mat-card-title>
+                    </div>
+
+                    <div id="sub-subtitle-div">
+
+                        <mat-card-subtitle id="subscription-subtitle">The price for 180 days then auto-renews to $24.90
+                            billed every six months. Cancel any time.</mat-card-subtitle>
+                    </div>
+
+                    <div id="sub-text-div">
+
+                        <p>Subscription Benefits include:</p>
+                        <p>- Full Access to our Catalogue</p>
+                        <p>- Get Products for Free*</p>
+                        <p>- Play, Listen, Read anywhere</p>
+                        <p>- 7-Day Money Back Guarantee</p>
+                    </div>
+
+                    <div id="sub-btn-div">
+
+                        <mat-card-footer>
+                            <p id="sub-footer">*Requires Continuous Subscription Status</p>
+                        </mat-card-footer>
+                    </div>
+
+                </mat-card-content>
+
+                <!-- ------------------------------------------- -->
+
+                <mat-card-content id="subscription-card-content">
+
+                    <div id="sub-title-div">
+
+                        <mat-card-title id="subscription-title">365-days Subscription!</mat-card-title>
+                    </div>
+
+                    <div id="sub-subtitle-div">
+
+                        <mat-card-subtitle id="subscription-subtitle">The price for 365 days then auto-renews to $44.90
+                            billed annually. Cancel any time.
+                        </mat-card-subtitle>
+                    </div>
+
+                    <div id="sub-text-div">
+
+                        <p>Subscription Benefits include:</p>
+                        <p>- Full Access to our Catalogue</p>
+                        <p>- Get Products for Free*</p>
+                        <p>- Play, Listen, Read anywhere</p>
+                        <p>- 7-Day Money Back Guarantee</p>
+                    </div>
+
+                    <div id="sub-btn-div">
+
+                        <mat-card-footer>
+                            <p id="sub-footer">*Requires Continuous Subscription Status</p>
+                        </mat-card-footer>
+                    </div>
+
+                </mat-card-content>
+            </div>
+        </mat-card>
+    </div>
+
+    <!-- --------------------- Mobile/Tablet --------------------- -->
+
+    <mat-card class="subscription-card-mobile">
+
+        <mat-card-title id="modals-titles">Enjoy our Premium Subscription!</mat-card-title>
+        <mat-card-subtitle id="modals-titles">Start getting popular products for FREE!</mat-card-subtitle>
+
+        <!-- Contenitore delle 3 Card -->
+        <div id="subscription-card-cont">
+
+            <!-- Contenitore Card Singola -->
+            <mat-card-content id="subscription-card-content-mobile">
+
+                <mat-accordion>
+                    <mat-expansion-panel class="sub-expansion-panel">
+
+                        <mat-expansion-panel-header id="expansion-header">
+                            <mat-panel-title id="subscription-title">30-days Subscription!</mat-panel-title>
+                        </mat-expansion-panel-header>
+
+                        <div id="sub-subtitle-div">
+
+                            <mat-card-subtitle id="subscription-subtitle">The price for 30 days then auto-renews to
+                                $4.90 billed monthly. Cancel any time.
+                            </mat-card-subtitle>
+                        </div>
+
+                        <div id="sub-text-div">
+
+                            <p>Subscription Benefits include:</p>
+                            <p>- Full Access to our Catalogue</p>
+                            <p>- Get Products for Free*</p>
+                            <p>- Play, Listen, Read anywhere</p>
+                            <p>- 7-Day Money Back Guarantee</p>
+                        </div>
+
+                        <div id="sub-btn-div">
+                            <mat-card-footer>
+                                <p id="sub-footer">*Requires Continuous Subscription Status</p>
+                            </mat-card-footer>
+                        </div>
+
+                    </mat-expansion-panel>
+                </mat-accordion>
+
+                <mat-accordion>
+                    <mat-expansion-panel class="sub-expansion-panel">
+
+                        <mat-expansion-panel-header id="expansion-header">
+                            <mat-panel-title id="subscription-title">180-days Subscription!</mat-panel-title>
+                        </mat-expansion-panel-header>
+
+                        <div id="sub-subtitle-div">
+
+                            <mat-card-subtitle id="subscription-subtitle">The price for 180 days then auto-renews to
+                                $24.90 billed every six months. Cancel any time.
+                            </mat-card-subtitle>
+                        </div>
+
+                        <div id="sub-text-div">
+
+                            <p>Subscription Benefits include:</p>
+                            <p>- Full Access to our Catalogue</p>
+                            <p>- Get Products for Free*</p>
+                            <p>- Play, Listen, Read anywhere</p>
+                            <p>- 7-Day Money Back Guarantee</p>
+                        </div>
+
+                        <div id="sub-btn-div">
+                            <mat-card-footer>
+                                <p id="sub-footer">*Requires Continuous Subscription Status</p>
+                            </mat-card-footer>
+                        </div>
+
+                    </mat-expansion-panel>
+                </mat-accordion>
+
+                <mat-accordion>
+                    <mat-expansion-panel class="sub-expansion-panel">
+
+                        <mat-expansion-panel-header id="expansion-header">
+                            <mat-panel-title id="subscription-title">365-days Subscription!</mat-panel-title>
+                        </mat-expansion-panel-header>
+
+                        <div id="sub-subtitle-div">
+
+                            <mat-card-subtitle id="subscription-subtitle">The price for 365 days then auto-renews to
+                                $44.90 billed annually. Cancel any time.
+                            </mat-card-subtitle>
+                        </div>
+
+                        <div id="sub-text-div">
+
+                            <p>Subscription Benefits include:</p>
+                            <p>- Full Access to our Catalogue</p>
+                            <p>- Get Products for Free*</p>
+                            <p>- Play, Listen, Read anywhere</p>
+                            <p>- 7-Day Money Back Guarantee</p>
+                        </div>
+
+                        <div id="sub-btn-div">
+                            <mat-card-footer>
+                                <p id="sub-footer">*Requires Continuous Subscription Status</p>
+                            </mat-card-footer>
+                        </div>
+
+                    </mat-expansion-panel>
+                </mat-accordion>
+
+            </mat-card-content>
+        </div>
+    </mat-card>
+
 </div>

@@ -136,17 +136,30 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
     // =============== Home page ================
 
     #home-cont {
-        .home-prod-btns-card {
+        .home-btns-card {
+            #home-btns-card-cont {
 
-            .vg-img-wrap,
-            .msc-img-wrap,
-            .book-img-wrap {
-                background-color: rgb(186, 186, 186) !important;
+                .vg-img-wrap,
+                .msc-img-wrap,
+                .book-img-wrap {
+                    background-color: rgb(186, 186, 186) !important;
+
+                    .img-content {
+                        .btn-product {
+                            #text-cont {
+                                background-color: rgba(196, 196, 196, 0.5);
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 
-    #home-card {
+    #home-card,
+    .home-btns-card,
+    .subscription-card,
+    .subscription-card-mobile {
         background-color: rgba(238, 239, 242, 0.8);
     }
 
@@ -156,7 +169,8 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
     @media (min-width: 390px) and (max-width: 900px) {
 
         // Table Product Expandable
-        mat-expansion-panel.library-exp-panel {
+        mat-expansion-panel.library-exp-panel,
+        mat-expansion-panel.sub-expansion-panel {
             .mat-expansion-panel-header {
                 background-color: rgba(255, 255, 255, 0.8);
             }
@@ -418,17 +432,30 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
     // =============== Home page ================
 
     #home-cont {
-        .home-prod-btns-card {
+        .home-btns-card {
+            #home-btns-card-cont {
 
-            .vg-img-wrap,
-            .msc-img-wrap,
-            .book-img-wrap {
-                background-color: rgb(88, 88, 88) !important;
+                .vg-img-wrap,
+                .msc-img-wrap,
+                .book-img-wrap {
+                    background-color: rgb(88, 88, 88) !important;
+
+                    .img-content {
+                        .btn-product {
+                            #text-cont {
+                                background-color: rgba(115, 115, 115, 0.5);
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 
-    #home-card {
+    #home-card,
+    .home-btns-card,
+    .subscription-card,
+    .subscription-card-mobile {
         background-color: rgba(88, 88, 88, 0.8);
     }
 
@@ -438,7 +465,8 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
     @media (min-width: 390px) and (max-width: 900px) {
 
         // Table Product Expandable
-        mat-expansion-panel.library-exp-panel {
+        mat-expansion-panel.library-exp-panel,
+        mat-expansion-panel.sub-expansion-panel {
             .mat-expansion-panel-header {
                 background-color: rgba(88, 88, 88, 0.5);
             }
@@ -606,6 +634,40 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
 }
 
 // =================== CLASSI MODIFICATE ===================
+
+#subscription-card-content-mobile {
+    mat-accordion mat-expansion-panel.sub-expansion-panel {
+        .mat-expansion-panel-header {
+            padding: 15px 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mat-expansion-panel-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #expansion-header #subscription-title {
+            margin-bottom: 2px;
+            font-size: 0.8em;
+        }
+
+        #sub-subtitle-div #subscription-subtitle {
+            margin-bottom: 2px;
+            font-size: 0.7em;
+        }
+
+        #sub-text-div {
+            font-size: 0.8em;
+        }
+
+        #sub-btn-div mat-card-footer #sub-footer {
+            font-size: 0.6em;
+        }
+    }
+}
 
 // [TABLE LIBRARY] (CSS nested) 
 mat-expansion-panel.library-exp-panel {
@@ -782,24 +844,26 @@ mat-expansion-panel.library-exp-panel {
 // ============= Home Page Image with Opacity ===============
 
 #home-cont {
-    .home-prod-btns-card {
+    .home-btns-card {
+        #home-btns-card-cont {
 
-        .vg-img-wrap,
-        .msc-img-wrap,
-        .book-img-wrap {
-            border-radius: 10px !important;
-        }
+            .vg-img-wrap,
+            .msc-img-wrap,
+            .book-img-wrap {
+                border-radius: 10px !important;
+            }
 
-        .vg-img-wrap::before {
-            background: url("../src/assets/images/img-home-vg.jpg");
-        }
+            .vg-img-wrap::before {
+                background: url("../src/assets/images/img-home-vg.jpg");
+            }
 
-        .msc-img-wrap::before {
-            background: url("../src/assets/images/img-home-music.jpg");
-        }
+            .msc-img-wrap::before {
+                background: url("../src/assets/images/img-home-music.jpg");
+            }
 
-        .book-img-wrap::before {
-            background: url("../src/assets/images/img-home-book.jpg");
+            .book-img-wrap::before {
+                background: url("../src/assets/images/img-home-book.jpg");
+            }
         }
     }
 }
