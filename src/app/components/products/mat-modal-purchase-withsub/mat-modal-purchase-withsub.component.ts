@@ -3,7 +3,6 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { ShopsystemService } from 'src/app/services/shopsystem.service';
-import { MatModalSubscriptionComponent } from '../../profile/mat-modal-subscription/mat-modal-subscription.component';
 
 @Component({
   selector: 'app-mat-modal-purchase-withsub',
