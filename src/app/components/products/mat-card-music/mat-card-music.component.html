@@ -25,7 +25,7 @@
                     <mat-icon>favorite</mat-icon>
                 </button>
 
-                <button id="btns" mat-button (click)="deleteProduct(msc.id)" matTooltip="Delete Product"
+                <button id="btns" mat-button (click)="openDeleteProdDialog(msc.id)" matTooltip="Delete Product"
                     matTooltipPosition="below" *ngIf="getRole === 'ROLE_ADMIN'">
                     <mat-icon>delete_forever</mat-icon>
                 </button>

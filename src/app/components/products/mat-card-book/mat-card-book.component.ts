@@ -6,6 +6,7 @@ import { IProdVideogame } from 'src/app/interfaces/iprod-videogame';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { ShopsystemService } from 'src/app/services/shopsystem.service';
+import { MatModalDeleteProdComponent } from '../mat-modal-delete-prod/mat-modal-delete-prod.component';
 import { MatModalPurchaseComponent } from '../mat-modal-purchase/mat-modal-purchase.component';
 
 @Component({
@@ -56,6 +57,16 @@ export class MatCardBookComponent implements OnInit {
     });
   }
 
+  openDeleteProdDialog(prodId: number | undefined) {
+    const dialogRef = this.dialog.open(MatModalDeleteProdComponent, {
+      panelClass: 'delete-prod-dialog-cont',
+      data: { id: prodId }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
   getAllBooks() {
     return this.prodService.getAllBooks().subscribe(
       (resp) => {
@@ -79,19 +90,6 @@ export class MatCardBookComponent implements OnInit {
       },
       (err) => {
         this.authService.openSnackBar("Product already in WishList or Library...", 'primary-snackbar', 3);
-        this.error = err.error;
-        console.log(err.error);
-      }
-    )
-  }
-
-  deleteProduct(productId: number | undefined) {
-    return this.prodService.deleteProduct(productId).subscribe(
-      (resp) => {
-        this.error = undefined;
-      },
-      (err) => {
-        this.authService.openSnackBar("Product Deletion successfull...", 'primary-snackbar', 3);
         this.error = err.error;
         console.log(err.error);
       }

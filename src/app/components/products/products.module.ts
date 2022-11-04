@@ -35,6 +35,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { MatModalDeleteProdComponent } from './mat-modal-delete-prod/mat-modal-delete-prod.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatModalPurchaseComponent,
     MatModalSalesEventComponent,
     MatModalPurchaseWithbalanceComponent,
-    MatModalPurchaseWithsubComponent
+    MatModalPurchaseWithsubComponent,
+    MatModalDeleteProdComponent
   ],
   imports: [
     CommonModule,
