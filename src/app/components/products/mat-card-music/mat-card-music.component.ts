@@ -6,6 +6,7 @@ import { IProdVideogame } from 'src/app/interfaces/iprod-videogame';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { ShopsystemService } from 'src/app/services/shopsystem.service';
+import { MatModalDeleteProdComponent } from '../mat-modal-delete-prod/mat-modal-delete-prod.component';
 import { MatModalPurchaseComponent } from '../mat-modal-purchase/mat-modal-purchase.component';
 
 @Component({
@@ -49,6 +50,16 @@ export class MatCardMusicComponent implements OnInit {
     // prendo id (dai prodotti ciclati in html passo id nel paramentro di questo metodo) e lo inietto nel modal purchase
     const dialogRef = this.dialog.open(MatModalPurchaseComponent, {
       panelClass: 'purchase-dialog-cont',
+      data: { id: prodId }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  openDeleteProdDialog(prodId: number | undefined) {
+    const dialogRef = this.dialog.open(MatModalDeleteProdComponent, {
+      panelClass: 'delete-prod-dialog-cont',
       data: { id: prodId }
     });
     dialogRef.afterClosed().subscribe(result => {
