@@ -3,8 +3,8 @@
 // The list of file replacements can be found in angular.json.
 
 export const environment = {
-  production: true,
   // porta utilizzata da Heroku come hosting per Postgres
+  production: true,
   APIEndpoint: "https://gecko2code.herokuapp.com"
 };
 
