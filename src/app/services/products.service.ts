@@ -82,5 +82,9 @@ export class ProductsService {
 
   // ============== DELETE ==============
 
+  deleteProduct(prodId: number | undefined) {
+    return this.http.delete(environment.APIEndpoint + '/products/' + prodId, this.options);
+  }
+
 
 }
