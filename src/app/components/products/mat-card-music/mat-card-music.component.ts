@@ -20,6 +20,7 @@ export class MatCardMusicComponent implements OnInit {
   msc!: IProdVideogame | IProdMusic | IProdBook;
   music: IProdMusic[] = [];
   getId!: number | undefined;
+  getRole: string | undefined = this.authService.getRole()?.toString();
   showSpinner: boolean = false;
   showButtons!: boolean;
 
@@ -78,6 +79,19 @@ export class MatCardMusicComponent implements OnInit {
       },
       (err) => {
         this.authService.openSnackBar("Product already in WishList or Library...", 'primary-snackbar', 3);
+        this.error = err.error;
+        console.log(err.error);
+      }
+    )
+  }
+
+  deleteProduct(productId: number | undefined) {
+    return this.prodService.deleteProduct(productId).subscribe(
+      (resp) => {
+        this.error = undefined;
+      },
+      (err) => {
+        this.authService.openSnackBar("Product Deletion successfull...", 'primary-snackbar', 3);
         this.error = err.error;
         console.log(err.error);
       }
