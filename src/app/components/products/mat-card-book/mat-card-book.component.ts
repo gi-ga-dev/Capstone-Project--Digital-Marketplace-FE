@@ -21,7 +21,7 @@ export class MatCardBookComponent implements OnInit {
   book!: IProdVideogame | IProdMusic | IProdBook;
   books: IProdBook[] = [];
   getId!: number | undefined;
-  getRole: string | undefined = this.authService.getRole()?.toString();
+  getRole!: string | undefined;
   showSpinner: boolean = false;
   showButtons!: boolean;
 
@@ -40,6 +40,7 @@ export class MatCardBookComponent implements OnInit {
       this.getAllBooks();
       // solo se autenticato carica le schede con i buttons, altrimenti solo schede
       if (localStorage.getItem("isAuthenticated")) {
+        this.getRole = this.authService.getRole()?.toString();
         this.getId = this.authService.getId();
         this.showButtons = true;
       } else this.showButtons = false;
