@@ -134,6 +134,16 @@ $app-light-theme: mat-light-theme($blue-light-pal, $orange-light-pal, $warn-ligh
         background-color: #abd4f7 !important;
     }
 
+    #footer-link-cont #footer-links i {
+        border: 7px solid rgb(21, 82, 108);
+        background-color: rgb(21, 82, 108);
+    }
+
+    #footer-link-cont #footer-links i:hover {
+        border: 7px solid #4486d6dd;
+        background-color: #4486d6dd;
+    }
+
     // =============== Home page ================
 
     #home-cont {
@@ -429,6 +439,16 @@ $app-dark-theme: mat-dark-theme($blue-light-pal, $orange-light-pal, $warn-light-
     #footer-cont {
         color: white !important;
         background-color: rgba(232, 169, 52, 0.89) !important;
+    }
+
+    #footer-link-cont #footer-links i {
+        border: 7px solid rgba(125, 96, 42, 0.89);
+        background-color: rgba(125, 96, 42, 0.89);
+    }
+
+    #footer-link-cont #footer-links i:hover {
+        border: 7px solid rgb(194, 126, 0);
+        background-color: rgb(194, 126, 0);
     }
 
     // =============== Home page ================

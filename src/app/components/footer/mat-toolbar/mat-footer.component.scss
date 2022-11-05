@@ -12,6 +12,18 @@
     font-size: 0.7em;
 }
 
+#footer-link-cont #footer-links i {
+    margin: 0 5px;
+    border-radius: 10px;
+    color: white;
+    font-size: 25px;
+    transition: color 0.2s ease-in;
+}
+
+#footer-link-cont #footer-links i:hover {
+    cursor: pointer;
+}
+
 // ====== Icons =======
 
 #icons {
