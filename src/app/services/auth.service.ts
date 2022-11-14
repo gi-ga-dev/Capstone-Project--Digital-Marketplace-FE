@@ -75,7 +75,7 @@ export class AuthService {
     // LoginRequest (tramite username, password) --> <-- JwtResponse (Ritorna i dati compreso il token)
     // post dei valori del form (userName, password -> obj) 
     // se corrispondono a quelli presenti sul db, ritorna il token (con dati di ritorno = interfaccia IJwtResponse)  
-    return this.http.post<IAuthJwtResponse>(environment.APIEndpoint + '/auth/login', obj, this.options).pipe(
+    return this.http.post<IAuthJwtResponse>(environment.APIEndpoint + '/auth/login', obj).pipe(
       tap(data => {
         this.authSubject.next(data);
         localStorage.setItem('isAuthenticated', JSON.stringify(data));
@@ -85,7 +85,7 @@ export class AuthService {
 
   signup(obj: IAuthCredentialsRequest): Observable<Object> {
     // in UserController (Java) nella rotta '/users' tramite @PostMapping("/user") lancia il metodo createUser() 
-    return this.http.post(environment.APIEndpoint + '/users/createUser', obj, this.options);
+    return this.http.post(environment.APIEndpoint + '/users/createUser', obj);
   }
 
   createAdmin(obj: IAuthCredentialsRequest): Observable<Object> {
