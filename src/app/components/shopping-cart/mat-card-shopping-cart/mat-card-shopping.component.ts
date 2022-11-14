@@ -58,8 +58,6 @@ export class MatCardShoppingComponent implements OnInit {
         this.cartProducts = resp;
       },
       (err) => {
-        /*         console.log("Il server e' ripartito, per eseguire il get faccio il reload della pagina");
-                location.reload(); */
         this.error = err.error;
         console.log(err.error);
       }

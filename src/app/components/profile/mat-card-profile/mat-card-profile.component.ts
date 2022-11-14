@@ -102,9 +102,6 @@ export class MatCardProfileComponent implements OnInit {
         this.user = resp;
       },
       (err) => {
-        // questo problema avviene quando restarto il server e riloggo senza aver riavviato il browser
-        /*         console.log("Il server e' ripartito, per eseguire il get faccio il reload della pagina");
-                location.reload(); */
         this.error = err.error;
         console.log(err.error);
       }
