@@ -54,8 +54,8 @@ export class MatCardWishlistComponent implements OnInit {
         this.wishlistProducts = resp;
       },
       (err) => {
-        console.log("Il server e' ripartito, per eseguire il get faccio il reload della pagina");
-        location.reload();
+        /*         console.log("Il server e' ripartito, per eseguire il get faccio il reload della pagina");
+                location.reload(); */
         this.error = err.error;
         console.log(err.error);
       }
