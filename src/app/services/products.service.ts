@@ -63,15 +63,15 @@ export class ProductsService {
   }
 
   getAllVideogames(): Observable<IProdVideogame[]> {
-    return this.http.get<IProdVideogame[]>(environment.APIEndpoint + '/products/getAllVideogames');
+    return this.http.get<IProdVideogame[]>(environment.APIEndpoint + '/products/getAllVideogames', this.options);
   }
 
   getAllMusic(): Observable<IProdMusic[]> {
-    return this.http.get<IProdMusic[]>(environment.APIEndpoint + '/products/getAllMusic');
+    return this.http.get<IProdMusic[]>(environment.APIEndpoint + '/products/getAllMusic', this.options);
   }
 
   getAllBooks(): Observable<IProdBook[]> {
-    return this.http.get<IProdBook[]>(environment.APIEndpoint + '/products/getAllBooks');
+    return this.http.get<IProdBook[]>(environment.APIEndpoint + '/products/getAllBooks', this.options);
   }
 
   getProductById(prodId: number | undefined) {
