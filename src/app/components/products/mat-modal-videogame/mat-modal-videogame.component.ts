@@ -11,7 +11,7 @@ import { ProductsService } from 'src/app/services/products.service';
 export class MatModalVideogameComponent implements OnInit {
 
   @ViewChild('f') form!: NgForm;
-  error = undefined;
+  error: boolean = false;
 
   constructor(private authService: AuthService, private prodService: ProductsService) { }
 
@@ -22,11 +22,11 @@ export class MatModalVideogameComponent implements OnInit {
   saveVideogame() {
     this.prodService.saveVideogame(this.form.value).subscribe(
       (resp) => {
-        this.error = undefined;
+        //this.error = undefined;
         this.authService.openSnackBar("Product Creation successfull!", 'primary-snackbar', 3);
       },
       (err) => {
-        this.error = err.error.message;
+        this.error = true;
         this.authService.openSnackBar(err.error.message, 'primary-snackbar', 3);
         console.log(err.error.message);
       }
