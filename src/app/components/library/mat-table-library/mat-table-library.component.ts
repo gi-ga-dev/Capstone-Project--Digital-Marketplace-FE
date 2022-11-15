@@ -55,7 +55,7 @@ export class MatTableLibraryComponent implements OnInit {
     setTimeout(() => {
       this.showSpinner = false;
       this.getLibraryListByShopId(this.getId);
-    }, 500);
+    }, 400);
   }
 
   applyFilter(event: Event) {

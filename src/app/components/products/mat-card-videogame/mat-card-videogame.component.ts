@@ -65,7 +65,7 @@ export class MatCardVideogameComponent implements OnInit {
         setTimeout(() => {
           this.videogames = resp;
           this.showSpinner = false;
-        }, 500);
+        }, 400);
       },
       (err) => {
         this.error = err.error;

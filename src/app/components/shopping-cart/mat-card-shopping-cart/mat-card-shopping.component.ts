@@ -30,7 +30,7 @@ export class MatCardShoppingComponent implements OnInit {
     // dopo 0,5 sec mostrato contenuto emptyblock
     setTimeout(() => {
       this.showString = true;
-    }, 500);
+    }, 400);
   }
 
   getShopSystemBasicInfo(shopId: number | undefined) {
@@ -55,7 +55,7 @@ export class MatCardShoppingComponent implements OnInit {
         setTimeout(() => {
           this.cartProducts = resp;
           this.showSpinner = false;
-        }, 400);
+        }, 300);
       },
       (err) => {
         this.error = err.error;

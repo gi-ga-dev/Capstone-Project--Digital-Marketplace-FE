@@ -28,14 +28,16 @@ export class LoginMatCardComponent implements OnInit {
   onSubmit() {
     this.show = true;
     this.authService.login(this.form.value).subscribe(
-      resp => {
+      (resp) => {
         this.error = undefined;
-        console.log("--> User logged in");
-        this.router.navigate(['home']);
-        this.authService.setCartListForBadgeCount(this.authService.getId()).subscribe();
-        this.authService.setSubAndBalance(this.authService.getId()).subscribe();
+        setTimeout(() => {
+          console.log("--> User logged in");
+          this.router.navigate(['home']);
+          this.authService.setCartListForBadgeCount(this.authService.getId()).subscribe();
+          this.authService.setSubAndBalance(this.authService.getId()).subscribe();
+        }, 400);
       },
-      err => {
+      (err) => {
         this.error = err.error;
       }
     )

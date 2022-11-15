@@ -83,7 +83,7 @@ export class MatCardProfileComponent implements OnInit {
         setTimeout(() => {
           this.user = resp;
           this.showSpinner = false;
-        }, 500);
+        }, 400);
       },
       (err) => {
         this.error = err.error;

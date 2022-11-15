@@ -65,7 +65,7 @@ export class MatCardBookComponent implements OnInit {
         setTimeout(() => {
           this.books = resp;
           this.showSpinner = false;
-        }, 500);
+        }, 400);
       },
       (err) => {
         this.error = err.error;

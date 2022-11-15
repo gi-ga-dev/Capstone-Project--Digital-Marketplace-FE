@@ -65,7 +65,7 @@ export class MatCardMusicComponent implements OnInit {
         setTimeout(() => {
           this.music = resp;
           this.showSpinner = false;
-        }, 500);
+        }, 400);
       },
       (err) => {
         this.error = err.error;

@@ -30,7 +30,7 @@ export class MatCardWishlistComponent implements OnInit {
     // dopo 0,5 sec mostrato contenuto emptyblock
     setTimeout(() => {
       this.showString = true;
-    }, 500);
+    }, 400);
   }
 
   openPurchaseDialog(prodId: number | undefined) {
@@ -48,7 +48,7 @@ export class MatCardWishlistComponent implements OnInit {
         setTimeout(() => {
           this.wishlistProducts = resp;
           this.showSpinner = false;
-        }, 400);
+        }, 300);
       },
       (err) => {
         this.error = err.error;
