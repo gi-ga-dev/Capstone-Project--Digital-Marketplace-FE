@@ -16,7 +16,6 @@ import { MatModalVideogameComponent } from './mat-modal-videogame/mat-modal-vide
 import { MatModalMusicComponent } from './mat-modal-music/mat-modal-music.component';
 import { MatModalBookComponent } from './mat-modal-book/mat-modal-book.component';
 import { MatModalPurchaseComponent } from './mat-modal-purchase/mat-modal-purchase.component';
-import { MatModalSalesEventComponent } from './mat-modal-sales-event/mat-modal-sales-event.component';
 import { MatModalPurchaseWithbalanceComponent } from './mat-modal-purchase-withbalance/mat-modal-purchase-withbalance.component';
 import { MatModalPurchaseWithsubComponent } from './mat-modal-purchase-withsub/mat-modal-purchase-withsub.component';
 
@@ -50,7 +49,6 @@ import { MatModalDeleteProdComponent } from './mat-modal-delete-prod/mat-modal-d
     MatModalMusicComponent,
     MatModalBookComponent,
     MatModalPurchaseComponent,
-    MatModalSalesEventComponent,
     MatModalPurchaseWithbalanceComponent,
     MatModalPurchaseWithsubComponent,
     MatModalDeleteProdComponent
