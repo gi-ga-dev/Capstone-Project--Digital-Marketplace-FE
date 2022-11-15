@@ -22,18 +22,15 @@ export class MatCardShoppingComponent implements OnInit {
     private shopService: ShopsystemService) { }
 
   ngOnInit(): void {
-    // spinner e get dopo 0,3 sec
+    // lo spinner e' visibile fino al momento della resp
     this.showSpinner = true;
-    setTimeout(() => {
-      this.showSpinner = false;
-      this.getCartListByShopId(this.getId);
-      this.getShopSystemBasicInfo(this.getId);
-    }, 300);
+    this.getCartListByShopId(this.getId);
+    this.getShopSystemBasicInfo(this.getId);
 
-    // dopo 0,4 sec mostrato contenuto emptyblock
+    // dopo 0,5 sec mostrato contenuto emptyblock
     setTimeout(() => {
       this.showString = true;
-    }, 400);
+    }, 500);
   }
 
   getShopSystemBasicInfo(shopId: number | undefined) {
@@ -55,7 +52,10 @@ export class MatCardShoppingComponent implements OnInit {
     return this.shopService.getCartListByShopId(shopId).subscribe(
       (resp) => {
         this.error = undefined;
-        this.cartProducts = resp;
+        setTimeout(() => {
+          this.cartProducts = resp;
+          this.showSpinner = false;
+        }, 400);
       },
       (err) => {
         this.error = err.error;

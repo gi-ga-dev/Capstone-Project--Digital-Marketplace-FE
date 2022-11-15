@@ -39,6 +39,7 @@ export class MatCardProfileComponent implements OnInit {
   constructor(private authService: AuthService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
+    // lo spinner e' visibile fino al momento della resp
     this.showSpinner = true;
     this.getUserInfo(this.getId);
   }
@@ -82,7 +83,7 @@ export class MatCardProfileComponent implements OnInit {
         setTimeout(() => {
           this.user = resp;
           this.showSpinner = false;
-        }, 1000);
+        }, 500);
       },
       (err) => {
         this.error = err.error;

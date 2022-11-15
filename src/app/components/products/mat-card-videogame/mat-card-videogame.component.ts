@@ -32,19 +32,15 @@ export class MatCardVideogameComponent implements OnInit {
     private shopService: ShopsystemService) { }
 
   ngOnInit(): void {
-    // lo spinner e' visibile per 0.3 sec prima del get all
+    // lo spinner e' visibile fino al momento della resp
     this.showSpinner = true;
-
-    setTimeout(() => {
-      this.showSpinner = false;
-      this.getAllVideogames();
-      // solo se autenticato carica le schede con i buttons, altrimenti solo schede
-      if (localStorage.getItem("isAuthenticated")) {
-        this.getRole = this.authService.getRole()?.toString();
-        this.getId = this.authService.getId();
-        this.showButtons = true;
-      } else this.showButtons = false;
-    }, 300);
+    this.getAllVideogames();
+    // solo se autenticato carica le schede con i buttons, altrimenti solo schede
+    if (localStorage.getItem("isAuthenticated")) {
+      this.getRole = this.authService.getRole()?.toString();
+      this.getId = this.authService.getId();
+      this.showButtons = true;
+    } else this.showButtons = false;
   }
 
   openPurchaseDialog(prodId: number | undefined) {
@@ -66,7 +62,10 @@ export class MatCardVideogameComponent implements OnInit {
     return this.prodService.getAllVideogames().subscribe(
       (resp) => {
         this.error = undefined;
-        this.videogames = resp;
+        setTimeout(() => {
+          this.videogames = resp;
+          this.showSpinner = false;
+        }, 500);
       },
       (err) => {
         this.error = err.error;

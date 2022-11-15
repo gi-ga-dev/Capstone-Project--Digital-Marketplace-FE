@@ -32,19 +32,15 @@ export class MatCardBookComponent implements OnInit {
     private shopService: ShopsystemService) { }
 
   ngOnInit(): void {
-    // lo spinner e' visibile per 0.3 sec prima del get all
+    // lo spinner e' visibile fino al momento della resp
     this.showSpinner = true;
-
-    setTimeout(() => {
-      this.showSpinner = false;
-      this.getAllBooks();
-      // solo se autenticato carica le schede con i buttons, altrimenti solo schede
-      if (localStorage.getItem("isAuthenticated")) {
-        this.getRole = this.authService.getRole()?.toString();
-        this.getId = this.authService.getId();
-        this.showButtons = true;
-      } else this.showButtons = false;
-    }, 300);
+    this.getAllBooks();
+    // solo se autenticato carica le schede con i buttons, altrimenti solo schede
+    if (localStorage.getItem("isAuthenticated")) {
+      this.getRole = this.authService.getRole()?.toString();
+      this.getId = this.authService.getId();
+      this.showButtons = true;
+    } else this.showButtons = false;
   }
 
   openPurchaseDialog(prodId: number | undefined) {
@@ -66,7 +62,10 @@ export class MatCardBookComponent implements OnInit {
     return this.prodService.getAllBooks().subscribe(
       (resp) => {
         this.error = undefined;
-        this.books = resp;
+        setTimeout(() => {
+          this.books = resp;
+          this.showSpinner = false;
+        }, 500);
       },
       (err) => {
         this.error = err.error;
