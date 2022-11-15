@@ -40,58 +40,37 @@ export class MatCardProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.showSpinner = true;
-    setTimeout(() => {
-      this.showSpinner = false;
-      this.getUserInfo(this.getId);
-    }, 300);
+    this.getUserInfo(this.getId);
   }
 
   /* =========== Open Dialogues ============= */
 
   openAdminDialog() {
-    const dialogRef = this.dialog.open(MatModalAdminComponent, { panelClass: 'admin-dialog-cont' });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    this.dialog.open(MatModalAdminComponent, { panelClass: 'admin-dialog-cont' });
   }
 
   openSubscriptionDialog() {
-    // dare una classe al dialog per modificarla nello style principale
-    const dialogRef = this.dialog.open(MatModalSubscriptionComponent, { panelClass: 'sub-dialog-cont' });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    // panelClass --> dare una classe al dialog per modificarla nello style principale
+    this.dialog.open(MatModalSubscriptionComponent, { panelClass: 'sub-dialog-cont' });
   }
 
   openAddBalanceDialog() {
-    const dialogRef = this.dialog.open(MatModalAddbalanceComponent, { panelClass: 'addbalance-dialog-cont' });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    this.dialog.open(MatModalAddbalanceComponent, { panelClass: 'addbalance-dialog-cont' });
   }
 
   /* Modal Modifica Informazioni base */
   openProfileDialog() {
-    const dialogRef = this.dialog.open(MatModalProfileComponent, { panelClass: 'profileinfo-dialog-cont' });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    this.dialog.open(MatModalProfileComponent, { panelClass: 'profileinfo-dialog-cont' });
   }
 
   /* Modal Modifica Credenziali di Accesso */
   openCredentialDialog() {
-    const dialogRef = this.dialog.open(MatModalCredentialsComponent, { panelClass: 'profilecred-dialog-cont' });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    this.dialog.open(MatModalCredentialsComponent, { panelClass: 'profilecred-dialog-cont' });
   }
 
   /* Modal Delete Account */
   openDeleteDialog() {
-    const dialogRef = this.dialog.open(MatModalDeleteComponent, { panelClass: 'delete-dialog-cont' });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    this.dialog.open(MatModalDeleteComponent, { panelClass: 'delete-dialog-cont' });
   }
 
   getUserInfo(id: number | undefined) {
@@ -100,6 +79,7 @@ export class MatCardProfileComponent implements OnInit {
       (resp) => {
         this.error = undefined;
         this.user = resp;
+        this.showSpinner = false;
       },
       (err) => {
         this.error = err.error;
@@ -122,7 +102,7 @@ export class MatCardProfileComponent implements OnInit {
       (err) => {
         this.error = err.error;
         console.log(err.error);
-        this.authService.openSnackBar(err.error.message, 'primary-snackbar', 3);
+        this.authService.openSnackBar("Invalid field", 'primary-snackbar', 3);
       }
     )
   }

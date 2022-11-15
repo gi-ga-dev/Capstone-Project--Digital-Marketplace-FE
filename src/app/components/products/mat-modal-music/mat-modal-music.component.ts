@@ -28,6 +28,7 @@ export class MatModalMusicComponent implements OnInit {
       (err) => {
         //this.error = err.error.message;
         this.authService.openSnackBar("Fields cannot be blank", 'primary-snackbar', 3);
+        console.log(err.error);
       }
     )
   }

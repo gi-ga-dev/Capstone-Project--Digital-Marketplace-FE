@@ -43,32 +43,23 @@ export class MatModalPurchaseComponent implements OnInit {
     // prendo id ricevuto da mat-card e lo inietto nel secondo modal
     // aprire modal solo se e' utente iscritto
     if (this.isSubscribed == true) {
-      const dialogRef = this.dialog.open(MatModalPurchaseWithsubComponent, {
+      this.dialog.open(MatModalPurchaseWithsubComponent, {
         panelClass: 'purchase-sub-dialog-cont',
         data: { id: this.data.id }
-      });
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
       });
     } else this.openSubscriptionDialog();
   }
 
   openPurchaseWithBalanceDialog() {
     // prendo id ricevuto da mat-card e lo inietto nel secondo modal
-    const dialogRef = this.dialog.open(MatModalPurchaseWithbalanceComponent, {
+    this.dialog.open(MatModalPurchaseWithbalanceComponent, {
       panelClass: 'purchase-balance-dialog-cont',
       data: { id: this.data.id }
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 
   openSubscriptionDialog() {
-    const dialogRef = this.dialog.open(MatModalSubscriptionComponent, { panelClass: 'sub-dialog-cont' });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    this.dialog.open(MatModalSubscriptionComponent, { panelClass: 'sub-dialog-cont' });
   }
 
   // ---------------------------------------
@@ -102,7 +93,5 @@ export class MatModalPurchaseComponent implements OnInit {
       }
     )
   }
-
-
 
 }

@@ -38,12 +38,9 @@ export class MatCardWishlistComponent implements OnInit {
 
   openPurchaseDialog(prodId: number | undefined) {
     // permette di aprire il modal purchase del prodotto cliccato nella wishlist
-    const dialogRef = this.dialog.open(MatModalPurchaseComponent, {
+    this.dialog.open(MatModalPurchaseComponent, {
       panelClass: 'purchase-dialog-cont',
       data: { id: prodId }
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 

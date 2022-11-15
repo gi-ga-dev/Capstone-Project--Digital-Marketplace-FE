@@ -75,9 +75,6 @@ export class MatModalAddbalanceComponent implements OnInit {
         this.user = resp;
       },
       (err) => {
-        console.log("Ho trovato un errore nel get e faccio il reload della pagina");
-        // reload della pagina per aggiornare username presente nel localStorage
-        location.reload();
         this.error = err.error;
         console.log(err.error);
       }

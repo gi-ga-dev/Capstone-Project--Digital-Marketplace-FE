@@ -30,10 +30,7 @@ export class MatModalPurchaseWithbalanceComponent implements OnInit {
 
   // ---> modal da aprire al momento dell'acquisto se utente /non ha balance
   openAddBalanceDialog() {
-    const dialogRef = this.dialog.open(MatModalAddbalanceComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    this.dialog.open(MatModalAddbalanceComponent);
   }
 
   getProductById(id: number | undefined) {
