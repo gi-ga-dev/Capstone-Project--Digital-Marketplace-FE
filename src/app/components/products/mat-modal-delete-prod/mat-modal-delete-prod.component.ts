@@ -29,10 +29,10 @@ export class MatModalDeleteProdComponent implements OnInit {
         this.error = undefined;
       },
       (err) => {
-        this.authService.openSnackBar("Product Deletion successfull...", 'primary-snackbar', 3);
+        this.authService.openSnackBar(err.error.text, 'primary-snackbar', 3);
         this.authService.reloadRoute();
         this.error = err.error;
-        console.log(err.error);
+        console.log(err.error.text);
       }
     )
   }

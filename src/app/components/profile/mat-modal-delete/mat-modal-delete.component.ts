@@ -21,8 +21,6 @@ export class MatModalDeleteComponent implements OnInit {
 
   onSubmit() {
     this.deleteAccount();
-    this.authService.openSnackBar("Account deleted successfully. Re-directing you to the Login page...", 'primary-snackbar', 3);
-    this.authService.logout();
   }
 
   deleteAccount() {
@@ -31,8 +29,10 @@ export class MatModalDeleteComponent implements OnInit {
         this.error = undefined;
       },
       (err) => {
+        this.authService.openSnackBar(err.error.text, 'primary-snackbar', 3);
+        this.authService.logout();
         this.error = err.error;
-        console.log(err.error);
+        console.log(err.error.text);
       }
     )
   }
