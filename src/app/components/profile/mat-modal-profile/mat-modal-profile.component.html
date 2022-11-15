@@ -4,7 +4,7 @@
 <mat-dialog-content class="mat-typography" *ngIf="user!=undefined">
     <form #f="ngForm" (ngSubmit)="onSubmit()">
 
-        <mat-card class="example-card">
+        <mat-card class="profile-info-card">
 
             <mat-card-title>Modify your personal info</mat-card-title>
             <!-- <mat-card-subtitle>To modify data you need to insert your username/password</mat-card-subtitle> -->
@@ -12,21 +12,21 @@
             <mat-card-content id="profile-card-modals">
 
                 <p>First Name:</p>
-                <mat-form-field color="accent" appearance="fill">
+                <mat-form-field appearance="fill">
                     <mat-label>Enter your First Name</mat-label>
                     <input matInput type="text" [(ngModel)]="user.firstName" name="firstName" required>
                     <mat-icon matSuffix>person_outline</mat-icon>
                 </mat-form-field>
 
                 <p>Last Name:</p>
-                <mat-form-field color="accent" appearance="fill">
+                <mat-form-field appearance="fill">
                     <mat-label>Enter your Last Name</mat-label>
                     <input matInput type="text" [(ngModel)]="user.lastName" name="lastName" required>
                     <mat-icon matSuffix>people</mat-icon>
                 </mat-form-field>
 
                 <p>Email:</p>
-                <mat-form-field color="accent" appearance="fill">
+                <mat-form-field appearance="fill">
                     <mat-label>Enter your Email</mat-label>
                     <input matInput type="email" [(ngModel)]="user.email" name="email" required>
                     <mat-icon matSuffix>email</mat-icon>
@@ -34,8 +34,7 @@
 
                 <mat-dialog-actions align="end">
                     <button mat-button id="btns-profile" mat-dialog-close>Cancel</button>
-                    <button mat-button id="btns-profile" [mat-dialog-close]="true" cdkFocusInitial
-                        type="submit">Modify</button>
+                    <button mat-button id="btns-profile" type="submit">Modify</button>
                 </mat-dialog-actions>
 
             </mat-card-content>

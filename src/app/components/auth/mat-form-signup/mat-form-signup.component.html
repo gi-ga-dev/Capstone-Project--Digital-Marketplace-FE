@@ -4,36 +4,36 @@
         <mat-card-title>Signup</mat-card-title>
         <mat-card-subtitle>Insert your registration details</mat-card-subtitle>
 
-        <mat-card-content>
+        <mat-card-content class="signup-card-content">
 
             <mat-form-field appearance="fill">
                 <mat-label>Enter your First Name</mat-label>
-                <input matInput ngModel name="firstName" type="text">
+                <input matInput ngModel name="firstName" type="text" required>
                 <mat-icon matSuffix>person_outline</mat-icon>
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>Enter your Last Name</mat-label>
-                <input matInput ngModel name="lastName" type="text">
+                <input matInput ngModel name="lastName" type="text" required>
                 <mat-icon matSuffix>people</mat-icon>
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>Enter your email</mat-label>
-                <input matInput ngModel name="email" type="email" placeholder="pat@example.com">
+                <input matInput ngModel name="email" type="email" placeholder="pat@example.com" required>
                 <mat-icon matSuffix>email</mat-icon>
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>Enter your username</mat-label>
                 <!-- il campo userName deve essere lo stesso della classe LoginRequest (Java) -->
-                <input matInput ngModel name="userName" type="text">
+                <input matInput ngModel name="userName" type="text" required>
                 <mat-icon matSuffix>person</mat-icon>
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>Enter your password</mat-label>
-                <input matInput type="password" ngModel name="password">
+                <input matInput type="password" ngModel name="password" required>
                 <mat-icon matSuffix>lock_open</mat-icon>
             </mat-form-field>
 

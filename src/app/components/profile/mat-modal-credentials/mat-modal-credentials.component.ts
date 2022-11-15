@@ -43,13 +43,12 @@ export class MatModalCredentialsComponent implements OnInit {
     return this.authService.updateCredentials(this.form.value, this.getId).subscribe(
       (resp) => {
         this.error = undefined;
-        this.authService.openSnackBar("Credentials changed, You will be re-directed to the Login page...", 'primary-snackbar', 3);
+        this.authService.openSnackBar("Credentials changed. Re-directing you to the Login page...", 'primary-snackbar', 3);
         this.authService.logout();
       },
       (err) => {
         this.error = err.error;
-        //this.authService.openSnackBar("All fields are mandatory!", 'primary-snackbar', 3);
-        this.authService.openSnackBar(err.error, 'primary-snackbar', 3);
+        this.authService.openSnackBar("All fields are mandatory!", 'primary-snackbar', 3);
         console.log(err.error);
       }
     )

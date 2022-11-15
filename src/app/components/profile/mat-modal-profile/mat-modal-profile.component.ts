@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-
 import { IUserDtoGetResponse } from 'src/app/interfaces/idto-user-response';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -25,7 +24,6 @@ export class MatModalProfileComponent implements OnInit {
 
   onSubmit() {
     this.updateUserInfo();
-    this.authService.reloadRoute();
   }
 
   getUserInfo(id: number | undefined) {
@@ -46,11 +44,12 @@ export class MatModalProfileComponent implements OnInit {
     return this.authService.updateUserInfo(this.form.value, this.getId).subscribe(
       (resp) => {
         this.error = undefined;
+        this.authService.openSnackBar("Profile info changed successfully!", 'primary-snackbar', 3);
       },
       (err) => {
         this.error = err.error;
         console.log(err.error);
-        this.authService.openSnackBar(err.error.message, 'primary-snackbar', 3);
+        this.authService.openSnackBar("All fields are mandatory!", 'primary-snackbar', 3);
       }
     )
   }

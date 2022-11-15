@@ -7,18 +7,18 @@
         <mat-card-title>Login</mat-card-title>
         <mat-card-subtitle>Insert your Access Credentials.</mat-card-subtitle>
 
-        <mat-card-content>
+        <mat-card-content class="login-card-content">
 
             <mat-form-field appearance="fill">
                 <mat-label>Enter your username</mat-label>
                 <!-- il campo userName deve essere lo stesso della classe LoginRequest (Java) -->
-                <input matInput ngModel name="userName" type="text">
+                <input matInput ngModel name="userName" type="text" required>
                 <mat-icon matSuffix>person</mat-icon>
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>Enter your password</mat-label>
-                <input matInput type="password" ngModel name="password">
+                <input matInput type="password" ngModel name="password" required>
                 <mat-icon matSuffix>lock_open</mat-icon>
             </mat-form-field>
 

@@ -851,7 +851,11 @@ mat-expansion-panel.library-exp-panel {
 
 mat-card.modal-vg-card .example-headers-align form#modal-form,
 mat-card.modal-music-card .example-headers-align form#modal-form,
-mat-card.modal-book-card .example-headers-align form#modal-form {
+mat-card.modal-book-card .example-headers-align form#modal-form,
+mat-card.login-card mat-card-content.login-card-content,
+mat-card.signup-card mat-card-content.signup-card-content,
+mat-card.credentials-card #profile-card-modals,
+mat-card.profile-info-card #profile-card-modals {
 
     // Input Field + Underline Color
     .mat-form-field-label {
