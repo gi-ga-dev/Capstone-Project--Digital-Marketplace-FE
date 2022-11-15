@@ -107,8 +107,10 @@
                     <button mat-button id="action-btns" mat-dialog-close>Cancel</button>
                     <button mat-button id="action-btns" type="submit">Create</button>
                 </div>
+
+                <mat-error *ngIf="f">{{error}}</mat-error>
             </form>
         </mat-accordion>
-        <mat-error>{{error}}</mat-error>
+
     </mat-card>
 </mat-dialog-content>

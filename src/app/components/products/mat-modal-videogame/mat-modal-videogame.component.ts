@@ -28,7 +28,7 @@ export class MatModalVideogameComponent implements OnInit {
       (err) => {
         this.error = err.error.message;
         this.authService.openSnackBar(err.error.message, 'primary-snackbar', 3);
-        console.log(err);
+        console.log(err.error.message);
       }
     )
   }
