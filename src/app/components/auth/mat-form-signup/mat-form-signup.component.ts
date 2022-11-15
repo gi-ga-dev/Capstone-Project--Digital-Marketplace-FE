@@ -33,9 +33,9 @@ export class SignupMatCardComponent implements OnInit {
         this.authService.openSnackBar("User creation successfull!", 'primary-snackbar', 3);
       },
       (err) => {
-        console.log(err.error);
         this.error = err.error;
-        this.authService.openSnackBar("Fields cannot be blank!", 'primary-snackbar', 3);
+        this.authService.openSnackBar(err.error.message, 'primary-snackbar', 3);
+        console.log(err.error);
       }
     )
   }
