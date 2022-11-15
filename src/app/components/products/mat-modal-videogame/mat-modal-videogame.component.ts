@@ -26,8 +26,8 @@ export class MatModalVideogameComponent implements OnInit {
         this.authService.openSnackBar("Product Creation successfull!", 'primary-snackbar', 3);
       },
       (err) => {
-        this.error = err.error.message;
-        this.authService.openSnackBar(err.error.message, 'primary-snackbar', 3);
+        //this.error = err.error.message;
+        this.authService.openSnackBar("Fields cannot be blank", 'primary-snackbar', 3);
         console.log(err.error.message);
       }
     )
