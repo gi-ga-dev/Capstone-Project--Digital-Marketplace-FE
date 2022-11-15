@@ -73,7 +73,8 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>Duration</mat-label>
-                    <input matInput ngModel pattern="(((0[1-9])|[^0]\\d):)?[0-5]\\d:[0-5]\\d$" name="duration" required>
+                    <input matInput ngModel pattern="(((0[1-9])|[^0]\\d):)?[0-5]\\d:[0-5]\\d$" name="duration"
+                        placeholder="Format mm:ss or hh:mm:ss" required>
                 </mat-form-field>
 
                 <div id="action-btns-cont">
@@ -81,7 +82,7 @@
                     <button mat-button id="action-btns" type="submit">Create</button>
                 </div>
 
-                <mat-error *ngIf="error != undefined">{{error}}</mat-error>
+                <!-- <mat-error *ngIf="error != undefined">{{error}}</mat-error> -->
 
             </form>
         </mat-accordion>

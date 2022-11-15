@@ -20,31 +20,19 @@ export class MatModalAdminComponent implements OnInit {
   ngOnInit(): void { }
 
   openSignupAdminDialog() {
-    const dialogRef = this.dialog.open(MatModalSignupAdminComponent, { panelClass: 'signupadmin-dialog-cont' });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    this.dialog.open(MatModalSignupAdminComponent, { panelClass: 'signupadmin-dialog-cont' });
   }
 
   openVideogameDialog() {
-    const dialogRef = this.dialog.open(MatModalVideogameComponent, { panelClass: 'create-vg-dialog-cont' });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    this.dialog.open(MatModalVideogameComponent, { panelClass: 'create-vg-dialog-cont' });
   }
 
   openMusicDialog() {
-    const dialogRef = this.dialog.open(MatModalMusicComponent, { panelClass: 'create-msc-dialog-cont' });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    this.dialog.open(MatModalMusicComponent, { panelClass: 'create-msc-dialog-cont' });
   }
 
   openBookDialog() {
-    const dialogRef = this.dialog.open(MatModalBookComponent, { panelClass: 'create-book-dialog-cont' });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    this.dialog.open(MatModalBookComponent, { panelClass: 'create-book-dialog-cont' });
   }
 
 }

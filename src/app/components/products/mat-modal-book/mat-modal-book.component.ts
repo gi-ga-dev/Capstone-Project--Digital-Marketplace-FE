@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class MatModalBookComponent implements OnInit {
   @ViewChild('f') form!: NgForm;
   error = undefined;
 
-  constructor(private prodService: ProductsService) { }
+  constructor(private authService: AuthService, private prodService: ProductsService) { }
 
   ngOnInit(): void { }
 
@@ -22,10 +23,11 @@ export class MatModalBookComponent implements OnInit {
     this.prodService.saveBook(this.form.value).subscribe(
       (resp) => {
         this.error = undefined;
+        this.authService.openSnackBar("Book Creation successfull!", 'primary-snackbar', 3);
       },
       (err) => {
-        this.error = err.error.message;
-        console.log(err.error.message);
+        //this.error = err.error.message;
+        this.authService.openSnackBar("Fields cannot be blank", 'primary-snackbar', 3);
       }
     )
   }

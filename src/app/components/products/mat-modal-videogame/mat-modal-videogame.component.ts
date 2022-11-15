@@ -23,12 +23,11 @@ export class MatModalVideogameComponent implements OnInit {
     this.prodService.saveVideogame(this.form.value).subscribe(
       (resp) => {
         this.error = undefined;
-        this.authService.openSnackBar("Product Creation successfull!", 'primary-snackbar', 3);
+        this.authService.openSnackBar("Videogame Creation successfull!", 'primary-snackbar', 3);
       },
       (err) => {
         //this.error = err.error.message;
         this.authService.openSnackBar("Fields cannot be blank", 'primary-snackbar', 3);
-        console.log(err.error.message);
       }
     )
   }
