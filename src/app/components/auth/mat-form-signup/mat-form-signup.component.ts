@@ -34,7 +34,7 @@ export class SignupMatCardComponent implements OnInit {
       },
       (err) => {
         this.error = err.error;
-        this.authService.openSnackBar(err.error.message, 'primary-snackbar', 3);
+        this.authService.openSnackBar(err.error.text, 'primary-snackbar', 3);
         console.log(err.error);
       }
     )
