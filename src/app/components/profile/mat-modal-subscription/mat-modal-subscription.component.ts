@@ -32,9 +32,7 @@ export class MatModalSubscriptionComponent implements OnInit {
       },
       (err) => {
         // unica condizione di errore, balance non sufficiente (se gia' iscritto il button scompare di suo)  
-        if (this.accountBalance < 4.90) {
-          this.authService.openSnackBar("Account balance insufficient...", 'primary-snackbar', 3);
-        }
+        this.authService.openSnackBar(err.error.text, 'primary-snackbar', 3);
         this.error = err.error;
         console.log(err.error);
       }
@@ -52,9 +50,7 @@ export class MatModalSubscriptionComponent implements OnInit {
       },
       (err) => {
         // unica condizione di errore, balance non sufficiente (se gia' iscritto il button scompare di suo)  
-        if (this.accountBalance < 24.90) {
-          this.authService.openSnackBar("Account balance insufficient...", 'primary-snackbar', 3);
-        }
+        this.authService.openSnackBar(err.error.text, 'primary-snackbar', 3);
         this.error = err.error;
         console.log(err.error);
       }
@@ -72,9 +68,7 @@ export class MatModalSubscriptionComponent implements OnInit {
       },
       (err) => {
         // unica condizione di errore, balance non sufficiente (se gia' iscritto il button scompare di suo)  
-        if (this.accountBalance < 44.90) {
-          this.authService.openSnackBar("Account balance insufficient...", 'primary-snackbar', 3);
-        }
+        this.authService.openSnackBar(err.error.text, 'primary-snackbar', 3);
         this.error = err.error;
         console.log(err.error);
       }

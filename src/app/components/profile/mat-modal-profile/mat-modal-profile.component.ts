@@ -49,7 +49,7 @@ export class MatModalProfileComponent implements OnInit {
       (err) => {
         this.error = err.error;
         console.log(err.error);
-        this.authService.openSnackBar("All fields are mandatory!", 'primary-snackbar', 3);
+        this.authService.openSnackBar(err.error.text, 'primary-snackbar', 3);
       }
     )
   }
