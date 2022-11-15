@@ -45,6 +45,7 @@ export class MatNavbarComponent implements OnInit, DoCheck {
   }
 
   logout(): void {
+    this.authService.openSnackBar("Successfully logged out", 'primary-snackbar', 3);
     this.authService.logout();
     this.isAuthenticated = false;
     localStorage.removeItem("badgeCount");

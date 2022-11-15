@@ -63,10 +63,12 @@ export class AuthService {
   /* ============ Login/Register ============ */
 
   logout() {
-    this.authSubject.next(null);
-    localStorage.removeItem('isAuthenticated');
-    this.router.navigate(['/auth']);
-    console.log("Successfully logged out");
+    setTimeout(() => {
+      this.authSubject.next(null);
+      localStorage.removeItem('isAuthenticated');
+      this.router.navigate(['/auth']);
+      console.log("Successfully logged out");
+    }, 300);
   }
 
   // ============== POST ==============

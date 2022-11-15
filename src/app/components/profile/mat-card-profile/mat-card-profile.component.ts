@@ -61,7 +61,10 @@ export class MatCardProfileComponent implements OnInit {
 
   /* Modal Modifica Informazioni base */
   openProfileDialog() {
-    this.dialog.open(MatModalProfileComponent, { panelClass: 'profileinfo-dialog-cont' });
+    const dialogRef = this.dialog.open(MatModalProfileComponent, { panelClass: 'profileinfo-dialog-cont' });
+    dialogRef.afterClosed().subscribe(result => {
+      this.authService.reloadRoute();
+    });
   }
 
   /* Modal Modifica Credenziali di Accesso */
