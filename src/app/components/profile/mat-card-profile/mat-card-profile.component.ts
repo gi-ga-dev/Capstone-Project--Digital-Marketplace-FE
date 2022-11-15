@@ -78,8 +78,11 @@ export class MatCardProfileComponent implements OnInit {
     return this.authService.getUserInfo(id).subscribe(
       (resp) => {
         this.error = undefined;
-        this.user = resp;
-        this.showSpinner = false;
+
+        setTimeout(() => {
+          this.user = resp;
+          this.showSpinner = false;
+        }, 1000);
       },
       (err) => {
         this.error = err.error;
