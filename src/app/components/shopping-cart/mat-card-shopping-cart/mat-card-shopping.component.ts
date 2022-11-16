@@ -72,7 +72,7 @@ export class MatCardShoppingComponent implements OnInit {
       (err) => {
         this.error = err.error;
         console.log(err.error);
-        this.authService.openSnackBar("Delete from Shopping Cart successfull", 'primary-snackbar', 3);
+        this.authService.openSnackBar(err.error.text, 'primary-snackbar', 3);
         this.authService.reloadRoute();
         // aggiorno carrello dopo eliminazione prodotto
         this.authService.setCartListForBadgeCount(shopId).subscribe();
@@ -88,7 +88,7 @@ export class MatCardShoppingComponent implements OnInit {
         this.authService.reloadRoute();
       },
       (err) => {
-        this.authService.openSnackBar("Product already in WishList...", 'primary-snackbar', 3);
+        this.authService.openSnackBar(err.error.text, 'primary-snackbar', 3);
         this.error = err.error;
         console.log(err.error);
       }
@@ -104,7 +104,7 @@ export class MatCardShoppingComponent implements OnInit {
         this.authService.setCartListForBadgeCount(shopId).subscribe();
       },
       (err) => {
-        this.authService.openSnackBar("Account Balance is insufficient...", 'primary-snackbar', 3);
+        this.authService.openSnackBar(err.error.text, 'primary-snackbar', 3);
         this.error = err.error;
         console.log(err.error);
       }

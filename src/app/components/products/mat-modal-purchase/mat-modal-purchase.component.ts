@@ -87,7 +87,7 @@ export class MatModalPurchaseComponent implements OnInit {
         this.authService.setCartListForBadgeCount(shopId).subscribe();
       },
       (err) => {
-        this.authService.openSnackBar("Product already in Shopping Cart or Library...", 'primary-snackbar', 3);
+        this.authService.openSnackBar(err.error.text, 'primary-snackbar', 3);
         this.error = err.error;
         console.log(err.error);
       }

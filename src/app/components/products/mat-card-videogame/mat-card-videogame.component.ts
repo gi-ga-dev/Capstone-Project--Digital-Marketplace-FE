@@ -81,20 +81,7 @@ export class MatCardVideogameComponent implements OnInit {
         this.authService.openSnackBar("Product added to Wishlist", 'primary-snackbar', 3);
       },
       (err) => {
-        this.authService.openSnackBar("Product already in Wishlist or Library...", 'primary-snackbar', 3);
-        this.error = err.error;
-        console.log(err.error);
-      }
-    )
-  }
-
-  deleteProduct(productId: number | undefined) {
-    return this.prodService.deleteProduct(productId).subscribe(
-      (resp) => {
-        this.error = undefined;
-      },
-      (err) => {
-        this.authService.openSnackBar("Product Deletion successfull...", 'primary-snackbar', 3);
+        this.authService.openSnackBar(err.error.text, 'primary-snackbar', 3);
         this.error = err.error;
         console.log(err.error);
       }

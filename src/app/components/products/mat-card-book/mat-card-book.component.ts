@@ -81,7 +81,7 @@ export class MatCardBookComponent implements OnInit {
         this.authService.openSnackBar("Product Added to WishList", 'primary-snackbar', 3);
       },
       (err) => {
-        this.authService.openSnackBar("Product already in WishList or Library...", 'primary-snackbar', 3);
+        this.authService.openSnackBar(err.error.text, 'primary-snackbar', 3);
         this.error = err.error;
         console.log(err.error);
       }

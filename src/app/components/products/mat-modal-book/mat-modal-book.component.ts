@@ -26,8 +26,7 @@ export class MatModalBookComponent implements OnInit {
         this.authService.openSnackBar("Book Creation successfull!", 'primary-snackbar', 3);
       },
       (err) => {
-        //this.error = err.error.message;
-        this.authService.openSnackBar("Fields cannot be blank", 'primary-snackbar', 3);
+        this.error = err.error.text;
         console.log(err.error);
       }
     )

@@ -49,7 +49,7 @@ export class MatModalPurchaseWithsubComponent implements OnInit {
         this.authService.reloadRoute();
       },
       (err) => {
-        this.authService.openSnackBar("Product is already in your Library!", 'primary-snackbar', 3);
+        this.authService.openSnackBar(err.error.text, 'primary-snackbar', 3);
         this.error = err.error;
         console.log(err.error);
       }

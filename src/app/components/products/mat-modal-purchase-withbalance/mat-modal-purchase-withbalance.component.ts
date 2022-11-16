@@ -28,11 +28,6 @@ export class MatModalPurchaseWithbalanceComponent implements OnInit {
 
   ngOnInit(): void { this.getProductById(this.data.id); }
 
-  // ---> modal da aprire al momento dell'acquisto se utente /non ha balance
-  openAddBalanceDialog() {
-    this.dialog.open(MatModalAddbalanceComponent);
-  }
-
   getProductById(id: number | undefined) {
     return this.prodService.getProductById(id).subscribe(
       (resp) => {
@@ -59,10 +54,7 @@ export class MatModalPurchaseWithbalanceComponent implements OnInit {
       (err) => {
         // essendo nell'errore, le condizioni sono 2 - balance non sufficiente oppure prodotto gia' acquistato
         // prezzo prodotto e accountbalance per comparazione, se balance inferiore aprire modal addBalance
-        if (this.accountBalance < this.product.price) {
-          this.openAddBalanceDialog();
-          this.authService.openSnackBar("Credit is insufficient, please recharge your balance", 'primary-snackbar', 3);
-        } else this.authService.openSnackBar("Product is already in your Library!", 'primary-snackbar', 3);
+        this.authService.openSnackBar(err.error.text, 'primary-snackbar', 3);
         this.error = err.error;
         console.log(err.error);
       }
