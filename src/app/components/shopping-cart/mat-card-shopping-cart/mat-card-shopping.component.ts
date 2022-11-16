@@ -53,8 +53,8 @@ export class MatCardShoppingComponent implements OnInit {
       (resp) => {
         this.error = undefined;
         setTimeout(() => {
-          this.cartProducts = resp;
           this.showSpinner = false;
+          this.cartProducts = resp;
         }, 300);
       },
       (err) => {

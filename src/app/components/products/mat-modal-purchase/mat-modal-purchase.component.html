@@ -6,7 +6,7 @@
 
         <div id="img-and-text-cont">
 
-            <mat-card-content id="purchase-card-content">
+            <mat-card-content id="purchase-card-content" *ngIf="product != undefined">
 
                 <div id="img-div">
                     <img mat-card-image [src]=product.imgLink>

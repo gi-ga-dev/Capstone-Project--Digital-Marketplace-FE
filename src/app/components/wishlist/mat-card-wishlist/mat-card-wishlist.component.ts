@@ -46,8 +46,8 @@ export class MatCardWishlistComponent implements OnInit {
       (resp) => {
         this.error = undefined;
         setTimeout(() => {
-          this.wishlistProducts = resp;
           this.showSpinner = false;
+          this.wishlistProducts = resp;
         }, 300);
       },
       (err) => {
