@@ -1,4 +1,4 @@
-<mat-dialog-content class="mat-typography">
+<mat-dialog-content class="mat-typography" *ngIf="product != undefined">
 
     <mat-card class="purchase-card">
 
@@ -6,7 +6,7 @@
 
         <div id="img-and-text-cont">
 
-            <mat-card-content id="purchase-card-content" *ngIf="product != undefined">
+            <mat-card-content id="purchase-card-content">
 
                 <div id="img-div">
                     <img mat-card-image [src]=product.imgLink>
@@ -51,7 +51,7 @@
             </mat-card-content>
         </div>
 
-        <div id="btns-div">
+        <div id="btns-div" *ngIf="product != undefined">
             <button mat-button id="btns" [mat-dialog-close]="true" cdkFocusInitial
                 (click)="openPurchaseWithSubDialog()">Purchase for Free*</button>
 
@@ -71,7 +71,7 @@
 
 <!-- --------------------- Mobile/Tablet (under 900px) --------------------- -->
 
-<mat-dialog-content class="mat-typography">
+<mat-dialog-content class="mat-typography" *ngIf="product != undefined">
 
     <!-- Contenitore Card -->
     <mat-card class="purchase-card-mobile">
