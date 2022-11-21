@@ -16,11 +16,8 @@
   
 </p>
 
-
-</p>
-
-
-<p align="center" dir="auto"> <b>Project Introduction:</b> <br><br>
+<p align="center" dir="auto"> <b>Project Introduction:</b></p>
+<br><br>
 
 Gecko2Code is a new all-in-one Digital Marketplace where you can find many digital products in one place!
 
@@ -32,13 +29,17 @@ You can also add products to the Shopping Cart or Wishlist, and view your purcha
 
 As an Administrator you have privileges to create new Administrators Account, create products data sheets to send them to your personal database, and with a few tweaks on it, you could even use it to create your own personal e-commerce!
 
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1U0oW73H82U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
 Pages: 
-- `Home` | `Login/Signup` | `Shop By Product` | `Profile` | `Shopping Cart` | `Wishlist`  | `Library` | `404 Page`
+`Home` | `Login/Signup` | `Shop By Product` | `Profile` | `Shopping Cart` | `Wishlist`  | `Library` | `404 Page`
 
 Material Components used:
-- `Mat Toolbar` | `Mat Slide Toggle` | `Mat Sidenav` | `Mat Accordion` | `Mat Table` | `Mat Dialog`  | `Mat Card` | `Mat Input` | `Mat Form Field` | 
+`Mat Toolbar` | `Mat Slide Toggle` | `Mat Sidenav` | `Mat Accordion` | `Mat Table` | `Mat Dialog`  | `Mat Card` | `Mat Input` | `Mat Form Field` | 
 `Mat Date Picker` | `Mat Divider` | `Mat Spinner` | `Mat Progress Bar`  | `Mat Snackbar` | `Mat Tooltip` | `Mat Badge` | `Mat Icon` | `Mat Button`
 
 
-</p>
+
 
