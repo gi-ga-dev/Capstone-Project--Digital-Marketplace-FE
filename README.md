@@ -1,5 +1,5 @@
 
-<p><h2 align="center" dir="auto"><b>Epicode School - Front-End Capstone Project</b></h2></p>
+<p><h2 align="center" dir="auto"><b>Gecko2Code - Capstone Project (Front-End Repository)</b></h2></p>
 
 <p align="center" dir="auto"><b>Technologies Used:</b></p>
 <p align="center" dir="auto"> 
@@ -11,34 +11,39 @@
     <img src="https://user-images.githubusercontent.com/77717069/180883930-26495d49-43c7-4cf8-9368-e9b3c11d1b5c.png" alt="material" width="85">
   </a> 
   <a href="https://github.com/gi-ga-dev" target="_blank" rel="nofollow"> 
-    <img src="https://user-images.githubusercontent.com/77717069/176915899-7871db31-9ffa-448c-b7ca-29a4aa87b607.png" alt="scss" width="90">
+    <img src="https://user-images.githubusercontent.com/77717069/176915899-7871db31-9ffa-448c-b7ca-29a4aa87b607.png" alt="scss" width="95">
   </a>   
   
 </p>
 
-<p align="center" dir="auto"> <b>Project Introduction:</b></p>
-<br><br>
+<p><h2 align="center" dir="auto"><b>Project Introduction:</b></h2></p>
 
-Gecko2Code is a new all-in-one Digital Marketplace where you can find many digital products in one place!
+Gecko2Code is a reproduction of a digital marketplace, taking a bit of inspiration from popular platforms such as Spotify, Xbox Store and Epic Games Store. 
+<br>
+From the `Profile Page` as a registered user you can manage your personal information/credentials, add/view account balance and subscription details and change your Avatar selecting from pre-sets or uploading via URL.
+<br>
+From the `Products Page` you can add products to your `Shopping Cart` and/or `Wishlist`, you will have two purchase options, Purchase with Account Balance (full price) or with Subscription (for free if subscribed), to find the product in your `Library` when transaction is complete. Also, an Admin have privileges to create, read, update and delete new/existing Admins and Products data sheets.
 
-Explore our catalogue, choose between thousands of digital Videogames, Music Songs and Books from any device!
+<p><h2 align="center" dir="auto"><b>Front-End Key Points:</b></h2></p>
 
-As a Registered User in the Profile Page you can manage and update all your personal information, such as uploading or selecting a pre-set Avatar, changing Account credentials, adding Account Balance to purchase products and/or upgrade your Subscription Status in order to get products for free*.
+- Full-Responsive Application (Mobile, Tablet, Desktop);
+- Custom Theme with toggle for Dark/Light Mode using specific color palettes;
+- List of Pages: `Home` | `Login/Signup` | `Shop By Product` | `Profile` | `Shopping Cart` | `Wishlist`  | `Library` | `404 Page`
+- List of Angular Material Components used: `Toolbar` | `Slide Toggle` | `Sidenav` | `Accordion` | `Table` | `Dialog` | `Card` | `Input` | `Form Field` | `Date Picker` | `Divider` | `Spinner` | `Progress Bar` | `Snackbar` | `Tooltip` | `Badge` | `Icon` | `Button`.
 
-You can also add products to the Shopping Cart or Wishlist, and view your purchases in the Library Page, where you can filter based on Title, Payment Method and more...
+<p><h2 align="center" dir="auto"><b>Deploy Link and Video Presentation:</b></h2></p>
 
-As an Administrator you have privileges to create new Administrators Account, create products data sheets to send them to your personal database, and with a few tweaks on it, you could even use it to create your own personal e-commerce!
+<p><h3><b>Deploy Link:</b></h3></p>
 
-<p align="center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1U0oW73H82U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</p>
+https://gecko2code.vercel.app/
 
-Pages: 
-`Home` | `Login/Signup` | `Shop By Product` | `Profile` | `Shopping Cart` | `Wishlist`  | `Library` | `404 Page`
+There will be about a minute delay when first navigating the site (except the Home Page), in order to retrieve data from the Database (Free Database), please be patient.
 
-Material Components used:
-`Mat Toolbar` | `Mat Slide Toggle` | `Mat Sidenav` | `Mat Accordion` | `Mat Table` | `Mat Dialog`  | `Mat Card` | `Mat Input` | `Mat Form Field` | 
-`Mat Date Picker` | `Mat Divider` | `Mat Spinner` | `Mat Progress Bar`  | `Mat Snackbar` | `Mat Tooltip` | `Mat Badge` | `Mat Icon` | `Mat Button`
+https://user-images.githubusercontent.com/77717069/203360729-027b14ea-d861-4b01-b6d6-4df0930b5e71.mp4
+
+
+
+
 
 
 
